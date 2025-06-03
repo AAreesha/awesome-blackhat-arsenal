@@ -1,0 +1,1663 @@
+[
+  {
+    "tool_name": "Afterimage: Evading Traditional IOC Blocking",
+    "tool_id": "32911",
+    "speakers": [
+      "Davis Zheng",
+      "Ken Tong",
+      "Mario Lim",
+      "Wei Jie Chan",
+      "Weihan Goh"
+    ],
+    "tracks": [
+      "Network Attacks",
+      "Web AppSec"
+    ],
+    "location": "Business Hall - Arsenal Station 6",
+    "skill_level": "All",
+    "event": "BH-USA-2023",
+    "session_type": "Arsenal",
+    "github_url": null,
+    "description": null
+  },
+  {
+    "tool_name": "Analyzing SAP Communication Security: Introducing sncscan",
+    "tool_id": "33470",
+    "speakers": [
+      "Nicolas Schickert",
+      "Jonas Wamsler",
+      "Matthias Göhring"
+    ],
+    "tracks": [
+      "Code Assessment",
+      "Cryptography"
+    ],
+    "location": "Business Hall - Arsenal Station 8",
+    "skill_level": "All",
+    "event": "BH-USA-2023",
+    "session_type": "Arsenal",
+    "github_url": null,
+    "description": null
+  },
+  {
+    "tool_name": "AntiSquat - An AI-Powered Phishing Domain Finder",
+    "tool_id": "33636",
+    "speakers": [
+      "Umair Nehri",
+      "Owais Shaikh"
+    ],
+    "tracks": [
+      "Track: Network Defense"
+    ],
+    "location": "On-Demand",
+    "skill_level": "All",
+    "event": "BH-USA-2023",
+    "session_type": "Arsenal",
+    "github_url": null,
+    "description": null
+  },
+  {
+    "tool_name": "ARCTIC - Automated Remediation for Correlation Threat Intelligence Collections",
+    "tool_id": "33676",
+    "speakers": [
+      "Ankit Anurag",
+      "Ashwath K",
+      "Manikandan Rajappan"
+    ],
+    "tracks": [
+      "Track: Network Defense"
+    ],
+    "location": "Business Hall - Arsenal Station 7",
+    "skill_level": "All",
+    "event": "BH-USA-2023",
+    "session_type": "Arsenal",
+    "github_url": null,
+    "description": null
+  },
+  {
+    "tool_name": "BucketLoot - An Automated S3 Bucket Inspector",
+    "tool_id": "33536",
+    "speakers": [
+      "Umair Nehri",
+      "Owais Shaikh"
+    ],
+    "tracks": [
+      "Track:"
+    ],
+    "location": "On-Demand",
+    "skill_level": "All",
+    "event": "BH-USA-2023",
+    "session_type": "Arsenal",
+    "github_url": null,
+    "description": null
+  },
+  {
+    "tool_name": "CQData: Data Extraction & Forensic Toolkit",
+    "tool_id": "33651",
+    "speakers": [
+      "Paula Januszkiewicz",
+      "Mike Jankowski-Lorek"
+    ],
+    "tracks": [
+      "Track: Data Forensics/Incident Response"
+    ],
+    "location": "Business Hall - Arsenal Station 2",
+    "skill_level": "All",
+    "event": "BH-USA-2023",
+    "session_type": "Arsenal",
+    "github_url": null,
+    "description": null
+  },
+  {
+    "tool_name": "eBPFShield: Unleashing the Power of eBPF for OS Kernel Exploitation and Security.",
+    "tool_id": "33675",
+    "speakers": [
+      "Sagar Bhure"
+    ],
+    "tracks": [
+      "Track: Network Defense"
+    ],
+    "location": "On-Demand",
+    "skill_level": "All",
+    "event": "BH-USA-2023",
+    "session_type": "Arsenal",
+    "github_url": null,
+    "description": null
+  },
+  {
+    "tool_name": "Effective Alert Triage and Email Analysis with Security Onion and Sublime Platform",
+    "tool_id": "33278",
+    "speakers": [
+      "Josh Kamdjou",
+      "Wes Lambert"
+    ],
+    "tracks": [
+      "",
+      "Network Defense"
+    ],
+    "location": "Business Hall - Arsenal Station 4",
+    "skill_level": "All",
+    "event": "BH-USA-2023",
+    "session_type": "Arsenal",
+    "github_url": null,
+    "description": null
+  },
+  {
+    "tool_name": "Emulating Any HTTP Software as a Honeypot with HASH: A Deceptive Defense Against Cyberattacks",
+    "tool_id": "31984",
+    "speakers": [
+      "Eslam Salem"
+    ],
+    "tracks": [
+      "Web AppSec",
+      "Network Defense"
+    ],
+    "location": "On-Demand",
+    "skill_level": "All",
+    "event": "BH-USA-2023",
+    "session_type": "Arsenal",
+    "github_url": null,
+    "description": null
+  },
+  {
+    "tool_name": "Find Blind Spots in Your Security with Paladin Cloud",
+    "tool_id": "33641",
+    "speakers": [
+      "John Richards"
+    ],
+    "tracks": [
+      "Data Forensics/Incident Response",
+      "Vulnerability Assessment"
+    ],
+    "location": "Business Hall - Arsenal Station 9",
+    "skill_level": "All",
+    "event": "BH-USA-2023",
+    "session_type": "Arsenal",
+    "github_url": null,
+    "description": null
+  },
+  {
+    "tool_name": "Hands-on RF Hacking: Your Table is (always) Ready",
+    "tool_id": "35051",
+    "speakers": [
+      "Paul Clark"
+    ],
+    "tracks": [
+      "Track: Arsenal Lab"
+    ],
+    "location": "Business Hall - Arsenal Lab",
+    "skill_level": "All",
+    "event": "BH-USA-2023",
+    "session_type": "Arsenal",
+    "github_url": null,
+    "description": null
+  },
+  {
+    "tool_name": "Introducing varc: Volatile Artifact Collector",
+    "tool_id": "33773",
+    "speakers": [
+      "Chris Doman",
+      "Matt Muir"
+    ],
+    "tracks": [
+      "Track:"
+    ],
+    "location": "Business Hall - Arsenal Station 2",
+    "skill_level": "All",
+    "event": "BH-USA-2023",
+    "session_type": "Arsenal",
+    "github_url": null,
+    "description": null
+  },
+  {
+    "tool_name": "Puppet Fuzz: Discovering Critical Kernel Vulnerabilities with Innovative Approach",
+    "tool_id": "33395",
+    "speakers": [
+      "Siqi Chen",
+      "Minghang Shen",
+      "Chunyang Han",
+      "Xin Wang"
+    ],
+    "tracks": [
+      "Hardware / Embedded",
+      "Exploitation and Ethical Hacking"
+    ],
+    "location": "On-Demand",
+    "skill_level": "All",
+    "event": "BH-USA-2023",
+    "session_type": "Arsenal",
+    "github_url": null,
+    "description": null
+  },
+  {
+    "tool_name": "Safe Scan&C2 Tool",
+    "tool_id": "33688",
+    "speakers": [
+      "Weichao Zhou"
+    ],
+    "tracks": [
+      "Internet of Things",
+      "Hardware / Embedded"
+    ],
+    "location": "On-Demand",
+    "skill_level": "All",
+    "event": "BH-USA-2023",
+    "session_type": "Arsenal",
+    "github_url": null,
+    "description": null
+  },
+  {
+    "tool_name": "SecScanC2 -- Manage Assesment to Create P2P Network for Security Scanning & C2",
+    "tool_id": "33691",
+    "speakers": [
+      "Weichao Zhou",
+      "Yue Zhuo",
+      "Hongwei Pan"
+    ],
+    "tracks": [
+      "Track: Network Attacks"
+    ],
+    "location": "On-Demand",
+    "skill_level": "All",
+    "event": "BH-USA-2023",
+    "session_type": "Arsenal",
+    "github_url": null,
+    "description": null
+  },
+  {
+    "tool_name": "SucoshScanny",
+    "tool_id": "32548",
+    "speakers": [
+      "Mustafa Bilgici",
+      "Recep Tibet Öğünç"
+    ],
+    "tracks": [
+      "Web AppSec",
+      "Vulnerability Assessment"
+    ],
+    "location": "On-Demand",
+    "skill_level": "All",
+    "event": "BH-USA-2023",
+    "session_type": "Arsenal",
+    "github_url": null,
+    "description": null
+  },
+  {
+    "tool_name": "Thunderstorm: Turning Off the Lights in Your Data Center",
+    "tool_id": "32260",
+    "speakers": [
+      "Joel Gámez Molina"
+    ],
+    "tracks": [
+      "Internet of Things",
+      "Exploitation and Ethical Hacking"
+    ],
+    "location": "Business Hall - Arsenal Station 3",
+    "skill_level": "Advanced",
+    "event": "BH-USA-2023",
+    "session_type": "Arsenal",
+    "github_url": null,
+    "description": null
+  },
+  {
+    "tool_name": "Tool Aids in Monitoring Dynamic Scanning",
+    "tool_id": "33678",
+    "speakers": [
+      "pan hongwei",
+      "Weichao Zhou",
+      "Yue Zhuo"
+    ],
+    "tracks": [
+      "Track: Malware Offense"
+    ],
+    "location": "Business Hall - Arsenal Station 1",
+    "skill_level": "Intermediate",
+    "event": "BH-USA-2023",
+    "session_type": "Arsenal",
+    "github_url": null,
+    "description": null
+  },
+  {
+    "tool_name": "YAMA: Yet Another Memory Analyzer for Malware Detection",
+    "tool_id": "33633",
+    "speakers": [
+      "Tomoaki Tani",
+      "Shusei Tomonaga"
+    ],
+    "tracks": [
+      "Malware Defense",
+      "Data Forensics/Incident Response"
+    ],
+    "location": "Business Hall - Arsenal Station 5",
+    "skill_level": "Intermediate",
+    "event": "BH-USA-2023",
+    "session_type": "Arsenal",
+    "github_url": null,
+    "description": null
+  },
+  {
+    "tool_name": "Akto - Open Source API Security Tool",
+    "tool_id": "33702",
+    "speakers": [
+      "Ankush Jain",
+      "Ankita Gupta"
+    ],
+    "tracks": [
+      "Track: Web AppSec"
+    ],
+    "location": "Business Hall - Arsenal Station 4",
+    "skill_level": "All",
+    "event": "BH-USA-2023",
+    "session_type": "Arsenal",
+    "github_url": null,
+    "description": null
+  },
+  {
+    "tool_name": "BlueMap - An Interactive Tool for Azure Exploitation",
+    "tool_id": "33635",
+    "speakers": [
+      "Maor Tal"
+    ],
+    "tracks": [
+      "",
+      "Web AppSec"
+    ],
+    "location": "Business Hall - Arsenal Station 5",
+    "skill_level": "Intermediate",
+    "event": "BH-USA-2023",
+    "session_type": "Arsenal",
+    "github_url": null,
+    "description": null
+  },
+  {
+    "tool_name": "CuddlePhish: Bypassing MFA on Nearly Impenetrable Web Portals",
+    "tool_id": "32170",
+    "speakers": [
+      "Forrest Kasler"
+    ],
+    "tracks": [
+      "Exploitation and Ethical Hacking",
+      "Web AppSec"
+    ],
+    "location": "Business Hall - Arsenal Station 9",
+    "skill_level": "All",
+    "event": "BH-USA-2023",
+    "session_type": "Arsenal",
+    "github_url": null,
+    "description": null
+  },
+  {
+    "tool_name": "Glyph - An Architecture Independent Binary Analysis Tool for Fingerprinting Functions Through NLP",
+    "tool_id": "33622",
+    "speakers": [
+      "Corey Hartman"
+    ],
+    "tracks": [
+      "Track: Reverse Engineering"
+    ],
+    "location": "Business Hall - Arsenal Station 6",
+    "skill_level": "All",
+    "event": "BH-USA-2023",
+    "session_type": "Arsenal",
+    "github_url": null,
+    "description": null
+  },
+  {
+    "tool_name": "Nekuda: IDN-Squatting Detector",
+    "tool_id": "33540",
+    "speakers": [
+      "Gal Bitensky",
+      "Adi Pick"
+    ],
+    "tracks": [
+      "Web AppSec",
+      "Human Factors"
+    ],
+    "location": "Business Hall - Arsenal Station 3",
+    "skill_level": "All",
+    "event": "BH-USA-2023",
+    "session_type": "Arsenal",
+    "github_url": null,
+    "description": null
+  },
+  {
+    "tool_name": "RuleCraftLab - A Detection Rule Development Platform",
+    "tool_id": "33613",
+    "speakers": [
+      "Numan Mete Ozaltin",
+      "Eren Karabacak"
+    ],
+    "tracks": [
+      "Data Forensics/Incident Response",
+      "Malware Defense"
+    ],
+    "location": "Business Hall - Arsenal Station 7",
+    "skill_level": "All",
+    "event": "BH-USA-2023",
+    "session_type": "Arsenal",
+    "github_url": null,
+    "description": null
+  },
+  {
+    "tool_name": "SinCity: Build Your Dream Lab Environment",
+    "tool_id": "32069",
+    "speakers": [
+      "Matan Hart",
+      "Shay Yaish"
+    ],
+    "tracks": [
+      "Network Defense",
+      "Exploitation and Ethical Hacking"
+    ],
+    "location": "Business Hall - Arsenal Station 2",
+    "skill_level": "All",
+    "event": "BH-USA-2023",
+    "session_type": "Arsenal",
+    "github_url": null,
+    "description": null
+  },
+  {
+    "tool_name": "Wabhawk/Catch - Unsupervised Machine Learning Detection",
+    "tool_id": "31701",
+    "speakers": [
+      "Walid Daboubi"
+    ],
+    "tracks": [
+      "Vulnerability Assessment",
+      "Network Defense"
+    ],
+    "location": "Business Hall - Arsenal Station 8",
+    "skill_level": "All",
+    "event": "BH-USA-2023",
+    "session_type": "Arsenal",
+    "github_url": null,
+    "description": null
+  },
+  {
+    "tool_name": "AI Risky Business: Hands-on AI Payload Analysis",
+    "tool_id": "33579",
+    "speakers": [
+      "Hyrum Anderson",
+      "Sagar Samtani",
+      "Christina Liaghati"
+    ],
+    "tracks": [
+      "Arsenal Lab",
+      "Vulnerability Assessment"
+    ],
+    "location": "Business Hall - Arsenal Lab",
+    "skill_level": "All",
+    "event": "BH-USA-2023",
+    "session_type": "Arsenal",
+    "github_url": null,
+    "description": null
+  },
+  {
+    "tool_name": "BloodHound 5.0",
+    "tool_id": "32901",
+    "speakers": [
+      "Andy Robbins",
+      "Rohan Vazarkar"
+    ],
+    "tracks": [
+      "Exploitation and Ethical Hacking",
+      "Network Attacks"
+    ],
+    "location": "Business Hall - Arsenal Station 2",
+    "skill_level": "All",
+    "event": "BH-USA-2023",
+    "session_type": "Arsenal",
+    "github_url": null,
+    "description": null
+  },
+  {
+    "tool_name": "Bugsy - Automated Vulnerability Remediation CLI",
+    "tool_id": "33021",
+    "speakers": [
+      "Eitan Worcel",
+      "Jonathan Afek",
+      "Kirill Efimov"
+    ],
+    "tracks": [
+      "",
+      "Code Assessment"
+    ],
+    "location": "Business Hall - Arsenal Station 9",
+    "skill_level": "All",
+    "event": "BH-USA-2023",
+    "session_type": "Arsenal",
+    "github_url": null,
+    "description": null
+  },
+  {
+    "tool_name": "HazProne: Cloud Vulnerability Simulator",
+    "tool_id": "33674",
+    "speakers": [
+      "Staford Titus S"
+    ],
+    "tracks": [
+      "Vulnerability Assessment",
+      "Exploitation and Ethical Hacking"
+    ],
+    "location": "Business Hall - Arsenal Station 8",
+    "skill_level": "All",
+    "event": "BH-USA-2023",
+    "session_type": "Arsenal",
+    "github_url": null,
+    "description": null
+  },
+  {
+    "tool_name": "HIDE & SEEK: An Open Source Implant for Red Teams",
+    "tool_id": "31601",
+    "speakers": [
+      "Jonathan Fischer"
+    ],
+    "tracks": [
+      "Hardware / Embedded",
+      "Exploitation and Ethical Hacking"
+    ],
+    "location": "Business Hall - Arsenal Station 1",
+    "skill_level": "All",
+    "event": "BH-USA-2023",
+    "session_type": "Arsenal",
+    "github_url": null,
+    "description": null
+  },
+  {
+    "tool_name": "Identity Threat Hunting with Kestrel",
+    "tool_id": "33662",
+    "speakers": [
+      "Paul Coccoli",
+      "Sulakshan Vajipayajula",
+      "Ritesh Kumar"
+    ],
+    "tracks": [
+      "",
+      "Network Defense"
+    ],
+    "location": "Business Hall - Arsenal Station 6",
+    "skill_level": "All",
+    "event": "BH-USA-2023",
+    "session_type": "Arsenal",
+    "github_url": null,
+    "description": null
+  },
+  {
+    "tool_name": "MORF - Mobile Reconnaissance Framework",
+    "tool_id": "32370",
+    "speakers": [
+      "Amrudesh Balakrishnan",
+      "Abhishek JM",
+      "Himanshu Das"
+    ],
+    "tracks": [
+      "Track: Android",
+      "iOS and Mobile Hacking"
+    ],
+    "location": "Business Hall - Arsenal Station 7",
+    "skill_level": "All",
+    "event": "BH-USA-2023",
+    "session_type": "Arsenal",
+    "github_url": null,
+    "description": null
+  },
+  {
+    "tool_name": "Prowler, Open Source for Multi-Cloud Security Assessments and Pentesting",
+    "tool_id": "32103",
+    "speakers": [
+      "Toni de la Fuente",
+      "Pepe Fagoaga"
+    ],
+    "tracks": [
+      "Vulnerability Assessment",
+      "Network Defense"
+    ],
+    "location": "Business Hall - Arsenal Station 5",
+    "skill_level": "All",
+    "event": "BH-USA-2023",
+    "session_type": "Arsenal",
+    "github_url": null,
+    "description": null
+  },
+  {
+    "tool_name": "ThreatPatrol",
+    "tool_id": "33440",
+    "speakers": [
+      "Viral Maniar"
+    ],
+    "tracks": [
+      "Malware Defense",
+      "Network Defense"
+    ],
+    "location": "Business Hall - Arsenal Station 4",
+    "skill_level": "All",
+    "event": "BH-USA-2023",
+    "session_type": "Arsenal",
+    "github_url": null,
+    "description": null
+  },
+  {
+    "tool_name": "Vovk - Advanced Dynamic Yara Rule Generator",
+    "tool_id": "33649",
+    "speakers": [
+      "Vishal Thakur"
+    ],
+    "tracks": [
+      "Malware Defense",
+      "Reverse Engineering"
+    ],
+    "location": "Business Hall - Arsenal Station 3",
+    "skill_level": "All",
+    "event": "BH-USA-2023",
+    "session_type": "Arsenal",
+    "github_url": null,
+    "description": null
+  },
+  {
+    "tool_name": "AutoSuite: An Open-Source Multi-Protocol Low-Cost Vehicle Bus Testing Framework",
+    "tool_id": "33563",
+    "speakers": [
+      "Mingming Wan",
+      "Zhongyu Wang",
+      "Xingcan Chen"
+    ],
+    "tracks": [
+      "Hardware / Embedded",
+      "Smart Grid/Industrial Security"
+    ],
+    "location": "Business Hall - Arsenal Station 9",
+    "skill_level": "All",
+    "event": "BH-USA-2023",
+    "session_type": "Arsenal",
+    "github_url": null,
+    "description": null
+  },
+  {
+    "tool_name": "Building Our Nemesis: Fighting Data with Data",
+    "tool_id": "32197",
+    "speakers": [
+      "Lee Christensen",
+      "Will Schroeder",
+      "Max Harley"
+    ],
+    "tracks": [
+      "Network Attacks",
+      "Exploitation and Ethical Hacking"
+    ],
+    "location": "Business Hall - Arsenal Station 2",
+    "skill_level": "Intermediate",
+    "event": "BH-USA-2023",
+    "session_type": "Arsenal",
+    "github_url": null,
+    "description": null
+  },
+  {
+    "tool_name": "CASPR - Code Trust Auditing Framework",
+    "tool_id": "33671",
+    "speakers": [
+      "Ajit Hatti"
+    ],
+    "tracks": [
+      "Cryptography",
+      "Code Assessment"
+    ],
+    "location": "Business Hall - Arsenal Station 3",
+    "skill_level": "Advanced",
+    "event": "BH-USA-2023",
+    "session_type": "Arsenal",
+    "github_url": null,
+    "description": null
+  },
+  {
+    "tool_name": "Damn Vulnerable Bank",
+    "tool_id": "31608",
+    "speakers": [
+      "Rewanth Tammana",
+      "Hrushikesh Kakade",
+      "Akshansh Jaiswal"
+    ],
+    "tracks": [
+      "Track: Android",
+      "iOS and Mobile Hacking"
+    ],
+    "location": "On-Demand",
+    "skill_level": "All",
+    "event": "BH-USA-2023",
+    "session_type": "Arsenal",
+    "github_url": null,
+    "description": null
+  },
+  {
+    "tool_name": "DIAL - Did I Alert Lambda? Centralised Security Misconfiguration Detection Framework",
+    "tool_id": "32211",
+    "speakers": [
+      "Saransh Rana",
+      "Rashid Feroze",
+      "Harsh Varagiya"
+    ],
+    "tracks": [
+      "Track:"
+    ],
+    "location": "On-Demand",
+    "skill_level": "All",
+    "event": "BH-USA-2023",
+    "session_type": "Arsenal",
+    "github_url": null,
+    "description": null
+  },
+  {
+    "tool_name": "From Boar to More: Upgrading Your Security with Trufflehog's Terminal UI",
+    "tool_id": "32561",
+    "speakers": [
+      "Hon Kwok",
+      "Miccah Castorina"
+    ],
+    "tracks": [
+      "Human Factors",
+      "Vulnerability Assessment"
+    ],
+    "location": "Business Hall - Arsenal Station 7",
+    "skill_level": "All",
+    "event": "BH-USA-2023",
+    "session_type": "Arsenal",
+    "github_url": null,
+    "description": null
+  },
+  {
+    "tool_name": "Noriben: Quick and Easy Automated Malware Analysis Sandbox",
+    "tool_id": "33519",
+    "speakers": [
+      "Brian Baskin"
+    ],
+    "tracks": [
+      "Malware Defense",
+      "Data Forensics/Incident Response"
+    ],
+    "location": "Business Hall - Arsenal Station 1",
+    "skill_level": "All",
+    "event": "BH-USA-2023",
+    "session_type": "Arsenal",
+    "github_url": null,
+    "description": null
+  },
+  {
+    "tool_name": "Out-Of-Band Anti Virus Dock (OOBAVD) - A Hardware & Artificial Intelligence Based Anti Virus Solution",
+    "tool_id": "31923",
+    "speakers": [
+      "Pengfei Yu",
+      "Bosen Zhang",
+      "Jing Zhi Tan",
+      "Winston Ho",
+      "Howard Yang"
+    ],
+    "tracks": [
+      "Hardware / Embedded",
+      "Malware Defense"
+    ],
+    "location": "Business Hall - Arsenal Station 5",
+    "skill_level": "All",
+    "event": "BH-USA-2023",
+    "session_type": "Arsenal",
+    "github_url": null,
+    "description": null
+  },
+  {
+    "tool_name": "Practical IoT Hacking: Introduction to Multi-Band Hacking with the CatSniffer",
+    "tool_id": "33670",
+    "speakers": [
+      "Paulino Calderon",
+      "Eduardo Contreras"
+    ],
+    "tracks": [
+      "Track: Arsenal Lab"
+    ],
+    "location": "Business Hall - Arsenal Lab",
+    "skill_level": "All",
+    "event": "BH-USA-2023",
+    "session_type": "Arsenal",
+    "github_url": null,
+    "description": null
+  },
+  {
+    "tool_name": "SSHook: A Lightweight Syscall Hooking Tool for Uncovering Hidden Malicious Instructions",
+    "tool_id": "33593",
+    "speakers": [
+      "Zixi Liao",
+      "Bin Ma"
+    ],
+    "tracks": [
+      "Android",
+      "iOS and Mobile Hacking",
+      "Malware Defense"
+    ],
+    "location": "Business Hall - Arsenal Station 6",
+    "skill_level": "Advanced",
+    "event": "BH-USA-2023",
+    "session_type": "Arsenal",
+    "github_url": null,
+    "description": null
+  },
+  {
+    "tool_name": "Z9 - Malicious PowerShell Script Analyzer",
+    "tool_id": "32046",
+    "speakers": [
+      "Shota Shinogi"
+    ],
+    "tracks": [
+      "Reverse Engineering",
+      "Malware Defense"
+    ],
+    "location": "Business Hall - Arsenal Station 4",
+    "skill_level": "Intermediate",
+    "event": "BH-USA-2023",
+    "session_type": "Arsenal",
+    "github_url": null,
+    "description": null
+  },
+  {
+    "tool_name": "Build Inspector Open Source",
+    "tool_id": "31771",
+    "speakers": [
+      "Jeremy Banker"
+    ],
+    "tracks": [
+      "",
+      "Code Assessment"
+    ],
+    "location": "Business Hall - Arsenal Station 7",
+    "skill_level": "All",
+    "event": "BH-USA-2023",
+    "session_type": "Arsenal",
+    "github_url": null,
+    "description": null
+  },
+  {
+    "tool_name": "Cloud AuthZ Trainer (CAZT)",
+    "tool_id": "33486",
+    "speakers": [
+      "Rodney Beede"
+    ],
+    "tracks": [
+      "Web AppSec",
+      "Vulnerability Assessment"
+    ],
+    "location": "Business Hall - Arsenal Station 4",
+    "skill_level": "Intermediate",
+    "event": "BH-USA-2023",
+    "session_type": "Arsenal",
+    "github_url": null,
+    "description": null
+  },
+  {
+    "tool_name": "Commando VM and FLARE VM: Enhanced Toolsets for Penetration Testing and Windows-Based Malware Analysis",
+    "tool_id": "33542",
+    "speakers": [
+      "George Litvinov",
+      "Alex Tselevich",
+      "Jake Barteaux",
+      "Dennis Tran",
+      "Joseph Clay"
+    ],
+    "tracks": [
+      "Exploitation and Ethical Hacking",
+      "Reverse Engineering"
+    ],
+    "location": "Business Hall - Arsenal Station 9",
+    "skill_level": "All",
+    "event": "BH-USA-2023",
+    "session_type": "Arsenal",
+    "github_url": null,
+    "description": null
+  },
+  {
+    "tool_name": "EMBA – From Firmware to Exploit",
+    "tool_id": "31537",
+    "speakers": [
+      "Michael Messner"
+    ],
+    "tracks": [
+      "Hardware / Embedded",
+      "Internet of Things"
+    ],
+    "location": "Business Hall - Arsenal Station 5",
+    "skill_level": "All",
+    "event": "BH-USA-2023",
+    "session_type": "Arsenal",
+    "github_url": null,
+    "description": null
+  },
+  {
+    "tool_name": "EmploLeaks: Finding Leaked Employees Info for the Win",
+    "tool_id": "33570",
+    "speakers": [
+      "Gabriel Franco",
+      "Javier Aguinaga"
+    ],
+    "tracks": [
+      "Exploitation and Ethical Hacking",
+      "OSINT - Open Source Intelligence"
+    ],
+    "location": "Business Hall - Arsenal Station 8",
+    "skill_level": "All",
+    "event": "BH-USA-2023",
+    "session_type": "Arsenal",
+    "github_url": null,
+    "description": null
+  },
+  {
+    "tool_name": "Responding to Microsoft 365 Security Reviews Faster with Monkey365",
+    "tool_id": "33575",
+    "speakers": [
+      "Juan Garrido"
+    ],
+    "tracks": [
+      "Vulnerability Assessment",
+      "Network Defense"
+    ],
+    "location": "Business Hall - Arsenal Station 2",
+    "skill_level": "All",
+    "event": "BH-USA-2023",
+    "session_type": "Arsenal",
+    "github_url": null,
+    "description": null
+  },
+  {
+    "tool_name": "Scanhanced: An Automation Tool for Pentesting and Vulnerability Assessments",
+    "tool_id": "33614",
+    "speakers": [
+      "David Niederweis"
+    ],
+    "tracks": [
+      "Exploitation and Ethical Hacking",
+      "Vulnerability Assessment"
+    ],
+    "location": "Business Hall - Arsenal Station 6",
+    "skill_level": "All",
+    "event": "BH-USA-2023",
+    "session_type": "Arsenal",
+    "github_url": null,
+    "description": null
+  },
+  {
+    "tool_name": "SHAREM: Advanced Windows Shellcode Analysis Framework with Ghidra Plugin",
+    "tool_id": "33499",
+    "speakers": [
+      "Bramwell Brizendine",
+      "Jake Hince",
+      "Max Kersten"
+    ],
+    "tracks": [
+      "Reverse Engineering",
+      "Malware Defense"
+    ],
+    "location": "Business Hall - Arsenal Station 3",
+    "skill_level": "All",
+    "event": "BH-USA-2023",
+    "session_type": "Arsenal",
+    "github_url": null,
+    "description": null
+  },
+  {
+    "tool_name": "Swimming with the (Data)Flow – Analyzing & Visualizing Web Application Data Flows for Enhanced Penetration Testing",
+    "tool_id": "33650",
+    "speakers": [
+      "Florian Haag",
+      "Henry Wischerath",
+      "Matthias Göhring"
+    ],
+    "tracks": [
+      "",
+      "Web AppSec"
+    ],
+    "location": "Business Hall - Arsenal Station 1",
+    "skill_level": "All",
+    "event": "BH-USA-2023",
+    "session_type": "Arsenal",
+    "github_url": null,
+    "description": null
+  },
+  {
+    "tool_name": "AI Risky Business: Hands-on AI Payload Analysis",
+    "tool_id": "33579",
+    "speakers": [
+      "Hyrum Anderson",
+      "Sagar Samtani",
+      "Christina Liaghati"
+    ],
+    "tracks": [
+      "Arsenal Lab",
+      "Vulnerability Assessment"
+    ],
+    "location": "Business Hall, Arsenal Lab",
+    "skill_level": "All",
+    "event": "BH-USA-2023",
+    "session_type": "Arsenal",
+    "github_url": null,
+    "description": null
+  },
+  {
+    "tool_name": "AppSecLens: AI-Driven Adaptive Application Risk Ranking",
+    "tool_id": "33667",
+    "speakers": [
+      "Melih Tas",
+      "Neslisah Topcu"
+    ],
+    "tracks": [
+      "Web AppSec",
+      "Vulnerability Assessment"
+    ],
+    "location": "Business Hall - Arsenal Station 4",
+    "skill_level": "All",
+    "event": "BH-USA-2023",
+    "session_type": "Arsenal",
+    "github_url": null,
+    "description": null
+  },
+  {
+    "tool_name": "BLE CTF - A Bluetooth Low Energy Security Research Platform",
+    "tool_id": "33656",
+    "speakers": [
+      "Ryan Holeman"
+    ],
+    "tracks": [
+      "Track:"
+    ],
+    "location": "Business Hall - Arsenal Station 7",
+    "skill_level": "All",
+    "event": "BH-USA-2023",
+    "session_type": "Arsenal",
+    "github_url": null,
+    "description": null
+  },
+  {
+    "tool_name": "Dracon, Security Engineering Automation, No Code, At Your Fingertips",
+    "tool_id": "31675",
+    "speakers": [
+      "Spyros Gasteratos",
+      "Vijendra Patel"
+    ],
+    "tracks": [
+      "Track:"
+    ],
+    "location": "Business Hall - Arsenal Station 9",
+    "skill_level": "All",
+    "event": "BH-USA-2023",
+    "session_type": "Arsenal",
+    "github_url": null,
+    "description": null
+  },
+  {
+    "tool_name": "Exegol: Professional Hacking Setup",
+    "tool_id": "31711",
+    "speakers": [
+      "Charlie Bromberg",
+      "Mathieu Calemard du Gardin"
+    ],
+    "tracks": [
+      "Track: Exploitation and Ethical Hacking"
+    ],
+    "location": "Business Hall - Arsenal Station 5",
+    "skill_level": "All",
+    "event": "BH-USA-2023",
+    "session_type": "Arsenal",
+    "github_url": null,
+    "description": null
+  },
+  {
+    "tool_name": "MELEE: A Tool to Identify Ransomware Infections in MySQL Deployments",
+    "tool_id": "31661",
+    "speakers": [
+      "Aditya K Sood"
+    ],
+    "tracks": [
+      "Malware Defense",
+      "Network Defense"
+    ],
+    "location": "Business Hall - Arsenal Station 3",
+    "skill_level": "All",
+    "event": "BH-USA-2023",
+    "session_type": "Arsenal",
+    "github_url": null,
+    "description": null
+  },
+  {
+    "tool_name": "Network Monitoring Tools for macOS",
+    "tool_id": "32445",
+    "speakers": [
+      "Patrick Wardle"
+    ],
+    "tracks": [
+      "Malware Defense",
+      "Network Defense"
+    ],
+    "location": "Business Hall - Arsenal Station 8",
+    "skill_level": "All",
+    "event": "BH-USA-2023",
+    "session_type": "Arsenal",
+    "github_url": null,
+    "description": null
+  },
+  {
+    "tool_name": "ThreatScraper: Automated Threat Intelligence Gathering and Analysis from VirusTotal",
+    "tool_id": "33647",
+    "speakers": [
+      "Aaron Morath",
+      "Scott Graham"
+    ],
+    "tracks": [
+      "Malware Defense",
+      "Data Forensics/Incident Response"
+    ],
+    "location": "Business Hall - Arsenal Station 1",
+    "skill_level": "All",
+    "event": "BH-USA-2023",
+    "session_type": "Arsenal",
+    "github_url": null,
+    "description": null
+  },
+  {
+    "tool_name": "vAPI: Vulnerable Adversely Programmed Interface",
+    "tool_id": "31606",
+    "speakers": [
+      "Tushar Kulkarni"
+    ],
+    "tracks": [
+      "",
+      "Web AppSec"
+    ],
+    "location": "Business Hall, Arsenal Station 2",
+    "skill_level": "All",
+    "event": "BH-USA-2023",
+    "session_type": "Arsenal",
+    "github_url": null,
+    "description": null
+  },
+  {
+    "tool_name": "APKiD: Fast Identification of Mobile RASP SDKs",
+    "tool_id": "32577",
+    "speakers": [
+      "Eduardo Novella"
+    ],
+    "tracks": [
+      "Android",
+      "iOS and Mobile Hacking",
+      "Reverse Engineering"
+    ],
+    "location": "Business Hall - Arsenal Station 5",
+    "skill_level": "All",
+    "event": "BH-USA-2023",
+    "session_type": "Arsenal",
+    "github_url": null,
+    "description": null
+  },
+  {
+    "tool_name": "Dissect: The Open-Source Framework for Large-Scale Host Investigations",
+    "tool_id": "32804",
+    "speakers": [
+      "Stefan de Reuver",
+      "Erik Schamper"
+    ],
+    "tracks": [
+      "Data Forensics/Incident Response",
+      "Network Defense"
+    ],
+    "location": "Business Hall - Arsenal Station 3",
+    "skill_level": "All",
+    "event": "BH-USA-2023",
+    "session_type": "Arsenal",
+    "github_url": null,
+    "description": null
+  },
+  {
+    "tool_name": "Easy EASM - The Zero Dollar Attack Surface Management Tool",
+    "tool_id": "33645",
+    "speakers": [
+      "Jason Haddix",
+      "Olivia Gallucci",
+      "Gunnar Andrews"
+    ],
+    "tracks": [
+      "Track:"
+    ],
+    "location": "Business Hall - Arsenal Station 2",
+    "skill_level": "All",
+    "event": "BH-USA-2023",
+    "session_type": "Arsenal",
+    "github_url": null,
+    "description": null
+  },
+  {
+    "tool_name": "EvilnoVNC: Next-Gen Spear Phishing Attacks",
+    "tool_id": "32247",
+    "speakers": [
+      "Joel Gámez Molina"
+    ],
+    "tracks": [
+      "Exploitation and Ethical Hacking",
+      "Human Factors"
+    ],
+    "location": "Business Hall - Arsenal Station 9",
+    "skill_level": "Intermediate",
+    "event": "BH-USA-2023",
+    "session_type": "Arsenal",
+    "github_url": null,
+    "description": null
+  },
+  {
+    "tool_name": "Faraday: Open Source Vulnerability Manager",
+    "tool_id": "33660",
+    "speakers": [
+      "Federico Kirschbaum"
+    ],
+    "tracks": [
+      "Exploitation and Ethical Hacking",
+      "Vulnerability Assessment"
+    ],
+    "location": "Business Hall - Arsenal Station 7",
+    "skill_level": "All",
+    "event": "BH-USA-2023",
+    "session_type": "Arsenal",
+    "github_url": null,
+    "description": null
+  },
+  {
+    "tool_name": "GodEye: Advanced Geo-Localization Through AI-Powered Visual Analysis",
+    "tool_id": "33564",
+    "speakers": [
+      "Tung Cao Hoang",
+      "Son Le Duy",
+      "Hieu Nam Tran Ngoc",
+      "Anh Nguyen Ngoc"
+    ],
+    "tracks": [
+      "Track: OSINT - Open Source Intelligence"
+    ],
+    "location": "Business Hall - Arsenal Station 6",
+    "skill_level": "All",
+    "event": "BH-USA-2023",
+    "session_type": "Arsenal",
+    "github_url": null,
+    "description": null
+  },
+  {
+    "tool_name": "Konstellation: RBACpacking in Kubernetes",
+    "tool_id": "31949",
+    "speakers": [
+      "Zach Grace"
+    ],
+    "tracks": [
+      "",
+      "Exploitation and Ethical Hacking"
+    ],
+    "location": "Business Hall - Arsenal Station 1",
+    "skill_level": "Intermediate",
+    "event": "BH-USA-2023",
+    "session_type": "Arsenal",
+    "github_url": null,
+    "description": null
+  },
+  {
+    "tool_name": "Pcapinator: Rise of the PCAP Machines",
+    "tool_id": "33588",
+    "speakers": [
+      "Mike Spicer"
+    ],
+    "tracks": [
+      "Track:"
+    ],
+    "location": "Business Hall - Arsenal Station 4",
+    "skill_level": "All",
+    "event": "BH-USA-2023",
+    "session_type": "Arsenal",
+    "github_url": null,
+    "description": null
+  },
+  {
+    "tool_name": "SharpSCCM 2.0 - Abusing Microsoft's C2 Framework",
+    "tool_id": "32874",
+    "speakers": [
+      "Chris Thompson",
+      "Diego Lomellini"
+    ],
+    "tracks": [
+      "Exploitation and Ethical Hacking",
+      "Network Attacks"
+    ],
+    "location": "Business Hall - Arsenal Station 8",
+    "skill_level": "All",
+    "event": "BH-USA-2023",
+    "session_type": "Arsenal",
+    "github_url": null,
+    "description": null
+  },
+  {
+    "tool_name": "Practical IoT Hacking: Introduction to Multi-Band Hacking with the CatSniffer",
+    "tool_id": "33670",
+    "speakers": [
+      "Paulino Calderon",
+      "Eduardo Contreras"
+    ],
+    "tracks": [
+      "Track: Arsenal Lab"
+    ],
+    "location": "Business Hall, Arsenal Lab",
+    "skill_level": "All",
+    "event": "BH-USA-2023",
+    "session_type": "Arsenal",
+    "github_url": null,
+    "description": null
+  },
+  {
+    "tool_name": "Abusing Microsoft SQL Server with SQLRecon",
+    "tool_id": "31638",
+    "speakers": [
+      "Sanjiv Kawa"
+    ],
+    "tracks": [
+      "Track: Malware Offense"
+    ],
+    "location": "Business Hall - Arsenal Station 8",
+    "skill_level": "All",
+    "event": "BH-USA-2023",
+    "session_type": "Arsenal",
+    "github_url": null,
+    "description": null
+  },
+  {
+    "tool_name": "CLExtract: An End-to-End Tool Decoding Highly Corrupted Satellite Stream from Eavesdropping",
+    "tool_id": "31622",
+    "speakers": [
+      "Minghao Lin",
+      "Minghao Cheng",
+      "Yueqi Chen",
+      "Xu Zheng",
+      "Dongsheng Luo",
+      "Huajiang Chen"
+    ],
+    "tracks": [
+      "Internet of Things",
+      "Hardware / Embedded"
+    ],
+    "location": "Business Hall - Arsenal Station 2",
+    "skill_level": "All",
+    "event": "BH-USA-2023",
+    "session_type": "Arsenal",
+    "github_url": null,
+    "description": null
+  },
+  {
+    "tool_name": "Defending software development ecosystems with Safe Package",
+    "tool_id": "33634",
+    "speakers": [
+      "Mike Doyle"
+    ],
+    "tracks": [
+      "Malware Defense",
+      "Network Defense"
+    ],
+    "location": "Business Hall - Arsenal Station 6",
+    "skill_level": "All",
+    "event": "BH-USA-2023",
+    "session_type": "Arsenal",
+    "github_url": null,
+    "description": null
+  },
+  {
+    "tool_name": "GCP Scanner",
+    "tool_id": "32386",
+    "speakers": [
+      "Maksim Shudrak",
+      "Jacob Butler"
+    ],
+    "tracks": [
+      "Exploitation and Ethical Hacking",
+      "Network Attacks"
+    ],
+    "location": "Business Hall - Arsenal Station 5",
+    "skill_level": "All",
+    "event": "BH-USA-2023",
+    "session_type": "Arsenal",
+    "github_url": null,
+    "description": null
+  },
+  {
+    "tool_name": "ICS Forensics Tools",
+    "tool_id": "32135",
+    "speakers": [
+      "Ori Perez",
+      "Maayan Shaul"
+    ],
+    "tracks": [
+      "Track: Smart Grid/Industrial Security"
+    ],
+    "location": "Business Hall - Arsenal Station 7",
+    "skill_level": "All",
+    "event": "BH-USA-2023",
+    "session_type": "Arsenal",
+    "github_url": null,
+    "description": null
+  },
+  {
+    "tool_name": "Modern Active Directory Attacks with the Metasploit Framework",
+    "tool_id": "31655",
+    "speakers": [
+      "Spencer McIntyre"
+    ],
+    "tracks": [
+      "Exploitation and Ethical Hacking",
+      "Network Attacks"
+    ],
+    "location": "Business Hall - Arsenal Station 4",
+    "skill_level": "All",
+    "event": "BH-USA-2023",
+    "session_type": "Arsenal",
+    "github_url": null,
+    "description": null
+  },
+  {
+    "tool_name": "PurpleOPS - A Simple Tool to Help Track and Share Purple Team Data",
+    "tool_id": "31758",
+    "speakers": [
+      "Willem Mouton",
+      "Harrison Mitchell"
+    ],
+    "tracks": [
+      "Track:"
+    ],
+    "location": "Business Hall - Arsenal Station 3",
+    "skill_level": "All",
+    "event": "BH-USA-2023",
+    "session_type": "Arsenal",
+    "github_url": null,
+    "description": null
+  },
+  {
+    "tool_name": "SimpleRisk: Governance, Risk Management & Compliance",
+    "tool_id": "32079",
+    "speakers": [
+      "Josh Sokol"
+    ],
+    "tracks": [
+      "Vulnerability Assessment",
+      "Network Defense"
+    ],
+    "location": "Business Hall - Arsenal Station 1",
+    "skill_level": "All",
+    "event": "BH-USA-2023",
+    "session_type": "Arsenal",
+    "github_url": null,
+    "description": null
+  },
+  {
+    "tool_name": "T3SF (Technical TableTop Exercises Simulation Framework)",
+    "tool_id": "33146",
+    "speakers": [
+      "Federico Pacheco",
+      "Joaquin Lanfranconi"
+    ],
+    "tracks": [
+      "Data Forensics/Incident Response",
+      "Human Factors"
+    ],
+    "location": "Business Hall - Arsenal Station 9",
+    "skill_level": "All",
+    "event": "BH-USA-2023",
+    "session_type": "Arsenal",
+    "github_url": null,
+    "description": null
+  },
+  {
+    "tool_name": "CodeTotal: Shift Left Just Became Easier",
+    "tool_id": "33596",
+    "speakers": [
+      "Eyal Paz",
+      "Nicolas Vuillamy"
+    ],
+    "tracks": [
+      "",
+      "Code Assessment"
+    ],
+    "location": "Business Hall - Arsenal Station 3",
+    "skill_level": "All",
+    "event": "BH-USA-2023",
+    "session_type": "Arsenal",
+    "github_url": null,
+    "description": null
+  },
+  {
+    "tool_name": "Daksh SCRA (Source Code Review Assist Tool)",
+    "tool_id": "33411",
+    "speakers": [
+      "Debasis Mohanty"
+    ],
+    "tracks": [
+      "Track: Code Assessment"
+    ],
+    "location": "Business Hall - Arsenal Station 7",
+    "skill_level": "All",
+    "event": "BH-USA-2023",
+    "session_type": "Arsenal",
+    "github_url": null,
+    "description": null
+  },
+  {
+    "tool_name": "Fortifying GCP Security: Open Source Just-In-Time access and Audit Log Monitoring",
+    "tool_id": "33586",
+    "speakers": [
+      "Dustin Decker"
+    ],
+    "tracks": [
+      "Network Defense",
+      "Data Forensics/Incident Response"
+    ],
+    "location": "Business Hall - Arsenal Station 4",
+    "skill_level": "All",
+    "event": "BH-USA-2023",
+    "session_type": "Arsenal",
+    "github_url": null,
+    "description": null
+  },
+  {
+    "tool_name": "Grove: An Open-Source Log Collection Framework",
+    "tool_id": "33571",
+    "speakers": [
+      "Peter Adkins",
+      "Melissa Hardware"
+    ],
+    "tracks": [
+      "Network Defense",
+      "Data Forensics/Incident Response"
+    ],
+    "location": "Business Hall - Arsenal Station 5",
+    "skill_level": "All",
+    "event": "BH-USA-2023",
+    "session_type": "Arsenal",
+    "github_url": null,
+    "description": null
+  },
+  {
+    "tool_name": "Hands-on RF Hacking: Your Table is (always) Ready",
+    "tool_id": "35051",
+    "speakers": [
+      "Paul Clark"
+    ],
+    "tracks": [
+      "Track: Arsenal Lab"
+    ],
+    "location": "Business Hall, Arsenal Lab",
+    "skill_level": "All",
+    "event": "BH-USA-2023",
+    "session_type": "Arsenal",
+    "github_url": null,
+    "description": null
+  },
+  {
+    "tool_name": "PowerGuest: AAD Guest Exploitation Beyond Enumeration",
+    "tool_id": "33687",
+    "speakers": [
+      "Michael Bargury",
+      "Lana Salameh"
+    ],
+    "tracks": [
+      "Exploitation and Ethical Hacking",
+      "Network Attacks"
+    ],
+    "location": "Business Hall - Arsenal Station 6",
+    "skill_level": "All",
+    "event": "BH-USA-2023",
+    "session_type": "Arsenal",
+    "github_url": null,
+    "description": null
+  },
+  {
+    "tool_name": "route-detect: Find Authentication and Authorization Security Bugs in Web Application Routes",
+    "tool_id": "32225",
+    "speakers": [
+      "Matt Schwager"
+    ],
+    "tracks": [
+      "Web AppSec",
+      "Vulnerability Assessment"
+    ],
+    "location": "Business Hall - Arsenal Station 2",
+    "skill_level": "All",
+    "event": "BH-USA-2023",
+    "session_type": "Arsenal",
+    "github_url": null,
+    "description": null
+  },
+  {
+    "tool_name": "SCodeScanner - An Open-Source Source-Code Scanner",
+    "tool_id": "33156",
+    "speakers": [
+      "Utkarsh Agrawal"
+    ],
+    "tracks": [
+      "Code Assessment",
+      "Web AppSec"
+    ],
+    "location": "Business Hall - Arsenal Station 1",
+    "skill_level": "All",
+    "event": "BH-USA-2023",
+    "session_type": "Arsenal",
+    "github_url": null,
+    "description": null
+  },
+  {
+    "tool_name": "vAPI: Vulnerable Adversely Programmed Interface",
+    "tool_id": "31606",
+    "speakers": [
+      "Tushar Kulkarni"
+    ],
+    "tracks": [
+      "",
+      "Web AppSec"
+    ],
+    "location": "Business Hall - Arsenal Station 9",
+    "skill_level": "All",
+    "event": "BH-USA-2023",
+    "session_type": "Arsenal",
+    "github_url": null,
+    "description": null
+  }
+]
