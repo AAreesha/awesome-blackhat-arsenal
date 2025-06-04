@@ -14,13 +14,21 @@ Whether you're in red teaming, blue teaming, appsec, or OSINT — this list help
 
 - [Blue Team & Detection](#blue-team-&-detection)
 
-- [Web/AppSec](#web/appsec)
+- [Social Engineering / General](#social-engineering-general)
+
+- [Web/AppSec](#webappsec)
 
 - [Red Teaming](#red-teaming)
 
-- [Network & Recon](#network-&-recon)
+- [Red Teaming / AppSec](#red-teaming-appsec)
+
+- [Miscellaneous / Lab Tools](#miscellaneous-lab-tools)
+
+- [Web/AppSec or Red Teaming](#webappsec-or-red-teaming)
 
 - [Reverse Engineering](#reverse-engineering)
+
+- [Red Teaming / Embedded](#red-teaming-embedded)
 
 ---
 
@@ -49,13 +57,6 @@ There are many ways to steal someone's private keys without performing social en
 Web application servers and appliances are often one of the most highly-visible entry points into an organization or high-security network. If the server is misconfigured or hosting vulnerable code, existing tools can frequently be used by attackers to convert it into a gateway to the internal network. However, taking full advantage of such a system typically requires a network-level connection between the attacker and the web application server. For example, an internet-facing Linux web application server may have network-level connectivity to an internal Windows domain controller, but appropriate client tools may not function correctly when used via a web shell or similar interface. An interactive session (SSH, RDP, et cetera) on the vulnerable system, or port-forwarding to allow direct connectivity to internal services from the attacker's system becomes necessary. If the organization responsible for the server has done everything else correctly (including blocking tunneling via ICMP/DNS), then there may be no additional network-level connectivity possible in either direction between the attacker and the web application server. This closes off SSH, RDP, and similar interactive remote access, and prevents the use of port-forwarding agents such as Meterpreter.This presentation provides a solution to this problem - A Black Path Toward The Sun, a tool (released as open source in conjunction with the presentation) which tunnels TCP traffic through the web application server using the server's existing HTTP/HTTPS interface. That is, a JSP/WAR/ASPX file is deployed on the server (just as a web shell would be), and a Python script is executed on the attacker's system which performs TCP port-forwarding through that deployed server-side component. The tool also incorporates novel measures to make the network communication challenging to detect using traditional IDS/IPS/WAF-type systems. Java/JSP and ASP.NET editions of the server-side component will be included in the initial open source release, but porting the component to other web application servers should be straightforward.
 
 
-### [A DECEPTICON and AUTOBOT walk into a bar: A NEW Python tool for enhanced OPSEC](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-When we see the terms Natural Language Processing (NLP) or Machine Learning (ML), often, our guts are correct, and it is vendor marketing material, frequently containing FUD. After tinkering with various libraries in Python and R with the use of some OSINT and SOCMINT techniques, I have found a use for NLP and ML that is 100% FUD free in the form of a brand new, Python-based tool.
-
-In this presentation, which goes further than the previous DECEPTICON presentation, we address topics that I have frequently spoken about in past years is disinformation, deception, OSINT, and OPSEC. When working through learning NLP and ML in Python, it dawned on me: marry these technologies with DECEPTICON for good. Enter the DECEPTICON bot. The DECEPTICON bot is a python* based tool that connects to social media via APIs to read posts/tweets to determine patterns of posting intervals and content then takes over to autonomously post for the user. What is the application you ask: people who are trying to enhance their OPSEC and abandon social media accounts that have been targeted without setting off alarms to their adversaries. Use case scenarios include public figures, executives, and, most importantly – domestic violence and trafficking victims.
-
-
 ### [A Privilege Rules-Based Vulnerabilities Scan Tool for Android Apps](#)  
 ![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
 In the development of software, the system is often designed on a good architecture to ensure the security of the system, which reduces the risk of being attacked. However, due to business requirements, some "privilege rules" often exist in some key security protection processes, such as some privilege userid lists, privilege url lists, or special paths, etc. These privilege configurations disrupt the original security process, and pull down the security level, become a new attack surface (intrusion into the original secure system through attack privilege rules). It is more difficult for us to attack the system directly, but it will be easier to attack the system through the vulnerabilities in the privilege rules, and even the vulnerabilities in these privilege rules already exist widely.
@@ -65,15 +66,6 @@ Because of the above attack risks, we develope a tool called "privilege rules bu
 In this talk, we found the risk of privilege rules in a software , which broke the normal flow of software security architecture and introduce new risks. At the same time, based on the software analysis method, a tool is implemented to detect the vulnerability of privilege rules. We use the developed tool in Android Software Security testing, and find many privilege URLs and paths are configured into the software with high permissions. At the same time, there are a large number of n-days in the websites where these URLs exist.
 
 
-### [AARDVARK AND REPOKID](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-Amazon AWS provides a tool called "Access Advisor" that shows unused permissions for a given IAM role. Access advisor data can be very valuable for security practitioners as it shows unused permissions that can be removed to harden the environment and promote least privilege best practices.
-
-In the past retrieving Access Advisor information and reclaiming unused permissions has been a tedious and manual process involving logging in to the console and making changes by hand. Aardvark and Repokid are two complementary tools that make this process easy and automatable. Aardvark automatically retrieves access advisor for all roles in all accounts in your environment and exposes it as a queryable API. Repokid uses data presented by Aardvark to enable automatic role right-sizing.
-
-Used together, Aardvark and Repokid can ensure roles retain only the necessary privileges, even in large dynamic AWS deployments.
-
-
 ### [ACE (AUTOMATED COLLECTION AND ENRICHMENT PLATFORM)](#)  
 ![BH-EU-17](https://img.shields.io/badge/BH-EU-17-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
 Many expensive Endpoint Detection and Response (EDR) tools are available, but the high cost and effort required to deploy agents to every host can be off-putting to companies. The Automated Collection and Enrichment (ACE) Platform is an open source solution that enables agentless threat hunting in an environment. This tool makes it possible for anyone to begin gathering otherwise difficult to collect host data to hunt for threats in their environment.
@@ -81,49 +73,6 @@ Many expensive Endpoint Detection and Response (EDR) tools are available, but th
 As consultants performing Compromise Assessments, we rarely have the authority or ability to alter a customer's environment to support assessment operations. Actions like enabling Windows Remote Management (WinRM) can require levels of bureaucracy and take months to accomplish. It is also difficult to answer questions surrounding systems running MacOS and Linux. By removing a few of our assumptions, we created ACE, an ASP.NET Web Application that not only allows the scanning of Windows and MacOS machines, but also provides scan management with features like Credential Management, Scan Tracking, and File Downloading.
 
 In addition to running scripts and collecting scan data, ACE provides a robust enrichment and ingestion pipeline. Users can easily create individual enrichments in ACE to integrate their favorite data sources, such as hash lookups, IP reputation, sandboxing. The enrichment details can be integrated with original results to create the finalized data types in one object. With a final enrichment, the robust data set can be sent directly to a waiting SIEM for analysis. We supply an ELK docker image which will automatically ingest data collected by ACE. ACE provides an easy and customizable solution for threat hunters to gather and enrich data before it ever reaches the SIEM, enabling more advanced analysis.
-
-
-### [ACT: Semi-Automated Cyber Threat Intelligence](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-ACT is an open-source threat intelligence platform that has been built from the ground up to address the real-world needs of security analysts, incident responders and threat researchers across all industries. The platform is the product of a 3-year collaborative research project between the private sector, security agencies, CERTs and universities.
-
-
-ACT enables advanced threat enrichment, threat analysis, visualisation, process automation, lossless information sharing and powerful graph analysis. Its modular design and APIs facilitate implementing new workers for enrichment, analysis, information sharing, and countermeasures.
-
-
-Included in the platform is Scio, a component that ingests human-readable reports, like threat advisories and blog posts, and uses natural language processing and pattern matching to extract structured threat information to import to the platform. Our Github repositories also include support for information import and data enrichment from MISP, MITRE ATT&CK, VirusTotal, PassiveDNS, ShadowServer and Splunk, with more on the way.
-
-
-So why build yet another threat intelligence platform?
-In 2014 we set out to find a platform on the market to meet the needs of our SOC and threat intelligence team. Our requirements were not particularly unique: we needed a platform that would help us to collect and organise our knowledge of threats, facilitate analysis and sharing, and make it easy to retrieve that knowledge when needed. We spent too much time on manual processes, copy-pasting information between different systems. Much of our knowledge was in an unstructured form, like threat reports, that made it difficult and time consuming to figure out if we had relevant knowledge that could help us decide how to handle security alerts and security incidents.
-
-
-Sound familiar? After evaluating the existing platforms, we concluded they could not easily be adapted to meet our requirements. In speaking with our partners, customers and the security community, we saw we were not alone and decided to research and develop a new platform: ACT.
-
-
-This session will focus on threat analysis using the GUI to demonstrate how ACT can help SOC analysts, incident responders and threat analysts/hunters/researchers.
-
-Source code: https://github.com/mnemonic-no/act
-
-
-### [ADA: Android Dynamic Analysis Tool](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-ADA analyzes the dynamic behavior of an Android application in runtime. ADA discovers the attack surface that is not shown during the static analysis and performs a rapid vulnerability assessment of the application.
-
-ADA discovers the best attack path to follow to compromise the application. The automated dynamic analysis is focused on discovering the security measures implemented in the application. In this way, ADA shows the best attack path to compromise the application. Some of the features that ADA detects are whether the application uses certificate pinning, JNI libraries, SQL database discovery, KeyStores identification, hardware-backed KeyStore (TEE), etc.
-
-
-### [AI Risky Business: Hands-on AI Payload Analysis](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-None
-
-
-### [AISY: A Framework for Deep Learning-Based Side-Channel Analysis](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-Profiling side-channel attacks (SCA) allow evaluators to verify the worst-case security scenario of their products. Nowadays, deep learning has become the state-of-the-art method for profiling SCA as deep neural networks show the ability to learn side-channel leakages from protected implementations. While deep learning is a powerful technique for security evaluations, it offers numerous possibilities for neural network configurations and optimization techniques. Selecting the best setup for each evaluated product is far from trivial and requires expertise in SCA and deep learning fields. To improve SCA methods, and at the same time to be able to investigate the resistance of the product to more complex attack scenarios, researchers continuously propose new techniques.
-Unfortunately, several obstacles are making the acceptance of such techniques a challenge. Security evaluators from the industry face difficulties following up on new promising methods. What is more, certification bodies also must be aware of new SCA techniques to issue the certifications. Indeed, one of the main issues is the lack of publicly available, easy-to-use frameworks that allow powerful and reliable side-channel analysis. Moreover, due to the absence of the uniformed evaluation/implementation method, the reproducibility of the outcomes is not easy to ensure.
-
-We propose AISY as a tool to allow state-of-the-art deep learning-based SCA. AISY is a python-based open-source framework, and it provides state-of-the-art functionalities for profiling SCA with easy usage, extensibility, reproducibility, integrated database, and user interface. We envision a system where the user can efficiently run the attacks with few lines of code and based on state-of-the-art but also extend those functionalities to support new developments. AISY supports the complete development cycle for deep learning-based SCA: from dataset preparation to the automated development of new models and their assessment concerning the side-channel metrics.
 
 
 ### [AKTAION V2 - A MACHINE LEARNING OPEN-SOURCE & ACTIVE DEFENSE (ORCHESTRATION) TOOL](#)  
@@ -211,47 +160,6 @@ Nearly every penetration test begins the same way; run a NMAP scan, review the r
 Introduces a method of embedding information in the padding part of ARP and performing secret communication with only one small 8-bit microcomputer. The transmitter uses an 8-bit microcomputer called Atmega328P. A 10BASE-T Ethernet frame is generated using only the GPIO of the microcomputer without using a dedicated chip such as an Ethernet controller. By using this method, it is possible to perform a covert channel attack with a smaller and cheaper method than the conventional method.
 
 
-### [ARP covert channel attacks by 8bit microcomputer](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-Introduces a method of embedding information in the padding part of ARP and performing secret communication with only one small 8-bit microcomputer. The transmitter uses an 8-bit microcomputer called Atmega328P. A 10BASE-T Ethernet frame is generated using only the GPIO of the microcomputer without using a dedicated chip such as an Ethernet controller. By using this method, it is possible to perform a covert channel attack with a smaller and cheaper method than the conventional method.
-
-Since this attack can be performed with a single inexpensive and small microcomputer, it can be hidden and operated inside devices that can be connected to various networks. This lecture introduces some attack scenarios, discusses various attack methods that use this attack method, and discusses their defense methods.
-
-
-### [ARSENAL LAB - Applied Hardware Attacks: Prototyping Malicious Hardware on the Cheap](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-None
-
-
-### [ARSENAL LAB - ICU-ICS: An ICS Assessment Framework Tool](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-None
-
-
-### [ARSENAL LAB - JTAGulator: Assisted Discovery of On-Chip Debug Interfaces](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-For over five years, the JTAGulator has been the de facto open source tool for identifying interfaces commonly used for hardware hacking, such as JTAG and UART, from a target product's test points, vias, component pads, or connectors. The tool bridges the gap between gaining physical access to circuitry and exploiting it, and can save a significant amount of effort compared to traditional reverse engineering processes. For the first time at Black Hat Arsenal, attendees will have the opportunity to play with the JTAGulator and a variety of real-world embedded devices in an informal, hands-on environment.
-
-
-### [ARSENAL LAB - ZigBee Hacking: Smarter Home Invasion with ZigDiggity](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-None
-
-
-### [ART: Adversarial Robustness 360 Toolbox for Machine Learning Models](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-Adversarial attacks against machine learning systems have become an indisputable threat. Attackers can compromise the training of machine learning models by injecting malicious data into the training set (so-called poisoning attacks), or by crafting adversarial samples that exploit the blind spots of machine learning models at test time (so-called evasion attacks). These attacks have been demonstrated in a number of different application domains, including malware detection, spam filtering, visual recognition, speech-to-text conversion, and natural language understanding. Devising comprehensive defences against poisoning and evasion attacks by adaptive adversaries is still an open challenge.
-
-We will present the Adversarial Robustness 360 Toolbox (ART), a library which allows rapid crafting and analysis of both attacks and defense methods for machine learning models. ART provides an implementation for many state-of-the-art methods for attacking and defending machine learning. At Black Hat, we will introduce the major version 1.0, which contains new powerful black-box attacks, support for additional machine learning libraries, as well as new defenses and detectors. Through ART, the attendees will (re)discover how to attack and defend diverse machine learning systems.
-
-
-### [ART: Adversarial Robustness Toolbox for Machine Learning Models](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-Adversarial attacks of machine learning systems have become an indisputable threat. Attackers can compromise the training of machine learning models by injecting malicious data into the training set (so-called poisoning attacks) or by crafting adversarial samples that exploit the blind spots of machine learning models at test time (so-called evasion attacks). Adversarial attacks have been demonstrated in a number of different application domains, including malware detection, spam filtering, visual recognition, speech-to-text conversion, and natural language understanding. Devising comprehensive defences against poisoning and evasion attacks by adaptive adversaries is still an open challenge.
-
-We will present the Adversarial Robustness Toolbox (ART), a library which allows rapid crafting and analysis of both attacks and defense methods for machine learning models. It provides an implementation for many state-of-the-art methods for attacking and defending machine learning. Through ART, the attendees will (re)discover how to attack and defend machine learning systems.
-
-
 ### [ATTACK PASSIVE KEYLESS ENTRY SYSTEM USING HACKKEY](#)  
 ![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
 PKE (passive keyless entry) system allows the driver to unlock cars without taking out their key fob - just by being in the proximity of the vehicle or by touching the door handle. PKE systems use both low frequency and high frequency radio links to perform two-way authentication. We have implemented a relay attack using two very low-cost radios and have extended the range further than any previous research. We have already extended the attack range to a few hundred meters and can unlock your car in the parking lot while your key fob is in your pocket - on the top floor of your office building - or drive your car away while you are shopping in the mall.
@@ -286,44 +194,6 @@ When it comes to the security of the information system, Active Directory domain
 Adhrit is an open-source Android application security analysis suite. The tool is an effort to find an efficient solution to all the needs of mobile security testing and automation. Adhrit has been built with a focus on flexibility and modularization. It currently uses the Ghera benchmarks to identify vulnerable code patterns in the bytecode. Apart from bytecode scanning, Adhrit can also identify hardcoded secrets within Android applications. The tool also comes with a built-in integration to popular softwares like Jira and Slack which can be configured to automate and streamline the Android application review process. Adhrit has been presented at conferences like Black Hat Asia, OWASP Seasides and Cysinfo.
 
 
-### [Adversarial Robustness Toolbox for Machine Learning Models - ARSENAL THEATER DEMO](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-Adversarial attacks of machine learning systems have become an undisputable threat. Attackers can compromise the training of machine learning models by injecting malicious data into the training set (so-called poisoning attacks), or by crafting adversarial samples that exploit the blind spots of machine learning models at test time (so-called evasion attacks). Adversarial attacks have been demonstrated in a number of different application domains, including malware detection, spam filtering, visual recognition, speech-to-text conversion, and natural language understanding. Devising comprehensive defences against poisoning and evasion attacks by adaptive adversaries is still an open challenge.
-
-We will present the Adversarial Robustness Toolbox (ART), a library which allows rapid crafting and analysis of both attacks and defence methods for machine learning models. It provides an implementation for many state-of-the-art methods for attacking and defending machine learning. Through ART, the attendees will (re)discover how to attack and defend machine learning systems.
-
-
-### [Adversarial Threat Detector](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-In recent years, deep learning technology has been developing, and various systems using deep learning are spreading in our society, such as face recognition, security cameras (anomaly detection), and ADAS (Advanced Driver-Assistance Systems).
-
-On the other hand, there are many attacks that exploit vulnerabilities in deep learning algorithms. For example, the Evasion Attacks are an attack that causes the target classifier to misclassify the Adversarial Examples into the class intended by the adversary. The Exfiltration Attacks are an attack that steals the parameters and train data of a target classifier. If your system is vulnerable to these attacks, it can lead to serious incidents such as face recognition being breached, allowing unauthorized intrusion, or information leakage due to inference of train data.
-
-So we released a vulnerability scanner called "Adversarial Threat Detector" (a.k.a. ATD), which automatically detects vulnerabilities in deep learning-based classifiers.
-
-ATD contributes to the security of your classifier by executing the four cycles of "Detecting vulnerabilities (Scanning & Detection)", "Understanding vulnerabilities (Understanding)", "Fixing vulnerabilities (Fix)", and "Check fixed vulnerabilities (Re-Scanning)".
-
-1. Detecting vulnerabilities（Scanning & Detection）
-ATD automatically executes a variety of attacks against the classifier and detects vulnerabilities.
-
-2. Understanding vulnerabilities (Understanding)
-When a vulnerability is detected, ATD will generate a countermeasure report (HTML style) and a replay environment (ipynb style) of the vulnerabilities. Developers can understand the vulnerabilities by referring to the countermeasure report and the replay environment.
-
-3. Fixing vulnerabilities (Fix)
-ATD automatically fixes detected vulnerabilities.
-
-4. Check fixed vulnerabilities (Re-Scanning)
-The ATD checks fixed vulnerabilities of the fixed classifier.
-
-Our "Adversarial Threat Detector" will contribute greatly to keep your safety.
-
-
-### [AiCEF: An AI-powered Cyber Exercise Content Generation Framework](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-The core idea of AiCEF, is to harness the intelligence that is available from online and MISP reports, as well as threat groups' activities, arsenal etc., from, e.g., MITRE, to create relevant and timely cybersecurity exercises. To this end, we have developed a specialised ontology called Cyber Exercise Scenario Ontology (CESO), which extends STIX [2]. The core idea is to map reports; both from online resources and MISP, via a common ontology to graphs. This way, we abstract the events from the reports in a machine-readable form. The produced graphs can be infused with additional intelligence, e.g. the threat actor profile from MITRE, also mapped in our ontology. While this may fill gaps that would be missing from a report, one can also manipulate the graph to create custom and unique models. Finally, we exploit transformer-based language models like GPT to convert the graph into text that can serve as the scenario of a cybersecurity exercise.
-We have tested and validated AiCEF with a group of experts in cybersecurity exercises, and the results clearly show that AiCEF significantly augments the capabilities in creating timely and relevant cybersecurity exercises in terms of both quality and time.
-
-
 ### [AKTAION](#)  
 ![BH-EU-16](https://img.shields.io/badge/BH-EU-16-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
 Crypto Ransomware has become a popular attack vector used by malicious actors to quickly turn infections into profits. From a defensive perspective, the detection of new ransomware variants relies heavily on signatures, point solution posture and binary level indicators of compromise (IOC). This approach is inefficient at protecting targets against the rapid changes in tactics and delivery mechanisms typical of modern ransomware campaigns. We propose a novel approach for blending multiple signals (called micro behaviors) to detect ransomware with more flexibility than using IOC matching alone.
@@ -332,53 +202,6 @@ The goal of the approach is to provide expressive mechanisms for detection via c
 
 This tool will be applied to PCAPS and will then mine and display relationships of Micro Behaviors particular to ransomware traffic. Built with Spark notebook https://github.com/andypetrella/spark-notebook we are leveraging Apache Spark (http://spark.apache.org/) for scalable data processing and MlLib for an analytics API (http://spark.apache.org/mllib/). The
 notebook will provide an interface for the ingestion of heterogenous data and the ability to build a combination of behavior based risk indictors combined with classic signatures. Prototype examples of different risk profiles will be demonstrated with the API via spark notebook but the libraries themselves should be usable in any Java backed code base.
-
-
-### [Alexa HackerMode 2.0: Voice Auto Pwn Using Kali Linux and Alexa Skill Combo](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-HackerMode 2.0 code-named: "Death Star" is an Alexa driven auto-sploit tool designed for the cloud. Not only will it help with syntax and encodings, but it will go full hacker mode and exploit systems automatically for you.
-
-"Alexa, ask HackerMode to hack IP address 192.168.1.135" will instruct Alexa to begin and manage the process of port scanning, fingerprinting, exploit selection, and smart brute forcing exploits through Metasploit 4 or 5.
-
-Alexa will entertain you with mood music or various other activities while it roots and dumps users and passwords from your target. If the exploit is taking a while you can check in on the progress by asking "How's the hack going?"
-
-
-### [Amini Project](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-The AirTag IoT device is a tracking tool developed by Apple and designed to help people find misplaced objects. However, even when Apple states that AirTag technology is solely used for tracking items, a growing number of malicious individuals are taking advantage for the simplicity to install it and set up to track unaware targets, in other words, people.
-
-Amini is a specialized open-source hardware project to scan, detect, spoof, and play a sound for AirTag devices. This project is part of "Spy-wear: Misuse of Apple AirTags" research where we analyzed a privacy concern about AirTag misuse for tracking capabilities. It was designed to be implemented with Arduino environment, for flexible designs, and to be used in any Arduino-supported devices with BLE capabilities.
-
-
-### [An Extensible Dynamic Analysis Framework for IoT Devices](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-As IoT devices are more than ever present in our society, their security is becoming an increasingly important issue. Dynamic analysis has been proved the arsenal to many security applications (e.g., malware analysis, vulnerability discovery, backdoor analysis, etc.). While several dynamic analysis systems(Avatar, FEMU, Firmadyne, etc. ) have been proposed for IoT devices, they either rely on IoT hardware(Avatar), or lack user friendly interfaces for further extension. In this talk, we will present an extensible whole-system dynamic analysis framework for IoT devices. Specifically, on top of QEMU, we build a Pintool-like framework FirmPin, which provides Just-In-Time Virtual Machine Introspection and a plugin architecture with a simple-to-use event-driven programming interface. FirmPin provides the instrumentation at basic block level, system call level and memory access level for both user level and kernel level programs. Currently, FirmPin supports ARM and MIPS and can run customized kernel from Firmadyne project.
-
-To demonstrate the power of FirmPin, we have created two plugins - MalScalpel and FirmFuzzer. MalScalpel is able to collect the instruction trace, system call trace, and unpacked code of the monitored program(e.g., Mirai). FirmFuzzer utilizes FirmPin to collect the execution information of fuzzed IoT applications, and integrates with AFL to conduct efficient fuzzing for IoT applications. In the future, we plan to add tainting, a powerful technique for many security applications, to the system. The ultimate goal of FirmPin is to be a general analysis framework for IoT devices.
-
-Source Code: https://github.com/DeepBitsTechnology/FirmPin﻿
-
-
-### [An Open Stack for Threat Hunting in Hybrid Cloud With Connected Observability](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-We present a cloud-native threat hunting architecture built on open-source technologies. The security architecture integrates SysFlow and Kestrel to provide connected endpoint observability, edge analytics, and a cyber-reasoning stack that enables threat hunters to quickly and uniformly perform threat hunting and investigation across cloud and premise environments. This facilitates a new threat discovery methodology in which declarative hunting flows automate the search for behavioral attack patterns and indicators of compromise in telemetry data streams that are automatically tagged with attack TTPs. We show how these two open-source frameworks can deploy and scale natively on cloud environments to discover attacks and security breaches against cloud services and container infrastructures.
-
-SysFlow is an open observability framework that lifts and normalizes the representation of system activities into a compact entity-relational format that records workload behaviors by connecting single-event and volumetric flow representations of process control flows, file interactions, and network communications. It drastically reduces data footprints over existing approaches and is particularly suitable for large scale cloud-wide monitoring and forensic investigation of sophisticated cyber-attacks that may not be discovered for long periods of time.
-
-Kestrel is a threat hunting language for creating composable, reusable, and shareable hunt flows. It brings two key innovations to the security community: (i) a composable way of expressing hunting knowledge for threat hypothesis development and reasoning over entity-relational data abstractions, and (ii) an open-source language runtime to compute how to perform hunting steps and execute them in a distributed fashion at the local hunting site, remote data sources, and in the cloud.
-
-We will demonstrate through live threat hunting scenarios how the two open-source projects can help create a powerful open platform for gaining operational awareness and alleviating key pain points in integrating security solutions into a "single-pane-of-glass" for effective and shareable threat hunting in the cloud.
-
-
-### [AndroCop: One Click Forensic Investigation & Data Extraction Tool](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-AndroCop is a powerful and streamlined tool for in-depth forensic analysis and data extraction from Android devices, delivering rapid insights and efficient data export. The application, written in Java, streamlines the process of forensic investigation and data retrieval, eliminating the need for external utilities.
-
-With a single click, AndroCop aggregates and exports a diverse array of data, encompassing call records, text messages, contacts, application usage records, device information, image captures, and screenshots. The tool enriches forensic investigation by facilitating the identification of potentially harmful Android applications, deciphering app usage patterns, extracting valuable call history insights, and revealing visited locations.
-
-Moreover, AndroCop helps users to export forensic findings and data in multiple formats such as PDFs, XLSX spreadsheets, and CSV files. All the gathered information, along with images and other related data, will be consolidated into a singular ZIP file, streamlining the process of smooth data transmission. The gathered content is placed in the AndroCop directory within the internal storage, prepared for effortless transfer whenever required.
-
-AndroCop is also designed to be user-friendly, with a simple and intuitive interface that makes it easy to use for both novice and experienced users. It helps users quickly extract and analyze data from Android devices, making it an important addition to any forensic investigator's toolkit.
 
 
 ### [AndroGoat: Learn Android Application Security Testing](#)  
@@ -440,43 +263,6 @@ AppMon is an automated framework for monitoring and tampering system API calls o
 ### [Archery - Open Source Vulnerability Assessment and Management](#)  
 ![BH-ASIA-18](https://img.shields.io/badge/BH-ASIA-18-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
 Archery is an open-source vulnerability assessment and management tool which helps developers and pentesters to perform scans and manage vulnerabilities. Archery uses popular open-source tools to perform comprehensive scanning for web application and network. It also performs web application dynamic authenticated scanning and covers the whole applications by using selenium. The developers can also utilize the tool for implementation of their DevOps CI/CD environment.The main capabilities of our Archery include:Perform Web and Network Vulnerability Scanning using open-source tools.Correlates and Collaborate all raw scans data, show them in a consolidated manner.Perform authenticated web scanning.Perform web application scanning using selenium.Vulnerability Management.Enable REST API's for developers to perform scanning and Vulnerability Management.Useful for DevOps teams for Vulnerability Management.More documentation here:https://archerysec.github.io/archerysec/
-
-
-### [ArcherySec 2.0 - Open Source Vulnerability Assessment and Management](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-ArcherySec is an opensource vulnerability assessment and management tool which helps developers and pentesters to perform scans and manage vulnerabilities. ArcherySec uses popular opensource tools to perform comprehensive scanning for web applications and networks. It also supports multiple continuous integrations and continuous delivery software. The developers could utilize this tool for the implementation of vulnerability management in the DevOps CI/CD environment.
-
-- Perform Web and Network Vulnerability Scanning using opensource tools.
-- Correlates and Collaborate all raw scans data, shows them in a consolidated manner.
-- Perform authenticated web scanning.
-- Vulnerability Management.
-- Enable REST API's for developers to perform scanning and Vulnerability Management.
-- JIRA Ticketing System.
-- Sub domain discovery and scanning.
-- Periodic scans.
-- Concurrent scans.
-- Integrate with CI/CD software.
-
-
-### [Archery: Open Source Vulnerability Assessment and Management - ARSENAL THEATER DEMO](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-Archery is an open-source vulnerability assessment and management tool that helps developers and pentesters to perform scans and manage vulnerabilities. Archery uses popular open-source tools to perform comprehensive scanning for web application and network. It also performs web application dynamic authenticated scanning and covers the whole applications by using selenium. The developers can also utilize the tool for implementation of their DevOps CI/CD environment.
-
-The main capabilities of our Archery include:
-
-Perform Web and Network Vulnerability Scanning using vulnerability scanner tools
-Correlates and Collaborate all raw scans data, show them in a consolidated manner
-Perform authenticated web scanning
-Perform web application scanning using selenium
-Automate your scanners
-Vulnerability Management including Web, Network and Mobile Applications
-Enable REST API's for developers to perform scanning and Vulnerability Management
-Useful for DevOps teams for Vulnerability Management
-
-
-### [Ares](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-None
 
 
 ### [Armitage - A Scriptable Red Team Collaboration Tool](#)  
@@ -559,33 +345,6 @@ Subgraph OS is a desktop operating system with built-in privacy and security fea
 What if the only requirements for taking down a corporate network are a bit of smooth talking, 60 minutes and $35? Traditional hacking techniques and corporate espionage have evolved. Advanced attacks nowadays include a combination of social engineering, physical security penetration and logical security hacking. It is our job as security professionals to think outside the box and think about the different ways that hackers might use to infiltrate corporate networks. The WarBerryPi is a customized RaspBerryPi hacking dropbox which is used in Red Teaming engagements with the sole purpose of performing reconnaissance and mapping of an internal network and providing access to the remote hacking team.The outcome of these red teaming exercises is the demonstration that if a low cost microcomputer loaded with python code can bypass security access controls and enumerate and gather such a significant amount of information about the infrastructure network which is located at; then what dedicated hackers with a large capital can do is beyond conception.
 
 
-### [Artificial Intelligence Phishing Email Detector](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-An artificial intelligence-based phishing email detector that analyses emails and its content, vocabulary, sender, subject etc and detects if it's a phishing email even if it was not flagged as one by an email gateway based on the analysis of collection of phishing emails.
-
-
-### [Attack Demonstration Tool Kits for Industry 4.0 Using AI and Cloud](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-Industry 4.0 is a new concept of automation data exchange in manufacturing, and technologies and structures are significantly different from the current general ICS. Autonomous judgment and execution are required, and it is based on information exchange using AI and cloud technologies. Devices are supposed to connect interactively that can create new attack surfaces and risks of cyber-attacks.
-
-For instance, if AI on the cloud is used for controlling the ICS, attackers could change parameters for controlling ICS by contaminating the judgment of AI. In such a situation, attackers could compromise ICS without accessing the ICS network. Detecting such attacks is quite challenging if operators rely on AI to judge the desirable parameters of ICS. Therefore, it is important to instruct cyber risks of ICS in Industry 4.0.
-
-We introduce attack demonstration took kits for Industry 4.0 using actual machines (water supply pump system).
-
-This tool kit is portable, and easy to prepare, so is useful for instructing the cyber-risks of ICS whenever and whenever we want. In aspects of Industry 4.0, we especially focus on the security risks of ICS in the following aspects:
-- When computers and devices are connected interactively
-- When AI on the cloud is used for controlling the ICS
-
-We will show you a demonstration of attacks: the attacker can change the physical status of ICS without accessing the ICS network through an attack against AI.
-
-
-### [Attack Knowledge Base for Automotive](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-Ensuring cybersecurity in the automotive sector is more crucial than ever, especially with the rising intricacies and susceptibilities of vehicle-connected systems. The ISO/SAE 21434 standard serves as a beacon in this endeavor. However, compliance with this standard reveals discernible information disparities across its V-model phases: Concept & Design, Implementation, and Verification & Validation. Addressing these gaps is paramount for cohesive vehicle cybersecurity.
-
-To tackle these hurdles, we introduce the "Attack Knowledge Base for Automotive." Inspired and aligned with the ATT&CK framework, this tool aids in seamless compliance with the ISO/SAE 21434 standard. We will demonstrate its efficacy in delivering a thorough and objective outcome during Threat Analysis and Risk Assessment (TARA). Moreover, it bridges information lacunas across the lifecycle, enabling the red team to synergize insights from earlier stages with our Attack Knowledge Base, ensuring holistic automotive cybersecurity.
-
-
 ### [AutoGadgetFS: USB testing made easy](#)  
 ![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
 AutoGadgetFS is an open source framework that allows users to assess USB devices and their associated hosts/drivers/software without an in-depth knowledge of the USB protocol.
@@ -600,22 +359,6 @@ The recent rise of macOS in enterprise environments has not gone unnoticed by ad
 A traditional forensic approach can no longer support enterprise investigations – they require rapid triage and response, often due to resource constraints and a pressing need for answers and remediation. Performing forensic imaging and deep-dive analysis can be incredibly time-consuming and induce data fatigue in analysts, who may only need a select number of artifacts to identify leads and start finding answers. The resources-to-payoff ratio is impractical.
 
 In this presentation, we will discuss AutoMacTC: an open-source Python framework that can be quickly deployed to gather forensic data on macOS devices, from the artifacts that matter most to you and your investigation. Incident response in the macOS world requires that analysts know where to look for evil, gather the relevant data quickly, and know how to discern the malicious from the innocuous. AutoMacTC captures sufficient data into a singular location, equipping responders with all of the above.
-
-
-### [AutoSuite: An Open-Source Multi-Protocol Low-Cost Vehicle Bus Testing Framework](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-Vehicle buses such as FlexRay, LIN, CAN (FD) and Ethernet are the cornerstones of ECUs communication. At present, the security research of vehicle buses mainly focuses on CAN Bus. Due to the characteristics of the protocol itself, CAN data is usually transmitted within the domain. while Flexray is often used as a backbone network connecting powertrain control, autonomous driving, and body control domains for cross-domain communication and transmission of critical data.
-It is commonly used in high-end brands such as Audi, Lotus, and BMW. However, security research on Flexray is still in its infancy.
-
-We will present AutoSuite, an open-source, multi-protocol, low-cost vehicle bus testing framework, consisting of the AutoBox(hardware) and AutoFunc (software). AutoSuite can be used to access the FlexRay bus and simulate malicious ECUs to send forged data to realize cross-domain ECU attacks and discover potential security vulnerabilities.
-
-AutoBox is probably the first open-source, multi-protocol, low-cost vehicle bus testing hardware that support FlexRay. It can automatically analyze FlexRay bus configuration parameters, join the cluster, and send malicious data on the FlexRay bus. The hardware cost is about $200, which is much lower than the commercial FlexRay bus testing tool Vector VN8910 ($50k). AutoBox also supports remote control, multiple device collaboration, and Ethernet, LIN, and CAN (FD) protocols. AutoBox will provide a friendly, open-source, and low-cost testing tool for vehicle bus researchers, much like HACKRF has become a low-cost alternative to USRP.
-
-AutoFunc may be the first open-source software for functional-level communication testing and functional-level fuzzing that supports condition monitoring. Current open-source vehicle bus testing methods mainly rely on random fuzzing of the CAN protocol by using random data frame IDs, payloads, and DLC. However, a vehicle function typically involves multiple data frames, and a single data frame may not have any impact on the bus. With opendbc and other open-source projects, the .dbc file is no longer a commercial secret. AutoFunc can organize the frames defined in the .dbc file into specific functions, and monitor the function where the crash occurs to achieve a multi-protocol fuzzing test.
-
-In addition, we will show 2 demos,
-(1) Demonstrate all functions supported by AutoBox, such as FlexRay, CAN, LIN, Ethernet, WiFi, etc.
-(2) Functional-level fuzzing using AutoBox and AutoFunc.
 
 
 ### [Automated Electromechanical PIN Cracking: R2B2 and C3BO](#)  
@@ -638,25 +381,6 @@ Nearly every penetration test begins the same way; run a NMAP scan, review the r
 Nearly every penetration test begins the same way - run a NMAP scan, review the results, choose interesting services to enumerate and attack/exploit, and perform post-exploitation activities. What was once a fairly time consuming manual process, is now automated! Automated Penetration Testing Toolkit (APT2) is an extendable modular framework designed to automate common tasks performed during penetration testing. APT2 can chain data gathered from different modules together to build dynamic attack paths. Starting with a NMAP scan of the target environment, discovered ports and services become triggers for the various modules which in turn can fire additional triggers. Have FTP, Telnet, or SSH? APT2 will attempt common authentication. Have SMB? APT2 determines what OS and looks for shares, null sessions, and other information. Modules include everything from enumeration, scanning, brute forcing, and even integration with Metasploit. Come check out how APT2 will save you time on every engagement.Have you seen APT2 before? Great, now come and check out some of the new and enhanced features which include stream lined operations, additional modules, and improvements to the overall ease of module creation and development.
 
 
-### [Automatic API Attack Tool](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-Imperva's customizable API attack tool takes an API specification as an input, creates and runs attacks which are based on it as an output.
-
-After researching the web, we didn't find an automatic tool which takes an API specification and checks the server offering the service against it. But we saw a high demand for such a tool from the community. So we decided to build it.
-
-The tool is able to parse the API specification and create fuzzing attack scenarios based on what it defines, and outside of its definition. Each endpoint is injected with cleverly generated values within the boundaries defined by the specification, and outside of it, the appropriate requests are sent and their success or failure are reported in a detailed manner. It is also able to run various security attack vectors targeted at the existing endpoints, or even non-existing ones (such as illegal resource access, XSS, SQLi and RFI).
-No human intervention needed, simply run the tool and get the results.
-
-The tool can be easily extended to adapt to the various needs; whether it is a developer who wants to test the API she wrote or an organization which wants to run regular vulnerability or positive security scans on its public API, you name it. It is built with CI/CD in mind.
-
-We are using this tool, among other tools, to check our security products internally.
-
-
-### [Azucar: Multi-Threaded Plugin-Based Tool to Help Assess the Security of Azure Cloud Environment Subscription](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-Azucar is a multi-threaded plugin-based tool to help assess the security of Azure Cloud environment subscription. By leveraging the Azure API, Azucar automatically gathers a variety of configuration data and analyses all data relating to a particular subscription in order to determine security risks.
-
-
 ### [BADINTENT - INTEGRATING ANDROID WITH BURP](#)  
 ![BH-EU-17](https://img.shields.io/badge/BH-EU-17-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
 BadIntent is the missing link between the Burp Suite and the core Android's IPC/Messaging-system. BadIntent consists of two parts, an Xposed-based module running on Android and a Burp-plugin. Based on this interplay, it is possible to use the Burp's common workflow and all involved tools and extensions, since the intercept and repeater functionality is provided. BadIntent hooks deeply into the Android system, performs various method redirections in Parcels and adds additional services to provide the described features. Most notably, BadIntent works system-wide and is not restricted to individual user apps.
@@ -671,23 +395,6 @@ BLE CTF is a series of Bluetooth Low Energy challenges in a capture the flag for
 Over the past few years, BLE CTF has expanded to support multiple platforms and skill levels. Various books, workshops, trainings, and conferences have utilized it as an educational platform and CTF. As an open source, low cost of entry, and expandable education solution, BLE CTF has helped progress Bluetooth security research.
 
 This demo will showcase the BLE CTF platform and its new variants. This will be the first public release of the CTF's newly supported hardware and companion firmware. Along with firmware for newly supported devices, a new expansion for the modular BLE CTF Infinity will be exhibited.
-
-
-### [BLE CTF Project](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-The purpose of BLE CTF is to teach the core concepts of Bluetooth low energy client and server interactions. While it has also been built to be fun, it was built with the intent to teach and reinforce core concepts that are needed to plunge into the world of Bluetooth hacking. After completing this CTF, you should have everything you need to start fiddling with any BLE GATT device you can find. Built to run on the esp32 microcontroller, the BLE CTF is a fully functional BLE GATT server which challenges users to utilize fundamental bluetooth communication methods. Focusing on fun and education, the CTF is the first of its kind to help teach hackers how to dive into the world of Bluetooth.
-
-Source Code: https://github.com/hackgnar/ble_ctf
-
-
-### [BLE hardware-less hackme](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-The new, free tool aims to help getting familiar with the very basics of ubiquitous Bluetooth Low Energy technology and its (in)security - without the need of any dedicated hardware. It is based on a specially designed software (running on a typical Windows 10 laptop) - which simulates a BLE device, on the radio layer working exactly the same as a real one. The simulated device contains several "hackme" challenges of increasing level: starting with simple communication protocol introduction up to unlocking smart locks. Most of these challenges can be solved using nothing more than just a free mobile application, which connects via Bluetooth to the laptop running simulated device. This unique approach makes the fun available for everyone who would like to start the journey into fascinating vulnerabilities of BLE devices, but is afraid of gearing up with special hardware or steep learning curve for advanced tools. The basics possible to grasp using the introduced hackme can however be easily applicable to take control of surprisingly lot of real devices surrounding us.
-
-
-### [BLEMystique: Affordable Custom BLE Target](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-BLEMystique is an ESP32 based custom BLE target which can be configured by the user to behave like one of the multiple BLE devices i.e. Heart rate monitor, Smart Lock, Smart Bottle, Smart band, Smartwatch etc. BLEMystique allows a pentester to play with BLE side of different Smart devices with a single piece of affordable ESP32 chip.
 
 
 ### [BLUEBOX-NG](#)  
@@ -729,26 +436,6 @@ A bag of fresh and juicy 0days is certainly something you would love to get
 as a Christmas present, but it would probably be just a dream you had one of those drunken nights.
 
 
-### [Beagle: Accelerating Incident Response With Graphs](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-Beagle is a tool which aims to accelerate an analyst's ability to respond to incidents by allowing them to quickly and reliably generate incident response oriented graphs from a variety of data sources.
-
-Beagle takes, as input, a wide variety of types of data:
-
-Host based logs such as FireEye HX, Sysmon or security event logs.
-Full memory images (using volatility).
-Sandbox reports such as Cuckoo.
-Streamed data from your SIEM.
-
-Beagle also supports inserting alert nodes into your graphs. For example, FireEye HX triages will contain an alert, and the process which it has alerted on. Beagle will automatically insert an alert node, and create the edge between the alert node and what it alerted on.
-
-In Beagle's web interface, analysts can select the data they uploaded and quickly work through the incident. If an alert node is present, the graph will automatically focus on the context around that node based on what the alert node has an edge to, allowing analysts to extremely quickly pivot through an incident. Analysts can pivot between nodes using simple clicks, as well as remove and search for nodes. Additionally, the graphs can be transformed into rooted trees, or seen as timelines (based on what is currently visible in the graph).
-
-Beagle is also easily extended. Do you have a unique data source not yet supported? Implement 7 functions and Beagle will support it. Graph algorithms can also be implemented using networkx, and can be automatically run when a graph is viewed in the browser, allowing you to even further speed up your incident response time.
-
-Beagle: https://github.com/yampelo/beagle
-
-
 ### [Bearded](#)  
 ![BH-US-15](https://img.shields.io/badge/BH-US-15-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
 Bearded is an open source Security Automation platform. The platform allows Development, QA, and Security team members to perform automated web security scans with a set of tools (w3af, sslyze, nmap, arachni etc), and re-execute those scans as needed. All tools can be executed in the cloud in docker containers. Bearded has a default web interface which integrates all core options and makes it possible to manage large pentests easily.Similar to owtf or minion, but using docker containers and scalable for clouds.
@@ -785,11 +472,6 @@ With BlueRepli Plus users can scan the surrounding Android phones via Bluetooth 
 ### [Breachego](#)  
 ![BH-US-15](https://img.shields.io/badge/BH-US-15-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
 Maltego Remote Transforms for Abusix, haveibeenpwned and BreachAlarm to perform link analysis and intrusion detection of compromised aliases, e-mail addresses, domains, plaintext and hashed passwords posted to Pastebin, Slexy, QuickLeak, Pastie, and Ghostbin.
-
-
-### [Bro: Do You Bro? Beginner to Expert](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-The Bro Network Security Monitor is an open-source framework that gives total visibility over network traffic in real-time. Since most cyber attacks cross the network (and hosts themselves can be compromised), threat hunters and incident responders typically rely on network data as a vital source of truth, to reconstruct what really happened (or is happening now) in their environment. Bro is perhaps the best and most widely used tool for network traffic analysis. Join us to learn more about Bro with Seth Hall, longtime Bro developer, and see a demo where he will provide a comprehensive overview of Bro, from introduction to advanced custom scripting.
 
 
 ### [Brosec](#)  
@@ -833,37 +515,9 @@ BurpBuddy is a tool originally released in 2014. Arsenal will mark the release o
 C-SCAD is an information gathering and penetration testing tool written to assess the security issues present in the Web-X (Internet Explorer-based web interface)  client used to interact with the ClearSCADA server.  Web-X client is hosted on the embedded web server which is shipped as a part of complete ClearSCADA architecture. Primarily, the Web-X client is restricted to perform any configuration changes but it can reveal potential information about the ClearSCADA server and associated components. Insecure deployments of WEB-X client can reveal potential information about the various functions such as alarm pages, SQL lists, and diagnostic checks including various reports. C-SCAD is authored in Python and is capable of the following:
 
 
-### [C0deVari4nt](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-None
-
-
 ### [CAN Badger](#)  
 ![BH-US-16](https://img.shields.io/badge/BH-US-16-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
 The car hacking topic is really hot at the moment, and many vulnerabilities affecting entire fleets are found from time to time. But is this all that there is regarding this topic? We want to introduce the CAN Badger, a tool designed to ease the way a vehicle is reversed. It is a hardware tool, not just an interface connected to a PC.Like its predecessor, the ECU Tool, the CAN Badger is able to handle the Security in ECUs in an easy way, as well as provide verbose information on what's going on in the buses. Want to learn how to approach vehicle electronics security in a practical way? Come and visit us at Arsenal!
-
-
-### [CANalyse (2.0): A vehicle network analysis and attack tool.](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-A prerequisite to using telegram option of this tool is that the Hardware implant is already installed in the car and capable of communicating with the Network inside the vehicle. Also, the library requiremnt are satisfied.
-
-Let's assume we have a car in which we have connected with USBtin(or user choice) which is connected to Raspberry pi (or any linux machine of userchoice) and the pi can communicate on the internet.
-LInk to USBtin - https://www.fischl.de/usbtin/
-
-What is CANalyse?
-
-Canalyse uses python-can library to sniff vehicle network packets and analyze the gathered information and uses the analyzed information to command & control certain functions of the car.
-
-CANalyse is a software tool built to analyze the log files in a creative powerful way to find out unique data sets automatically and able to connect to simple interfaces such as Telegram. Basically, while using this tool you can provide your bot-ID and be able to use the tool over the internet through telegram.
-
-canalyse can be installed inside a raspberry-PI, it is made to analyse log files in a creative way and also made to exploit the vehicle through a telegram bot by recording and analyzing the data logs.
-
-
-### [CANalyse 2.0 : A Vehicle Network Analysis and Attack Tool](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-CANalyse is a software tool built to analyse the log files in a creative powerful way to find out unique data sets automatically and inject the refined payload back into vehicle network. It can also connect to simple interfaces such as Telegram for remote control. Basically, while using this tool you can provide your bot-ID and be able to use the tool's inbuilt IDE over the internet through telegram.
-
-CANalyse uses python-can library to sniff vehicle network packets and analyse the gathered information and uses the analysed information to command & control certain functions of the vehicle. CANalyse can be installed inside a raspberry-PI, to exploit the vehicle through a telegram bot by recording and analysing the vehicle network.
 
 
 ### [CERNE - OPEN IDS PLATFORM](#)  
@@ -895,17 +549,6 @@ The tool uses a low profile hardware/electronics and different methods for crede
 Red Tiger Labs Control Layer Assessment Workstation is looking to redefine the way that ICS SCADA and other critical infrastructure utilities examine their cybersecurity posture.Developed in partnership with the Canadian Federal Government, under the direction of ICS experts, the toolset takes a passive approach to cybersecurity by learning to "look, listen, and feel" each network. Building into its suite of cutting-edge technologies developed with the brightest minds in Canadian InfoSec, CLAW combines visualization, mitigation, and remediation activities into one cohesive view of the entire network.The audience will learn not only how this toolset is effectively raising the bar from both an enterprise and control systems perspective, but also real world instances of incident response, vulnerability assessment, and early detection of gaps and overlaps within existing deployments.
 
 
-### [CLExtract: An End-to-End Tool Decoding Highly Corrupted Satellite Stream from Eavesdropping](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-While satellite communication with ground stations can be eavesdropped on using consumer-grade products, the received signals are oftentimes highly corrupted and cannot be effectively decoded using the traditional finite-state machine (FSM) based approach.
-
-To this end, we develop a tool named CLExtract which utilizes contrastive learning techniques to decode and recover corrupted satellite streams. Unlike the traditional FSM-based approach which relies on critical fields that become unreliable after corruption, CLExtract directly learns the features of packet headers at different layers and identifies them in a stream sequence. By filtering out these headers, CLExtract extracts the innermost payload which contains sensitive and private data. Further, CLExtract incorporates data augmentation techniques to entitle the trained contrastive learning models with robustness against unseen forms of corruption.
-
-To evaluate CLExtract, we performed eavesdropping on the spectrum range from 11 GHZ to 12.75 GHZ in a suburban area of a metropolis with more than 10 million of population in Asia, covering radio signals from seven commercial satellites. CLExtract can successfully decode and recover 71-99% of the total 23.6GB eavesdropped data, a significant improvement over the traditional FSM-based approach implemented by GSExtract which only recovers 2%.
-
-During the arsenal presentation, we will make CLExtract open source and demonstrate its usage to the security community using real-world satellite streams. This way, we hope to foster future research on satellite offense and defense techniques.
-
-
 ### [CLOUD SECURITY SUITE - ONE STOP TOOL FOR AWS SECURITY AUDIT](#)  
 ![BH-EU-17](https://img.shields.io/badge/BH-EU-17-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
 Nowadays, cloud infrastructure is pretty much the de-facto service used by large/small companies. Most of the major organizations have entirely moved to cloud. With more and more companies moving to cloud, the security of cloud becomes a major concern.
@@ -920,24 +563,9 @@ Few vulnerable scenarios:
 
 
 
-### [CQData: Data Extraction & Forensic Toolkit](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-CQData Toolkit enables you to perform extraction of data that can be extremely useful during the investigation and incident. One of the most important things to learn during the incident is to learn the identity connected with the attack and also become familiar with hacker's actions through the detailed process tracking. CQData can extract information from the Automatic Destinations, generate a timeline, convert Automatic Destination into useful lists of processes, recover files, extract information from the configuration, calculate the vector of the attack based on the process related information and search across other affected computers, decode encrypted users' data, find encrypted data on the computer and display its characteristic, search for confirmation that logs were not manipulated with etc. It is a toolkit that authors use during the incident investigation. Toolkit was created with one purpose, to address the gaps in the evidence analysis and data collection tools. CQData also leverages the reverse engineering research done in the DPAPI area and our recent 1-year research in the Automatic Destinations area.
-
-
 ### [CQForensic: The Efficient Forensic Toolkit](#)  
 ![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
 CQForensic Toolkit enables you to perform detailed computer forensic examinations. It guides you through the information gathering process providing data for analysis and extracting the evidence. CQForensic can build an attack timeline, extract information from the USN journal, recover files, also from MFT, decrypt user's and system's stored secrets, like encrypted data, extract information from Prefetch and from Remote Desktop Session cache, extract information from the configuration of the used for administration tools. It also contains toolkit for memory analysis, it extracts information from memory dumps, including the PowerShell commands, complete files, including making them consistent if they were corrupted, like sensitive EVTX files. Our biggest CQKawaii implements custom-made machine learning algorithms to extract from the large logs the anomalies. CQForensic is a very practical toolkit for forensic investigators.
-
-
-### [CQSysmon Toolkit: Advanced System Monitoring Toolkit](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-Our toolkit has proven to be useful in the 25000 computers environment. It relies on a free Sysmon deployment and its goal is to boost information delivered by the original tool. CQSysmon Toolkit allows you to extract information about what processes have been running in the operating system, get their hashes and submit them into Virus Total for the forensic information about the malware cases. It also allows to extract information into spreadsheet about what types of network connections have been made: what is the destination IP address, which process was responsible for it and who is the owner of IP. The toolkit also allows to extract information about the current system configuration and compare it with the other servers and much more that allows to become familiar of what is going on in your operating system. There is a special bonus tool in a toolkit that allows to bypass some parts of the Sysmon with another tool that allows to spot that situation so that everything stays in control. CQSysmon Toolkit allows you to established detailed monitoring of the situation on your servers and it is a great complement to the existing forensic tools in your organization.
-
-
-### [CQSysmonToolkit: Advanced System Monitoring Toolkit](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-Our toolkit has proven to be useful in the 25000 computers environment. It relies on a free Sysmon deployment and its goal is to boost information delivered by the original tool. CQSysmon Toolkit allows you to extract information about what processes have been running in the operating system, get their hashes and submit them into Virus Total for the forensic information about the malware cases. It also allows to extract information into spreadsheet about what types of network connections have been made: what is the destination IP address, which process was responsible for it and who is the owner of IP. The toolkit also allows to extract information about the current system configuration and compare it with the other servers and much more that allows to become familiar of what is going on in your operating system. There is a special bonus tool in a toolkit that allows to bypass some parts of the Sysmon with another tool that allows to spot that situation so that everything stays in control. CQSysmon Toolkit allows you to established detailed monitoring of the situation on your servers and it is a great complement to the existing forensic tools in your organization.
 
 
 ### [CQTools: The New Ultimate Hacking Toolkit](#)  
@@ -966,45 +594,9 @@ CROZONO Attacker is a smart framework, it has the capability of performing autom
 One of the best exclusive features of CROZONO is the report generation about all information gathered. In few minutes, it is possible to explore a zone or an industrial facility's perimeter and know its weak points from the summarization of data captured visually, allowing to see its security exposure levels.
 
 
-### [CSF: Container Security Framework](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-There are billions of containers started by organizations on a daily basis. Thus, there has been a considerable need to invest in container security along with the security for conventional compute instance (like a physical machine, AWS EC2, etc.). Currently, there is no open-source automated solution that enables the organization to constantly monitor security hygiene of their container ecosystem.
-
-ArmourBird CSF - Container Security Framework is an extensible, modular, API-first framework build for regular security monitoring of docker installations and containers against CIS and other custom security checks.
-
-ArmourBird CSF has a client-server architecture and is thus divided into two components:
-
-a) CSF Client
-
-This component is responsible for monitoring the docker installations, containers, and images on target machines
-In the initial release, it will be checking against Docker CIS benchmark
-The checks in the CSF client will be configurable and thus will be expanded in future releases and updates
-It has been build on top of Docker bench for security
-
-b) CSF Server
-
-This will be the receiver agent for the security logs generated by the various distributed CSF clients (installed on multiple physical/virtual machines)
-This will also have a UI sub-component for unified management and dashboard-ing of the various vulnerabilities/issues logged by the CSF Clients
-This server will also expose APIs that can be used for integrating with other systems
-
-Watch out this GitHub space for update: https://github.com/armourbird
-Follow the tool updates on twitter: https://twitter.com/ArmourBird
-
-
 ### [CTF Tools](#)  
 ![BH-US-15](https://img.shields.io/badge/BH-US-15-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
 There are a lot of tools written for security research and CTFs, but fairly few gain enough traction to be packaged and distributed by the likes of Ubuntu, or even Kali. Worse, when they *are* packaged, the packaged versions are often hopelessly outdated. This is unfortunate, and causes most researchers to have to spend time tracking down, compiling, configuring, and installing these tools. Also, when a computer has to be reinstalled the process generally has to be done again.There is a need for a central repository of such tools to track them and allow security researchers to easily install them (without screwing up the whole host system!). This is the story of such a repository.I've gone through the list of tools I've used in CTFs and in my research I have found the ones that are not adequately packaged, and created a central place for install scripts. The build system works with simple shell scripts (for easier contribution of packages) and installs everything under ~/tools (or, really, any other directory), without any global system changes (except for apt-getting dependencies from official repositories).As far as I can tell, this is the first repository of obscure security research tools, and I think it'll be a useful thing for the community at large.
-
-
-### [CWE_Checker: Architecture-Independent Binary Vulnerability Analysis](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-Assessing the security of programs running on embedded devices is a difficult task. Source code is generally unavailable and both static and dynamic binary analysis tools often do not offer support for the many different hardware configurations found in embedded devices.
-
-The cwe_checker is an open-source tool for finding bugs and vulnerabilities in binary executables without requiring source code access or any knowledge about the hardware. By using static analysis techniques built atop Ghidra P-Code it supports a wide range of CPU architectures including x86, ARM, MIPS and PowerPC. While its focus is the analysis of ELF binaries commonly found in Linux-based firmware, there exists experimental support for PE files and even bare-metal binaries.
-
-The cwe_checker offers detection of over 16 different bug classes including Buffer Overflows (CWE-119), Use-After-Frees (CWE-416) and Null Dereferences (CWE-476). The tool is built in a modular fashion where each analysis can use its own bug detection technique ranging from simple heuristics to complex data flow analysis. Furthermore, each analysis has a set of configuration parameters that can be modified to adjust the analysis to specific usage scenarios. For example, you can add your own functions to the "Use of potentially dangerous function" check (CWE-676).
-
-It is easy to integrate the cwe_checker into other tools and workflows using the alternative JSON output. For example, as a plugin into the Firmware Analysis and Comparison Tool (FACT) you can use it to hunt for vulnerabilities in large firmware data sets.
 
 
 ### [CYBOT - OPEN SOURCE THREAT INTELLIGENCE CHAT BOT](#)  
@@ -1038,11 +630,6 @@ Given the increased adoption of wireless-connected devices and pervasive, interc
 In normal circumstances, we've hosted the game on site at conferences world-wide, where radio signals are distributed "over the air", and participant are asked to use software-defined radio equipment to interact with the challenges. However, due the diverse local regulations in terms of wireless transmissions, we designed and implemented a containerized solution that eliminates the complexity of deploying physical radio transmitters, using an RF-over-IP broadcasting technique instead. With this framework, we can easily deploy CTS contests in countries with strict wireless regulation and remotely, backed by any cloud provider that offer container services.
 
 
-### [Carnivore: Microsoft External Attack Tool](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-Carnivore is a username enumeration and password spraying tool for Microsoft services (Skype for Business, ADFS, RDWeb, Exchange and O365). It includes new post compromise functionality for Skype for Business (pulling the internal address list and user presence), and a new method for smart detection of the username format. Carnivore originally began as an on-premises Skype for Business enumeration/spray tool as, these days, organizations have often locked down their implementations of Exchange, however, Skype for Business has been left externally accessible, and does not seem to have received as much attention from penetration tests.
-
-
 ### [CellAnalysis](#)  
 ![BH-ASIA-17](https://img.shields.io/badge/BH-ASIA-17-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
 CellAnalysis is a tool every pentester should add to his/her arsenal. Nowadays there are other tools intended to find fake cells (fake stations, IMSI Catchers, etc.), most of them use active monitoring; that is, they monitor traffic coming to the SIM card on a smartphone, so that only cell attacks are scanned on the same network as the SIM card. CellAnalysis offers a different approach, it performs a passive traffic monitoring, so it doesn't require a SIM card or a mobile device, just an OsmocomBB phone or compatible device SDR (rtlsdr, usrp, hackrf or bladerf) to start monitoring all the frequencies of the GSM spectrum.Far from being an out-of-the-box tool, it has been developed using shell-scripting to make easier the code modification or the customization by the pentester, as well as the integration with other tools. SDR device or OsmocomBB phone connected to the computer running Linux will analyze the spectrum or a part of it, in search of cells and for each cell found, a quantitative and qualitative analysis of the information transmitted will be carried out. Alarms generation is not based on a scoring system, but each parameter chosen as a potential threat will generate an alarm if it is evaluated as such in the cell under study.
@@ -1051,15 +638,6 @@ CellAnalysis is a tool every pentester should add to his/her arsenal. Nowadays t
 ### [Certbot](#)  
 ![BH-US-16](https://img.shields.io/badge/BH-US-16-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
 The majority of the world's Web traffic is still unencrypted and sent using the insecure HTTP. Despite SSL/TLS having existed for decades, it has seen limited adoption on modern webservers. This is largely due to the plethora of obstacles one must over come to enable HTTPS. The process of obtaining a certificate can be expensive and convoluted. Additionally, creating a secure TLS configuration is difficult, especially when it must be constantly updated in response to new attacks against the protocol and implementations of it.To attempt to solve this problem, EFF, Mozilla Cisco, Akamai, IdenTrust, and a team from the University of Michigan have created Let's Encrypt, a free and automated certificate authority. Since the project entered beta in October of last year, the CA has issued millions of certificates making it one of the largest certificate authorities in the world today.Earlier this year, EFF unveiled Certbot, a free and open source tool which can be used to set up HTTPS on a webserver in the matter of seconds. Certbot communicates to the Let's Encrypt CA through a protocol called ACME allowing for automated domain validation and certificate issuance. In this session, I plan to show how easy it is to use Certbot to enable HTTPS with certificates from Let's Encrypt as well as answer any questions you may have about the project.
-
-
-### [ChangWei: A Modern Fuzzing Framework for VxWorks System](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-VxWorks is the industry's leading real-time operating system. It has been widely used in various industry scenarios, which require real-time, deterministic performance and, in many cases, safety and security certification. Since VxWorks has so much importance in industry, more and more people are working on security problems around it.
-
-Fuzzing is an effective technique to discovery vulnerabilities. Feedback-guided fuzzing, such as AFL(American Fuzzy Lop), has proven its excellent ability in finding vulnerabilities of complex programs. Fuzzing tools using this technique have been widely applied to Linux, MacOS and even Windows, but never to VxWorks. According to the current situation, we design a feedback-guided fuzzing tool named "ChangWei" especially for VxWorks. We take advantage of the instrumentation API of Bochs emulator to measure and extract target coverage in a persistent fuzzing mode, and then generate input samples with the help of AFL mutation engine.
-
-We are going to utilize this tool to assist developers to test their code and find hidden vulnerabilities before they are discovered by malicious attackers. Apart from that, we'd like anyone who has interest in this to help us optimize it and build a powerful tool for the security industry.
 
 
 ### [Chellam](#)  
@@ -1077,20 +655,6 @@ ChipWhisperer - the favorite open-source toolchain for including both hardware &
 Nowadays, cloud infrastructure is pretty much the de-facto service used by large/small companies. Most of the major organizations have entirely moved to cloud. With more and more companies moving to cloud, the security of cloud becomes a major concern. While AWS & GCP provides you protection with traditional security methodologies and has a neat structure for authorisation/configuration, its security is as robust as the person in charge of creating/assigning these configuration policies. As we all know, human error is inevitable and any such human mistake could lead to catastrophic damage to the environment.A few vulnerable scenarios:Your security groups, password policy or IAM policies are not configured properlyS3 buckets are world-readableWeb servers supporting vulnerable ssl ciphersPorts exposed to public with vulnerable services running on themIf root credentials are usedLogging or MFA is disabledAnd many more such scenarios...Knowing all this, audit of AWS/GCP infrastructure becomes a hectic task! There are few open source tools that help AWS/GCP auditing, but none of them have an exhaustive checklist. Also, collecting, setting up all the tools, and looking at different result sets is a painful task. Moreover, while maintaining big infrastructures, system audit of server instances is a major task as well.CS Suite is a one stop tool for auditing the security posture of the AWS/GCP infrastructure and does OS audits as well. CS Suite leverages current open-source tools capabilities and has other missing checks added into one tool to rule them all. CS-Suite also supports JSON output which can be consumed for further usage.
 
 
-### [CloudPathSniffer: Detect and Visualize Abnormal Lateral Movements in Cloud](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-CloudPathSniffer is an open-source, straightforward, and extensible Cloud Anomaly Detection Tool explicitly crafted to assist security teams in uncovering hard-to-see risks and undetected attackers within their control plane of cloud environments.
-
-In the dynamic environment of cloud security, the invisibility of temporary credentials has consistently posed a risk, making identifying and tracing potential malicious activity a challenging endeavor.
-
-Unlike traditional tools, CloudPathSniffer boasts a unique capability that sets it apart: It can effectively track temporary credentials and attack paths made by them. Beyond monitoring, it reveals vulnerabilities concealed within logs and creates a comprehensive attack schema. Utilizing graphics-based visualization, it offers a simplified interpretation of lateral movements within data. By seamlessly integrating these insights into a graph database alongside your credentials, CloudPathSniffer provides an unmatched defense strategy, ensuring every detail is meticulously addressed.
-
-
-### [Cluster Fuzz, Introduction to Car Hacking With Real Car Hardware](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-None
-
-
 ### [CODEXGIGAS MALWARE DNA PROFILING SEARCH ENGINE](#)  
 ![BH-EU-16](https://img.shields.io/badge/BH-EU-16-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
 Next generation threats are becoming more sophisticated and stealthy, and incident response teams require more advanced tools to respond to such attacks. CodexGigas is a malware profiling search engine that allows malware hunters and analysts to really interrogate the internals of malware and perform searches over a large number of file characteristics. For instance, instead of relying on file-level hashes, we can compute other features such as imported functions, strings, constants, file segments, code regions, or anything that is defined in the file type specification, and that provides us with more than 150 possible searchable patterns, that can be combined. Similar to human fingerprints, every malware has its own unique digital fingerprint that differentiates it from others. As a result, malware will always attempt to hide its true self by deleting or changing this information to avoid detection by antivirus companies and malware researchers.
@@ -1101,16 +665,6 @@ Come to see how CodexGigas could be used to enhance your malware hunting capabil
 Link: https://twitter.com/codexgigassys; link: https://github.com/codexgigassys/
 
 
-### [Cotopaxi: IoT Protocols Security Testing Toolkit](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-Cotopaxi is a set of tools for security testing of Internet of Things devices using specific network IoT/IIoT/M2M protocols (e.g. AMQP, CoAP, DTLS, HTCPCP, mDNS, MQTT, MQTT-SN, QUIC, SSDP).
-
-
-### [Counterfit: Attacking Machine Learning in Blackbox Settings](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-None
-
-
 ### [CrackMapExec v4.0](#)  
 ![BH-ASIA-18](https://img.shields.io/badge/BH-ASIA-18-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
 Ever needed to pentest a network with 10 gazillion hosts with a very limited time frame? Ever wanted to Mimikatz entire subnets? How about shelling entire subnets? How about dumping SAM hashes? Share spidering? Keeping track of all the credentials you pillaged? (The list goes on)! All while doing this in the stealthiest way possible? Look no further than CrackMapExec! CrackMapExec (a.k.a CME) is a modular post-exploitation tool written in Python that helps automate assessing the security of *large* Active Directory networks. Built with stealth in mind, CME follows the concept of "Living off the Land": abusing built-in Active Directory features/protocols to achieve it's functionality and allowing it to evade most endpoint protection, IDS and IPS solutions. Although meant to be used primarily for offensive purposes, CME can be used by blue teams as well to assess account privileges, find misconfigurations and simulate attack scenarios. In this demo, the author will be showing off v4.0, a major update to the tool bringing more feature and capabilities than ever before! If you are interested in the latest and greatest Active Directory attacks/techniques, weaponizing them at scale and general cool AD stuff this is the demo for you!
@@ -1119,16 +673,6 @@ Ever needed to pentest a network with 10 gazillion hosts with a very limited tim
 ### [CrackMapExec](#)  
 ![BH-US-16](https://img.shields.io/badge/BH-US-16-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
 CrackMapExec is fully open-source and hosted on Github: it aims to be a one-stop-shop for all of your offensive Active Directory needs by combining the power of Python, Powersploit and the Impacket library!Taking inspiration from previous tools such as:smbexecsmbmapcredcrackIt allows you to quickly and efficiently import credentials from Empire and Metasploit, replay credentials, pass-the-hash, execute commands, powershell payloads, spider SMB shares, dump SAM hashes, the NTDS.dit, interact with MSSQL databases and lots more in a fully concurrent pure Python script that requires no external tools and is completely OpSec safe! (no binaries are uploaded to disk!).
-
-
-### [CrackQ: Intelligent Password Cracking](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-CrackQ is, first and foremost, a Python based queuing system for managing hash cracking using Hashcat. There are several tools available for this purpose, CrackQ was born from the frustration of using these tools on a daily basis. It adds some new and interesting additional features as solutions to these frustrations. CrackQ is essentially a REST API with clients in the form of a Python CLI tool and a web GUI. The API design is very stable and works very reliably as a platform to use for day-to-day password cracking within an offensive-security team. The tool is designed to be easy to install and comprises of currently 4 docker images, built on production ready containers segregating each component, all controlled seamlessly using docker-compose. The tool will also include detailed analysis/reporting with graphs representing a multitude of metrics and automated "intelligent" cracking using various pre-existing techniques and machine learning solutions. The tool will be released open-source in the coming months.
-
-
-### [CrowdSec: The Open-Source and Participative IPS](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-None
 
 
 ### [CuckooDroid (March 26)](#)  
@@ -1179,15 +723,6 @@ We were thrilled to demo the end result of our research at Black Hat Arsenal Veg
 Threat intelligence chat bots are useful friends. They perform research for you and can even be note takers or central aggregators of information. However, it seems like most organizations want to design their own bot in isolation and keep it internal. To counter this trend, our goal was to create a repeatable process using a completely free open source framework, an inexpensive Raspberry Pi (or even virtual machine), and host a community-driven plugin framework to open up the world of threat intel chat bots to everyone from the average home user to the largest security operations center.
 
 We were thrilled to share the end result of our research (a chat bot that we affectionately call CyBot) with Black Hat attendees worldwide at the US, Europe, and Asia conferences. Each conference provided an opportunity to share the latest plugins and collect feedback and feature requests with the absolute best in the industry. This year's Black Hat Europe will allow us to continue the global collaboration effort in making incident response and threat research faster and more efficient than ever.
-
-Best of all, if you know even a little bit of Python, you can help our collaboration efforts by writing plugins and sharing them with the community. If you want to build your own CyBot, the instructions in this project will let you do so with about an hour of invested time and anywhere from $0-$35 in expenses. Come make your own threat intelligence chat bot today!
-
-
-### [CyBot: Open-Source Threat Intelligence Chat Bot (Full Circle)](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-Threat intelligence chat bots are useful friends. They perform research for you and can even be note takers or central aggregators of information. However, it seems like most organizations want to design their own bot in isolation and keep it internal. To counter this trend, our goal was to create a repeatable process using a completely free open source framework, an inexpensive Raspberry Pi (or even virtual machine), and host a community-driven plugin framework to open up the world of threat intel chat bots to everyone from the average home user to the largest security operations center.
-
-We were thrilled to debut the end result of our research (a chat bot that we affectionately call CyBot) at Black Hat Arsenal Vegas 2017. To build on that momentum we also brought CyBot to Black Hat Europe and Asia to gather more great feedback and ideas from an enthusiastic international crowd. This year's Black Hat Vegas will allow us to share new features that stemmed from Black Hat Asia feedback as well as lessons learned from the global collaboration effort.
 
 Best of all, if you know even a little bit of Python, you can help our collaboration efforts by writing plugins and sharing them with the community. If you want to build your own CyBot, the instructions in this project will let you do so with about an hour of invested time and anywhere from $0-$35 in expenses. Come make your own threat intelligence chat bot today!
 
@@ -1442,100 +977,6 @@ New features:
 De-Cloak is designed to extract HTTP user agents from PCAP files and store known user agents in a database. Hackers often hide wget or http requests by using known user agents. However, if we change our own user agents (perhaps via a GPO) we can start to investigate what starts to stand out. Simple but effective.
 
 
-### [Deep Exploit](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-DeepExploit is fully automated penetration tool linked with Metasploit. It identifies the status of all opened ports on the target server and executes the exploit at pinpoint using Machine Learning.
-
-Deep Exploit's key features are the following:
-
-Self-learning: DeepExploit can learn how to exploitation by itself (uses reinforcement learning). It is not necessary for humans to prepare learning data.
-Efficiently execute exploit: DeepExploit can execute exploits at pinpoint (minimum 1 attempt) using self-learned data.
-Deep penetration: If DeepExploit succeeds the exploit to the target server, it further executes the exploit to other internal servers.
-Operation is very easy: Your only operation is to input one command. It is very easy!
-Learning time is very fast: DeepExploit uses distributed learning by multi agents. So, we adopted an advanced machine learning model called A3C.
-
-Current Deep Exploit's version is a beta, but it can fully automatically execute following actions:
-
-Intelligence gathering
-Threat modeling
-Vulnerability analysis
-Exploitation
-Post-Exploitation
-Reporting
-
-By using our DeepExploit, you will benefit from the following:
-
-For pentesters: (a) They can greatly improve the test efficiency; (b) The more pentesters use DeepExploit, DeepExploit learns how to method of exploitation using machine learning. As a result, accuracy of test can be improve.
-For Information Security Officers: (c) They can quickly identify vulnerabilities of own servers. As a result, prevent that attackers attack to your servers using vulnerabilities, and protect your reputation by avoiding the negative media coverage after breach.
-
-Because attack methods to servers are evolving day by day, there is no guarantee that yesterday's security countermeasures are safety today. It is necessary to quickly find vulnerabilities and take countermeasures. Our DeepExploit will contribute greatly to keep your safety.
-
-Source Code:
-https://github.com/13o-bbr-bbq/machine_learning_security/tree/master/DeepExploit
-
-Document:
-https://github.com/13o-bbr-bbq/machine_learning_security/blob/master/DeepExploit/doc/BHUSA2018Arsenal_20180802.pdf﻿
-
-
-### [Deep Exploit: Fully Automatic Penetration Test Tool Using Machine Learning](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-DeepExploit is fully automated penetration tool linked with Metasploit. It identifies the status of all opened ports on the target server and executes the exploit at pinpoint using Machine Learning.
-
-Deep Exploit's key features are the following:
-
-Efficiently execute exploit: DeepExploit can execute exploits at pinpoint (minimum 1 attempt) using self-learned data.
-Deep penetration: If DeepExploit succeeds the exploit to the target server, then it further executes the exploit to other internal servers.
-Self-learning: DeepExploit can learn how to exploitation by itself (uses reinforcement learning). It is not necessary for humans to prepare learning data.
-Powerful intelligence gathering. To gather the information of software operated on the target server is very important for successful the exploitation. DeepExploit can identify product name and version using following methods.
-+ Port scanning; Machine Learning (Analyze HTTP responses gathered by Web crawling); Google Hacking
-
-Current Deep Exploit's version is a beta, but it can fully automatically execute following actions:
-
-Intelligence gathering
-Threat modeling
-Vulnerability analysis
-Exploitation
-Post-Exploitation
-Reporting
-
-By using our DeepExploit, you will benefit from the following:
-
-For pentesters:
-(a) They can greatly improve the test efficiency; (b) The more pentesters use DeepExploit, DeepExploit learns how to method of exploitation using machine learning. As a result, accuracy of test can be improve.
-
-
-For Information Security Officers:
-(c) They can quickly identify vulnerabilities of own servers. As a result, prevent that attackers attack to your servers using vulnerabilities, and protect your reputation by avoiding the negative media coverage after breach.
-
-Because attack methods to servers are evolving day by day, there is no guarantee that yesterday's security countermeasures are safety today. It is necessary to quickly find vulnerabilities and take countermeasures. Our DeepExploit will contribute greatly to maintaining your safety.
-
-Presentation: https://www.slideshare.net/babaroa/deep-exploitblack-hat-europe-2018-arsenal
-Source Code:: https://github.com/13o-bbr-bbq/machine_learning_security/tree/master/DeepExploit
-
-
-### [DeepViolet: SSL/TLS Scanning API & Tools](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-DeepViolet TLS/SSL scanner is an information gathering tool to test TLS/SSL configuration on secure web servers. DeepViolet is an API written in Java. Two proof of concept tools implement the API to demonstrate DeepViolet running from the command line or alternatively from a desktop application. Features of DeepViolet include enumeration of web server cipher suites, display X.509 certificate metadata, examine X.509 certificate trust chains, user configurable ciphersuite naming conventions and more. DeepViolet is an OWASP open source project written to help educate the technical community around TLS/SSL and strengthen knowledge of security protocols while strengthen security of web applications. DeepViolet project is always looking for volunteers.
-
-Source Code: https://github.com/spoofzu/DeepViolet
-
-
-### [Deepfake Detection with Faceless](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-None
-
-
-### [Demystifying the State of Kubernetes Cluster Security - The Cloud Native Way](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-Attackers always get better with new attack techniques, so our threat modelling and defense mechanisms needs to level up.
-
-The security of the Kubernetes cluster, of course, cannot be achieved in a single process. There are many moving parts within the Kubernetes cluster that must be properly secured.
-
-Kube-striker performs numerous in depth checks on kubernetes infra to identify the security misconfigurations and challenges that devops/developers are likely to encounter when using Kubernetes.
-
-Kube-striker is Platform agnostic and works equally well across more than one platform such as self hosted kubernetes, EKS, AKS, GKE etc.
-
-
 ### [Dependency-Check](#)  
 ![BH-US-14](https://img.shields.io/badge/BH-US-14-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
 Does your application have dependencies on third party libraries? Do you know if those same libraries have published CVEs? OWASP Dependency-Check can help by providing identification and monitoring of the libraries your application uses, notifying you that vulnerabilities (CVEs) have been published for third party code your application uses. Jeremy will be demonstrating the tool and the various ways enterprises can use the tool to perform continuous monitoring of their applicationsâ dependent libraries.
@@ -1553,19 +994,9 @@ This tool is free and will be open sourced exclusively at Black Hat, so that the
 Sometimes you want to be able to pull forensic images off your production hosts, but you want to make sure you set that up correctly. If you don't, people might steal customer financial data or cryptocurrency private keys for hot wallets (or something else), and that would be a very bad day for you and for the cryptocurrency community. This talk introduces Dexter, a forensics tool for high security environments. Dexter makes sure that no single person can do scary forensics things, and that the scary results of the scary forensic things can only be read by people who aren't scary. I'll give an overview of the Coinbase production environment, data pipeline, and detection tooling to set the stage for when we might use Dexter. We will then walk through how Dexter works and do a demo that will totally work and not have any technical issues whatsoever.
 
 
-### [Dialing Home: ATM Protocol Reversing](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-None
-
-
 ### [Digital Disease Tracking Tool](#)  
 ![BH-US-15](https://img.shields.io/badge/BH-US-15-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
 Today's digital ecosystem is harboring digital diseases that are increasingly resistant to antiviral measures. Many information security professionals continue to address the malware (digital disease pathogen) threat by focusing on antiviral methods and the re-imaging of infected hosts. The prevalence of infection is not conducive to the old reactive vaccination paradigm of one antidote signature for all. Can we learn from epidemiologists and how they investigate biological diseases? How do we enable more people to help in this digital medical crisis? We know there aren't enough people working on the digital disease problem, so how do we increase the numbers? This Digital Disease Control Web-Based Tracking app is an alpha proof of concept visualization tool, inspired by epidemiology, to enable entry level technicians to enter the security field.
-
-
-### [Disrupting OT and IoT by Exploiting TCP/IP Stacks](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-None
 
 
 ### [Dracon, Security Engineering Automation, No Code, At Your Fingertips](#)  
@@ -1596,26 +1027,9 @@ Dradis is an extensible, cross-platform, open source collaboration framework to 
 Droid-FF is the very first Android fuzzing framework which helps researchers find memory corruption bugs written in c /c ++ â It comes as a VM which is ready to go and easy to work with. Why Droid-FF ? Native code is preferred over JIT languages due to their memory efficiency and speed, but security bugs within native code can result in exploits that can take over the Android system . The goal of the fuzzer is help researchers find security bugs by fuzzing Android.What does it do?Data Generation Currently includes Peach, with some pre-populated pit files, which helps in generating data be it "dex,ttf,png,avi,mp4" etcApproaches a . Dumb fuzzing: From a large input section of valid data , the fuzzer generates new data with mutations in place. b. Intelligent Fuzzing: We create a file format representation of the target data and let the fuzzer generate data which is structurally valid, but has invalid data in sections.Fuzzing System The fuzzing system is an automated program which runs the dataset against the target program and deals with any error conditions that can possibly happen. It also maintains state so that we could resume the fuzzing from the right place in an event of a crash.Advanced Triage System In the event of a valid crash, the triage system collects the tombstone files which contains the dump of the registers and system state with detailed information. It also collects valid logs and the file responsible for the crash and moves it to the triage database. The triage database runs scripts on the data derived from crashes, like the type pf the crash, for eg : SIGSEGV, the PC address at this crash and checks for any duplicate, if found, the duplicate entry is removed and is moved to crashes for investigation.What we're using during this lab? The android system which we are going to fuzz is an Engineering build from AOSP which has symbols, thus in an event of a crash, it will be much easier to triage the crash. The system supports fuzzing real devices, emulators , and images running on virtual box. How Efficient is this Framework? We ran the fuzzer in Intelligent fuzzing mode with mp4 structure fed in for 14 hours on the stagefright binary and it was able to reproduce 3 crashes which were exploitable ( CVE's) and lots of un-interesting crashes mostly dude to out of memory, duplicates or null pointers.Goals of the FrameworkMake Fuzzing Easy and available for allCompletely open source and extensibleMake android eco-system more secure
 
 
-### [Drone Hacking with DroneSploit](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-This project is aimed to provide a Metasploit-like CLI framework tailored to drone hacking.
-
-It currently supports modules for the C-me and Flitt drones (Hobbico) but should be extended in a near future with new modules for other brands and models (i.e. Parrot and DJI).
-
-
 ### [Drone Monitoring and Takedown System (DMTS)](#)  
 ![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
 The rise of commercial drones/Unmanned Aerial Vehicles (UAV) has dramatically changed several industries and our daily lives. This emergence is also challenging our concept of safety, security, privacy and regulation. With their ability to amass data and transport loads, drones are changing our views about our physical environment. Commercial drones are now used for surveying, inspecting and imaging with more technological advancements being pushed out by active communities of hobbyists and enthusiasts. Although their commercial use has been criticised by both individuals and activist organisations, this tension presents unique challenges to integration in the current public, government and private sectors. Recent incidents regarding drone disruptions and malicious activities has further cemented the fact that there is a lack in control and regulation of drones. Thus, we created DMTS as an automated drone-to-drone solution that hopefully helps to alleviate our regulatory and physical security needs.
-
-
-### [Drone Remote ID Spoofer and Low Cost Receiver Application](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-None
-
-
-### [Drone Threats and Countermeasures](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-None
 
 
 ### [Drozer (formerly known as Mercury)](#)  
@@ -1626,23 +1040,6 @@ Drozer, previously known as Mercury, is the de facto tool for vulnerability-hunt
 ### [Dude, WTF in my car?](#)  
 ![BH-US-13](https://img.shields.io/badge/BH-US-13-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
 The car ECU tuning market is weird. There is little help from people already in it, and most of the equipment is expensive. Well, not anymore!
-
-
-### [EMBA – From firmware to exploit](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-IoT (Internet of Things) and OT (Operational Technology) are the current buzzwords for networked devices on which our modern society is based on. In this area, the used operating systems are summarized with the term firmware. The devices themselves, also called embedded devices, are essential in the private and industrial environments as well as in the so-called critical infrastructure.
-
-Penetration testing of these systems is quite complex as we have to deal with different architectures, optimized operating systems, and special protocols. EMBA is an open-source firmware analyzer with the goal to simplify and optimize the complex task of firmware security analysis. EMBA supports the penetration tester with the automated detection of 1-day vulnerabilities on a binary level. This goes far beyond the plain CVE detection: With EMBA you always know which public exploits are available for the target firmware. Besides the detection of already known vulnerabilities, EMBA also supports the tester on the next 0-day. For this, EMBA identifies critical binary functions, protection mechanisms, and services with network behavior on a binary level. There are many other features built into EMBA, such as fully automated firmware extraction, finding file system vulnerabilities, hard-coded credentials, and more.
-
-EMBA is the open-source firmware scanner, created by penetration testers for penetration testers.
-
-
-### [EMBA – Open-Source Firmware Security Testing](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-IoT (Internet of Things) and OT (Operational Technology) are the current buzzwords for networked devices on which our modern society is based on. In this area, the used operating systems are summarized with the term firmware. The devices themselves, also called embedded devices, are essential in the private and industrial environments as well as in the so-called critical infrastructure.
-Penetration testing of these systems is quite complex as we have to deal with different architectures, optimized operating systems and special protocols. EMBA is an open-source firmware analyzer with the goal to simplify and optimize the complex task of firmware security analysis. EMBA supports the penetration tester with the automated detection of 1-day vulnerabilities on binary level. This goes far beyond the plain CVE detection: With EMBA you always know which public exploits are available for the target firmware. Besides the detection of already known vulnerabilities, EMBA also supports the tester on the next 0-day. For this, EMBA identifies critical binary functions, protection mechanisms and services with network behavior on a binary level. There are many other features built into EMBA, such as fully automated firmware extraction, finding file system vulnerabilities, hard-coded credentials, and more.
-
-EMBA is the open-source firmware scanner, created by penetration testers for penetration testers.
 
 
 ### [EMBA: Open-Source Firmware Security Testing](#)  
@@ -1663,36 +1060,6 @@ Hardware hacking is about to understand the inner working mechanism of hardware.
 ![BH-EU-17](https://img.shields.io/badge/BH-EU-17-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
 IoT is an emerging field exploding with new products and innovation. The security of IoT products is still lagging behind for various reasons. One of the important reasons from security researcher's perspective is the availability of security tools. If you have been pentesting IoT products, you would agree that there are too many different tools required for the job and there is no single silver bullet. And when it comes to Smart Infrastructure, we do not have any existing solutions similar to IT penetration testing tools.
 We started looking at the learning curve and tools required for IoT security research and decided to create a framework that will enable the research community to speed up their research and pentesting effort. Meet expliot (pronounced - explaayotee) an open source IoT security testing and exploitation framework, right now in Beta phase, it will provide the building block for writing exploits and other IoT security assessment test cases with ease by making it simple for security researchers to create and execute simple to complex mis-use cases using the framework. The objective of the framework is:
-
-
-### [EXPLIoT: IoT Security Testing and Exploitation Framework](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-EXPLIoT
-
-noun
-/ɛkˈsplʌɪəti:/
-
-A Framework for security testing and exploiting IoT products and IoT infrastructure. It provides a set of plugins (test cases) which are used to perform the assessment and can be extended easily with new ones. The name EXPLIoT (pronounced expl-aa-yo-tee) is a pun on the word exploit and explains the purpose of the framework i.e. IoT exploitation. It is developed in python3.
-
-It can be used as a standalone tool for IoT security testing and more interestingly, it provides building blocks for writing new plugins/exploits and other IoT security assessment test cases with ease. EXPLIoT supports most IoT communication protocols, hardware interfacing functionality and test cases that can be used from within the framework to quickly map and exploit an IoT product or IoT Infrastructure.
-It will help the security community in writing quick IoT test cases and exploits. The objectives of the framework are:
-1. Easy of use
-2. Extendable
-3. Support for hardware, radio and IoT protocol analysis
-
-Currently, the framework has support for analyzing and exploiting various IoT, radio and hardware protocols. The current suite includes:
-- BLE
-- CAN
-- DICOM (Will be fully implemented before the conference)
-- MQTT
-- Modbus
-- I2C
-- SPI
-- UART
-
-We are also very happy to announce that we have released a comprehensive documentation including User and Developer guide to help the security community kick start quickly and easily with the framework. Source code and documentation is available here - https://gitlab.com/expliot_framework/expliot
-
-We are currently working on plugins for medical, radio and hardware analysis and will release it at Blackhat.
 
 
 ### [Easy EASM - The Zero Dollar Attack Surface Management Tool](#)  
@@ -1729,60 +1096,14 @@ Ekeid is an open-source solution that is derived from ByteDance's internal best 
 Enumall leverages the Kali Linux distribution and the wildly popular recon-ng framework to find hidden gems in application assessments, asset discovery work, and OSINT engagements. These gems are acquisitions and subdomains. This isn't just your standard DNS tool. Enumall pulls possible subdomains and acquisitions from Google, Yahoo, Bing, Baidu, Netcraft, Shodan, techcrunch and more! It gives a standard output that inter-operates with several tools (one of which we will be demo'ing is Eyewitness for further detailed discovery!). In addition, Enumall also has the largest and most curated DNS bruteforce list on the internet. Come by and let us show you how you can use Enumall to supercharge your bug hunting and find ripe subdomains and acquisitions!
 
 
-### [EventList](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-EventList: What the log?! So many events, so little time...
-Detecting adversaries is not always easy - especially when it comes to correlating Windows Event Logs to real-world attack patterns and techniques. EventList helps to match Windows Event Log IDs with the MITRE ATT&CK framework (and vice-versa) and offers methods to simplify the detection in corporate environments worldwide.
-
-Use this tool to:
-
-Import either MSFT Baselines or custom GPOs
-Find out immediately which Events are being generated and what MITRE ATT&CK techniques are being covered by the selected Baseline/GPO
-Choose MITRE ATT&CK techniques and generate GPOs to generate the events needed for detection
-Generate Agent Forwarder Configs to only cover the events needed for the detection (avoid being "Log spammed")
-Generate Queries to detect the chosen MITRE ATT&CK techniques, regardless of the SIEM solution used
-
-
 ### [EventList: What the log?! So Many Events, so Little Time...](#)  
 ![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
 Detecting adversaries is not always easy - especially when it comes to correlating Windows Event Logs to real-world attack patterns and techniques. EventList helps to match Windows Event Log IDs with the MITRE ATT&CK framework (and vice-versa) and offers methods to simplify the detection in corporate environments worldwide.
 
 
-### [Eventpad: Rapid and Cost Effective Malware Analysis Using Visual Analytics](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-The analysis of malware behavior in network activity and event logs is a costly and time-consuming task. Even with automated techniques, inspection of network traffic in tools such as Wireshark is often tedious and overwhelming due to the many packet details.
-
-We need faster techniques to speedup the discovery of malware activity and gain insight in our event logs by combining machine learning and visualization together. To this end we developed "Eventpad - the notepad editor for event data", a tool that enables analysts to quickly analyze network traffic by exploiting the human mind. Eventpad is a visual analytics tool that enables analysts to visually inspect system events as blocks on a screen. Just like a notepad editor find&replace, conditional formatting, and rewrite functionality can be used to accurately search and highlight system vulnerabilities in these block collections. Together with automated techniques such as clustering and multiple sequence alignment analysts can quickly drill down and extract nontrivial patterns and threat indicators from network conversations and event logs.
-
-We demonstrate how we can use Eventpad to quickly discover patterns in PCAP DPI traffic. In particular, we give live demos on how we can use the tool to discover protocol misusage in VoIP traffic and reverse engineer Ransomware viruses in back office environments.
-
-
-### [Expl-iot: IoT Security Testing and Exploitation Framework](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-Expl-iot is an open source flexible and extendable framework for IoT Security Testing and exploitation. It will provide the building blocks for writing exploits and other IoT security assessment test cases with ease. Expliot will support most IoT communication protocols, firmware analysis, hardware interfacing functionality and test cases that can be used from within the framework to quickly map and exploit an IoT product or IoT Infrastructure. It will help the security community in writing quick IoT test cases and exploits. The objectives of the framework are:
-
-Easy of use
-Extendable
-Support for hardware, radio and IoT protocol analysis
-
-We are currently working on the python3 version and will release it in a month. The new Alpha release is envisioned to have support for UART(serial), ZigBee, BLE, MQTT, CoAP (next version will have support for JTAG, I2C and SPI) and few miscellaneous test cases.
-
-Source Code: https://gitlab.com/expliot_framework/expliot
-
-
 ### [EXPLOIT PACK](#)  
 ![BH-EU-17](https://img.shields.io/badge/BH-EU-17-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
 In a nutshell, Exploit Pack its an integrated security framework for performing and conducting professional penetration tests. As any tool of this type, it requires some basic knowledge and expertise in the matter, even though Exploit Pack has been designed to be used by hands-on security professionals to support their testing process, with a little bit of effort anyone can start using the core features of Exploit Pack to test in-deep the security of their applications. But of course some Exploit Pack's more advanced features will take further learning and experience to master.
-
-
-### [Exploiting & Securing Trains](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-None
-
-
-### [Extensible Azure Security Tool](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-Extensible Azure Security Tool (Later referred to as E.A.S.T) is a tool for assessing Azure and to some extent Azure AD security controls. The primary use case of EAST is Security data collection for evaluation in Azure Assessments. This information (JSON content) can then be used in various reporting tools, which we use to further correlate and investigate the data.
 
 
 ### [FACT 2.5: Firmware Analysis and Comparison Tool](#)  
@@ -1793,19 +1114,6 @@ The Firmware Analysis and Comparison Tool (FACT) is intended to automate firmwar
 ### [FACT 3.0: Firmware Analysis and Comparison Tool](#)  
 ![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
 The Firmware Analysis and Comparison Tool (FACT) is intended to automate firmware security analysis. Thereby, it shall be easy to use (web GUI), extend (plug-in system) and integrate (REST API). When analyzing Firmware, you face several challenges: unpacking, initial analysis, identifying changes towards other versions, find other firmware images that might share vulnerabilities you just found. FACT is able to automate many aspects of these challenges leading to a massive speed-up in the firmware analysis process. This means you can focus on the fun part of finding new vulnerabilities, whereas FACT does all the boring stuff for you.
-
-
-### [FACT 4.0](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-Analyzing Firmware specifically to identify potential vulnerabilities is a common activity for security analysts, pentesters, researchers or engineers concerned with embedded devices such as in IoT. FACT offers an automated and usable platform to gain an immediate overview of potential vulnerabilities based on the firmware of a device and supercharges the process of finding deep vulnerabilities.
-
-For this FACT automatically breaks down a firmware into its components, analyzes all components and summarizes the results. The analysis can then be perused in the desired amount of detail using either the responsive web application or a REST API.
-
-The offered analyses include a list of included software and libraries, a matching of said software to CVE databases, identification of hard-coded credentials, private key material and weak configuration among others. FACT also applies source and binary code analysis to identify (possibly exploitable) bugs in the components and offers a large amount of meta data for further manual analysis.
-
-A focus of recent development has been to offer more information regarding interdependencies between firmware components to ease the identification of data flow inside a firmware. This allows quickly grading the risk involved with uncovered vulnerabilities or configuration flaws by finding possible attack vectors concerning given component.
-
-Finally, FACT offers multiple ways to collect and fuse analysis results, such as firmware comparison, advanced search options including regular expression on binary components and an integrated statistics module.
 
 
 ### [FIRMWARE ANALYSIS TOOLKIT (FAT)](#)  
@@ -1851,14 +1159,6 @@ FSExploitMe is a purposely vulnerable ActiveX Control to teach you about browser
 FSFlow is a social engineering telemarketer-style call flow application. A call flow guides the social engineer during the call to their target, providing step by step talking points, quick logging of target responses, and an easy way to track pieces of information gained during the call. XML-Based call flows allow anyone to create the a flow and share it with others so they can reproduce the attack.
 
 
-### [Faceless - Deepfake detection](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-Faceless is a deepfake detection system.
-
-The proposed deepfake detection model is based on the EfficientNet structure with some customizations. It is hoped that an approachable solution could remind Internet users to stay secure against fake contents and counter the emergence of deepfakes.
-The deepfake dataset were used in the final model is Celeb-DF
-
-
 ### [FAKENET-NG](#)  
 ![BH-EU-16](https://img.shields.io/badge/BH-EU-16-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
 FakeNet-NG is a next generation dynamic network analysis tool for malware analysts and penetration testers. FakeNet-NG was inspired by the original FakeNet tool developed by Andrew Honig and Michael Sikorski. FakeNet-NG implements all the old features and many new ones; plus, it is open source and designed to run on modern versions of Windows. FakeNet-NG allows you to intercept and redirect all or specific network traffic while simulating legitimate network services. Using FakeNet-NG, malware analysts can quickly identify malware's functionality and capture network signatures. Penetration testers and bug hunters will find FakeNet-NG's configurable interception engine and modular framework highly useful when testing application's specific functionality and prototyping PoCs.
@@ -1894,15 +1194,6 @@ The idea behind Faraday is to help you to share all the information that is gene
 Filibuster is used to map port filtering / protocol filtering devices and is useful for both red and blue team engagements.
 
 
-### [Find Blind Spots in Your Security with Paladin Cloud](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-Paladin Cloud is an extensible, Security-as-Code (SaC) platform designed to help developers and security teams reduce risks in their cloud environments. It functions as a policy management plane across multi-cloud and enterprise systems, protecting applications and data. The platform contains best practice security policies and performs continuous monitoring of cloud assets, prioritizing security violations based on severity levels to help you focus on the events that matter..
-
-Its resource discovery capability creates an asset inventory, then evaluates security policies against each asset. Powerful visualization enables developers to quickly identify and remediate violations on a risk-adjusted basis. An auto-fix framework provides the ability to automatically respond to policy violations by taking predefined actions.
-
-Paladin Cloud is more than a tool to manage cloud misconfiguration. It's a holistic cloud security platform that can be used for continuous monitoring and reporting across any domain.
-
-
 ### [FINDSECURITYBUGS](#)  
 ![BH-EU-15](https://img.shields.io/badge/BH-EU-15-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
 FindSecurityBugs is a plugin for the Java static analysis tool FindBugs. This plugin consists of set rules that focus only on security weaknesses. It can be use by developers or security analysts to find vulnerabilities in their code.
@@ -1921,20 +1212,6 @@ The Firmware Analysis and Comparison Tool (FACT) is intended to automate Firmwar
 ### [Flopz: Patch, Debug and Instrument Firmware When All You Have Is a Binary](#)  
 ![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
 None
-
-
-### [From Boar to More: Upgrading Your Security with Trufflehog's Terminal UI](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-Trufflehog is an open-source tool that helps organizations detect sensitive data leaks across their software development life cycle. It identifies text with potentially sensitive information and verifies if they are actually secret keys or passwords, reducing false-positive noise that often leads to alert fatigue.
-
-Previously Trufflehog required command-line interface expertise and familiarity, which could be challenging to non-technical users. A new feature was recently added to provide a terminal user interface (TUI), enhancing accessibility for individuals with varying levels of technical expertise. Easy-to-use tooling contributes to a collaborative security culture that ultimately empowers individuals to engage in and improve their organization's security posture. Trufflehog's TUI enables anyone, regardless of technical skills, to scan for secrets across their organization and be a hero.
-
-
-### [FuzzCube](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-Fuzzing over the ages has improved in tooling, logic, and process, but is still a number-crunching problem! You are improving your odds by throwing more CPU power at it.
-
-How do we make it happen without hacking through custom solutions that cannot be reused? Enter FuzzCube - Batteries Included! FuzzCube comes with State Sharing Features, Mutation Engines and Crash Verification tools that you could leverage in your projects. It leverages Kubernetes for its infrastructure orchestration capabilities. Using Kubernetes operators, we abstract the complexity of deploying a fuzzing infrastructure with distributed high throughput workloads, fault tolerance, storage orchestration, and high scalability. We will practise distributed fuzzing in the era of Cloud Native Computing and use our new skills to find some 0days ;)
 
 
 ### [GAME OF DRONES: PUTTING THE EMERGING 'DRONE DEFENSE' MARKET TO THE TEST - ARSENAL THEATER DEMO](#)  
@@ -1964,89 +1241,9 @@ We will explain how GDBFuzz combines hardware breakpoints with control flow rela
 To demonstrate the fuzzer's ease of use and efficiency, we will run an interactive demo on multiple devices (including ARM and MSP430 processors). At the end of the session, attendees will know how to use GDBFuzz to test their own embedded systems.
 
 
-### [GIBBER SENSE](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-Found a Gibberish string or file in the wild and don't know what is it? Throw it to GibberSense - it might start to make some sense. GibberSense is a python-based tool and extension to LAMMA as a BCAF (Basic Crypt Analysis Framework) module.
-
-The best use of Gibber Sense is to verify the robustness of encryption libraries if they are free from any backdoors or flaws. Itt can also be used to guess the type of encryption, hashing schemes, and type of encrypted session cookies. If you trying to develop your own secrete encryption scheme, try and see what GibberSense has to say about it.
-
-
-### [GRFICS: A Graphical Realism Framework for Industrial Control Simulations - ARSENAL THEATER DEMO](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-GRFICS is a graphical realism framework for industrial control simulations designed to lower the barrier to entry for learning about ICS security. This initial version of GRFICS provides a virtual chemical process control network including everything from the plant operator's human machine interface, to a vulnerable programmable logic controller, down to a realistic chemical process simulation being visualized in the Unity 3D game engine. With GRFICS, beginners in ICS security can practice exploiting common ICS vulnerabilities and vividly see the impact of their attacks on the virtual chemical reactor.
-
-
-### [Gargamel](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-Gargamel is a Windows tool for acquiring the forensic evidence from remote Windows or Linux machines using several different methods.
-
-The program is able to download the following content from remote Windows machine:
-- Windows Event Logs in evt and evtx format,
-- dump of memory,
-- specified files described with the support of expansions (*,?),
-- output of commands specified in a text file,
-- registry,
-- state of firewall,
-- state of network interfaces,
-- logged on users,
-- running processes,
-- active network connections,
-
-When targeting the remote Linux machine, the program will download:
-- content of /var/log/directory
-- specified files described with the support of expansions (*,?),
-- output of commands specified in a text file,
-- state of firewall,
-- state of network interfaces,
-- logged on users,
-- running processes,
-- active network connections,
-
-
-Gargamel supports 5 connection methods, naming PowerShell remoting, WMI, PsExec, RDP and SSH (with SCP).
-
-
-### [Ghostwriter](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-Ghostwriter is a part of your team. It enables collaborative management of penetration test and red team assessments. It helps you manage the critical pieces of every project, including client information, project plans, infrastructure, findings, and reports in one application.
-
-Since its debut at BHUSA Arsenal in 2019, Ghostwriter has grown and matured. Last year was a building year for the project. Now, the development team is excited to re-introduce Ghostwriter with new features to be rolled out in Q1 and Q2 2022 – such as a new GraphQL API! This new version gives teams the power to manage their projects via the API layer and custom scripts or integration with third-party projects.
-
-
-### [Git Wild Hunt: A Tool for Hunting Leaked Credentials](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-Git Wild Hunt is a tool designed to search and identify leaked credentials at public repositories such as Github. Git Wild Hunt searches for footprints and patterns of over 38 of the most used secrets/credentials on the internet, especially those used in Devops and IT Operations. This tool helps developers and security operation departments discover leaked credentials in public repositories. This tool is also a recon tool for red teamers and pentesters, as it also provides metadata from leaks such as usernames, company names, secret types, and dates.
-
-
-### [GoGoGadget - Post Exploitation Utilities for Embedded Systems](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-GoGoGadget is a toolkit that provides useful command line utilities for embedded systems using a broad variety of processor architectures and operating systems. GoGoGadget is written in Go and cross-compiles to a static binary that runs on any of thirteen operating systems and supports thirteen processor architectures with all required libraries included.
-
-
 ### [GyoiThon](#)  
 ![BH-ASIA-18](https://img.shields.io/badge/BH-ASIA-18-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
 GyoiThon is a growing penetration test tool using Deep Learning. Deep Learning improves classification accuracy in proportion to the amount of learning data. Therefore, GyoiThon will be taking in new learning data during every scan. Since GyoiThon uses various features of software included in HTTP response as learning data, the more you scan, the more the accuracy of software detection improves. For this reason, GyoiThon is a growing penetration test tool.GyoiThon identifies the software installed on web server (OS, Middleware, Framework, CMS, etc...) based on the learning data. After that, GyoiThon executes valid exploits for the identified software. GyoiThon automatically generates reports of scan results. GyoiThon executes the above processing automatically.GyoiThon consists of three engines:Software analysis engine - It identifies software based on HTTP response obtained by normal access to web server using Deep Learning base and signature base.Vulnerability determination engine - It collects vulnerability information corresponding to identify software by the software analysis engine. And, the engine executes an exploit corresponding to the vulnerability of the software and checks whether the software is affected by the vulnerability.Report generation engine - It generates a report that summarizes the risks of vulnerabilities and the countermeasure.Traditional penetration testing tools are very inefficient because they execute all signatures; however, unlike traditional penetration testing tools, GyoiThon is very efficient because it executes only valid exploits for the identified software. As a result, the user's burden will be greatly reduce, and GyoiThon will greatly contribute to the security improvement of many web servers.
-
-
-### [GyoiThon: Penetration Testing Using Machine Learning](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-In GyioThon released at Black Hat Asia 2018 Arsenal, we used Deep Learning to enable us to identify products that traditional penetration test tools could not identify. In the original GyoiThon, as well as in other tools, it has always been necessary for someone to investigate product-specific features and signature generation with continuous updates, which we've been working to update to make easier. GyoiThon is the growing penetration test tool using Deep Learning. Deep Learning improves classification accuracy in proportion to the amount of learning data. Therefore GyoiThon will be taking in new learning data every scanning. Since GyoiThon uses various features of software included in HTTP response as learning data, you scan more, the accuracy of software detection improves. For this reason, GyoiThon is the growing penetration test tool.
-
-GyoiThon identifies the software installed on web server (OS, Middleware, Framework, CMS, etc...) based on the learning data. After that, GyoiThon executes valid exploits for the identified software. GyoiThon automatically generates reports of scan results. GyoiThon executes the above processing fully automatically.
-
-GyoiThon's major updates:
-- Automatically generates the signature to identify various products.
-- Can generate signatures necessary for product identification by even users without Deep Learning knowledge using Deep Learning. You no longer have to investigate product-specific features. You no longer need to create a signature, because GyoiThon itself can generate signatures fully automatically.
-
-GyoiThon is the first penetration test tool that made it possible to generate signatures automatically. GyoiThon is evolving as the growing penetration test tool. For further details: https://github.com/gyoisamurai/GyoiThon/blob/master/handout/BHA2018_handout.pdf
-
-GitHub: https://github.com/gyoisamurai/GyoiThon﻿
-Presentation Slides: https://github.com/gyoisamurai/GyoiThon/blob/master/handout/BHASIA2019_slide.pdf
-
-
-### [HACK/400 AND IBMISCANNER TOOLING FOR CHECKING YOUR IBM I (AKA AS/400) MACHINES!](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-In many industries the back-end systems still rely on "heavy" machines such as IBM i (aka AS/400) for core transactional systems. However, this area remained rather uncovered by security researchers. Back in 2015 I presented certain weaknesses of IBM i security at DefCon 23, providing a demo tool for assessment of IBM i systems and exploitation of some weaknesses, like privilege escalation. Since 2015, we improved the tool making it more useful for security personnel and auditors to assess certain important aspects of IBM i system security. These developments led to also adding new functionality in famous cracking tool, John the Ripper, for AS/400 password hashes. Based on users' feedback we try to make it best of class tooling for security assessments, keeping it open source (GPL) for the community.
 
 
 ### [HAKA - AN OPEN SOURCE SECURITY ORIENTED LANGUAGE](#)  
@@ -2081,24 +1278,6 @@ We integrated into the tool an assisted visual wiring function to help you conne
 
 The software part of the project will help to conduct an end-to-end security audit and will be compatible (integrated) with existing tools such as Metasploit. We will offer integration with other APIs in the future.
 Our ambition is to provide a tool equivalent to those of the company Qualys or Nessus (Vulnerability Scanner) or the Metasploit framework but in the domain of embedded systems/electronics.
-
-
-### [HASHVIEW](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-Hashview is a web front-end to hashcat with many powerful features geared towards penetration testers. Leverage task automation and real-time analytics for increased results and fancy reports.
-
-Hashview includes the following features:
-
-Automate workflow methodologies
-Create custom password cracking tasks
-Use data from previous jobs to increase cracking speeds
-Fancy analytics useful for client reports
-Distributed cracking
-Email/SMS Notifications
-Retroactively crack hashes from previous jobs
-Advanced searching of hashes, usernames, and plains
-Smart wordlists
-Optional community integration for accelerated cracking
 
 
 ### [HEATHEN INTERNET OF THINGS PENTESTING FRAMEWORK](#)  
@@ -2160,61 +1339,14 @@ The HackRF project is developing an open source hardware design for a low cost S
 HackSys Extreme Vulnerable Driver is an intentionally vulnerable Windows Kernel driver developed for security enthusiasts to learn and polish their exploitation skills. HackSys Extreme Vulnerable Driver caters to a wide range of vulnerabilities ranging from simple Buffer Overflow to complex Use After Free, Pool Overflow, Type Confusion and Arbitrary Memory Overwrite. This allows researchers to explore different exploitation techniques for every implemented vulnerabilities. HackSys Extreme Vulnerable Driver also comes with the mitigation for each implemented vulnerability which helps kernel driver developers understand how these mitigations are applied.Source Code: https://github.com/hacksysteam/HackSysExtremeVulnerableDriver Blog: http://www.payatu.com/hacksys-extreme-vulnerable-driver/
 
 
-### [Hacking the Digital Drone License Plate](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-None
-
-
 ### [Halcyon IDE - Unofficial IDE for Nmap Script Development](#)  
 ![BH-ASIA-16](https://img.shields.io/badge/BH-ASIA-16-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
 Halcyon is the first unofficial IDE for Nmap script development. The existing challenge in developing Nmap Scripts (NSE) is the lack of an IDE that gives easiness in building custom scripts for real world scanning. Halcyon is free to use, java based application that has code intelligence, code builder, auto-completion, debugging and error correction and a bunch of other features similar like other development IDE(s) for traditional programming languages. This research was started to give better development interface/environment to researchers and thus enhance the number of NSE writers in the community. Halcyon IDE can understand Nmap library and traditional LUA syntax as well. At the same time it also comes with an offline Nmap wiki that helps Nmap script writers an easy way to access development library references. Possible repetitive codes such as web crawling, bruteforcing etc., is pre-built in the IDE and this makes easy for script writers to save their time while development majority of test scenarios. The IDE gives options to debug the code, make code error free, export the code to the library and several other pre/post development tasks from within the same interface itself.
 
 
-### [Halcyon IDE: For Nmap Script Developers](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-Halcyon IDE lets you quickly and easily develop Nmap scripts for performing advanced scans on applications and infrastructures with a wide range capabilities from recon to exploitation. It is the first IDE released exclusively for Nmap script development. Halcyon IDE is free and open source project (always will be) released under MIT license to provide an easier development interface for rapidly growing information security community around the world. The project was initially started as an evening free time "coffee shop" project and has taken a serious step for its developer/contributors to spend dedicated time for its improvements very actively.
-
-Source Code: https://halcyon-ide.org﻿
-
-
-### [Halcyon IDE: Nmap Script Development IDE](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-Halcyon IDE lets you quickly and easily develop Nmap scripts for performing advanced scans on applications and infrastructures with a wide range capabilities from recon to exploitation. It is the first IDE released exclusively for Nmap script development. Halcyon IDE is a free and open-sourced project (always will be) released under MIT license to provide an easier development interface for rapidly growing information security community around the world. The project was initially started as an evening free-time "coffee shop" project and has taken a serious step for its developer/contributors to spend dedicated time for its improvements very actively.
-
-
 ### [Halcyon](#)  
 ![BH-US-16](https://img.shields.io/badge/BH-US-16-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
 Halcyon is the first IDE specifically focused on Nmap Script (NSE) Development. This research idea was originated while writing custom Nmap Scripts for Enterprise Penetration Testing Scenarios. The existing challenge in developing Nmap Scripts (NSE) was the lack of a development environment that gives easiness in building custom scripts for real world scanning, at the same time fast enough to develop such custom scripts. Halcyon is free to use, java based application that comes with code intelligence, code builder, auto-completion, debugging and error correction options and also a bunch of other features like other development IDE(s) has. This research was started to give better development interface/environment to researchers and thus enhance the number of NSE writers in the information security community.Halcyon IDE can understand Nmap library as well as traditional LUA syntax. Possible repetitive codes such as web crawling, bruteforcing etc., is pre-built in the IDE and this makes easy for script writers to save their time while developing majority of test scenarios.Following are the features provided by Halcyon IDE:Improved user interfaceCode intelligence workspaceSingle click configurationCode generatorScan settingsPost script development actions
-
-
-### [Hands-on Firmware Extraction, Exploiration, and Emulation](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-None
-
-
-### [Hands-on RF Hacking 101: From Waveforms to System Takeover](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-None
-
-
-### [Hands-on RF Hacking: Your Table is (always) Ready](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-None
-
-
-### [Hands-on RFID: Sniff it, crack it, clone it](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-None
-
-
-### [Hands-on Security Analysis of Selected Avionics Systems Using the Triton Testbed](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-None
-
-
-### [Hayabusa](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-Hayabusa is a sigma-based threat hunting and fast forensics timeline generator for Windows event logs written in rust by Yamato Security. Rules can either be written sigma or built-in hayabusa rules that let the analyst extract out only the important fields for Windows DFIR investigations.
 
 
 ### [Heybe - Penetration Testing Automation Kit](#)  
@@ -2268,16 +1400,6 @@ This presentation will release a new automated system for testing the IOC consum
 The presentation will include a live demo of the system on a real environment. Finally, the code to implement this process will be open sourced on Github, so that the community can use it, expand on the initial features and contribute their improvements.
 
 
-### [ICS Forensics Tool](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-ICS Forensics Tools is an open source forensic toolkit for analyzing Industrial PLC metadata and project files. Microsoft ICS Forensics Tools enables investigators to identify suspicious artifacts on ICS environment for detection of compromised devices during incident response or manual check. ICS Forensics Tools is open source, which allows investigators to verify the actions of the tool or customize it to specific needs, currently support Siemens S7.
-
-
-### [ICS Forensics Tools](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-Open Source ICS Forensics Toolkit This cutting-edge toolkit is designed for in-depth analysis of Industrial PLC metadata and project files, providing an essential resource for cybersecurity experts in the industrial control systems (ICS) sector. Our ICS Forensics Tools stand out by enabling thorough investigation of ICS environments, aiding in the detection of anomalies and compromised devices during critical incident responses or routine checks. This exciting arsenal presentation will not only introduce the new protocols but also feature live demonstrations that showcase its capabilities in real-time scenarios. Attendees will receive a concise, user-friendly forensics guide to leverage the full potential of the tool effectively. And there's more – attendees will have exclusive, immediate access to this groundbreaking tool right as the session begins. Don't miss out on this opportunity to enhance your ICS forensics capabilities with our latest open-source solution! https://github.com/microsoft/ics-forensics-tools
-
-
 ### [ID2T - THE INTRUSION DETECTION DATASET GENERATION TOOLKIT](#)  
 ![BH-EU-17](https://img.shields.io/badge/BH-EU-17-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
 There is a never-ending arms race between attackers and defenders in the cyber-security world. Our tool, ID2T, tries to leverage the balance of power towards the defenders' side. ID2T enables security researchers and practitioners to test their defensive tools against synthetic attacks without risks. By injecting synthetic, yet realistic, attacks into network traces, detection mechanisms can be audited, tested and evaluated.
@@ -2303,35 +1425,6 @@ K2 will demonstrate new offensive forensic capabilities, as well as standard pas
 I will additionally demonstrate with any memory dumps from XEN, VMWARE or physical (PAGEDUMP64/.DMP) from Windows x64 (ANY VERSION) to demonstrate the ease and simplicity (no profiles, no configuration, automatic physical memory reflection into python). If you have a memory dump that's defied analysis, it will be examined for effect.
 
 
-### [IOC Explorer: Correlate IOC in Automatic Way](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-IOC correlation is usually a manual or semi-automatic work. It takes a lot of time to search multiple data sources and process different IOC types. IOC Explorer aims to introduce an automatic way to search data across major OSINT sources, like VirusTotal. Moreover, recursive searching feature will explore more possible IOCs based on previous IOCs, then build IOC relations automatically.
-
-Source Code: https://github.com/lion-gu/ioc-explorer
-
-
-### [IR(Inreared) BadUSB attack](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-Conventional BadUSB executes a pre-programmed key sequence upon insertion.
-This lecture reports a new vulnerability that arises from the addition of an IR receiver element to the traditional BadUSB, such as the IR Infrared Receiver TL1838 VS1838B 1838 38Khz.
-The addition of this element allows an external operator to execute key sequences at arbitrary times. Multiple pre-programmed key sequences can be selected at will by external operation.
-
-
-### [ISTHISLEGIT](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-When it comes to mitigating phishing, visibility is half the battle. Knowing what phishing attacks are hitting your organization is key to stopping them. Users can be an incredible source of alerting for phishing emails, but they often don't know where to report the emails. Also, having the ability to collect, correlate, and auto-respond to these reports is key to stopping attacks as quickly they come in. These are problems solved by IsThisLegit for free via open-source, unlike any somewhat similar but cost-prohibitive offerings out there.
-
-IsThisLegit is a Chrome extension and web application dashboard (leveraging Google App Engine) designed to support the management of phishing response for end-users and admins. By rolling out the Chrome extension, users will see a button in Gmail that allows them to easily report phishing emails to their security team with a single click. Now there's no need for users to remember which email address they need to send reports to. The email is then automatically reported and deleted from their inbox.
-
-Once submitted, admins can then use the dashboard to rapidly analyze reported emails, identify phishing trends, categorize phishing emails, and set up auto-response rules.This allows the security team to quickly identify and respond to ongoing attacks.
-
-This demo will be unique for Arsenal because it covers the full lifecycle of phishing mitigation with the 'holy trinity' of tools (all developed by the Duo Labs team). These three distinct open-source tools work together seamlessly to test and train users (Gophish), help protect/take the burden off of users by making it more difficult for attackers (Phinn), and make reporting incidents as easy as a click of the button (IsThisLegit).
-
-
-
-https://github.com/duo-labs/isthislegit
-
-
 ### [Immunant Compiler](#)  
 ![BH-US-14](https://img.shields.io/badge/BH-US-14-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
 With the widespread adoption of DEP, code-reuse techniques such as ROP are essential parts of current exploits. ASLR randomizes the code layout to make ROP harder; unfortunately, ASLR-bypasses abound.
@@ -2340,11 +1433,6 @@ With the widespread adoption of DEP, code-reuse techniques such as ROP are essen
 ### [Impacket](#)  
 ![BH-US-14](https://img.shields.io/badge/BH-US-14-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
 Impacket is a collection of Python classes focused on providing access to network packets. Impacket allows Python developers to craft and decode network packets in simple and consistent manner. It includes support for low-level protocols such as IP, UDP and TCP, as well as higher-level protocols such as NMB, SMB and MSRPC and DCOM. Impacket is highly effective when used in conjunction with a packet capture utility or package such as Pcapy. Packets can be constructed from scratch, as well as parsed from raw data. Furthermore, the object oriented API makes it simple to work with deep protocol hierarchies.
-
-
-### [Industrial Control Systems: Capture the Train!](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-None
 
 
 ### [Information Disclosure in Facebook Graph Api with A.T.H.O.S](#)  
@@ -2445,51 +1533,6 @@ any questions about varc answered.
 PowerShell is a powerful scripting language which has the capability to run scripts on remote systems without writing to disk.
 
 
-### [IoT Hunter: A Framework Tool for Building IoT Threat Intelligence System](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-Tencent IoT Hunter is a framework tool created to quickly build the IoT threat intelligence platform, which is more specifically designed to analyze IOT threats. The tool contains all important modules for IOT threat analysis, including information collection, data extraction, threat data analysis, and intelligence visualization. Intelligence data includes, but is not limited to, static information extraction, dynamic operation information extraction, and third-party network platform information. The goal of this tool is to help security researchers quickly and easily build their own IOT intelligence platform for IOT malware research and threat tracking.
-
-Using this framework tool, you can get the malicious information (CNC, Domain, function, etc.) in the IoT sample file very precisely and fine-grained. Compared with the traditional simple string extraction, this extraction method is more accurate and supports the extraction of encrypted information. This malicious information can be directly used to integrate into the IoT malicious information base and threat cloud search services, without the need for analysts to re-confirm, greatly improving the efficiency of malicious information processing.
-
-Traditional intelligence information extraction tools are often used to extract predefined information. The framework provides a good extension interface, where users can write personalized plugins to expand the scope of information extraction. For the emerging threats, security analysts can quickly integrate analysis experience such as decryption algorithm into the framework, accurately extract malicious intelligence, and reduce invalid redundant information.
-
-In the tool demonstration phase, we will demonstrate how to use the entire tool. Including the static information of IOT samples. Take popular IOT threats as examples to show how to precisely extract CNC, weak passwords, and configuration files. We will also show how to develop and integrate the platform plug-ins to extract any specific intelligence information of concern. All of the above data information is imported to the platform, security personnel can be free to carry out data analysis, malware track, threat visualization.
-
-
-### [IoT-Home-Guard: A Tool for Malicious Behavior Detection in IoT Devices](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-IoT devices, especially secondhand devices and rental devices, are under threat of malware implant attack with physical access. Once IoT devices are compromised, hackers can turn them into snooping devices. From a defensive perspective, there are no solutions to detect Trojans in IoT devices.
-
-We present IoT-Home-Guard, a hardware device to detect malicious behaviors of Trojans in IoT devices, such as audios/videos snoop and remote control. It consists of four parts: data flow catcher, traffic analyzing engine, device fingerprint database and a web server. Features of network traffic are extracted by traffic analyzing engine and compared with pre-built device fingerprint database to detect malicious behaviors.
-
-In another research, we were able to implant Trojans in eight devices including smart speakers, ip cameras, routers, driving recorders and mobile translators. We collected characteristics of those devices and ran IoT-Home-Guard. All devices implanted Trojans have been detected. We believe that malicious behaviors of more devices can be identified with high accuracy after supplement of fingerprint database.
-
-The first generation IoT-Home-Guard tool is a hardware device based on Raspberry Pi with wireless network interface controllers. We will customize new hardware in the second generation. Software part is available in our Github (https://github.com/arthastang/IoT-Home-Guard). The system can be set up with software part in laptops after essential environment configuration.
-
-
-### [IoT-Implant-Toolkit: Framework for Trojans Implantation Research of IoT Devices](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-During our Trojans implantation research for IoT devices, we found many tools outdated and not compatible with high versions. We present IoT-Implant-Toolkit, a framework for Trojans implantation research of IoT devices. It is a toolkit consisting of essential software tools on firmware modification, serial port debugging, software analysis and stable spy clients. We wrapped tools we proved useable in the framework and provided a universal call interface. Additionally, we packed useful open-source tools we developed into the framework. Each software tool acts as a plugin which can be easily added into the framework. With an easy-to-use and extensible shell-like environment, IoT-Implant-Toolkit is a one-stop-shop toolkit simplifying complex procedure of IoT malware implantation.
-
-With IoT-Implant-Toolkit, we were able to implant Trojans in eight devices with physical access, including smart speakers, cameras, driving recorders and mobile translators. We turned them into snooping devices, which send audios or videos in real time. Our presentation will also include live demos of those implanted devices.
-
-IoT-Implant-Toolkit is open-source at https://github.com/arthastang/IoT-Implant-Toolkit.
-
-
-### [IoXT Hunter: A Remote Discover & Pentest Tool for IoT Devices](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-IoXT Hunter is an open source, extendable, large-scale IoT device remote discovery and pentest tool. It is designed to discover all known IoT devices for a specified range of network addresses and to perform security testing on related IoT devices using generic or targeted payloads.
-
-If you are a security administrator for a complex or large-scale IoT network (such as an industrial IoT network or a medical IoT network), IoXT Hunter will be your powerful tool. It can help you discover and record all your IoT device assets and perform full remote security testing of your IoT devices.
-
-IoXT Hunter also supports writing and loading your own plugins extensions. If you are an IoT security researcher and have discovered the security vulnerabilities of a kind of IoT device. You can write the appropriate discovery and pentest scripts to scan and evaluate the status of the IoT device on the public network through the IoXT Hunter.
-
-
-### [IotSecFuzz: Security Framework](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-IoTSecFuzz is Open Source framework which was created with the aim of combining the maximum number of utilities for comprehensive testing of IoT device security at all levels of implementation. It has a convenient console in order to use it as a stand-alone application, as well as the ability to import it as a library.
-
-
 ### [Ipa-medit: Memory Search and Patch Tool for IPA Without Jailbreaking](#)  
 ![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
 Ipa-medit is a memory search and patch tool for resigned ipa without jailbreaking. It was created for mobile game security testing.
@@ -2499,17 +1542,6 @@ Memory modification is the easiest way to cheat in games, it is one of the items
 There is an android version of the tool, apk-medit(https://github.com/aktsk/apk-medit), that I created.
 
 Many mobile games have jailbreak detection, but ipa-medit does not require jailbreaking, so memory modification can be done without bypassing the jailbreak detection.
-
-GitHub: https://github.com/aktsk/ipa-medit
-
-
-### [Ipa-medit: Memory modification tool for iOS apps without Jailbreaking](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-Ipa-medit is a memory search and patch tool for resigned ipa without jailbreaking. It supports iOS apps running on iPhone and Apple Silicon Mac. It was created for mobile game security testing. Many mobile games have jailbreak detection, but ipa-medit does not require jailbreaking, so memory modification can be done without bypassing the jailbreak detection.
-
-Memory modification is the easiest way to cheat in games, it is one of the items to be checked in the security test. There are also cheat tools that can be used casually like GameGem and iGameGuardian. However, there were no tools available for un-jailbroken device and CUI, Apple Silicon Mac. So I made it as a security testing tool.
-
-I presented a memory modification tool ipa-medit which I presented at Black Hat USA 2021 Arsenal. At that time, it could only target iOS apps running on iPhone, but now it supports iOS apps running on the Apple Silicon Mac. The Apple Silicon Mac was recently released and allows you to run iOS apps on macOS. For memory modification, I'll explain how the implementation and mechanisms are different for iOS apps running on iPhone or Apple Silicon Mac.
 
 GitHub: https://github.com/aktsk/ipa-medit
 
@@ -2529,19 +1561,9 @@ JMSDigger is a new tool that can be leveraged to engage and assess enterprise me
 JTAGulator is an open source hardware hacking tool that assists in identifying on-chip debug interfaces from test points, vias, or component pads on a circuit board. It currently supports the detection of JTAG and asynchronous serial/UART interfaces. The tool can save a tremendous amount of time during reverse engineering, particularly for those who don't have the skill and/or equipment required for traditional processes. Black Hat Arsenal Europe 2016 will mark the release of a new firmware version and Joe will provide demonstrations of the tool's expanded functionality.
 
 
-### [JTAGulator: Assisted Discovery of On-Chip Debug Interfaces](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-None
-
-
 ### [JTAGulator: Uncovering the Achilles Heel of Hardware Security - ARSENAL THEATER DEMO](#)  
 ![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
 Five years after its original release, JTAGulator continues to be the de facto open source tool for identifying interfaces commonly used for hardware hacking, such as JTAG and UART, from test points, vias, component pads, or connectors on a target product. The tool can save a significant amount of time, particularly for those who don't have the resources required for traditional reverse engineering processes, and bridges the gap between gaining physical access to circuitry and exploiting it. Black Hat Arsenal USA 2018 will mark the release of a new firmware version and and Joe will provide demonstrations of the tool's updated features.
-
-
-### [JVMXRay](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-JVMXRay is technology for monitoring access to system resources within the Java Virtual Machine at runtime. Since JVMXRay integrates with virtual machine, no code changes to the application are required for operation. An ancillary benefit of no code required is that the technology provides insight into 3rd party libraries used by your application and commercial software where no source code is available. JVMXRay is designed with application security emphasis but it's beneficial for other areas like software quality processes and diagnostics. JVMXRay may be extended to work with many technologies like OWASP Dependency Check and other tools.
 
 
 ### [Jackhammer - One Security Vulnerability Assessment/Management Tool](#)  
@@ -2549,87 +1571,14 @@ JVMXRay is technology for monitoring access to system resources within the Java 
 Jackhammer is an integrated tool suite that comes with out-of-the-box industry standard integrations. It is a first-of-its-kind tool that combines static analysis, dynamic web app analysis, mobile security, API security, network security, CMS security, AWS/Azure security tools, docker/container security, and vulnerability manager that gives a complete glimpse into security posture of the organization. Using this suite, even senior leadership can have a comprehensive view of their organization's security.Why was it needed? Security, while being imperative for any organization, it is hard to comprehend by most of the developers. Security engineers need to scrutinize every service or app turning security analysis a time intensive and repetitive. What if there exists a tool that can empower everyone to test their code for vulnerabilities, automate security analysis, and show the overall security hygiene of the company?How does it work? Jackhammer initiates various types of scans using existing proven tools and the results are consumed by onboard vulnerability manager. Unique dashboard presents intuitive interface giving the user a holistic view of the code base. The normalized reports are instantly accessible to developers, QAs, TPMs, and security personnel.It can be plugged/integrated with:CI systems and Git via hooks giving complete control over code commitsAWS/Azure account and can keep on scanning complete IP space in realtimeAdditional commercial/open source tools within few minutes and manage those tools from jackhammerTicketing systems (like Jira)slack/pagerduty for real time alerting in addition to SMS and emailsIt creates a sandbox using dockers for every tool and scales the systems when the scan needs it and descale on completion of the scans. The spin-up and tear down is a completely automated process so no person needs to look at the resources making it inexpensive and cost-effective. https://github.com/olacabs/jackhammer
 
 
-### [Jackhammer: One Security Vulnerability Assessment/Management Tool](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-Jackhammer is an integrated tool suite which comes with out-of-the-box industry standard integrations. It is a first of its kind tool that combines static analysis, dynamic web app analysis, mobile security, API security, network security, CMS security, AWS/Azure security tools, docker/container security, and vulnerability manager that gives a complete glimpse into security posture of the organization. Using this suite, even senior leadership can have a comprehensive view of their organization's security.
-
-Why was it needed?
-Security, while being imperative for any organization, it is hard to comprehend by most of the developers. Security engineers need to scrutinize every service or app turning security analysis a time intensive and repetitive. What if there exists a tool that can empower everyone to test their code for vulnerabilities, automate security analysis, and show the overall security hygiene of the company?
-
-How does it work?
-Jackhammer intiates various types of scans using existing proven tools and the results are consumed by onboard vulnerability manager. Unique dashboard presents intuitive interface giving the user a holistic view of the code base. The normalized reports are instantly accessible to Developers, QAs, TPMs, and security personnel.
-
-It can be plugged/integrated with:
-
-CI systems and Git via hooks giving complete control over code commits
-AWS/Azure account and can keep on scanning complete IP space in realtime
-Additional commercial/open source tools within few minutes and manage those tools from jackhammer
-Ticketing systems (like Jira)
-slack/pagerduty for real time alerting in addition to SMS and emails
-
-It creates a sandbox using dockers for every tool and scales the systems when the scan needs it and descale on completion of the scans. The spin-up and tear down is a completely automated process so no person needs to look at the resources making it inexpensive and cost-effective.
-
-
 ### [Janus](#)  
 ![BH-ASIA-16](https://img.shields.io/badge/BH-ASIA-16-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
 Janus is feedback-driven, interactive Android security analysis platform that facilitates a collection of advanced security analysis tools with the capabilities from vulnerability discovery to malicious application detection. Its main purpose is to enable large scale Android application security analysis by integrating automated, customizable analysis results and human interventions.Specifically, Janus works as follows. First, Janus leverages lightweight malware scanners, similarity detection tools, and vulnerability detection tools to help researchers diagnose whether a given Android application is malicious or vulnerable.Next, Janus provides a set of tools to perform more fine-grained and heavier analyses, including dynamic taint analysis, program slicing, and machine learning, etc. In particular, security researchers are involved in this phase. By integrating these automated analyses and human interventions, Janus will confirm the detection results, filter false positives, and also extract the features of the application. These features will be used to guide subsequent analyses to quickly find similar vulnerabilities or malicious applications.We will demonstrate Janus with a number of real world malicious and vulnerable applications.
 
 
-### [Joern: An Interactive Shell for Code Analysis](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-Joern is an award-winning open-source platform for robust query-based analysis of C/C++. It enables mining large code bases for vulnerabilities using a Scala-based domain-specific query language and provides the reference implementation for code property graphs. With its fuzzy parsing approach, it is specifically suited for machine learning applications. Joern serves as the fundament for the commercial SAST and code exploration products at ShiftLeft.
-
-The Code Property Graph (CPG) is an intermediate code representation designed for code querying. The core idea it promotes is to merge multiple different program representations into a joint graph data structure and allowing queries to be formulated as graph traversals. In its initial form as presented in 2014, the CPG makes available syntactical information, control flow information and data flow for C/C++ programs. It was later further generalized to host multiple different programming languages, and higher-level code representations.
-
-
-
-Important Links
-Joern Documentation: https://docs.joern.io
-Joern query database: https://queries.joern.io
-Joern Community: https://discord.gg/AUzy45EHdf
-
-Demo preparation:
-
-Download VLC v3.0.12 source and extract in a convenient directory
-> wget http://get.videolan.org/vlc/3.0.12/vlc-3.0.12.tar.xz
-> tar -xvf vlc-3.0.12.tar.xz
-
-Download Joern and install
-> wget https://github.com/joernio/joern/releases/latest/download/joern-install.sh
-> chmod +x ./joern-install.sh
-> sudo ./joern-install.sh
-
-
 ### [KAUTILYA - FASTEST SHELLS YOULL EVER GET](#)  
 ![BH-EU-15](https://img.shields.io/badge/BH-EU-15-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
 
-
-
-### [KICS - Your IaC Secure Now!](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-KICS stands for Keeping Infrastructure as Code Secure. It is open source and is a must-have for any cloud native project to find security vulnerabilities, compliance issues, and infrastructure misconfigurations early in the development cycle of the underlying infrastructure-as-code (IaC).
-
-KICS supports about 20 different technologies including Terraform, Cloudformation, Kubernetes, Docker, over several cloud providers like AWS, Microsoft Azure or Google Cloud. It is the only open-source project that has achieved any Center for Internet Security (CIS) certification.
-
-KICS is fully customizable and extensible by the addition of rules for new vulnerabilities. It is available as a Docker image, and is paired in multiple platforms to leverage its integration on the development life-cycle and the DevSecOps mentality of its users. Gitlab has chosen KICS as its default IaC scanner; it is also available in ArgoHub, as a hook in TerraformCloud or as a Github Action for Github workflows.
-
-One of the most recent features of KICS is auto remediation. With this feature KICS goes full cycle in preventing vulnerable code from going into production by scanning the code, exposing the issues, and automatically remediating them. Such a feature is both available from the CLI interface, or via a plugin for the Visual Studio Code editor, where we bring together auto-remediation and real-time scanning. As the developer writes IaC scripts, KICS automatically looks for vulnerabilities, proposes fixes and remediates them. By the time the IaC scripts are finished, developers are rest assured that it is safe to go into production. This is shift-left security brought to its splendor.
-
-
-### [KNX Bus Dump](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-None
-
-
-### [KUBEBOT - SCALEABLE AND AUTOMATED TESTING SLACKBOT WITH THE BACKEND RUNNING ON KUBERNETES](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-Security Testing, or for that matter any sort of testing, is still being done in ways that are not really scalable and extensible. Testers like to write their own tools/scripts and run them locally on their system. There are many problems that plague this kind of approach for testing.
-
-We will be discussing some of these problems and releasing a new tool - KubeBot - that was primarily built for automating and scaling bug bounties i.e. something that would run multiple tools on a schedule against multiple targets and only returns back the output from these tools if the output changes.
-
-However, over time, it has proven out to be a more generic framework that can be leveraged as a harness to run any security testing tool and is easily scaleable (because of Kubernetes in the backend). It is extensible and provides a nice front end in the form of a Slackbot so that you can look at the results on a real-time basis.
-
-Tool URL: ﻿https://github.com/anshumanbh/kubebot
 
 
 ### [KWETZA](#)  
@@ -2652,78 +1601,11 @@ Kfuzz was my take on kernel level device driver fuzzing with Python. I used Pyth
 What differentiates King Phisher from other phishing tools is the focus it has on the requirements of consultants needing a tool for penetration testing. It was built from the ground up with a heavy emphasis on flexibility to allow pentesters to tailor their attack for their current assessment. It also includes unique features not included in other phishing tools such as the ability to craft calendar invite messages.King Phisher is an open source tool for testing and promoting user awareness by simulating real world phishing attacks. It features an easy to use, yet very flexible architecture allowing full control over both emails and server content. King Phisher can be used to run campaigns ranging from simple awareness training to more complicated scenarios in which user aware content is served for harvesting credentials and drive by attacks.
 
 
-### [King Phisher: A Phishing Campaign Toolkit](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-King Phisher is a phishing toolkit created to meet the highly customized and flexible needs that offensively-focused security testers require. It boasts a wide range of features to facilitate it's use both on offensive, breaching-centric engagements as well as for user awareness training.
-
-This arsenal demonstration will show the newer features that have been added to King Phisher in recent years. Viewers will see the latest campaign improvements including from the template selection process to gathering MFA tokens, validating submitted credentials and the Let's Encrypt integration. By integrating with Let's Encrypt through certbot, users are able to quickly and easily issue certificates for, and enable HTTPS for their phishing sites. Finally, viewers will see a demonstration of the newest plugins for campaign data management, the usage of various alerting services and finally SPAM evasion.
-
-Source code: https://github.com/securestate/king-phisher
-
-
-### [Kinstrument: Binary-Only Instrumentation Framework for Linux Kernel Based on Breakpoint](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-For regular Linux kernels, we can use qemu or vmware, and then use gdb to debug the kernel, but for some special embedded devices, such as Android phones, it is difficult to debug and instrument the kernel. In order to debug the kernel, it often needs to recompile the kernel and use additional hardware.
-
-The characteristics of kinstrument are as follows:
-
-1. The kernel only needs to support the insertion of the ko module, the kernel does not need to be recompiled, and no additional hardware is required.
-2. Support instrumentation basic blocks, and get basic block coverage of kernel code
-3. Use the breakpoint mechanism to hook and debug arbitrary instructions.
-
-
-Kinstrument can be used for kernel debugging and Fuzz.
-
-
 ### [KOODOUS](#)  
 ![BH-EU-16](https://img.shields.io/badge/BH-EU-16-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
 Koodous is a collaborative web platform for Android malware research that combines the power of online analysis tools with social interactions between the analysts over a vast APK repository (at this time, more than 10 million). It also features an Android antivirus app and a public API.
 
 Some of the features included in the tool:
-
-
-### [Kouba: Industrial Pentesting](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-Introduction to Industrial security: brief introduction to industrial cyber-attacks and why it's important to protect OT infrastructures. In this part I'll introduce the importance of industrial security, speak about Stuxnet and other dangerous attacks that had impact in industrial sector, and some prevention tips.
-
-Introduction to Kouba: proposing a simple methodology that includes enumeration, footprinting and automatic exploitation with open tools. Presenting the advantages of using Debian with these specific tools* instead of Kali, and how to apply public key/password encryption and magic-wormhole using the scripts for securely exporting encrypted logs out of the virtual machine.
-
-Choosing open hardware for attacks: Once we have footprinted the devices and machines in the OT, in case we have physical access to the infrastructure, there are some things to look for regarding to physical security, such as USB ports, RTU (remote terminal units) details or DNP3 protocol serial communication. Using Arduino nano, pro mini, leonardo and attiny85 for designing either badusb or specific tools; RPI4/3/ZERO; ATMega2560 customizable PLC (PLDuino); S232 shield (for UNO), multi-protocols shield; Radio modules and others.
-
-* The system includes Redpoint and other nmap scripts, Kamerka, Aztarma, PLCinject, S7Scan, ISF, etc as well as Python 2.7 and 3, git, xfce4 terminal, Docker and Vagrant for needed virtualization, Celery and Redis for Kamerka, openssl, clang and other few compiling tools.
-
-
-### [Kraker](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-Kraker is a distributed password brute-force system that allows you to run and manage the hashcat on different servers and workstations, focused on ease of use. There were two main goals during the design and development: to create the most simple tool for distributed hash cracking and make it fault-tolerant.
-
-
-### [Kubernetes Goat: Interactive Kubernetes Security Learning Playground](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-Kubernetes Goat is a "vulnerable by design" Kubernetes Cluster environment to practice and learn about Kubernetes Security. It has step by step detailed guide and digital book on how to get started with Kubernetes Goat by exploring different vulnerabilities in Kubernetes Cluster and Containerized environments. Also, it has scenarios taken from the real-world vulnerabilities and maps the Kubernetes Goat scenarios. The complete documentation and instruction to practice Kubernetes Security for performing security assessments, pentesting, and in general Kubernetes Security. As a defender you will see how we can learn these attacks, misconfigurations to understand and improve your cloud-native infrastructure security posture.
-
-Some of the high-level scenarios include, but are not limited to
-
-1. Sensitive keys in code-bases
-2. DIND (docker-in-docker) exploitation
-3. SSRF in K8S world
-4. Container escape to access host system
-5. Docker CIS Benchmarks analysis
-6. Kubernetes CIS Benchmarks analysis
-7. Attacking private registry
-8. NodePort exposed services
-9. Helm v2 tiller to PwN the cluster
-10. Analysing crypto miner container
-11. Kubernetes Namespaces bypass
-12. Gaining environment information
-13. DoS the memory/CPU resources
-14. Hacker Container preview
-15. Hidden in layers
-16. RBAC Least Privileges Misconfiguration
-17. KubeAudit - Audit Kubernetes Clusters
-18. Sysdig Falco - Runtime Security Monitoring & Detection
-19. Popeye - A Kubernetes Cluster Sanitizer
-20. Secure network boundaries using NSP
 
 
 ### [Kung Fu Malware](#)  
@@ -2775,15 +1657,6 @@ LOG-MD is designed for Windows based systems to audit log and advanced audit pol
 LogFeeder enables the injection of SaaS (Software-as-a-Service) application logs from Google Apps, Duo, Salesforce, Workday and many more into an ELK (Elasticsearch-Logstash-Kibana) cluster for monitoring and alerting. It is also possible to get the logs through AWS SQS Queue integration, which allows more flexibility to manipulate where the logs eventually end up. The automated approach saves security teams a lot of time by collating all the information vis-a-vis individually combing through separate data sources for each service. In addition to this, LogFeeder makes it possible to utilize awesome alerting tools, like ElastAlert (presented at Black Hat USA Arsenal in 2015), for robust alerting in response to suspicious actions. At Yelp, we use LogFeeder as a tool to ingest most of our 3rd party service providers' audit logs into a central SIEM (Security Information and Event Monitoring) system. Paired up with ElastAlert, it is the core of our monitoring and alerting pipeline.
 
 
-### [LaiFu: A Modern Protocol Fuzzing Framework Based on Scapy](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-As a protocol tester, we often use scapy to interact with the protocol because it is able to craft or decode packets easily and it implements a wide number of protocols. However, the fuzz function supported by scapy can not fuzz protocols sufficiently and effectively. Testers often need to write additional fuzzing code based on other fuzzing frameworks such as Peach and Boofuzz.
-
-According to the current situation, we design a protocol fuzzing tool named "LaiFu". LaiFu framework allows testers to use scapy to specify protocol formats directly. We designed the corresponding mutation algorithm according to the various field types of scapy's packet. Meanwhile, we also provide a tool to show the coverage of fuzzing target in real time. Testers only need to put each data packet as a node into the graph and then start the fuzzing test. Another advantage is that LaiFu makes many protocols already implemented by scapy to be fuzzable.
-
-We are going to open source this tool to assist testers or developers to test their code and make protocol fuzzing easy and effective.
-
-
 ### [Lair](#)  
 ![BH-US-13](https://img.shields.io/badge/BH-US-13-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
 Lair is an open-source project developed for and by pentesters. Built on Meteor and Node.js with a dash of Python, Lair is a web application that normalizes, centralizes, and manages diverse test data from a number of common tools including Nmap, Nessus, Nexpose, and Burp. Unlike existing alternatives, Lair encourages team-based collaboration by automatically pushing updates to team members in real time. Paired with itâs workflow and documentation management, Lair offers a single solution for performing a detailed, thorough penetration test individually or as a team in a manner that has not been done before.
@@ -2799,54 +1672,11 @@ Limon is a sandbox for automating Linux malware analysis. It collects, analyzes,
 Have you ever wanted to inject code into a Linux process, but found yourself lacking an easy way to do it? Ever wished Linux had a system call, like CreateRemoteThread on Windows? Linux-Inject is the tool you were wishing for! It can load a shared object inside another process, in much the same way Windows lets you load DLLs in other processes. It does this by attaching to the target process with ptrace and overwriting part of its address space with a custom loader. Once the target process has executed the loader, Linux-Inject restores the target's overwritten memory and register state and sends it on its merry way. At that point, it's up to you to wreak whatever havoc you'd like within the target process via the newly loaded shared object. Linux-Inject supports x86, x86_64, and ARM.
 
 
-### [LoRaWAN Auditing Framework](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-IoT deployments continue to grow, and one part of that significant growth is composed of millions of LPWAN (low-power wide-area network) sensors deployed in hundreds of cities (Smart Cities) around the world, also in industries and homes. One of the most used LPWAN technologies is LoRa for which LoRaWAN is the network standard (MAC layer). LoRaWAN is a secure protocol with built in encryption, but implementation issues and weaknesses affect the security of most current deployments.
-
-This project intends to provide a series of tools to craft, parse, send, analyze and crack a set of LoRaWAN packets in order to audit or pentest the security of a LoraWAN infrastructure.
-
-
-### [LogonTracer](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-LogonTracer is a tool to investigate malicious logon by visualizing and analyzing Windows Active Directory event logs. Event log analysis is a key element in DFIR. In the lateral movement phase of APT incidents, analysis Windows Active Directory event logs is crucial since it is one of the few ways to identify compromised hosts. At the same time, examining the logs is usually a painful task because Windows Event Viewer is not a best tool. Analysts often end up exporting entire logs into text format, then feeding them to other tools such as SIEM. However, SIEM is neither a perfect solution to handle the increasing amount of logs.
-
-We would like to introduce a more specialized event log analysis tool for incident responders. It visualizes event logs using network analysis and machine learning so as to show the correlation of accounts and hosts. Proven with our on the ground response experience, most importantly it is an open source tool.
-
-
-### [Lucky CAT: A Distributed Fuzzing Management Framework](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-Lucky CAT (Crash All the Things!) is a distributed fuzzing framework with an easy to use web interface. It allows management of fuzzing jobs on several remote machines concurrently. Lucky CAT aims to be easily usable, scaleable, extensible, and fun. To achieve this, it is built using several micro services and it relies on many open source projects. Furthermore, it offers a RESTful API to automate it or to integrate it with other tools.
-
-Lucky CAT comes with several plugins for mutation engines (e.g. /dev/urandom, radamsa), fuzzers (afl, qemu_fuzzer, a minimalistic file fuzzer) and verifiers (local gdb exploitable, remote gdb exploitable). There are templates (in Python and C) that allow to quickly integrate, for example, new fuzzers and verifiers. Fuzzers can rely on their own mutation engine (e.g. afl) but Lucky CAT can also generate test cases for a fuzzer. This is handy when writing a fuzzer for an embedded device with limited computational resources or a small one-shot fuzzer for a custom protocol.
-
-Its origin is the Nightmare Fuzzing Project. However, Lucky CAT goes beyond its ancestor. It is more 2018-ish using latest technologies such as RabbitMQ, Flask, MongoDB, and Python3. Lucky CAT's main objective is to automate the fuzzing process as far as possible so as to security researchers can focus on what they can best: identifying attack surfaces or writing custom fuzzers.
-Therefore, future releases will focus on, amongst others, automatic deployment of fuzzers, crash notification and job summaries via email and instant messaging, and kernel core dump analysis.
-
-Presentation: https://net.cs.uni-bonn.de/fileadmin/ag/martini/Staff/thomas_barabosch/blackhat-eu18-arsenal.pdf
-Source Code: https://github.com/fkie-cad/LuckyCAT
-
-
 ### [LYNIS](#)  
 ![BH-EU-16](https://img.shields.io/badge/BH-EU-16-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
 Lynis is a nifty tool to perform in-depth security tests. It checks your systems for configuration errors, software vulnerabilities, or other weaknesses. Running on the system itself, it can uncover flaws not seen by other tools (e.g. vulnerability scanners). After finishing the scan, it will present the user with a report of the findings. Suggestions are made to enhance your security posture or help you remain compliant with security standards like PCI DSS.
 
 Lynis is written in shell script and runs on systems like Linux, macOS, and UNIX-based derivatives. The tool is ideal for those who seek to perform vulnerability assessments and penetration tests, or having to apply system hardening measures.
-
-
-### [MI-X (Am I Exploitable?).](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-‘Am I Exploitable?’, is an open source tool aimed at effectively determining whether a local host or a running container image is truly vulnerable to a specific vulnerability by accounting for all factors which affect *actual* exploitability. The tool prints the logical steps it takes in order to reach a decision and can generate a flow chart depicting the complete logical flow.
-
-The first critical step to address any security vulnerability is to verify whether or not your environment is affected. Even if a vulnerable package is installed on your system, this condition alone does not determine exploitability as several conditions must be in place in order for the vulnerability to be applicable (exploitable). For example, can the vulnerability only be exploited under a specific configuration or in a specific OS?.
-
-Most conventional vulnerability scanners rely on package manager metadata in order to determine the installed components (and in which versions) and then cross reference this data with vulnerability advisories in order to determine what vulnerabilities affect the system. The problem with that is that often software may be deployed without a package manager. For example, software might be built from source and then added to an image or unzipped from a tarball to a specific location on the file system. In these cases, no package manager data is associated with the application, which can result in false negatives (a scanner will “miss” these vulnerabilities) and offer a false sense of security.
-
-We aim to build a community of researchers that can improve the validation process of historically dangerous vulnerabilities, as well as newly discovered ones, so users and organizations will understand whether they are vulnerable or not, as well as which validation flow is used to reach that verdict, and what steps are necessary for remediation or mitigation.
-
-
-### [MI-X - Am I Exploitable?](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-None
 
 
 ### [MITMf - Framework for Man in the Middle Attacks](#)  
@@ -2888,56 +1718,9 @@ MPFuzzer can fuzz any mini program platform in the field by configuring a simple
 As a practical impact, our tool has detected more than ten mini program critical vulnerabilities.
 
 
-### [MQTT-PWN: Your IoT Swiss-Army Knife](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-MQTT is a machine-to-machine connectivity protocol designed as an extremely lightweight publish/subscribe messaging transport and widely used by millions of IoT devices worldwide.
-
-MQTT-PWN intends to be a one-stop-shop for IoT Broker penetration-testing and security assessment operations, as it combines enumeration, supportive functions and exploitation modules while packing it all within command-line-interface with an easy-to-use and extensible shell-like environment.
-
-Built-in abilities/modules:
-
-Credential Brute-Forcer - configurable brute force password cracking to bypass authentication controls
-Topic enumerator - establishing comprehensive topic list via continuous and accumulated sampling.
-Broker information grabber - obtaining and labeling data from an extensible predefined list containing known topics of interest, broker type and version and more
-GPS tracker - plotting routes from devices using OwnTracks app and collecting published coordinates, battery usage, connection method etc.
-Sonoff exploiter – design to extract passwords and other sensitive information off smart switches
-
-A full circle of scenarios of attack using the tool will be demonstrated.
-
-
-### [MSTICpy: The Security Analysis Swiss Army Knife](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-MSTIC Jupyter and Python Security Tools (MSTICpy) is a Python library of security investigation tools developed by the Microsoft Threat Intelligence Center (MSTIC) to assist and support security analysts conducting security investigations and threat hunting.
-
-The library provides features to collect data from a range of data sources, to enrich the data with Threat Intelligence and OSINT, to analyse the data using ML and data analysis techniques, and to visualise the output of this analysis for quick and easy comprehension.
-
-Rather than a single tool MSTICpy is a Swiss Army knife for security investigations.
-
-
-### [MUD-Visualizer](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-Manufacturer Usage Description (MUD) is a recently introduced IETF standard designed to protect IoT devices and networks by isolating IoT device based on the information that define the behavior of that device. The standard defines a straight-forward method to implement a defensive mechanism based on the rules that are introduced by manufacturer of the device. MUD-Files are the core component of the MUD standard and contain the access control information of IoT devices. However, MUD-Files may contain possibly hundreds of access control rules. As a result, reading and validating these files is a challenge; and determining how multiple IoT devices interact is difficult for the developer and infeasible for the consumer. MUD-Visualizer is a tool that provides a visualization of any number of MUD-Files and is designed to enable developers to produce correct MUD-Files by providing format corrections, integrating them with other MUD-Files, and identifying conflicts through visualization. MUD-Visualizer is scalable and its core task is to merge and illustrate ACEs for multiple devices; both within and beyond the local area network.
-
-
 ### [Mafia: Mobile Security Automation Framework for Intelligent Auditing](#)  
 ![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
 Mobile applications are critical when it comes to vulnerabilities in a production environment. The only option to remove a product issue is to force update the app, which isn't a good user experience, especially when the app download size is high. With this project, we aim to automate the manual security testing and leverage developers with a tool which helps them identify bugs well in advance. The goal of MAFIA is to perform end-to-end security testing for a given mobile app and create a self-serve tool for developers and security engineers.
-
-
-### [Magpie: An Open Source CSPM Built to Scale](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-None
-
-
-### [MalConfScan with Cuckoo: Automatic Malware Configuration Data Extraction and Memory Forensic](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-"MalConfScan with Cuckoo" is a tool for automatically extracting known malware configuration data. With the growing number of malware variants emerging day by day, the automation of malware analysis using sandbox systems is becoming popular. Such systems have a function to list malware behavior on Windows OS, such as communication, file and registry creation. On the other hand, malware analysts spend more time extracting malware configuration data rather than analyzing malware behavior. There are two reasons for it:
-
-1. Many malware variants mostly share the same code except for configuration data. In other words, a type of malware and configuration data are the only elements that need to be checked.
-
-2. Malware configuration data contains an attack campaign ID and communication encryption keys. This information would be the critical data for investigating logs in incident response, and also for knowing the actor's target.
-
-We present a malware analysis tool to extract configuration data for incident responders and malware analysts. This tool automates analysis for many types of malware based on our long-time research and, reduce the time spent on malware analysis. In addition, this tool can be used not only for malware analysis but also for memory forensics. It can help a victim organization with malware infection to identify C2 server information and encryption key which are necessary for their incident response.
 
 
 ### [Maltego Have I Been Pwned?](#)  
@@ -2970,22 +1753,6 @@ Mana Toolkit is a Wi-Fi rogue access point toolkit whose purpose is getting as m
 Redline, Mandiantâs premier free tool, provides host investigative capabilities to users to find signs of malicious activity through memory and file analysis, and the development of a threat assessment profile.  With Redline, users can:
 
 
-### [Medaudit: Auditing Medical Devices and Healthcare Infrastructure](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-Medaudit is a healthcare/ medical device auditing tool that would help anyone auditing a healthcare networks and medical devices. At the time of writing, there are no tools - commercial or free - that can help security pentest healthcare infrastructure. This tool aims to close that gap and help security analysts use their web app skill set to analyze medical devices. The tool support HL7 protocol right now and will have support for FHIR and DICOM in near future.
-
-The tool does the following things:
-
-Create a visual map of HL7 traffic flow on a network (Passive analysis), extract HL7 traffic on the network.
-Scan and verify for open HL7 ports on a host
-Perform DOS attacks against HL7 streams on HL7 reciever
-Send HL7 messages (malformed attacks)
-Fuzzer
-Malicious HL7 Server
-
-The tool also acts a proxy using web API so you can reuse web application tests on medical devices.
-
-
 ### [Melkor - An ELF File Format Fuzzer](#)  
 ![BH-US-14](https://img.shields.io/badge/BH-US-14-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
 Since its adoption as the standard binary file format for *nix systems, a variety of vulnerabilities in ELF parsers have been found and exploited in OS kernels, debuggers, libraries, etc. Most of these flaws have been found manually through code review and binary modification. Nowadays, 15 years later, common programming mistakes are still being implemented in many ELF parsers that are being released these days very often, either as debuggers, reverse engineering tools, AV analyzers, plugins or as malware (yes, malware has parsers too). Here's where ELF file format fuzzing comes into the game to help you to identify these bugs in an automated fashion.
@@ -2997,34 +1764,6 @@ MemTracer is a tool that offers live memory analysis capabilities, allowing digi
 Advanced persistence threat (APT) adversaries use stealthy attack tactics that only leave volatile short-lived memory evidence. The reflective Dynamic-Link Library (DLL) load technique is considered one of the stealthiest attack techniques. Reflective DLL load allows adversaries to load malicious code directly into memory, rather than loading a file from the disk. Thus, reflective
 DLL load leaves no digital evidence present on the disk. The malicious DLL continues to execute as long as the compromised process is running. Terminating a compromised process leads to the removal of the malicious DLL from memory, and the release of the memory region back to the pool for reallocation. Therefore, memory needs to be examined periodically in order to detect the existence of a malicious DLL that loaded reflectively into memory.
 Loading DLL reflectively produces an unusual memory region's characteristics that can indicate its existence. The MemTracer tool was developed to efficiently scan memory regions to detect reflective DLL loading symptoms. Mainly, MemTracer aims to detect native .NET framework DLLs that are loaded reflectively. Additionally, MemTracer provides the ability to search for a specific loaded DLL by name, which can retrieve the list of processes that have abnormally loaded the specified module for further investigation.
-
-
-### [Memhunter: A Live Alternative to Volatility Memory Forensic Plugins](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-Memhunter automates the hunting of memory resident malware, improving the threat hunter analysis process and remediation times. The tool detects and reports memory-resident malware living on endpoint processes. Memhunter only works on Windows at the moment, and it detects known malicious memory injection techniques. The detection process is performed through live analysis and without needing memory dumps. The tool was designed as a replacement of memory forensic volatility plugins such as malfind and hollowfind. The idea of not requiring memory dumps helps on performing the memory resident malware threat hunting at scale, without manual analysis, and without the complex infrastructure needed to move dumps to forensic environments.
-
-In order to find footprints left by malware code injection techniques, memhunter relies on a set of memory inspection heuristics and ETW trace collection. Once a suspicious process gets identified, the tool filters out false-positives through Yara Rules analysis and VirusTotal queries. This down-selection process helps the tool to reduce the number of false positives, leaving only known-bad processes. The tool then gets forensic information on the remaining set of suspicious findings and report them back to the analyst for remediation steps.
-
-The tool itself is a self-contained binary which can be run on the endpoint to conduct the memory hunting. The idea of a self-contained binary helps on reducing the footprint, the dependencies needed, and improving the deployability of the tool. The binary contains a set of embedded "hunters" plugins, each one in charge of performing a specific heuristic detection. It also contains the ability to register the binary as an ETW collection service, which will augment the findings of next runs by providing contextual information on the attack. The down-selection is performed through libyara and VirusTotal client functionality.
-
-Source Code: https://github.com/marcosd4h/memhunter
-
-
-### [MetaHub: Automating Ownership, Context and Impact Assessments in Security Findings](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-Security findings from automated sources such as CSPMs, software vulnerability scanners, or compliance scanners often overwhelm security teams with excessive, generic, context-less information. You may have heard countless times that context in security is key, so why don't these tools provide you with more of it? Simply put, they were not designed to do so.
-
-This shortcoming means that determining ownership and impact can be time-consuming, leading to critical vulnerabilities going unnoticed, and causing unnecessary noise or friction between security teams and other departments.
-
-My proposed demo introduces MetaHub, a tool designed to address these issues by automating the three essential stages of security finding assessment: owner determination, contextualization, and impact definition. Leveraging metadata through MetaChecks, MetaTags, MetaTrails, and MetaAccount, MetaHub provides a detailed, context-aware assessment of each finding.
-
-By integrating MetaHub, teams can significantly reduce false positives, streamline the detection and resolution of security findings, and strategically tailor their scanner selection to minimize unnecessary noise. The ability to concentrate on meaningful, high-impact issues will be the primary focus of the demo.
-
-MetaHub relies on the ASFF format for ingesting security findings and can consume data from AWS Security Hub or any ASFF-supported scanner like Prowler, ElectricEye, or Inspector. This compatibility means you can continue using the scanners you already rely on but add what's missing to those findings: Ownership, Context, and Impact.
-
-MetaHub also generates powerful visual reports and is designed for use as a CLI tool or within automated workflows, such as AWS Security Hub custom actions or AWS Lambda functions.
-
-The automation of context, ownership, and impact is not commonly addressed by open-source tools; MetaHub introduces a solution to this problem that aims to be agnostic to the source scanner.
 
 
 ### [MetasploitHelper Reloaded](#)  
@@ -3047,11 +1786,6 @@ Source Code: https://github.com/syncsrc/MicroRenovator
 ### [MineMeld](#)  
 ![BH-ASIA-17](https://img.shields.io/badge/BH-ASIA-17-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
 Using threat intelligence to enforce security policy poses several challenges. Sources of threat indicators often place indicators in multiple formats or format them inconsistently. Using indicators from multiple sources and packaging them into different formats requires a large investment of time and effort, especially as you discover new sources of indicators. It is also difficult to keep track of updates to threat indicator sources, since they are updated at different times and not always on a regular basis. To automate many of these manual processes, we have released MineMeld.MineMeld is an open source Threat Intelligence framework you can use, among other things, to process indicators and automatically enforce policy on your firewall or augment logs in your SIEM. At the core of MineMeld is a flexible and extensible engine where the data flow is described via a graph of nodes exchanging indicators with a protocol inspired by BGP. By changing the nodes and how they are connected, you can easily define any kind of Threat Intelligence processing logic. And if you need support for a new format, a new protocol or a new logic, you can develop & add your own custom node to the graph.
-
-
-### [Mining for Secrets: Repos, firmware, and more](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-None
 
 
 ### [Mitre Attack Flow Detector](#)  
@@ -3119,11 +1853,6 @@ Android application penetration testing goes further than testing the client to 
 ### [NAFT ONLINE](#)  
 ![BH-EU-14](https://img.shields.io/badge/BH-EU-14-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
 Memory forensics is the next step the forensic community has taken. With NAFT Online, you can learn memory forensics for Cisco IOS. Learn how to use the Network Appliance Forensic Toolkit with a real Cisco IOS router.
-
-
-### [NEW TSURUGI LINUX ACQUIRE & DIGITAL FORENSIC ACQUISITIONS](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-Tsurugi ACQUIRE is a dedicated Linux OS to perform DIGITAL FORENSIC acquisition before to start post mortem DFIR investigations.
 
 
 ### [NFCULT](#)  
@@ -3201,13 +1930,6 @@ NetRipper is a post-exploitation tool targeting Windows systems which uses API h
 ### [NetSec-Framework](#)  
 ![BH-US-16](https://img.shields.io/badge/BH-US-16-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
 NetSec-Framework is a super lightweight Python CLI for performing network auditing tests. The CLI utilizes Arpspoof, Ettercap, sslstrip, tcpdump and Nmap. A user is able to copy/paste this script into any vanilla Debian-based system, install dependencies, configure iptables rules, port forwarding and execute MiTM attacks without leaving the CLI. It also includes an assisted Nmap wrapper for network scanning with an explanation of each scan type. The framework also has features that allow the user to install most Kali Linux tools at the users request in an easy menu based system.The goal was to make network auditing more intuitive for an engineer just getting into security testing and make it easier for those who want to use certain Kali tools on the fly.
-
-
-### [Nightingale: Docker for Pentesters](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-Have you ever been encounter where you configured the security virtual envieonment in the virtualbox and after someday the VM got crashed. All your configuration, tool setup, important information about the taget, POC's and what not, all will be gone and you can't recover the same.
-
-With the same problem, I created the Nightingale based on the docker technology which provides you the exact security environment where you can expreicne the tools which a pentesters required at the time of pentesting. Adding to this, you no need to worry about your data, configuration and all other important. Nightingale will automatically restore the configuration once the new container will be up.
 
 
 ### [Nishang - The Black Hat Version](#)  
@@ -3425,30 +2147,9 @@ To pentest SAP system required some knowledge of this technologies and some hack
 We present a compilation of powershell script to assess SAP, which try to answer to this problematic of dependencies and use from Citrix environment. The presentation will start by describing the issues around SAP hacking tools, then we will continue by explaining the restrictions meet to pentest from Citrix system. And then we will present in detail the tool developed to solve the issues meet and of course with some demos.
 
 
-### [POWERSAP: POWERSHELL TOOL TO ASSESS SAP SECURITY](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-Most companies, small or big, use SAP technologies to work. Many of them provide access to their SAP environments through Citrix. Indeed, supplier or subcontractors need to reach SAP environment, from back office to boardroom, warehouse to storefront, desktop to mobile device; users can quickly and 'securely' access SAP enterprise application software with Citrix virtualization without exposing their SAP landscape to Internet.
-
-To pentest SAP system required some knowledge of this technologies and some hacking tool. Unfortunately, lots of SAP hacking tools are not maintained anymore and dependencies are required like RFC SDK to work. When it comes to assess/pentest the security of SAP landscape from Citrix, no tool is freely available and it is not allow or possible to install third softwares or dependencies.
-
-We present a compilation of powershell script to assess SAP, which try to answer to this problematic of dependencies and use from Citrix environment. The presentation will start by describing the issues around SAP hacking tools, then we will continue by explaining the restrictions meet to pentest from Citrix system. And then we will present in detail the tool developed to solve the issues meet and of course with some demos.
-
-
-### [PTIOT: AN AUTOMATED SECURITY TESTING FRAMEWORK FOR THE INTERNET OF THINGS - ARSENAL THEATER DEMO](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-With the Internet of Everything era coming and millions of IoT devices becoming interconnected via the Internet, security issues caused by the IoT devices are increasingly serious more than any time before. Different from traditional security problems, there are no specific cognitions or orientations on the technology of security defense. Only if we knew our evil enemy and understood the means they used to attack, would we be able to build an efficient defense system.
-
-PtIoT is an automated security testing framework for the Internet of Things, and it has already been used on 360 IoT devices' productive process. It is combined with 360GearTeam's daily security practice and understanding of the attack pattern the malicious frequently used. It contains grey box-based security tests on external ports, compilation options, communication encryption, OS check runtime program check, web application check, etc. It is used to test ROMs on the products' version iteration process. At present, the security test covers products like 360 Smart Camera, 360Safe Wifi Router, 360 Driver Recoder and so on.
-
-
 ### [PUNYDOMAINCHECK - PHISHING SITE INVESTIGATOR](#)  
 ![BH-EU-17](https://img.shields.io/badge/BH-EU-17-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
 This tool was developed to identify Punycode alternatives for legitimate domain names and to check whether if an ongoing phishing campaign is in process. By using its list that is composed from the confusable characters in different charsets, the tool generates possible domain name alternatives with the user-specified settings. After checking if the domain name is linked to a server, the tool then visits the site to perform similarity test with the original site on both HTTP and HTTPS ports. Results are presented to the user with additional information of whois lookups and VirusTotal queries. A live demo of the tool will be presented during the Arsenal session.
-
-
-### [Packet Carving for SATCOMs Hackers](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-None
 
 
 ### [PandaWar: Hardware Security Multidimensional Attack and Defense Toolset](#)  
@@ -3472,43 +2173,9 @@ Leveraging the robust capabilities of Wireshark's TShark tool, Pcapinator parses
 Pentoo is Linux distribution designed for penetration testing. Itincludes huge up-to-date and tested collection of tools for web, network, wireless, radio, voice, rce security assessments, and forensics investigations. It can run as a LiveUSB or installed on your permanent media. Based on Gentoo Linux, it is available as an overlay for an existing Gentoo installation and can be customized for your needs. In addition, binary profile with precompiled packages are also available. Pentoo comes hardened by default so both userspace applications and the kernel are protected against all types of memory corruption exploits including zero days.
 
 
-### [Performing Live Forensics Without Killing Your Evidence](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-In a threat landscape characterized by targeted attacks, file-less malware and other advanced hacking techniques, the days of relying solely on traditional "dead box" forensics for investigations are, well… dead. Live forensics, a practice considered a dangerous and dark art just a decade ago, has now become the de-facto standard. However, many CSIRT teams still struggle with this type of threat hunting.
-
-This session will discuss the benefits, pitfalls to avoid and best practices for performing live box forensics as a threat hunting tool. The presenter will also introduce a free and publicly available command line tool for Windows that automates the execution and data acquisition from other live forensics tools in a more secure, easier to maintain manner.
-
-
 ### [PESTUDIO](#)  
 ![BH-EU-15](https://img.shields.io/badge/BH-EU-15-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
 
-
-
-### [Phishing Simulation Assessment](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-People in IT eco-system are becoming 'favorite' targets because, 1. they remain weakest link and 2. organisation are becoming mature in securing technology. For a security tester, it is a daunting task to set up a phishing campaign, which includes, decide a look-alike domain, buy it, setup a phishing website with infrastructure, design an email and choose target audience, track the open/click/download and build the analytics. All of these activities are time-consuming and demands a certain skill-set.
-
-Phishing Simulation provides one-stop-solution for organisation to understand security awareness posture without actually performing 'live' phishing attack. Phishing Simulation prepares phishing assessment with tailor-made questions specific to organisation, facilitates target users to complete the assessment, provides an intuitive tutorial and builds the analytics on basis of responses and the meta-data collected about user.
-
-Phishing Simulation has 2 modules:
-Admin Module: This module will be used by tester to setup and monitor phishing assessments
-- On the basis of inputs provided by tester like organisation name, email ID, domain name, tool automatically generates questions with tailor-made data such as look-alike domains using typo-squatting technique, spoofed sender address, look-alike web-site content
-- Assessment will comprise of questions having phishing web-site, spear-phishing email, SMiShing, scenario-based question to make it close to real-world phishing attacks
-- Tool also provides analytics in form of graphs to represent security awareness posture of organisation by different categories such as department, employee, target-user action
-
-Client Module: This module will be used by target user to complete the assessment and view tutorial
-- Every user within a campaign itself will have 10 unique questions to answer, with the mix of positive and negative scenarios
-- Passing criteria is to answer every question correct because all it takes is just one click!
-
-
-### [PingCastle: An Active Directory Auditing Tool](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-So many tools that exist to assess Active Directory security, and yet, it is impossible to have an overview of all. PingCastle has been designed to tackle these difficulties and get results fast and without any requirements. Healthcheck mode is the most well-known mode that gives vulnerability reports in minutes regarding major AD vulnerabilities. But what if the most important point was to convince the management that AD security is not that simple? PingCastle is more than a vulnerability scanner. This demo will include scanners, cartography and secret tricks.
-
-
-### [PingCastle: An Active Directory Security Tool](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-So many tools that exist to assess Active Directory security, and yet, it is impossible to have an overview of all. PingCastle has been designed to tackle these difficulties and get results fast and without any requirements. Healthcheck mode is the most well-known mode that gives vulnerability reports in minutes regarding major AD vulnerabilities. But what if the most important point was to convince the management that AD security is not that simple? PingCastle is more than a vulnerability scanner. This demo will include scanners, cartography and secret tricks.
 
 
 ### [PixelCAPTCHA - A Unicode Based CAPTCHA Scheme](#)  
@@ -3529,21 +2196,9 @@ Most of the UAS system are using 2.4 or 5.8Ghz for remote connection and video t
 Pocsuite is an open-source remote vulnerability testing framework developed by the Knownsec Security Team.Written in Python and supported both validation and exploitation two plugin-invoked modes, Pocsuite could import batch targets from files and test them against multiple exploit-plugins in advance.There are two ways to work with Pocsuite: configuring exploit-required arguments and running in console-based modes; and handling the output from steps in interactive modes. Besides, it could display output in a human-friendly graph providing more useful information for pentesters.Like Metasploit, it is a development kit for pentesters to develop their own exploits. Users could utilize some auxiliary modules packaged in Pocsuite to extend their exploit functions or integrate Pocsuite to develop other vulnerability assessment tools.At last, Pocsuite is also an extremely useful tool to integrate Seebug and ZoomEye APIs in a collaborative way. Vulnerability assessment can be done automatically and effectively by searching targets through ZoomEye and acquiring PoC scripts from Seebug or locally.
 
 
-### [Post-Quantum Cryptography Library](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-This library provides a convenient way for developers to integrate post-quantum cryptography into their applications, helping to protect sensitive information from potential quantum computing attacks. We present f5oqs_sdk, a Python 3 library that wraps the liboqs C library, which is part of the Open Quantum Safe (OQS) project. The OQS project aims to develop and prototype quantum-resistant cryptography. The f5oqs_sdk offers a unified API for post-quantum key encapsulation and digital signature schemes, as well as a collection of open-source implementations of post-quantum cryptography algorithms. It also provides support for alternative RNGs through the randombytes[] functions. The library is available on PyPI and can be easily installed with pip. The paper provides a brief overview of the installation process and usage of the library, along with examples of how to use the API.
-
-f5oqs_sdk is a powerful tool for developers who want to integrate post-quantum cryptography into their applications. It provides a unified and easy-to-use API for implementing quantum-resistant cryptography, helping to protect sensitive information from potential quantum computing attacks.
-
-
 ### [PowerSploit](#)  
 ![BH-US-14](https://img.shields.io/badge/BH-US-14-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
 PowerSploit is a popular collection of Microsoft PowerShell modules that can be used to aid reverse engineers, forensic analysts, and penetration testers during all phases of an assessment. Come see how PowerShell can be leveraged to accomplish things that would otherwise be impossible such as, loading binaries directly into memory. Joseph Bialek and Chris Campbell will demonstrate how to utilize PowerSploit to bypass security products through all phases of a mock penetration test which includes enumeration, exploitation, privilege-escalation, credential theft, and pivoting to other hosts. They will share tips and tricks to leverage PowerShell in your own tools and highlight the new privilege escalation module being introduced at ToolsWatch.
-
-
-### [Practical IoT Hacking: Introduction to Multi-Band Hacking with the CatSniffer](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-None
 
 
 ### [Praeda](#)  
@@ -3563,11 +2218,6 @@ We will provide this tool as a Web application and publish its source code on Gi
 ### [Preeny](#)  
 ![BH-US-15](https://img.shields.io/badge/BH-US-15-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
 Preeny [1] helps you pwn noobs by making it easier to interact with binaries locally. It provides many different LD_PRELOAD binaries that implement a wide range of capabilities. Preeny can keep a binary from using ptrace, forking, or sending signals. It can override the random seed to disable randomness, suspend programs at startup (for debugging/analysis), patch binaries at load time, and can even convert network applications to be able to interact on the commandline. It's been used enable AFL to fuzz nginx [2], and has been used in a lot of reverse engineering, malware analysis, and exploitation work.The demo will go through Preeny's capabilities, discuss the addition of new functionality to Preeny, and detail scenarios where Preeny comes in handy.
-
-
-### [Principal Mapper (PMapper): A Tool for Identifying Unique AWS Account/Organization Permissions Risks](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-None
 
 
 ### [Project Enigma: Detecting Indicators of Compromise Through Ram Analysis, Event Logs and Malware Machine Learning](#)  
@@ -3592,16 +2242,6 @@ Project Walrus is an Android app we're developing to let pentesters make better 
 Prowler is a Cluster Network Vulnerability Scanner, developed during Singapore Infosec Community Hackathon - HackSmith v1.0. It is implemented on a cluster of Raspberry Pi and it will scan a network for vulnerabilities, such as default/weak credentials, that can be easily exploited.
 
 
-### [Prowler v3 the handy multi-cloud security tool](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-None
-
-
-### [Prowler: Cloud Security Assessment, Auditing, Hardening, Compliance and Forensics Readiness Tool](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-Prowler helps to assess, audit and harden your AWS account configuration and resources. It also helps to check your configuration with CIS recommendations, and check if your cloud infrastructure is GDPR compliance or if you are ready for a proper forensic investigation. It is a command line tool that provides direct and clear information about configuration status related to security of a given AWS account, it performs more than 80 checks.
-
-
 ### [ProxyMe](#)  
 ![BH-US-14](https://img.shields.io/badge/BH-US-14-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
 ProxyMe is a modular HTTP/S proxy based on plugins. It's designed and oriented for pen-testing or research purposes. It also has support for analyzing and modifying the traffic, SSL included. It can be used as a regular proxy or as a reverse proxy, supporting also transparent connections, making it perfect for combined attacks of Man In The Middle (or even as a load balancer if you want!).
@@ -3615,16 +2255,6 @@ Business applications on-premises and in the cloud rely on Active Directory (AD)
 ### [PurpleOPS - A Simple Tool to Help Track and Share Purple Team Data](#)  
 ![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
 Purple team exercises are probably one of the most useful types of activities that organizations can engage in these days. Key to effective purple teaming is good communication, data collection and knowledge sharing. For us, this has been a bit of a pain point having to try and manually keep track of activities, actions and events. We did find some tools to aid with this, but none of them truly opensource or flexible enough to allow us to do what we wanted to do. So we built PurpleOPS, which is at its core a data collection tool aligned to MITRE ATT&CK and integrated into other fantastic open-source projects such as Atomic Redteam. It is easy to customize with your own internal knowledge base and test cases, plus it's also written in python3 using Flask, so it's super easy to adjust to your needs.
-
-
-### [Pwnppeteer - Phishing Post {Exploi/Automa}tion at Scale](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-None
-
-
-### [PyExfil - A Python Data Exfiltration & C2 Framework](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-PyExfil is a python data exfiltration package. It is currently an open source package allowing everyone to download, use and edit the code. It has several modules classified in 4 types of data exfiltration purposes. It is designed to enable Security personnel to test their Data Leakage Prevention mechanisms by attempting to leak various types of data and examine alerting and prevention mechanisms employed in their infrastructure.
 
 
 ### [PyExfil](#)  
@@ -3688,32 +2318,9 @@ Along with this talk, we will share all the firmware that we have tested and wil
 RAFT (Response Analysis and Further Testing) is an open source Python tool designed to assist with web application assessments.
 
 
-### [RAT Exploitation Tool for Social Networks](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-As we all know, many risks are involved with social networks such as impersonation, social-engineering, and data breach.
-
-To demonstrate these attacks, we developed an innovative tool that can hijack and remotely control social network accounts by combining the powers of social engineering with malicious third party apps.
-
-We built a private app store of phishing apps, with genres, that a bad actor can choose from to gain RAT control over victim accounts. To enable this, our tool manages oauth tokens within a single web console, allowing the hacker to exercise the functions of the victim accounts. To this end, we discuss other features and extensions of our tool, such as social engineering chat bots, crawlier bots, password crackers, and visualization tools for social network analytics.
-
-
 ### [REFLECTOR - BURP SUITE EXTENSION](#)  
 ![BH-EU-17](https://img.shields.io/badge/BH-EU-17-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
 Generally, searching reflected xss in a web-application penetration test is truly a challenge, especially if it consists of a huge number of parameters. Manual fuzzing is too labor-intensive, and moreover, it's easy to miss some details. Reflector is a new Burp Suite extension able to find reflected xss on a page in real-time - while browsing a website. You should not run any active scanning each parameters or test it manually. Every time reflection is found, reflector defines severity and the generated burp issue. Furthermore, it has the below features:
-
-
-### [REW-sploit: Dissecting Metasploit Attacks](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-Metasploit and Cobalt Strike are wildly used tool for red-teams, pen-testers and sometimes malicious actors. They deliver a lot of ready-to-use exploits facilitating work of the attacker. But who thinks about the poor blue-team members? They are left alone. It looks automation is for attackers only!
-But now, there is a hope: REW-sploit is a new tool with the aim to help defenders in analyzing Metasploit (and in some form Cobalt Strike) based attacks. Leveraging some well know frameworks it can emulate payloads, extracts crypto keys and correlate PCAP dumps to get extra info about what is going on. Automation is now for defenders too!
-
-
-### [RF( Radio Frequency ) Offensive and Defense Exercise Server](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-We believe that cyber security should not only cover the Internet space but also the RF (radio frequency) space.
-In the radio space, interception, decryption, tampering, jamming, and spoofing are actively practiced against hostile countries.　For example, the Russian Красуха-4 is a well-known electronic warfare weapon.
-In fact, it has a longer history than the Internet, and there is much to learn from it.
-However, there are not so many RF training environments that can be easily used.
 
 
 ### [RF-Xfil: Prototype Toolkit for Data Exfiltration Over Radio Frequencies](#)  
@@ -3721,21 +2328,9 @@ However, there are not so many RF training environments that can be easily used.
 None
 
 
-### [RFQuack: A Versatile, Modular, RF Security Toolkit](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-Software-defined radios (SDRs) are indispensable for signal reconnaissance and physical-layer dissection, but despite we have advanced tools like Universal Radio Hacker, SDR-based approaches require substantial effort. Contrarily, RF dongles such as the popular Yard Stick One are easy to use and guarantee a deterministic physical-layer implementation. However, they're not very flexible, as each dongle is a static hardware system with a monolithic firmware. We present RFquack, an open-source tool and library firmware that combines the flexibility of a software-based approach with the determinism and performance of embedded RF frontends. RFquack is based on a multi-radio hardware system with swappable RF frontends, and a firmware that exposes a uniform, hardware-agnostic API. RFquack focuses on a structured firmware architecture that allows high- and low-level interaction with the RF frontends. It facilitates the development of host-side scripts and firmware plug-ins, to implement efficient data-processing pipelines or interactive protocols, thanks to the multi-radio support. RFquack has an IPython shell and 9 firmware modules for: spectrum scanning, automatic carrier detection and bitrate estimation, headless operation with remote management, in-flight packet filtering and manipulation, MouseJack, and RollJam (as examples). We used RFquack in high-schools to teach digital RF protocols, to setup RF hacking contests, and to analyze industrial-grade devices and key fobs, on which we found and reported 11 vulnerabilities in their RF protocols.
-
-
 ### [RPC-FireWall](#)  
 ![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
 None
-
-
-### [RPL Attacks Framework: Attacking RPL in WSNs](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-This tool is a framework for attacking the Routing Protocol for Low power and lossy networks (RPL) implementation of Contiki for Wireless Sensor Networks (WSN).
-
-Presentation: https://github.com/dhondta/rpl-attacks/raw/master/doc/bheu18-arsenal-presentation.pdf
 
 
 ### [RTHunter:the High-Accuracy Reverse Symbol Recovery and Vulnerability Scanning Tool](#)  
@@ -3744,13 +2339,6 @@ RTOS (Real-Time Operating Systems) are widely used in critical fields such as ae
 
 
 RTHunter is an efficient RTOS reverse symbol recovery and vulnerability scanning tool. It collects a large number of RTOS projects and mainstream network framework projects in multiple versions, builds a firmware resource library covering dozens of mainstream RTOS systems, and builds thousands of function features and historical vulnerability function features through trace-based information methods. And by solving the slow recognition speed and accuracy problem of bindiff through trace-based fuzzy feature matching method. RTHunter can achieve more than 50% recognition accuracy on mainstream RTOS routers, and has found supply chain vulnerabilities affecting multiple brands and dozens of RTOS devices through recorded vulnerability features. RTHunter can also use personal reverse information to fill the entire database and form a custom efficient tool.
-
-
-### [RadioT Shield: A Radio Way to Protect Most of Your IoT Devices](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-RadioT Shield is an open source platform dedicated to detecting the attack of various IoT devices in a given space by radio communication data. RadioT Shield can detect a lot of radio-based IoT-related attacks, such as WIFI attacks, BLE attacks, GSM attacks, ZigBee attacks, etc. Unlike other IoT hardware and software security solutions, this system does not require any modification of the protected IoT device and does not affect the existing functionality of the device.
-
-RadioT Shield is suitable for all IoT devices that use radio communications, even devices that are more than a decade old. It is therefore particularly suitable for scenarios with complex IoT device types and IoT networks consisting of old, non-secure IoT devices, especially industrial control IoT devices, medical IoT devices, smart home IoT devices, and more.
 
 
 ### [Rainmap lite](#)  
@@ -3770,23 +2358,6 @@ This is the tool for you! RansomCoin is a suite of tools designed to scrape IoCs
 In order to optimize testing with Bluetooth Low Energy (BLE) peripherals, we have created user-friendly tools that enable BLE packet replay, fuzzing, and on-the-fly scripted communications. BLE-replay is a Python tool for recording, modifying, replaying, and fuzzing writes to Bluetooth Low Energy (BLE) peripherals. It can be used for testing or reversing application layer interactions between a mobile application and a BLE peripheral. This tool is useful if an application writes some characteristics on the BLE device in order to configure/unlock/disable some feature. You want to quickly capture the relevant information from a packet log into a human-readable format and mess around with it from a laptop. It is the first tool built upon our new BLESuite library.BLESuite is a Python library that enables application layer communication between a host machine and a BLE device. The library greatly simplifies the scripting of BLE activity. It provides a simple connection manager and supports scanning advertisements, service discovery, smart scanning of all services/characteristics/descriptors, and sync/async read/write. We will also demonstrate the BLESuiteCLI, which provides quick access to all of these features from the command line.
 
 
-### [Rapid Data Exploration With Apache Drill](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-None
-
-
-### [Rapid Fire: Flipper vs. All the Things](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-None
-
-
-### [RedHunt OS (VM): A Virtual Machine for Adversary Emulation and Threat Hunting](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-The ultimate aim of any security exercise (offensive or defensive) is to make the organization more resilient and adaptive towards modern adversaries. RedHunt OS (Virtual Machine) aims to provide defenders a platform containing the toolset to emulate adversaries and on the other hand arm them with advanced logging and monitoring setup to actively hunt such adversaries. The project aims to provide a one stop shop which defenders can quickly spin up and practice blue team exercises in the presence as well as absence of an active attacker. Similarly, red team can utilize the platform to identify and understand the footprints they leave behind during a red team exercise. Both the teams can utilize the setup to become better at what they do ultimately leading to better security.
-
-Source Code: https://github.com/redhuntlabs/RedHunt-OS/﻿
-
-
 ### [Registry Inspector Forensics (RIF)](#)  
 ![BH-US-13](https://img.shields.io/badge/BH-US-13-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
 Registry Inspector Forensics (RIF), based on the widely used Registry Decoder, is a powerful registry forensics platform. It features the ability to acquire and analyze numerous registry hives simultaneously, intelligent search, a plugin-based architecture, both GUI and full command line support and the ability to parse and analyze memory-resident hive files including the volatile hives. This functionality is perfectly suited for forensic investigations, malware analysis, and incident response scenarios. The project is free and open source and under active development.
@@ -3795,15 +2366,6 @@ Registry Inspector Forensics (RIF), based on the widely used Registry Decoder, i
 ### [REISSUE REQUEST SCRIPTER (BURP PLUGIN)](#)  
 ![BH-EU-15](https://img.shields.io/badge/BH-EU-15-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
 
-
-
-### [Remote Assessment and Proctoring using Intelligent Devices (RAPID)](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-Many educational institutions have adopted online proctoring as a mean to conduct and ensure academic integrity during online assessments, spurred by the pandemic. Most of such remote assessment solutions are closed-source, and requires the installation of various libraries or dependencies; this introduces potential risk for students who would not be able to scrutinize, or have a say as to what is installed on their computers. Being closed source, such solutions can also be slow to react to mala fide actions to tamper and bypass measures put in place to deter cheating. In fact, one only needs to perform cursory searches online to find various ways to defeat some well-known closed-source remote assessment solutions.
-
-To tackle the issue at hand, we introduce a proof of concept, open-source system for remote proctoring that does not require prior installation of any software or libraries. It leverages the Raspberry Pi Zero hardware that is programmed to inject fileless scripts into a Windows system to monitor surface level and internal activities during remote assessments. To deter mala fide attempts to tamper with our solution, we incorporate techniques typically used by malware and C2 infrastructure in the development of our solution, with the ultimate goal of using such techniques for good. Hence at the end of each proctoring session, our solution leaves no trace of its presence or any residue within the proctored environment.
-
-Being a proof-of-concept, we envision extending our solution to support other popular operating systems, as well as capture and analyze more data with greater efficiency.
 
 
 ### [Rickmote Controller](#)  
@@ -3829,27 +2391,6 @@ Rudra aims to provide a developer-friendly framework for exhaustive analysis of 
 ### [Runtime Memory Analysis Tool for Mobile Applications (MemoEB - MEMOry Extraction Binding)](#)  
 ![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
 We are going to release a tool for automated runtime memory analysis for mobile apps (IOS & Android). All the existing tools are not working with runtime memory analysis processes preferring to dump and analyze memory after app finish it's execution. Our our idea is to gather information during runtime to be able to track changes of the state and application behavior with the final goal being to simplify reverse engineering of obfuscated code and to build call graphs based on catched traces during execution. We also made a single interface to manage this process and automated some most common checks that should be done during penetration test.
-
-
-### [S-TIP: Seamless Threat Intelligence Platform](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-S-TIP is an open-source platform for those who analyze threats and share the results with CSIRT etc.
-
-There are a variety of CTI (Cyber Threat Intelligence) in the world. "Human CTI" is knowledge of cyberattacks to be consumed by people through social media, email, and other channels. "System CTI" is cyber attack-related knowledge that is consumed by systems in a format that can be understood by computers, namely STIX.
-
-However, there were barriers between Human CTI and System CTI. There were divided and could not be utilized from the other realm. For example, security operators need intensive manual labor to convert a new threat report for human readers into CTI in a machine-readable format for automated defense.
-
-S-TIP solves this problem by integrating Human CTI and System CTI seamlessly through its STIX database to bring down those barriers. When a user creates a new post, it is automatically converted to the STIX file and saved into the database. The system can trigger automated defense by consuming the STIX file. These processes can be done transparently while a user is unaware of the conversion.
-
-Main features of S-TIP are:
-1. CTI Element Extractor: Human posts to the social media UI of S-TIP are automatically captured as STIX data.
-2. CTI Graph Analytics View: The STIX data can be associated with other pieces of CTI. This mechanism makes it much easier for users to grasp the whole picture of the cyberattack quickly.
-3. Integration with Other Platforms: The STIX data can be readily consumed by security tools like MISP, Splunk, JIRA, and Slack.
-4. STIX/TAXII - Compliant: Collects CTI from open STIX / TAXII servers on the Internet like AlienVault OTX.
-
-These features support a more predictive and proactive response.
-
-Available at : https://github.com/s-tip
 
 
 ### [SAIVS (Spider Artificial Intelligence Vulnerability Scanner)](#)  
@@ -3902,20 +2443,6 @@ SIEMonster is a turnkey, open source, enterprise grade, multi node clustered Sec
 Sparty is an open source tool written in python to audit web applications using sharepoint and frontpage architecture. The motivation behind this tool is to provide an easy and robust way to scrutinize the security configurations of sharepoint and frontpage based web applications. Due to the complex nature of these web administration software, it is required to have a simple and efficient tool that gathers information, check access permissions, dump critical information from default files and perform automated exploitation if security risks are identified.  A number of automated scanners fall short of this and Sparty is a solution to that .  In the first release, Sparty is capable of performing following tasks:
 
 
-### [SPF: SpeedPhishing Framework](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-SpeedPhishing Framework (SPF) is a small collection of tools which can assist penetration testers in quickly/automatically deploying phishing exercises in minimal time.
-
-Among the various capabilities included with SPF is the ability to automate the phishing process of OSINT and target selection, deployment of one or more phishing websites, the crafting and sending of phishing emails to the targets, recording the results, and generating a basic report.
-
-SPF also includes more advanced capabilities such as dynamically building new web phishing templates, automatically validating captured credentials against target mail servers and the pillaging of sensitive information, and SPF can assist in the phishing of multifactor authentication portals.
-
-
-### [Safe Scan&C2 Tool](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-In the process of security attack and defense, as well as penetration testing, there are two prominent issues. First, the attack scanning is often detected by the security systems of the defense side, resulting in the scanning IP being blocked. Second, when the defense side is controlled and assets are connected back to the command and control (C2) server, it may be detected by security devices, leading to countermeasures against the penetration testers. In order to safely and conveniently conduct asset detection during the attack and defense process, as well as secure connection back to the controlled assets on the defense side, we have improved the Kademlia protocol and developed a distributed hash table (DHT) technology. We have also developed a networking tool that consists of a large number of Internet nodes, which dynamically updates IDs and node tree structures at regular intervals. This allows each session to initiate requests from a different node during the scanning process, preventing IP blocking due to high-frequency scanning. Additionally, during the controlled asset's connection back to the C2 server, nodes are randomly selected based on user-selected hop count, effectively preventing penetration testers from being traced, thus improving the penetration testing process.
-
-
 ### [Sample Analysing Forensics Examiner (SAFE)](#)  
 ![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
 Security incidents are usually created by alerts or events, which are based on a small set of forwarded logs. When a server is suspected to be compromised, we go back to the host machine to perform forensics on the rest of the logs to investigate the network traffic and endpoint.
@@ -3934,23 +2461,6 @@ With Scared, our objective is to provide an intuitive Python framework implement
 In addition, the project includes a growing set of Python notebooks which provide an easy entry point to the project with examples of how to use the library and apply it on CTF challenges.
 
 Whether you want to learn more about side-channel attacks, do research, or solve some CTF challenges, Scared provides the right framework for you.
-
-
-### [Scout Suite: A Multi-Cloud Security Auditing Tool](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-Scout Suite (https://github.com/nccgroup/ScoutSuite) is an open source multi-cloud security-auditing tool, which enables security posture assessment of cloud environments. Using the APIs exposed by cloud providers, Scout Suite gathers configuration data for manual inspection and highlights risk areas. Rather than going through dozens of pages on the web consoles, Scout Suite presents a clear view of the attack surface automatically.
-
-The following cloud providers are currently supported:
-
-Amazon Web Services
-Microsoft Azure
-Google Cloud Platform
-
-During the presentation, we will run Scout Suite against a number of cloud environments preconfigured with typical flaws. We will display how Scout Suite can be used to identify and help with remediation of security misconfigurations.
-
-We will also release support for a number of new cloud providers (Oracle Cloud Infrastructure, Alibaba Cloud & IBM Cloud), and demonstrate how Scout Suite's cloud-agnostic architecture allows for great extensibility.
-
-Presentation Slides: https://github.com/nccgroup/ScoutSuite/files/3502099/BH.Arsenal.2019.Scout.Suite.pdf
 
 
 ### [Scout2](#)  
@@ -3988,21 +2498,9 @@ Seebug is an open vulnerability platform based on vulnerability and PoC/Exp shar
 The SensePost Toolset consists of numerous transforms and mini-sets of transforms. This includes OSINT, language translation, twitter monitoring, Spotify, Skype stalking and detailed in-depth foot-printing capabilities.Sense Post Toolkit:https://www.sensepost.com/discover/tools/maltego/osint/SPToolset/
 
 
-### [SERPICO](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-SERPICO is a simple and intuitive report generation and collaboration tool; the primary function is to cut down on the amount of time it takes to write a penetration testing report. Serpico was built by penetration testers with a pen-testers methodology in mind. Our goal is to save you time and improve your reporting process.
-
-We are excited to be back at Arsenal!! We have a large release of Serpico planned with some exciting features to show off including plug-ins to simplify your life, more reports to choose from, shiny UI improvements, and better scoring. It might make you hate report writing just a little bit less.
-
-
 ### [Shadow-Box: Lightweight Hypervisor-Based Kernel Protector](#)  
 ![BH-ASIA-17](https://img.shields.io/badge/BH-ASIA-17-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
 Protection mechanisms running in the kernel-level (Ring 0) cannot completely prevent security threats such as rootkits and kernel exploits because the threats can subvert the protections with the same privileges. This means protections need to be provided with higher privileges. Creating Ring -1 is plausible using VT such as ARM TrustZone, Intel VT-x, and AMD AMD-v. The existing VT (Virtualization Technologies) supports to separate the worlds into a host (normal world, ring -1, host) and a guest (normal world, ring 0 ~ ring 3). Previous research such as NumChecker, Secvisor, NICKLE, Lares, and OSck used VT to protect kernel.In this demo, we show a security monitoring framework for operating systems, Shadow-box, using state-of-the-art virtualization technologies. Shadow-box is introduced at Black Hat Asia 2017 briefing and has a novel architecture inspired by a shadow play. We made Shadow-box from scratch, and it is primarily composed of a lightweight hypervisor and a security monitor. The lightweight hypervisor, Light-box, efficiently isolates an OS inside a guest machine, and projects static and dynamic kernel objects of the guest into the host machine so that our security monitor in the host can investigate the projected images. The security monitor, Shadow-Watcher, places event monitors on static kernel elements and tests security of dynamic kernel elements. We manipulate address translations from the guest physical address to the host physical address in order to exclude unauthorized accesses to the host and the hypervisor spaces. In that way, Shadow-box can properly introspect the guest operating system and mediate all accesses, even when the operating system is compromised.Shadow-box is an open source project (MIT license), and we have been successfully operating Shadow-box in real world since last year. Real world environment is different from laboratory environment. So, we have gone through many trials and errors for a year, and have learned lessons from them. We share our know-hows about using virtualization technology and deploying research into the wild.
-
-
-### [Sharkcop: A Phishing Detector Using Machine Learning](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-Sharkcop use criterias such as ssl certifucate, domain length, domain age,... with SVM classification algorithm to determine if a url is phishing or not. Sharkcop includes a restful web server and a chrome extension to highlight malicious links on Facebook and Messenger.
 
 
 ### [ShellNoob](#)  
@@ -4033,48 +2531,6 @@ ShinoBOT is a RAT simulator for the pentesters, researchers.The powershell based
 ### [ShinoBOT/ShinoC2](#)  
 ![BH-US-13](https://img.shields.io/badge/BH-US-13-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
 A RAT (remote administration tool) and C2 (command/control) server for measuring a target company may or may not provide enough insight, especially when simulating a highly focused attack. After launching the RAT, control will be established by C2 server. The attacker can then do everything from the C2 server.
-
-
-### [ShodanSeeker: Command-Line Tool Using Shodan API](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-The large number of assets published on the Internet - some of which organizations are not even aware of their existence - increase the probability of services being exposed that could put them at risk. As a first step towards resolving this problem, we introduce ShodanSeeker.
-
-Taking advantage of Shodan's crawlers, ShodanSeeker analyzes historical records on-the-fly to discover differences between previously performed scans in order to identify new published services.
-
-Enhancing the capabilities of Shodan's real-time stream of data, our fully customizable solution monitors and generates notification messages once a new risk service is discovered.
-
-Presentation slides: https://drive.google.com/open?id=1Fi5XJ5-1QyXSawHKXVm_emF3NUR2Nx7X
-
-
-### [Siembol: An Open-Source Real-Time SIEM Tool Based on Big Data Technologies](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-None
-
-
-### [SilkETW: Collecting Actionable ETW Data](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-Event Tracing for Windows (ETW) provides researchers with a rich data set which can be leveraged both for defensive as well as offensive purposes. ETW collectors can alert the user to malicious behavior such as user-land APC injection from the Kernel, or equally, allow an attacker to spy on keyboard and mouse activity. The scope for ETW research is large but the information security community has been slow to adopt it. The two primary problems with ETW are: the complexities involved in event collection, and the volume of data that is generated.
-
-SilkETW is a flexible C# ETW wrapper which attempts to mitigate the aforementioned issues by providing a straightforward interface for data collection, various filtering mechanics, and an output format that can be easily processed. ETW output can be written locally to disk, to the Windows event log or shipped off (using POST requests) to 3rd party infrastructure such as Elasticsearch.
-
-This project was originally implemented by the FireEye Advanced Practices (AP) team to aid in the rapid analysis of novel attacker trade-craft, and to feed that analysis back into the detection engineering process.
-
-
-### [SimpleRisk GRC](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-As security professionals, almost every action we take comes down to making a risk-based decision. Web application vulnerabilities, malware infections, physical vulnerabilities, and much more all boils down to some combination of the likelihood of an event happening and the impact it will have. Risk management is a relatively simple concept to grasp, but the place where many practitioners fall down is in the tool set. The lucky security professionals work for companies who can afford expensive GRC tools to aide in managing risk. The unlucky majority out there usually end up spending countless hours managing risk, via spreadsheets. It's cumbersome, time consuming, and just plain sucks. After starting a Risk Management program from scratch at a $1B/year company, Josh Sokol ran into these same barriers and where budget wouldn't let him go down the GRC route, he finally decided to do something about it. SimpleRisk is a simple and free tool to perform risk management activities. Based entirely on open source technologies and sporting a Mozilla Public License 2.0, a SimpleRisk instance can be stood up in minutes and instantly provides the security professional with the ability to submit risks, plan mitigations, facilitate management reviews, prioritize for project planning, and track regular reviews. It is highly configurable and includes dynamic reporting and the ability to tweak risk formulas on the fly. It is under active development with new features being added all the time. SimpleRisk is Enterprise Risk Management simplified.
-
-
-### [SimpleRisk](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-As security professionals, almost every action we take comes down to making a risk-based decision. Web application vulnerabilities, malware infections, physical vulnerabilities, and much more all boils down to some combination of the likelihood of an event happening and the impact it will have. Risk management is a relatively simple concept to grasp, but the place where many practitioners fall down is in the tool set. The lucky security professionals work for companies who can afford expensive GRC tools to aide in managing risk. The unlucky majority out there usually end up spending countless hours managing risk via spreadsheets. It's cumbersome, time consuming, and just plain sucks. After starting a Risk Management program from scratch at a $1B/year company, Josh Sokol ran into these same barriers and where budget wouldn't let him go down the GRC route, he finally decided to do something about it. SimpleRisk is a simple and free tool to perform organizational Governance, Risk Management, and Compliance activities. Based entirely on open source technologies and sporting a Mozilla Public License 2.0, a SimpleRisk instance can be stood up in minutes and instantly provides the security professional with the ability to manage control frameworks, policies, and exceptions, facilitate audits, and perform risk prioritization and mitigation activities. It is highly configurable and includes dynamic reporting and the ability to tweak risk formulas on the fly. It is under active development with new features being added all the time. SimpleRisk is Enterprise Risk Management simplified.
-
-
-### [SimpleRisk: ARSENAL THEATER DEMO](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-As security professionals, almost every action we take comes down to making a risk-based decision. Web application vulnerabilities, malware infections, physical vulnerabilities, and much more all boils down to some combination of the likelihood of an event happening and the impact it will have. Risk management is a relatively simple concept to grasp, but the place where many practitioners fall down is in the tool set. The lucky security professionals work for companies who can afford expensive GRC tools to aide in managing risk. The unlucky majority out there usually end up spending countless hours managing risk, via spreadsheets. It's cumbersome, time consuming, and just plain sucks. After starting a Risk Management program from scratch at a $1B/year company, Josh Sokol ran into these same barriers and where budget wouldn't let him go down the GRC route, he finally decided to do something about it. SimpleRisk is a simple and free tool to perform risk management activities. Based entirely on open source technologies and sporting a Mozilla Public License 2.0, a SimpleRisk instance can be stood up in minutes and instantly provides the security professional with the ability to submit risks, plan mitigations, facilitate management reviews, prioritize for project planning, and track regular reviews. It is highly configurable and includes dynamic reporting and the ability to tweak risk formulas on the fly. It is under active development with new features being added all the time. SimpleRisk is Enterprise Risk Management simplified.
-
-Source Code: https://github.com/simplerisk
 
 
 ### [SkyPhenomena](#)  
@@ -4111,40 +2567,9 @@ As smartphones enter the workplace, sharing the network and accessing sensitive 
 As smartphones enter the workplace, sharing the network and accessing sensitive data, it is crucial to be able to assess the security posture of these devices in much the same way we perform penetration tests on workstations and servers. However, smartphones have unique attack vectors that are not currently covered by available industry tools. The smartphone penetration testing framework, the result of a DARPA Cyber Fast Track project, aims to provide an open source toolkit that addresses the many facets of assessing the security posture of these devices. We will look at the functionality of the framework including information gathering, exploitation, social engineering, and post exploitation through both a traditional IP network and through the mobile modem, showing how this framework can be leveraged by security teams and penetration testers to gain an understanding of the security posture of the smartphones in an organization. SPF can be used as a pivot to gain access to an internal network, gaining access to additional vulnerabilities. SPF can be used to bypass filtering, using SMS to control an exploited internal system. Demonstrations of SPF functionality will be shown.
 
 
-### [SniperPhish: The Web-Email Spear Phishing Toolkit](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-Spear Phishing campaigns are commonly used to test employees' awareness in a company/organization. This exercise involves mostly the combination of phishing emails and websites. An effective campaign requires sophisticated methods starting from designing a phishing website to executing payload at the target in an undetectable manner. A platform is required to send emails to targeted users and tracking campaign progress. This basically involves the use of a mail server (to send email) and a web server (to host phishing website). To collect campaign data, these two domains need to be considered. Precisely, the campaign required to track email delivery status and the data submitted in the phishing website.
-
-Usually, the data from these two domains can be collected easily, but it is more challenging and time-consuming when these data are to be consolidated and address questions such as which victim in the mail submitted data through the website. SniperPhish comes in handy here so that the data is tracked centrally, and displays the consolidated data in its dashboard.
-
-SniperPhish is an advanced Web-Email spear-phishing toolkit developed in PHP to conduct professional phishing assessments. The abstract idea behind this toolkit is to simulate, combine, and centrally track all campaigns that involve email and phishing websites. SniperPhish supports tracking data from web site containing n number of pages. The data submitted in the phishing website containing multiple pages are tracked sequentially with email campaigns. The advanced customization in the report generation module helps to customize column fields and export in multiple outputs. In addition to the core campaign module, SniperPhish also provides additional functionalities such as hosting phishing websites, payload generation, encryption options, and options to convert payloads to FUD using different methods (eg: conversion to reflective DLL/PE).
-
-
 ### [Snoopy](#)  
 ![BH-US-14](https://img.shields.io/badge/BH-US-14-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
 Snoopy is a distributed tracking, data interception, and profiling framework. The software can run on small, cost-effective hardware (BeagleBone, RaspberryPi) and be deployed over a large area (we call these 'drones'). Each Snoopy drone passively or actively collects information on people who walk past from the array of wireless (Wi-Fi, Bluetooth, etc.) devices that they carry on their person. This information is synchronized to a central server where we can visually explore it with tools like Maltego.
-
-
-### [Social Attacker: Automated Phishing on Social Media Platforms](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-Social Attacker is the first Open Source, Multi-Site, automated Social Media Phishing Framework. It allows you to automate the phishing of Social Media users on a mass scale by handling the connecting to, and messaging of targets.
-
-You provide Social Attacker with a phishing message and a list of target profiles (collected either by hand or with Social Mapper). Then over a timeframe you set, it attempts to connect to the targets and, if they accept, sends them phishing message. It can even scrape a targets public profile history and use rudimentary message generation to craft a personal message specific to that person, as an alternative to sending the same phish to all targets.
-
-Social Attacker provides Red Teamers, Penetration Testers & Social Engineers an efficient way to exploit and pivot through an alternative attack route.
-
-Social Attacker supports the following Social Media platforms:
-
-LinkedIn
-Facebook
-Twitter
-VKontakte
-
-Additional Features Include:
-
-Report Generation
-Tracking Connections & Clicks
-Customized Phishing Message Generation
 
 
 ### [Social-Engineer Toolkit](#)  
@@ -4200,50 +2625,6 @@ StackPivotChecker is a tool to provide instruction level inspection on stack piv
 Subgraph OS is a desktop operating system with built-in privacy and security features that make it resistant to attacks against the endpoint, especially those that involve exploitation of software vulnerabilities. The kernel is hardened with grsecurity + PaX, and key applications run in sandbox environments implemented using Linux containers, seccomp bpf, and desktop isolation. Subgraph OS also includes an application firewall and integration with Tor.
 
 
-### [SysmonX: An Augmented and Community-Driven Drop-In Replacement of Sysmon](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-Sysmon is a free and powerful host-level tracing tool, developed by an epic team at Microsoft, which has been widely adopted and deployed by defenders over the last few years. The tool provides a free alternative for those who want to augment the Microsoft Windows Auditing Capabilities, effectively enabling them to detect anomalous endpoint behaviors and to perform threat-hunting activities over the collected data.
-
-Despite providing a lot of features, Sysmon main disadvantage is around its closed-source nature. Not having the ability to extend the tool data collection or to extend the way that the tool filters, aggregate and logically correlate events are impacting on the tool's ability to keep up with the current threat landscape. What is more, the infosec community is not empowered to fix the well-known subversion and evasion techniques created to bypass tool auditing (i.e Matt Graeber talk at BH USA 18).
-
-Introducing SysmonX: SysmonX is an open-source, community-driven, and drop-in replacement version of Sysmon that provides a modularized architecture with the purpose of enabling the infosec community to:
-
-Extend the Sysmon data collection sources and create new security events
-Extend the Sysmon ability to correlate events. Effectively enabling new logical operations between events and the creation of advanced detection capabilities
-Enrich the current set of events with more data!
-Enable the false positive reduction by narrowing down suspicious events through dedicated scanners
-Extend the security configuration schema
-React to known subversion and evasion techniques that impact Sysmon, and by doing so, increasing the resilience of security auditing and data collection mechanism such as this one.
-
-SysmonX is composed of a standalone binary that gets itself deployed as a windows service, supports legacy Sysmon configurations and event reporting mechanism, while also providing users the ability to configure all the SysmonX aspects through command-line interface. The SysmonX binary is a drop-in replacement of Sysmon. This effectively means that SysmonX is a feature-compatible version of Sysmon (same input, same output). This is possible thanks to the SysmonX ability to package, deploy, manage Sysmon binaries behind the scene. SysmonX uses this to intercept data collected by Sysmon drivers, enrich them, along with the ability to create, combine, and add scanning logic on top of new security events. The result is a combined output, with the old good features from Sysmon + the new features from SysmonX.
-
-Example of new security events and features added to SysmonX are:
-
-Cmdline and Parent Process Spoofing detection
-WMI calls over all the namespaces, not just root:subscription
-Ability to collect authentication information
-Ability to collect powershell events
-Ability to collect DNS lookups
-Ability to detect userspace injection techniques (eventing + memory inspection through built in scanner modules)
-Ability to perform regex over security event fields
-Many more!
-
-Source Code: https://github.com/marcosd4h/sysmonx
-
-
-### [T3SF (Technical TableTop Exercises Simulation Framework)](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-T3SF is a framework that offers a modular structure for the orchestration of events from a master scenario events list (MSEL) together with a set of rules defined for each exercise and a configuration that allows defining the parameters of the correspondent platform. The main module performs the communication with the specific module (Discord, Slack, Telegram, WhatsApp, Teams, etc.) which allows the events to be presented in the input channels as injects for each platform. Also, the framework supports different use cases: single organization-multiple areas, multiple organization-single area, and multiple organization-multiple areas. It has been successfully tested in exercises with international companies, which allowed us to validate its commercial level.
-
-Tabletop exercises have 2 approaches: traditional (scenarios with discussion) and modern (automatic events on a platform). The 1st platform was funded by the DHS (USA) with USD20 MM over 10 years. In 2021 we proposed a novel approach using free collaborative platforms, which allowed the development of a free and open source framework.
-
-The original research paper presented and published at the IEEE ARGENCON 2022 academic congress, under the title "Cybersecurity Incident Response Simulation for Organizational and Classroom Learning." (preprint available at IEEE TechRxiv).
-
-The tool itself was first presented and released in the most important cybersecurity conference in Spain (RootedCon 2022) and then updated and presented in the most important cybersecurity conference in Latin America (Ekoparty 2022, video available on YouTube). Then it was presented at FIRST Technical Colloquium Amsterdam 2023 (April) and BlackHat Asia Arsenal 2023.
-
-This version is a major update that includes new features like a better GUI frontend for configuration and scenario setup, an automatic inject creation engine based on a given set of parameters (design decisions) and real time interactions based on ChatGPT predefined prompts.
-
-
 ### [TARDIS](#)  
 ![BH-US-15](https://img.shields.io/badge/BH-US-15-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
 Tripwire Automated Reconnaissance and Deep Inspection System (TARDIS) is a framework which ties together threat feed data such as STIX and vulnerability scan data and references log repositories for indicators of compromise(IoC).  Threat feeds and log repositories contain mountains of data that can be difficult to manage.  TARDIS pulls relevant data from each and outputs the filtered data which matters to information security operation teams.  During Arsenal, we'll show live attacks, exploits and detection mechanisms with TARDIS.  Learn how to integrate the tool into your existing infrastructure and how to add value through additional threat feed data.
@@ -4283,40 +2664,6 @@ ThreatResponse is an open source toolkit for incident response in Amazon. This s
 Tinfoleak is an open-source tool within the OSINT (Open Source Intelligence) and SOCMINT (Social Media Intelligence) disciplines, that automates the extraction of information on Twitter and facilitates subsequent analysis for the generation of intelligence. Taking a user identifier, geographic coordinates or keywords, Tinfoleak analyzes the Twitter timeline to extract great volumes of data and show useful and structured information to the intelligence analyst. Tinfoleak is included in several Linux Distros: CAINE, BlackArch, Buscador, and will be included in Kali Linux 2017.2 release. It is currently the most comprehensive open-source tool for intelligence analysis on Twitter.
 
 
-### [TMoC: Threat Modeler on Chain](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-None
-
-
-### [TROMMEL - ARSENAL THEATER DEMO](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-TROMMEL is a custom, open-source tool using Python to assist researchers during embedded device vulnerability analysis. TROMMEL sifts through embedded device files to identify potential vulnerable indicators. TROMMEL has also integrated vFeed Community Database which allows for further in-depth vulnerability analysis of identified indicators.
-
-Source Code: https://github.com/CERTCC/trommel
-
-
-### [TROMMEL: Sift Through Embedded Device Files to Identify Potential Vulnerable Indicators](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-TROMMEL sifts through embedded device files to identify potential vulnerable indicators. Specifically, TROMMEL identifies the following indicators:
-
-Secure Shell (SSH) key files
-Secure Socket Layer (SSL) key files
-Internet Protocol (IP) addresses
-Uniform Resource Locators (URLs)
-Email addresses
-Shell scripts
-Web server binaries
-Configuration files
-Database files
-Specific binaries files (for example, Dropbear, BusyBox, and others)
-Shared object library files
-Web application scripting variables
-
-Android application package (APK) file permissions
-
-TROMMEL integrates vFeed, to provide a custom intersection with Exploit-DB, Metasploit, Snort, and Nmap. This integration allows for further in-depth vulnerability analysis of identified indicators. All in all, TROMMEL significantly lessens the manual analysis time of the researcher by automating much of the vulnerability discovery and analysis process.
-
-
 ### [Tsurugi Linux Open Source Project: DFIR Investigations, Malware Analysis and OSINT Activities Made Easy](#)  
 ![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
 Any DFIR analyst knows that everyday in many companies, it doesn't matter the size, it's not easy to perform forensics investigations often due to lack of internal information (like mastery all IT architecture, have the logs or the right one...) and ready to use DFIR tools.
@@ -4327,28 +2674,9 @@ And the answer is the Tsurugi Linux project that, of course, can be used also fo
 A Tsurugi Linux special Black Hat Edition will be released and shared with the participants.
 
 
-### [TaintedLove: Dynamic Security Analysis Tool for Ruby](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-TaintedLove is a dynamic security analysis tool for Ruby. It leverages Ruby's object tainting and monkey patching features to identify potentially vulnerable code paths at runtime. TaintedLove is library agnostic and provides a simple framework to extend the detection of unsafe method usage and user input tracking.
-
-
 ### [Taintless](#)  
 ![BH-US-14](https://img.shields.io/badge/BH-US-14-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
 Research in taint tracking and taint inference is hot in the scientific community. We have studied all tools and ideas developed for automated SQL injection prevention using scientific methods, and in an attempt to evaluate them, broken them all down.
-
-
-### [TapIt: SMS Phishing Framework](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-Email phishing is the weapon of choice for most attackers and red teamers alike for getting initial compromise on a network. Email phishing awareness is also heightened in today's cyber security atmosphere. What if I told you there's another social engineering method to achieve initial compromise that is largely unnoticed by defenders?
-
-Mobile phones and SMS are technologies that are largely unmonitored by defenders. TapIt aims to exploit scenarios and situations where SMS Phishing (SMiShing) may be used by attackers to achieve their goals, such as initial compromise, credentials harvesting & 2FA phishing.
-
-TapIt allows easy execution of large-scale SMS phishing campaigns, allowing SMS to be sent to large number of recipients, and to follow-up with tracking of these SMS. Its in-built functionality will also allow ease of setup for purpose of credentials harvesting, delivery of payloads and social engineering.
-
-
-### [Telegrip Forensic Tool](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-None
 
 
 ### [The Dependency Combobulator](#)  
@@ -4361,13 +2689,6 @@ The framework can be used by security auditors, and pentesters and even baked in
 This major new release will include support for a new line of package schemes/artifact ingestion.
 
 
-### [The Mathematical Mesh](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-The Mathematical Mesh is a Threshold Key Infrastructure that allows cryptographic applications to provide effortless security. Threshold key generation and threshold key agreement are used to provide end-to-end security of data in transmission and data at rest without requiring any additional user interactions.
-
-Once a device is connected to a user's personal Mesh through a simple, one-time configuration step, all private key and credential management functions are automated. Devices may be provisioned with private keys required to support applications such as OpenPGP, S/MIME and SSH according to intended use of that device.
-
-
 ### [The Pappy Proxy](#)  
 ![BH-US-16](https://img.shields.io/badge/BH-US-16-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
 The Pappy Proxy is an open source intercepting proxy that takes a slightly different approach to testing websites than existing proxies such as Burp Suite and ZAP due to its console-based interface. The console interface and powerful history search make it extremely easy to find interesting requests in history and to discover promising areas for further testing. Along with standard features such as an interceptor and a repeater, Pappy allows users to generate most of the boilerplate needed for a Python attack script for more complex attacks. Pappy also has numerous other features such as response streaming, automatically modifying requests and responses on the fly, and support for upstream proxies.
@@ -4376,20 +2697,6 @@ The Pappy Proxy is an open source intercepting proxy that takes a slightly diffe
 ### [The Volatility Framework](#)  
 ![BH-US-15](https://img.shields.io/badge/BH-US-15-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
 The Volatility Framework is a completely open collection of tools, implemented in Python under the GNU General Public License, for the extraction of digital artifacts from volatile memory (RAM) samples of Windows, Linux, Mac OS X, and Android systems. After last year's Arsenal, we're excited to come back and demo an entirely different set of features, such as:- Extracting injected code and defeating anti-reversing tricks. In particular, we'll repair a PE file whose header(s) have been erased from memory.- How to reverse engineer PlugX and determine what system memory it manipulates to hide its persistence mechanism. We'll use what we learn to design a new Volatility plugin that detects the rootkit trick.- Using the new unified output rendering engine to consume and process large sets of memory artifacts in JSON, SQL, and other formats. In short, you'll learn how to build analysis tools on top of the Volatility Framework.
-
-
-### [The Vulnerability Complete Definition Library](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-More and more security researchers treat source code as a database and use code patterns to search or query potential vulnerabilities. At the Black Hat 2021 USA conference, the 360 ​​Alpha Lab team disclosed how to use code patterns to find 11 CVEs on Chrome, and developed a 0day exploit based on this. The code pattern is essentially a set of conditions for the code, and the code that satisfies certain conditions is very likely to have vulnerabilities. However, the industry does not seem to have a publicly available tool that can accurately describe or define the necessary and sufficient conditions for a specific vulnerability. Although CodeQL (https://securitylab.github.com/tools/codeql/) is already trying to convert the vulnerability described in natural language in Common Weakness Enumeration (https://cwe.mitre.org/) into query sentences , But most of its query conditions are sufficient and non-essential conditions to form a specific vulnerability, that is, it does not include all the circumstances that form this vulnerability. These query sentences avoid the conditions that CodeQL is difficult to process or describe to improve the success rate of the query. And I personally think that the grammatical rules of SQL often cannot intuitively describe the constraints of the code and the code running process, and a large number of built-in query processes also make the learning cost higher.
-
-Therefore, I have developed a complete definition library for vulnerabilities and believe that this library has two main advantages. First, this library can describe constraints with syntax, design ideas, and keywords similar to the code used by developers, which makes this tool have a lower learning cost. Second, this library is designed to describe the necessary and sufficient conditions for the formation of vulnerabilities. The necessary and sufficient conditions here is used to describe all possible situations that form the vulnerabilities. We should not artificially modify the search conditions to make it easier for the algorithm of the search program to search for results, but should let the search algorithm determine by itself how to search can speed up the display of results.
-
-This library is developed based on LLVM's AST (Abstract Syntax Tree) and the constraint solver STP (Simple Theorem Prover), and supports the description of constraints on objects such as control flow, data flow, value size, variable relations, variable types, variable names, etc. The library will also contain a batch of vulnerability definitions I wrote and a simple search algorithm. I will use a simple example to demonstrate how the algorithm finds a vulnerability in a specific situation based on the vulnerability definition. All source code will be hosted on github, you can download and study by yourself.
-
-
-### [The WiFi Kraken Lite](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-None
 
 
 ### [The cat's meow](#)  
@@ -4474,26 +2781,6 @@ Triforce is both a free and commercial product that allows an analyst to reconst
 I am going to be presenting a new tool for analysing malware or possible threats in certain scenarios where the malware is not accessible or, because legal requirements, it's not possible to provide access to the files to the researchers. This is also a good starting point for newcomers and well-established forensic and malware researchers who want to quickly analise possible threats.
 
 
-### [Tsurugi Linux Project the Right DFIR Tool in the Wrong Time](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-Any DFIR analyst knows that everyday in many companies, it doesn't matter the size, it's not easy to perform forensics investigations often due to lack of internal information (like mastery all IT architecture, have the logs or the right one...) and ready to use DFIR tools.
-
-As DFIR professionals we have faced these problems many times and so we decided last year to create something that can help who will need the right tool in the "wrong time" (during a security incident).
-
-And the answer is the Tsurugi Linux project that, of course, can be used also for educational purposes.
-After more than a year since the last release, a Tsurugi Linux special BLACK HAT EDITION with this major release will be shared with the participants before the public release.
-
-
-### [Tsurugi Linux Project: The Right Tool in the Wrong Time](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-Any DFIR analyst knows that everyday in many companies, it doesn't matter the size, it's not easy to perform forensics investigations often due to lack of internal information (like mastery all IT architecture, have the logs or the right one...) and ready to use DFIR tools.
-
-As DFIR professionals we have faced these problems many times and so we decided last year to create something that can help who will need the right tool in the "wrong time" (during a security incident).
-
-And the answer is the Tsurugi Linux project that, of course, can be used also for educational purposes.
-After more than a year since the last release, a Tsurugi Linux special BLACK HAT EDITION with this major release will be shared with the participants before the public release.
-
-
 ### [TumbleRF: RF Fuzzing Made Easy](#)  
 ![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
 We are pleased to introduce TumbleRF, an open source Python framework for fuzzing arbitrary RF technologies down to the PHY. While fuzzing has long been relied on by security researchers to identify software bugs, applying fuzzing methodologies to RF and hardware systems has historically been challenging due to siloed tools and the limited capabilities of commodity RF chipsets.
@@ -4511,39 +2798,6 @@ UAC-A-Mola is a Framework designed for researching, detecting, exploiting and so
 ### [UART Brute Forcing](#)  
 ![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
 None
-
-
-### [UFO: A Security Verification Tool for IoT Device Firmware](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-UFO is an IoT firmware security assessment tool that helps firmware developers or security researchers assess the security level of IoT device firmware.
-
-UFO profiles the IoT firmware in many surfaces, like known vulnerabilities, sensitive data, cracked passwords, and hidden backdoors. It saves penetration testers time to gather information and help create attack vectors. Meanwhile, as a handy tool, UFO exposes vulnerabilities as early as possible to mitigate attacks from IoT malware like the notorious Mirai, which also collected default passwords of IoT devices from firmware. We did leverage UFO to pwn two COTS network cameras by discovering their backdoors and default passwords.
-
-Main features of UFO are:
-- Known 3rd Party Suite CVE Risk Report: Post-scan report based on the Common Vulnerability Scoring System (CVSS) which is an open industry standard for assessing the severity of computer system security vulnerabilities.
-- Sensitive Data Statistics: Assessment of the email, IP, URL, private or password vulnerabilities.
-- Cracked Passwords and Certificates Review: Check if your passwords or certificates are vulnerable.
-- Shell Dependency Backdoor Paths: Produces a visual guide of backdoor paths.
-
-A full circle of scenarios of using UFO to analysis IoT firmware will be demonstrated.
-
-Among the above features, the source code used to trace shell dependency has been released on Github: https://github.com/dayanuyim/shdep.
-
-The promotional video: https://youtu.be/0XupD3PAbuo
-
-
-### [UNIVERSAL RADIO HACKER: INVESTIGATE WIRELESS PROTOCOLS LIKE A BOSS - ARSENAL THEATER DEMO](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-The spectrum of IoT products expands and with it the number of proprietary wireless protocols raises. Such protocols are designed under size and energy constraints so they tend to have a secondary focus on security. Security researchers can examine arbitrary IoT protocols with Software Defined Radios (SDR) but SDRs present the possibly encoded data in a complex IQ format. Therefore, data has to be to demodulated and decoded before researchers can investigate the actual protocol. After revealing the protocol logic with a differential analysis, vulnerabilities can be found e.g. using fuzzing. Present tools require expertise in Digital Signal Processing (DSP) and/or cover only parts of the process e.g. they only offer support for demodulation but do not help to analyze the protocol logic so researchers need to combine various tools and self-made scripts.
-
-We address this problem with the Universal Radio Hacker (URH) - an open source, cross platform application that integrates the complete hacking process. First, URH performs demodulation with minimal user interaction so no deep DSP knowledge is required. Second, URH helps to reverse engineer the protocol logic by organizing with fields and message types. This can either be done manually or automatically by URH to boostrap a protocol. Third, URH includes a fuzzing component for logical protocol fields whereby the selected encoding and modulation is automatically applied to the crafted messages. URH aims to be both self-contained and expandable: Users find all required steps bundled into one application but at the same time URH provides several interfaces for external tools like GNU Radio so also DSP experts can benefit from it.
-
-The source code of URH can be found at GitHub under https://github.com/jopohl/urh.
-
-
-### [USB Controlled Stress Test Tool](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-Windows anti-forensics USB monitoring tool for stress test.
 
 
 ### [USBsamurai: One Cable to Pwn'em All](#)  
@@ -4576,35 +2830,9 @@ Uitkyk is the first Android framework that allows for its implementers to identi
 RFID and contact-less smart cards have become pervasive technologies nowadays. IC/RFID cards are generally used in security systems such as airport and military bases that require access control. This presentation introduces the details of contact-less card security risk firstly, then the principles of low frequency(125KHz) attack tool, HackID Pro, will be explained. This tool contains an Android App and a hardware which can be controlled by your phone. HackID Pro can emulate/clone any low frequency IC card to help you break into security system, just type few numbers on your phone. After 125KHz, this presentation will show you how to steal personal information from EMV bank card, whose carrier frequency is high frequency, 13.56MHz, just sitting around you. In the end, our defense tool, Card Defender, will be dissected to explain how this product can protect your card and informations in both high/low frequency way and some tricks that this defense tool can do.
 
 
-### [Universal Radio Hacker v2: Simulate Wireless Devices with Software Defined Radio](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-Wireless communication between Internet of Things (IoT) devices is, in many cases, built upon proprietary protocols designed under size and energy constraints. Vulnerabilties in such protocols are critical, e.g. an attacker breaks into a house by hacking a wireless door lock. Software Defined Radios (SDR) offer a generic way to investigate such protocols, but require software support when it comes to demodulating and decoding messages. The Universal Radio Hacker (URH) is an open source tool to support researchers when operating with SDRs by abstracting most of the required HF basics needed for demodulation. Furthermore, it assists reverse engineering the protocol format. While this works well for stateless and undirectional protocols, there are more sophisticated protocols on the market that can not be handled without state machine.
-
-Version 2.0 of the Universal Radio Hacker introduces a Simulation tab that allows to specify a complete HF protocol with several states and participants. It is called Simulation because URH has the ability to play the protocol from the perspective of one or more participants, i.e. URH evaluates all messages towards the simulated participant and dynamically crafts responses depending on the state and previous information. The simulation advancement complies to the easy-to-use philosophy that we also use for the basic URH. Users can see all messages of the analyzed protocol in a graphical flow graph and add new messages, edit or move them around at convenience. Message field values are dynamically derived with access to all previously sent and received information or even by using external programs, e.g. for AES encryption. Conditions, jump and pause elements in the graphical user interface allow generating complex state machines. In our presentation, we demonstrate a practical attack that shows how the simulation component of URH opens a sophisticated wireless door lock (AES encryption) with SDRs.
-
-
-### [Unleash Purple Knight: Fend Off Invaders Lurking in Your Active Directory](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-Purple Knight is a free Active Directory (AD) and Azure AD security assessment tool developed by Semperis identity security experts that has been downloaded by 5,000+ users since its first release in spring 2021. Purple Knight runs as a standalone utility that queries the AD environment and performs a set of tests against many aspects of AD's security posture, including AD Delegation, account security, AD Infrastructure security, Group Policy security, and Kerberos security. The tool scans for indicators of exposure (IOEs) and indicators of compromise (IOCs). Each security indicator is mapped to security frameworks such as MITRE ATT&CK and the French National Agency for the Security of Information Systems (ANSII).
-
-Purple Knight produces a report that includes an overall score, scores in individual categories, and prioritized guidance from identity security experts that serves as a roadmap for improving overall security posture. The report includes an explanation of what aspects of the indicator were evaluated and the likelihood that the exposure will compromise AD.
-
-Purple Knight is continuously updated to address new security indicators based on original research and in response to emerging threats. As an example, the Purple Knight team released indicators for the Windows Print Spooler service and PetitPotam flaws within days after their discovery. New updates to be demonstrated at Arsenal include:
-• Newest in the 100+ indicators of exposure (IOEs) and indicators of compromise (IOCs)
-• New Azure Active Directory security indicators
-• Post-breach forensics capabilities that enable incident response teams to specify an attack window to accelerate remediation
-
-Purple Knight continuously evolves through feedback from an engaged community of users on the Purple Knight Slack channel and through individual outreach to users who communicate directly with the product teams.
-
-
 ### [UserLine](#)  
 ![BH-ASIA-18](https://img.shields.io/badge/BH-ASIA-18-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
 This tool automates the process of creating logon relations from MS Windows Security Events by showing a graphical relation among users domains, source and destination logons, session duration as well as get information regarding logged on users at a given datetime (among other options), providing a starting point to begin the forensic analysis/incident triage.
-
-
-### [V2X Validation Tool](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-The V2X Validation Tool (called dsrcvt because focused on DSRC technology) facilitates penetration testing on automotive On-Board Units (OBUs) used for Vehicle-to-X communication. Currently, dsrcvt is capable of sending unsigned or signed Basic Safety Messages (BSMs) by re-signing a recorded BSM sent for automotive onboard units. Using these BSMs it tries to cause a surge in an OBU's processing power. It also attempts to bypass the security checks posed by the IEEE 1609.2 security layer. An enhanced version of dsrcvt (dsrcvt-crafter) facilitates crafting entirely custom BSMs from scratch, conforming to the IEEE 1609 standards family. dsrcvt also comes as an OBU fuzzer that can fuzz user-selected fields of a BSM to pen-test OBU implementations.
 
 
 ### [V3SPA: A Tool for Visually Analyzing and Diffing SELinux Security Policies](#)  
@@ -4633,37 +2861,9 @@ Features:
 Usually, after we performed a Vulnerability Assessment in our organisation, we continue our work with the development of an plan of security improvements with the ultimate goal of reducing the risk and threats and be in conformity with security politics and requirements.
 
 
-### [VT AUTO-X VEHICLE AUTOMATED SECURITY TESTING TOOL - ARSENAL THEATER DEMO](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-Currently, there are some research works on vehicle cybersecurity testing. Many of them are open-source projects, such as CANTact and GoodThopter. CANTact is a popular open-source toolkit available for purchase online that uses SocketCAN to communicate with a CAN bus. Since SocketCAN extends the Berkeley sockets API in Linux by introducing a new protocol family, it is easy to write script languages for CAN message injections. Python is one of the most widely-used script languages for SocketCAN programming. GoodThopter is another recent device targeted at hackers and hobbyists, but is not ready for use as a turn-key solution.
-
-The drawbacks of these open-source tools are that they are not stable and do not work well under heavy-traffic testing scenarios. Also, open-source contributions may not meet the rigorous control and validation requirements of auto industry software practices. We found that it was possible to crash or lock up such tools when injecting them with bursty CAN traffic. For example, CANTact has limited buffer size which may cause buffer overflows. GoodThopter's timeout parameters and configuration file make it hard to work. In our case, we used the serial port for communications and Java as the programming language. Java is preferred over Python as it is faster, more stable, requires strict coding rules, and is better suited to remote control applications.
-
-Cybersecurity testing focuses on finding and identifying unwanted weaknesses or vulnerabilities hiding inside vehicle software. Our goal is to develop an automated and black-box testing tool for OEMs and tier providers to test their vehicles or ECUs with consistent results, which requires no prior detailed knowledge of the testing workflow.
-
-Automation means the tester only needs to follow pre-defined test scenarios one-by-one to finish the whole testing process. Even if the tester does not have prior security testing knowledge or background, he or she can still operate the test device and detect security vulnerabilities by following the automated steps.
-
-Black-box testing strategies should have no prior knowledge of system commands, CAN bus command databases, or the specific manufacturer's practices within the vehicle or system under testing protocols. In this way, OEMs may feel more comfortable with black-box testing since they don't need to release too much of what they may consider to be proprietary system information to internal, outside, or third-party testers.
-
-We have developed the automated automotive cybersecurity testing tool (named VT Auto-X) which has successfully detected serious security vulnerabilities in a number of production vehicles, and has helped several OEMs identify and correct these issues before they became expensive and embarrassing recall programs. It is a black-box test with no prior knowledge of vehicle CAN bus information. Live demonstrations of Auto-X have proven its ability to quickly find software and security vulnerabilities in most of the cars tested.
-
-Auto-X is portable, and can easily connect to a vehicle's CAN bus. The device has a panel which has various types of connection interfaces, including OBD (SAE J1979/J1962) ports and multiple CAN High and CAN Low ports. It incorporates standard banana sockets to facilitate connecting to various vehicle CAN bus accessible points, as well as several power supply options for testing flexibility (bench, garage, mobile). Other connection arrangements are also possible for use when testing individual systems, ECUs, or bench testing components.
-
-A USB 2.0 port is provided to connect to laptops or other computers. Power can also be provided directly via the OBD II connection, by direct 12V DC connection, or via an AC mains adapter power supply. Auto-X also contains several communication modules, such as WIFI, Bluetooth, and 3G, for both short-range and long-range communications making it easy to communicate with remote cloud or smart mobile phones.
-
-Auto-X performs an automated sequence of test scenarios using either the local or cloud-based testing portal. Each scenario test time can range from minutes to hours, which varies depending on the vehicle configuration and equipment. The tool injects CAN traffic into the vehicle CAN bus. By monitoring and recording CAN traffic and responses, the testing portal then analyzes the logs and responses aiming to detect unexpected, unwanted, or potentially harmful security issues.
-
-Auto-X acts as an interface between the entity being tested (an entire vehicle, a single CAN bus, multiple CAN buses, or a component, such as a specific Electronic Control Unit or ECU) and the secure cloud test portal (where the testing scripts reside). It also connects to the user's laptop to control and monitor activity during testing. Once connected to the vehicle, Auto-X can run a series of test scripts or protocols from the cloud portal.
-
-
 ### [Vega](#)  
 ![BH-US-13](https://img.shields.io/badge/BH-US-13-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
 We will be exhibiting Vega 1.0.
-
-
-### [Vehicle Control System](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-None
 
 
 ### [Veil-Framework](#)  
@@ -4701,48 +2901,9 @@ The Volatility Framework is a completely open collection of tools, implemented i
 VOYEUR's main purpose is to automate several tasks of an Active Directory build review or security assessment. Also, the tool is able to create a fast (and pretty) Active Directory report. The tool is developed entirely in PowerShell (a powerful scripting language) without dependencies like Microsoft Remote Administration tools. (Just .Net Framework 4.0 and Office Excel if you want a useful and pretty report). The generated report is a perfect starting point for well-established forensic, incident response team, security consultants or security researchers who want to quickly analyze threats in Active Directory Services.Main FeaturesReturn a huge number of attributes on computers, users, containers/OUs, groups, ACL, etc...Search for locked accounts, expired password, no password policy, etc...Return a list of all privileged account in domain. (The script search in SID value instead in a group name)Return a list of group's modification (Users added/deleted for a specific group, etc...)Multi-Threading supportPlugin SupportUsage scenariosAble for using on local or remote computerAble for using on joined machine or workgroup machineReportingSupport for exporting data driven to several formats like CSV, XML or JSON.Office SupportSupport for exporting data driven to EXCEL format. The script also support table style modification, chart creation, company logo or independent language support. At the moment only Office Excel 2010 and Office Excel 2013 are supported by the tool.
 
 
-### [Vulmap: Online Local Vulnerability Scanners Project](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-Vulmap is an open source online local vulnerability scanner project. It consists of online local vulnerability scanning scripts for Windows and Linux. These scripts can be used for defensive and offensive purposes. It is possible to conduct vulnerability assessments by using these scripts. Also they can be used for privilege escalation by pentesters/red teamers. Vulmap scans vulnerabilities on localhost, shows related exploits and downloads them. It basically, scan localhost to gather installed software information and ask Vulmon API if there are any vulnerabilities and exploits related with installed software. If any vulnerability exists, Vulmap shows CVE ID, risk score, vulnerability's detail link, exploit ids and exploit titles. Exploits can be downloaded with Vulmap also. Main idea of Vulmap is getting real-time vulnerability data from Vulmon instead of relying of a local vulnerability database. Even the most recent vulnerabilities can be detected with this approach. Also its exploit download feature helps privilege escalation process. Since most Linux installations have Python, Vulmap Linux is developed with Python while Vulmap Windows is developed with PowerShell to make it easy to run it on most Windows versions without any installation.
-
-
 ### [Vulnreport - Pentesting Management and Automation](#)  
 ![BH-US-16](https://img.shields.io/badge/BH-US-16-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
 Vulnreport is designed to accelerate management of penetration tests and security code reviews/audits, as well as generation of useful vulnerability reports. Using Vulnreport, security researchers can automate almost all of the overhead involved with penetration testing so that they can devote more time to the fun stuff - finding vulns. Vulnreport takes care of tracking vulnerabilities on your tests, providing a simple UI for managing them, and running analytics on what you're finding and where you're spending your time.Vulnreport is also a platform that can be extended and hooked into whatever other management and vulnerability assessment tools are part of your process. Hook it up to your automated testing frameworks and watch the vuln data flow into your reports like magic.This demo will walk through the upsides of automating this part of your pentesting process as well as show how the Salesforce Product Security team uses Vulnreport to save hundreds of engineer-hours per year. We will be open-sourcing and making the tool available for you and your teams to use, customize, and contribute to during the conference.
-
-
-### [Vuls: Agent-less Vulnerability Scanner for Linux, FreeBSD, Container Image, Running Container, WordPress, Application Libraries, and Network Devices](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-Over 10,000 new vulnerabilities are registered on the NVD each year. Constantly monitoring new vulnerabilities and keeping a manual inventory of installed software to determine which devices are affected is necessary. Without automation, vulnerability lifecycle managed imposes huge burdens and challenges.
-
-Having personally experienced these challenges, Kota Kanbe created Vuls, an open source vulnerability scanner for Linux and FreeBSD [https://github.com/future-architect/vuls].
-
-With users worldwide, Vuls has over 7,000 GitHub stars and is the highest-ranked security-tool https://github.com/topics/security-tools
-
-Vuls lets you know which servers and software are affected by newly disclosed vulnerabilities. Using multiple detection methods and data sources including changelog, Package Manager, NVD and OVAL, Vuls is more accurate than other open source scanners.
-
-Additionally, using CPE offers a wide detection range. Vuls not only detects vulnerabilities in OS packages but also in non-OS packages such as libraries for programming languages and network devices. https://vuls.io/docs/en/usage-scan-non-os-packages.html Wordpress vulnerability scanning(core, plugins, themes) is also supported. Scan WordPress ... https://vuls.io/docs/en/usage-scan-wordpress.html
-
-Another important feature is the speed; by using parallel processing, numerous servers can be scanned at high speeds with most scans completed within 10 seconds.
-
-Vuls supports major distributions of Linux and FreeBSD as well as containers such as Docker, LXC and LXD.
-
-Vuls is extremely easy to set up since it connects to other servers via SSH for the scans. Of course, it can also be used to scan servers locally without SSH.
-
-Vuls is a Dynamic Scanner which logs in running servers. This means that it's possible to acquire the useful state of the server for system administrators. For instance, Vuls will let you know if there are processes affected by an update and when daemons forgot to perform a restart after the update.
-
-With non-intrusive scans, Vuls works well with Continuous Integration and can help find vulnerabilities very quickly by conducting scans every day.
-
-How can a system administrator automate vulnerability lifecycle management?
-
-
-### [VxHunter: A Tool Set for VxWorks Based Embedded Device Analyses](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-VxWorks is the industry's leading real-time operating system. It has been widely used in various industry scenarios, which require real-time, deterministic performance and, in many cases, safety and security certifications such as the NASA's Insight Spacecraft. There was lot's of research on Linux based Router and camera, rarely seen research of VxWorks based device.
-
-Most of VxWorks based IoT devices on the market didn't contain any built-in debugger like WDB(VxWorks WDB Debug Agent) or command line debugger. Without debugger it's almost impossible to analyze the root cause of vulnerability or exploit vulnerabilities.
-
-VxHunter contains an firmware analyze tool and an serial debugger tool. The firmware analysis tool is an IDA plugin which can automatically analyze and rebase firmware to correct loading address, fix function name from symbol table, etc. The serial debugger tool is designed for the target which didn't have built-in debugger like WDB. With VxHunter's help, we successfully analyzed and exploited the CVE-2018-19528 vulnerability.
 
 
 ### [WALB (Wireless Attack Launch Box)](#)  
@@ -4787,23 +2948,9 @@ We'll delve into Chrome and Firefox extensions (automating various repetitive ac
 You might already know some of these exploitation vectors, but you might need a way to automate your attacks and tailor them based on the victim language, browser, and whatnot. Either way, if you like offensive security, this is for you.
 
 
-### [WHID Elite: The Hacking Device for Pwning Computers, Moving Cranes, Exploding Things and Electrocuting Nuts](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-During the last few years, Red Teaming engagements have become more and more popular. This trend pushed some hackers to R&D and release new opensource devices with the intent to make PhySec operations even more interesting. Smoothing the path to new TTPs and improving some old ones. During this talk, I will present two new hacking devices developed from Offensive Ninjas, for Offensive Ninjas:
-- WHID Elite (a 2G-enabled offensive device that allows a threat actor to remotely inject keystrokes, bypass air-gapped systems, conduct mousejacking attacks, do acoustic surveillance, RF replay attacks and much more).
-- USBsamurai (a Remotely Controlled Malicious USB HID Injecting Cable DIY for less than 10$ that can be used to compromise targets remotely in the most stealthiest way ever seen).
-
-
 ### [WHID INJECTOR - HOW TO BRING HID ATTACKS TO THE NEXT LEVEL](#)  
 ![BH-EU-17](https://img.shields.io/badge/BH-EU-17-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
 WHID was born from the need for cheap and dedicated hardware that could be remotely controlled in order to conduct HID attacks (i.e. over WiFi or BLE). WHID stands for WiFi HID injector. It is a cheap but reliable piece of hardware designed to fulfill Pentesters needs related to HID Attacks, during their engagements. The core of WHID is mainly an Atmega 32u4 (commonly used in many Arduino boards) and an ESP-12s (which provides the WiFi capabilities and is commonly used in IoT projects). During the talk we will see in depth how WHID Injector was designed and its functionalities.
-
-
-### [WHID Injector and WHID Elite: A New Generation of HID Offensive Devices](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-WHID Injector was born from the need for cheap and dedicated hardware that could be remotely controlled in order to conduct HID attacks. WHID stands for WiFi HID injector. It is a cheap but reliable piece of hardware designed to fulfill pentesters' needs related to HID Attacks, during their engagements. The core of WHID Injector is mainly an Atmega 32u4 (commonly used in many Arduino boards) and an ESP-12s (which provides the WiFi capabilities and is commonly used in IoT projects).
-
-However, during the last months, a new hardware was under R&D (i.e. WHID Elite). It replaces the Wi-Fi capabilities with a 2G baseband. Which extends its wireless capabilities to (potentially) an unlimited working range. This cute piece of hardware is perfect to be concealed into USB gadgets and used during engagements to get remote shell over an air-gapped environment. In practice, is the "wet dream" of any Red Teamer out there. During the Arsenal presentation, we will see in depth how WHID Injector and WHID Elite were designed and their functionalities. We will also look which tools and techniques Blue Teams can use to detect and mitigate this kind of attacks.
 
 
 ### [WIPI-HUNTER - WIFI-PINEAPPLE ACTIVITIES DETECTION](#)  
@@ -4855,13 +3002,6 @@ The main objective of the research is to add new layers of security and privacy 
 WhatsApp Privacy Guard is a tool completely transparent to the users and we will show how this technique can be used against other IM protocols and apps.
 
 
-### [Wi-Fi Access Point Rootkits](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-Wi-Fi access point (AP) security is one of the most important aspects when it comes to securing networks. The compromise of a Wi-FI AP (which mostly also double-up as a router in SOHO environments) can lead to several secondary attacks. There are multiple vectors that are used to compromise the WiFi AP ranging from default passwords to sophisticated 0-days. But, after compromising the device, avoiding detection and maintaining access are the most important areas which eventually dictate the impact of the compromise.
-
-We are going to release a set of code snippets along with the documentation making it easy for people who want to understand the working of Kernel rootkits for IoT devices like Wi-Fi APs. The code will cover hiding a process, renaming a process, blocking kill command on certain processes, network stack based RAT and much more. The code will be released under GPL v2.
-
-
 ### [WiDy: WiFi 0wnage in Under $5](#)  
 ![BH-ASIA-17](https://img.shields.io/badge/BH-ASIA-17-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
 WiDy is an open source Wi-Fi Attack and Defense platform created to run on the extremely cheap ESP8266 (<$5) IoT platform. We've written a simple framework which you can hack and create your own tools or automate attack/defense tasks. Among the attacks WiDy is able to perform out of the box, include:Honeypot AttacksCaptive Portal AttacksServing Exploits to browsers using DNS redirectionWi-Fi ScannerWi-Fi Be Gone (similar to TV-be-gone)Sniffing and InjectionBeacon Floods like MDKDeauthentication & DisasscoationClient monitoringWiFi IDS/IPS functionalityâ¦ other interesting applicationsThe key advantage of using the ESP8266 to recreate Wi-Fi attack/defense functionality is that anyone can now build these tools and physically deploy them in under $5 in the field! One can only imagine the kind of projects the community can create once the core code is available to modify and hack. We have also used the Arduino based platform to make it easier to work with our code. Of course, experienced developers can recreate/port this code to work with the manufacturer SDKs or with the Open ESP SDK. The code is written entirely in C.All code and scripts will be open sourced under MIT license and launched at Black Hat Asia Arsenal!
@@ -4875,19 +3015,6 @@ WipiHunter is developed for detecting illegal wireless network activities; howve
 ### [WireEdit](#)  
 ![BH-US-15](https://img.shields.io/badge/BH-US-15-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
 Text editors give us means to manipulate text documents without knowing the character encoding schemes and formatting mechanisms. Vector graphics editors allow us to edit vector based pictures without understanding the underlying vector math.We love Wireshark. It does a fantastic job capturing, decoding and analyzing network packets. But what if you want to edit them?WireEdit is a WYSIWYG editor for network packets. It allows editing network packets at any stack layer without knowing anything about their syntax and encoding rules.
-
-
-### [Wireshark Forensics Toolkit](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-Wireshark is the most widely used network traffic analyzer. It is an important tool for both live traffic analysis & forensic analysis for forensic/malware analysts. Even though Wireshark provides incredibly powerful functionalities for protocol parsing & filtering, it does not provide any contextual information about network endpoints. For a typical analyst, who has to comb through GBs of PCAP files to identify malicious activity, it's like finding a needle in a haystack.
-
-Wireshark Forensics Toolkit is a cross-platform Wireshark plugin that correlates network traffic data with threat intelligence, asset categorization & vulnerability data to speed up network forensic analysis. It does it by extending Wireshark native search filter functionality to allow filtering based on these additional contextual attributes. It works with both PCAP files and real-time traffic captures.
-
-This toolkit provides the following functionality
-- Loads malicious Indicators CSV exported from Threat Intelligence Platforms like MISP and associates it with each source/destination IP from network traffic
-- Loads asset classification information based on IP-Range to Asset Type mapping which enables filtering incoming/outgoing traffic from a specific type of assets (e.g. filter for 'Database Server', 'Employee Laptop' etc)
-- Loads exported vulnerability scan information exported from Qualys/Nessus map IP to CVEs.
-- Extends native Wireshark filter functionality to allow filtering based severity, source, asset type & CVE information for each source or destination IP address in network logs
 
 
 ### [XSSER - FROM XSS TO RCE 2.75](#)  
@@ -4954,13 +3081,6 @@ While it is an ideal tool for people new to appsec, it also has many features sp
 Zack will give a quick introduction to ZAP and then dive into the more advanced features, presenting some useful scripts as well as giving an overview of where its heading.
 
 
-### [Zelos: Applying Emulation to Cross Architecture Root Cause Analysis](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-Zelos (Zeropoint Emulated Lightweight Operating System) is a python-based binary emulation platform that omits the cumbersome setup of virtual machines, yet provides instrumentation capabilities missing in user-space emulation. While it is built on top of the QEMU powered Unicorn CPU emulator, Zelos provides the operating system details required to fully emulate binary execution from loading, down to system calls. We quickly found use for Zelos as a dynamic instrumentation tool that could unpack malware, categorize and report malicious behavior, as well as extract domains from Domain Generation Algorithms (DGA). The myriad of uses we uncovered drove us to develop a plugin system to encourage extensions.
-
-In this demo, in addition to highlighting Zelos's core dynamic analysis features, we'll showcase a new plugin released at BlackHat which provides automated root cause analysis (RCA), a method of identifying causes of crashes, through data flow analysis. Applications of automated RCA range from helping developers locate and fix bugs to triaging crashes generated through fuzzing. Existing techniques for identifying root cause through data flow analysis may require recompilation of binaries to insert instrumentation, integration of multiple tools, or collecting execution traces. Using Zelos, identifying the root cause can be as simple as providing the binary with the crashing input. We will highlight how we perform architecture agnostic dataflow analysis by utilizing QEMU's internal assembly code representation and show how easy RCA can be, even without source code.
-
-
 ### [Zenected Threat Defense VPN](#)  
 ![BH-ASIA-17](https://img.shields.io/badge/BH-ASIA-17-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
 Zenected is a cloud-based security threat protection service. It's delivered through a set of pre-configured services. Once a user connects to Zenected, that user's network traffic is filtered to keep the bad things out (e.g. phishing sites, malware). The only thing this a user has to configure on the endpoint device (be it a mobile device, a desktop or laptop or IoT device) is your VPN connection. Oh, btw - because you are using VPN, your network traffic is kept secret even if you connect using your favorite coffee store WFi.All mentioned services are updated every hour with a new set of threat indicators. The feeds are delivered by Perun Works.Zenected is easy to manage. It uses a web front-end for administrators to manage your instance. An administrator user can:Manage Zenected users including adding more admin usersBlacklist URLs or domain names that you don't want your users to accessWhitelist URLs or domain names, that were identified as malicious but you still want your users to be able to get to themReview exception requests from usersIf you are a Zenected end-user what you will like about it, is:No need to install additional software on your mobile phone, tablet or laptop â Zenected uses standard OS features build-in into all modern systemsIf you encounter a certain resource blocked by the system, you can request an exception. Each exception is then reviewed by an administrator.More details available on the webpage: https://zenected.com
@@ -4976,16 +3096,6 @@ Zeus is a powerful tool for AWS EC2 /S3 / CloudTrail / CloudWatch / KMS best har
 ZigTools is a Python framework, which was developed to reduce the complexity in writing additional functionality in communicating with the Freakduino (Low cost arduino based 802.15.4 platform). Features such as initializing the radio, changing channels, sending data and processing that data can be written in just a few lines, allowing developers to focus on writing more complex applications without worrying about the low-level communications between the radio and computer.
 
 
-### [ZigDiggity: ZigBee Pentest Toolkit](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-Introducing ZigDiggity, an entire suite of new ZigBee penetration testing tools to be released by Francis Brown and Matthew Gleason exclusively at Black Hat USA – Arsenal 2018. We'll be publicly releasing a FREE set of ZigBee hacking tools designed specifically for use by security professionals. We will showcase the best-of-breed in both hacking hardware and software (ZigDiggity) that you'll need to build a complete ZigBee penetration toolkit. Each of the key concepts/tools will be accompanied with live hacking demonstrations that will be both exciting as well as educational, including:
-
-ZigBee – disabling home security system door/window alarms via ZigBee DoS attacks
-Scaling this same home ZigBee attack to an entire neighborhood by equipping Bishop Fox's DangerDrone with the ZigBee Hacking gear and new ZigDiggity toolset.
-
-We'll also be giving away a fully functional Danger Drone to one lucky audience member, fully equipped and loaded with ZigDiggity hacking capabilities – guaranteed to leave your friends feeling peanut butter and jealous!
-
-
 ### [ZitMo NoM](#)  
 ![BH-US-14](https://img.shields.io/badge/BH-US-14-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
 A world without malware is ideal but unlikely. Many of us would prefer *not* to install another layer of protection on our already-resource-constrained handheld mobile device. Alternatively, Android malware detection sans anti-virus installation has become a reality. Learn about how itâs possible to detect mobile malware using simple text messages with ZitMo NoM. ZeuS in the Mobile, known as ZitMo, is infamous for intercepting SMS transmissions then redirecting them to a Command and Control in order steal banking and personal information. Research with SMS transmissions directed at mobile malware has resulted in the ability to detect ZitMoâs presence without anti-virus applications installed. Turning cyber criminals' tools against them makes this even more of a rewarding endeavor. We are looking for malware researchers to contribute to the continued development of this open tool. The presentation will include the research, the infrastructure, and a demonstration of ZitMo NoM. Live malware will be used during this presentation, assuming we get it to behave.
@@ -4994,19 +3104,6 @@ A world without malware is ideal but unlikely. Many of us would prefer *not* to 
 ### [ZoomEye - CyberSpace Search Engine](#)  
 ![BH-ASIA-16](https://img.shields.io/badge/BH-ASIA-16-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
 ZoomEye is a cyberspace search engine released in 2013. Unlike Shodan which only crawls the port fingerprints of Internet-connected devices and does less work on fingerprint parsing, ZoomEye crawls on not only Internet-connected devices, but also websites to get the fingerprints. All of these fingerprints are powered by our two major engines Xmap and Wmap. Xmap is specialized to port scanning, and Wmap focuses on Web Application fingerprint crawling and parsing.We distribute the crawlers running 7/24 across the world, providing both host device and web application searches to the public by crawling and indexing. Users can also achieve integration and automation with our platform API.This talk covers a basic introduction on our crawling and analyzing architecture, some thoughts on scanning crawling strategies, and the major process on parsing and analyzing devices and website fingerprints.To better understand the complexity of the cyberspace, we work hard on fingerprint parsing and analysis to get more detailed and complete metadata. We think that more accurate and formatted data will do great help to our research. Besides, some cases will be demonstrated in comparison with Shodan and Censys.io to prove our strengths.The ZoomEye 101 section introduces how ZoomEye helps to enhance our research or do some hacking stuff. The audience will learn not only the revolution history of ZoomEye, but also some helpful Internet research methodologies.
-
-
-### ["HACKER MODE" FOR AMAZON ALEXA(TM)](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-Have you ever been stuck at a command line, not quite remembering the syntax for a NetCat relay? Ever wish that buddy that has a photographic memory for man-pages was with you? Hacker Mode makes Amazon's Alexa(TM) be that epic hacker buddy for you!
-
-The Hacker Mode skill designed for Alexa assists hackers and developers with:
-
-HTML, Hex, URL, ASCII encodings
-NetCat, NMap, and Metasploit command line interfaces
-Well-known TCP and UDP ports, HTTP headers, HTTP response codes and HTTP verbs
-
-Simply ask Alexa to enter "Hacker Mode" and then ask a question like: "How can I send a file with NetCat?" The app provides both voice feedback and Alexa App feedback to ensure you get the syntax just right.
 
 
 ### [a bridge to laser beam from IR remote controller](#)  
@@ -5026,35 +3123,9 @@ Operating the IR-BadUSB with an infrared laser beam does not require a PC or oth
 autoDANE: Automatic Domain Admin & Network ExploitationautoDANE is a tool to automate the process of mapping and compromising internal networks. It is available at https://github.com/sensepost/autoDANE Given the prevalence of Microsoft Active Directory domains as the primary means of managing large corporate networks globally; one of the first goals of any internal penetration test is to get Domain Administrator (DA) level access. In demonstration of how common a goal and practise this is, a plethora of tools and techniques exists to assist with this process, from the initial "in" through to to elevation of privilege and eventually extracting and cracking all domain credentials.However, the overall process followed is still manual and time consuming. Even where tools exist, the orchestration from one to the next is manual. The time required both detracts from potentially more dangerous attacks that may be specific to the organisation under assessment, as well as limits those who know of their organisation's vulnerabilities to those with offensive security skills or willing to pay for an assessment. Observing this, we decided to construct a framework for automating such activities. This framework orchestrates the industries currently favoured tools to get DA on internal networks.The goal for the project is to get Domain Admin rights as quickly as possible, so that analysts can start an internal assessment as a privileged user, rather than finishing as one. This will allow analysts to spend time on engagements emulating real life hacking scenarios, such as going after business critical applications, while still comprehensively assessing the internal network. Combining the software vulnerabilities, as well as a realistic idea of how people with malicious or criminal intent might reach them, will provide organisations the information they need to actually improve their defensive posture.For Arsenal, several updates have been made and will be released:Detailed scope definition and proportionality limitsSupport for adding hosts/ranges during runtimeDomain pivot tables-a list of which credentials worked where and which users are in which groupsDetailed filtering and full-text searching across tool-run logsOne click RDP to hosts with confirmed credentialsSQL Server discoveryBasic password cracking when hashes are pulled
 
 
-### [boofuzz](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-boofuzz is an open-source network protocol fuzzing framework, competing with closed source commercial products like Defensics and Peach. Inheriting from the open source tools Spike and Sulley, boofuzz improves on a long line of block-based fuzzing frameworks.
-
-The fuzzing framework allows hackers to specify protocol formats, and boofuzz does the heavy lifting of generating mutations specific to the format. boofuzz makes developing protocol-specific "smart" fuzzers relatively easy. Make no mistake, designing a smart network protocol fuzzer is no trivial task, but boofuzz provides a solid foundation for producing quality fuzzers.
-
-Written in Python, boofuzz builds on its predecessor, Sulley, with key features including:
-
-Online documentation
-More extensibility including support for arbitrary communications mediums
-Built-in support for serial fuzzing, ethernet- and IP-layer, UDP broadcast
-Much easier install experience!
-Far fewer bugs
-
-Source Code: https://github.com/jtpereyda/boofuzz
-
-
 ### [canTot: A CAN Bus Hacking Framework for Car Hacking](#)  
 ![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
 canTot is a CAN Bus hacking framework that focuses on known CAN Bus vulnerabilities or fun CAN Bus hacks. It is a Python-based CLI framework based on sploitkit and is easy to use because it is similar to working with Metasploit. It can also be used as a guide for pentesting vehicles and learning python for Car Hacking the easier way. This is not to reinvent the wheel of known CAN fuzzers, car exploration tools like caring caribou, or other great CAN analyzers out there. But to combine all the known vulnerabilities and fun CAN bus hacks in automotive security.
-
-
-### [cwe_checker: Hunting Binary Code Vulnerabilities Across CPU Architectures](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-cwe_checker is an open source suite of tools to detect common bug classes like Use After Free (CWE-416) or Null Pointer Dereference (CWE-476). These bug classes are formally known as Common Weakness Enumerations (CWEs). Its main goal is to quickly point analysts to vulnerable code paths in binaries (e.g. firmware) without access to the source code.
-
-cwe_checker is built on top of the Binary Analysis Platform (BAP). By using an intermediate representation for the binary code it can analyze ELF binaries of different CPU architectures, including x86/64, ARM, MIPS, and PPC. It has a modular and extensible architecture implementing static and dynamic analysis techniques. So far cwe_checker implements checks for more than 15 CWE classes including CWE-190 (Integer Overflow), CWE-415 (Double Free), and CWE- 676 (Use of Potentially Dangerous Function).
-
-In addition, cwe_checker has been adopted as a core plugin for the Firmware Analysis & Comparison Tool (FACT). This enables analysts to hunt for vulnerabilities in large firmware data sets. Furthermore, the results of cwe_checker are exportable and there is an IDA Pro plugin that highlights any findings in the binary.
 
 
 ### [eXpose](#)  
@@ -5079,23 +3150,6 @@ Flowinspect is a tool developed specifically for network monitoring and inspecti
 ### [g0tbeEF](#)  
 ![BH-US-13](https://img.shields.io/badge/BH-US-13-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
 Multi-threaded Python based ARP Poisoning with an Asynchronous Queue using IPTables and QUEUE deigned to capture HTTP traffic and inject a BeEF hook.
-
-
-### [goKey: Reclaim Back Keys for Your Kingdom - A Vaultless Password Manager](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-The password is the oldest and most widely used pillar of authentication. We use passwords everywhere: from everyday online shopping to accessing government services and managing our money. Every day, the number of online services increases and each of service most likely requires a password to use it.
-
-On the other hand, as password-cracking techniques increase and evolve, so do the restrictions on the types of passwords we can use. It is not enough anymore to use your favourite movie as a password across all your accounts. The modern Internet threat model requires passwords to be either ridiculously long or look like random gibberish of uppercase and lowercase letters, numbers and special characters. And in NO WAY should you reuse same password on any two services. In other words, the most secure passwords are hardly memorable to ordinary people and the number of passwords you have to remember makes this task even harder.
-
-That's where password managers kick in. Instead of remembering each password, you only have to remember the password for your password manager (the "master password"), and the password manager remembers your other passwords for you. But how? They store your other passwords in a vault (a simple encrypted database). However, as with any database, a vault requires management: you need to store it somewhere (which means more backups), sync it across all your devices (you definitely want to access your services from home/work laptops, smartphone, tablet etc). And as with any database management, there comes usability and security issues. Basically, you either have to manually update and manage the vault yourself (if you use a free open-source password manager) or rely on some kind of cloud-based service (often paid and proprietary) for that.
-
-So it is a matter of usability vs security: either you're using a convenient proprietary password manager and have no idea if it is working as advertised, or you have more confidence in your open-source password manager, but have to deal with your vault yourself.
-
-Wouldn't it be great to have a password manager without a vault? We would no longer have to manage vaults or rely on any third parties. This presentation introduces an open-source vaultless password manager, which does not store your passwords, but rather derives them from the master-password in a cryptographically secure manner. There is an option to generate secure cryptographic keys so that your passwords/keys are never stored anywhere, but can be reliably regenerated when needed.
-
-
-Presentation: https://drive.google.com/file/d/1B5CXRaTzG8yYTW6sN9L70GW3NBLpZVJb/view?usp=sharing
-GitHub: https://github.com/cloudflare/gokey
 
 
 ### [gopassivedns](#)  
@@ -5144,16 +3198,6 @@ More than ever, mobile apps are used to manage and store sensitive data by both 
 With the impending release of the OpenIOC 1.1 format for sharing threat intelligence, Mandiant will be releasing a set of open source tools for creating and manipulating OpenIOC objects and moving data in and out of the OpenIOC format.
 
 
-### [kdigger: A Context Discovery Tool for Kubernetes Penetration Testing](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-None
-
-
-### [macOS Bluetooth Analysis Suite (mBAS)](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-mBAS is a set of Bluetooth tools for macOS platforms, including Bluetooth HCI request sniffer, fuzzer and Broadcom firmware SoC tools, etc. Among them, the HCI fuzzer helped me discover many Bluetooth kernel vulnerabilities, such as CVE-2020-3892, CVE-2020-3893, CVE-2020-3905, CVE-2020-3907, CVE-2020-3908 and CVE-2020-3912. With these tools, we can better understand the design and implementation of Bluetooth subsystem of macOS and other platforms.
-
-
 ### [myBFF](#)  
 ![BH-US-16](https://img.shields.io/badge/BH-US-16-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
 myBFF is a new open source tool which combines fingerprinting and brute forcing against some common web applications, including Citrix, HP, Juniper, and MobileIron, to add intelligence to password guessing. Better yet, this tool is modular, allowing the easy expansion of the tool to include not only other web applications, but also other services. The best part is that the tool will do more than just tell you if a credential pair is valid! You don't want to miss this tool!
@@ -5174,14 +3218,6 @@ peepdf is a Python tool to explore PDF files in order to find out if the file ca
 puzzCode is a simple compiler based on mingw, written in C# to build windows applications in such a way that they can't be analysed by standard analysis tools (e.g. IDA, Ollydbg, x64dbg, Snowman Decompiler, etc.)puzzCode is based on MinGW to compile C/C++ source code to assembly language while also obfuscating every instruction. puzzCode transforms each original instruction into obfuscated code by breaking each function into countless pieces.The most important thing is that the executable (exe) file, once compiled by puzzCode will be undetectable by antivirus as it effectively will create a completely new application.
 
 
-### [rastrea2r (reloaded!): Collecting & Hunting for IOCs with Gusto and Style](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-Rastrea2r (pronounced "rastreador" - hunter- in Spanish) is a multi-platform open source tool that allows incident responders and SOC analysts to triage suspect systems and hunt for Indicators of Compromise (IOCs) across thousands of endpoints in minutes. To parse and collect artifacts of interest from remote systems (including memory dumps), rastrea2r can execute sysinternal, system commands and other 3rd party tools across multiples endpoints, saving the output to a centralized share for automated or manual analysis. By using a client/server RESTful API, rastrea2r can also hunt for IOCs on disk and memory across multiple systems using YARA rules. As a command line tool, rastrea2r can easily integrate with AV consoles and SOAR tools, allowing incident responders and SOC analysts to collect forensics evidence and hunt for IOCs without the need for an additional agent, with 'gusto' and style!
-
-Source Code: https://github.com/rastrea2r/rastrea2r
-Presentation: https://github.com/rastrea2r/rastrea2r/blob/master/presentations/BH%20Arsenal%20rastrea2r%202018.pdf
-
-
 ### [rastrea2r](#)  
 ![BH-US-16](https://img.shields.io/badge/BH-US-16-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
 Ever wanted to turn your AV console into an Incident Response & Threat Hunting machine? Rastrea2r (pronounced "rastreador" - hunter- in Spanish) is a multi-platform open source tool that allows incident responders and SOC analysts to triage suspect systems and hunt for Indicators of Compromise (IOCs) across thousands of endpoints in minutes. To parse and collect artifacts of interest from remote systems (including memory dumps), rastrea2r can execute sysinternal, system commands and other 3rd party tools across multiples endpoints, saving the output to a centralized share for automated or manual analysis. By using a client/server RESTful API, rastrea2r can also hunt for IOCs on disk and memory across multiple systems using YARA rules. As a command line tool, rastrea2r can be easily integrated within McAfee ePO, as well as other AV consoles and orchestration tools, allowing incident responders and SOC analysts to collect forensics evidence and hunt for IOCs without the need for an additional agent, with 'gusto' and style!The latest version of Rastrea2r can be found at: https://github.com/aboutsecurity/rastrea2r
@@ -5198,44 +3234,9 @@ In short, if you can get a webshell up, you can use reGeorg to gain access with 
 The list of currently supported web frameworks are: ASP.NET, JSP, PHP, ASP. The list of currently supported transports are: HTTP, HTTPS, HTML5 WebSockets.
 
 
-### [remote-method-guesser: A Java RMI Vulnerability Scanner](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-remote-method-guesser (rmg) is a Java RMI vulnerability scanner that checks for common misconfigurations on Java RMI endpoints.
-It combines well known techniques for RMI enumeration with detection capabilities for lesser known attack vectors that are often missed.
-Apart from detecting RMI vulnerabilities, remote-method-guesser can perform attack operations for each supported vulnerability type.
-The following list shows some of it's currently supported operations:
-
-* List available bound names and their interface class names
-* List codebase locations (if exposed by the remote server)
-* Check for known vulnerabilities (enabled class loader, missing JEP290, JEP290 bypasses, localhost bypass (CVE-2019-2684))
-* Identify existing remote methods by using a bruteforce (wordlist) approach
-* Call remote methods with user specified arguments (no manual coding required)
-* Call remote methods with ysoserial gadgets within the arguments
-* Call remote methods with a client specified codebase (remote class loading attack)
-* Perform DGC, registry and activator calls with ysoserial gadgets or a client specified codebase
-* Perform bind, rebind and unbind operations against an RMI registry
-* Bypass registry deserialization filters by using An Trinhs registry bypass
-* Enumerate the unmarshalling behavior of java.lang.String
-* Create Java code dynamically to invoke remote methods manually
-
-
-### [soc-faker: A python package for use in generating fake data for SOC and security automation](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-soc-faker is used to generate fake data for use by Security Operation Centers, Information security professionals, product teams, and many more.
-
-
 ### [spispy: Open source SPI flash emulation](#)  
 ![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
 spispy is an open source hardware tool for emulating SPI flash chips that makes firmware development and boot security research easier by avoiding the slow flash chip erase and programming cycles. It also logs flash accesses, providing insight into the early boot process and enables TOCTOU attacks against the running firmware.
-
-
-### [trapfuzzer](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Uncategorized](https://img.shields.io/badge/Category-Uncategorized-gray)  
-Breakpoint mechanism based coverage-guided binary fuzzing tools for Windows and Linux platforms.
-
-Binary instrument by breakpoint, in specific scenarios, this method is faster than dynamorio.
-
-At present, more than 200 vulnerabilities have been found in WPS office, foxitpdf and other software
 
 
 ### [w3af: Web Security Scanner](#)  
@@ -5688,16 +3689,6 @@ Keeping up with the evolving landscape of attacker techniques can feel like an u
 Attendees will gain a comprehensive overview of TALR and understand how to incorporate it into their environments as a way to remain on the cutting edge of alerting logic, and as a means of enacting more contextualized and informed response.
 
 
-### [TSURUGI LINUX - the sharpest weapon in your DFIR arsenal](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-OSINT](https://img.shields.io/badge/Category-OSINT-gray)  
-Any DFIR analyst knows that everyday in many companies, it doesn't matter the size, it's not easy to perform forensics investigations often due to lack of internal information (like mastery all IT architecture, have the logs or the right one...) and ready to use DFIR tools.
-
-As DFIR professionals we have faced these problems many times and so we decided last year to create something that can help who will need the right tool in the "wrong time" (during a security incident).
-
-And the answer is the Tsurugi Linux project that, of course, can be used also for educational purposes.
-A special Tsurugi Linux BLACKHAT EDITION will be shared only with the participants.
-
-
 ### [TSURUGI LINUX: DFIR INVESTIGATIONS, MALWARE ANALYSIS AND OSINT ACTIVITIES MADE EASY](#)  
 ![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-OSINT](https://img.shields.io/badge/Category-OSINT-gray)  
 Any DFIR analyst knows that every day in many companies, it doesn't matter the size, it's not easy to perform forensics investigations often due to a lack of internal information (like mastery of all IT architecture, having the logs or the right one...) and ready to use DFIR tools.
@@ -5780,6 +3771,29 @@ Part of the Blue team mission is to detect phishing, typo squatters, and attack 
 0365Squatting is a python tool created to identify that domains before the attack start. The tool can create a list of typo squatted domains based on the domain provided by the user and check all the domains against O365 infrastructure, (these domains will not appear on a DNS request).
 
 At the same time, this tool can also be used by red teams and bug bunters, one of the classic attacks is the domain takeover so, the second option of this too is to check if the domain is registered in O365 in order to launch a domain takeover attack.
+
+
+### [ACT: Semi-Automated Cyber Threat Intelligence](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Blue--Team--&--Detection](https://img.shields.io/badge/Category-Blue--Team--&--Detection-gray)  
+ACT is an open-source threat intelligence platform that has been built from the ground up to address the real-world needs of security analysts, incident responders and threat researchers across all industries. The platform is the product of a 3-year collaborative research project between the private sector, security agencies, CERTs and universities.
+
+
+ACT enables advanced threat enrichment, threat analysis, visualisation, process automation, lossless information sharing and powerful graph analysis. Its modular design and APIs facilitate implementing new workers for enrichment, analysis, information sharing, and countermeasures.
+
+
+Included in the platform is Scio, a component that ingests human-readable reports, like threat advisories and blog posts, and uses natural language processing and pattern matching to extract structured threat information to import to the platform. Our Github repositories also include support for information import and data enrichment from MISP, MITRE ATT&CK, VirusTotal, PassiveDNS, ShadowServer and Splunk, with more on the way.
+
+
+So why build yet another threat intelligence platform?
+In 2014 we set out to find a platform on the market to meet the needs of our SOC and threat intelligence team. Our requirements were not particularly unique: we needed a platform that would help us to collect and organise our knowledge of threats, facilitate analysis and sharing, and make it easy to retrieve that knowledge when needed. We spent too much time on manual processes, copy-pasting information between different systems. Much of our knowledge was in an unstructured form, like threat reports, that made it difficult and time consuming to figure out if we had relevant knowledge that could help us decide how to handle security alerts and security incidents.
+
+
+Sound familiar? After evaluating the existing platforms, we concluded they could not easily be adapted to meet our requirements. In speaking with our partners, customers and the security community, we saw we were not alone and decided to research and develop a new platform: ACT.
+
+
+This session will focus on threat analysis using the GUI to demonstrate how ACT can help SOC analysts, incident responders and threat analysts/hunters/researchers.
+
+Source code: https://github.com/mnemonic-no/act
 
 
 ### [ADVANCED SPECTRUM MONITORING WITH SHINYSDR](#)  
@@ -5868,10 +3882,37 @@ The next step was to do some research on APT threat hunting, based on incident d
 Source Code: https://github.com/baronpan/SysmonHunter
 
 
+### [An Open Stack for Threat Hunting in Hybrid Cloud With Connected Observability](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Blue--Team--&--Detection](https://img.shields.io/badge/Category-Blue--Team--&--Detection-gray)  
+We present a cloud-native threat hunting architecture built on open-source technologies. The security architecture integrates SysFlow and Kestrel to provide connected endpoint observability, edge analytics, and a cyber-reasoning stack that enables threat hunters to quickly and uniformly perform threat hunting and investigation across cloud and premise environments. This facilitates a new threat discovery methodology in which declarative hunting flows automate the search for behavioral attack patterns and indicators of compromise in telemetry data streams that are automatically tagged with attack TTPs. We show how these two open-source frameworks can deploy and scale natively on cloud environments to discover attacks and security breaches against cloud services and container infrastructures.
+
+SysFlow is an open observability framework that lifts and normalizes the representation of system activities into a compact entity-relational format that records workload behaviors by connecting single-event and volumetric flow representations of process control flows, file interactions, and network communications. It drastically reduces data footprints over existing approaches and is particularly suitable for large scale cloud-wide monitoring and forensic investigation of sophisticated cyber-attacks that may not be discovered for long periods of time.
+
+Kestrel is a threat hunting language for creating composable, reusable, and shareable hunt flows. It brings two key innovations to the security community: (i) a composable way of expressing hunting knowledge for threat hypothesis development and reasoning over entity-relational data abstractions, and (ii) an open-source language runtime to compute how to perform hunting steps and execute them in a distributed fashion at the local hunting site, remote data sources, and in the cloud.
+
+We will demonstrate through live threat hunting scenarios how the two open-source projects can help create a powerful open platform for gaining operational awareness and alleviating key pain points in integrating security solutions into a "single-pane-of-glass" for effective and shareable threat hunting in the cloud.
+
+
+### [AndroCop: One Click Forensic Investigation & Data Extraction Tool](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Blue--Team--&--Detection](https://img.shields.io/badge/Category-Blue--Team--&--Detection-gray)  
+AndroCop is a powerful and streamlined tool for in-depth forensic analysis and data extraction from Android devices, delivering rapid insights and efficient data export. The application, written in Java, streamlines the process of forensic investigation and data retrieval, eliminating the need for external utilities.
+
+With a single click, AndroCop aggregates and exports a diverse array of data, encompassing call records, text messages, contacts, application usage records, device information, image captures, and screenshots. The tool enriches forensic investigation by facilitating the identification of potentially harmful Android applications, deciphering app usage patterns, extracting valuable call history insights, and revealing visited locations.
+
+Moreover, AndroCop helps users to export forensic findings and data in multiple formats such as PDFs, XLSX spreadsheets, and CSV files. All the gathered information, along with images and other related data, will be consolidated into a singular ZIP file, streamlining the process of smooth data transmission. The gathered content is placed in the AndroCop directory within the internal storage, prepared for effortless transfer whenever required.
+
+AndroCop is also designed to be user-friendly, with a simple and intuitive interface that makes it easy to use for both novice and experienced users. It helps users quickly extract and analyze data from Android devices, making it an important addition to any forensic investigator's toolkit.
+
+
 ### [AntiSquat - An AI-Powered Phishing Domain Finder](#)  
 ![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Blue--Team--&--Detection](https://img.shields.io/badge/Category-Blue--Team--&--Detection-gray)  
 If you host a domain on the internet representing an individual or organization, chances are that there exists a phishing domain designed specially to attack the users of your product or website.
 AntiSquat is an AI-Powered typo-squatting domain finder that checks for phishing domains based on misspellings. It has a flagging system that leverages a combination of Machine Learning Models as well as various other checks such as web page similarity matching. These are performed in real-time on the target domain, thus making sure that the results are impactful.
+
+
+### [Ares](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Blue--Team--&--Detection](https://img.shields.io/badge/Category-Blue--Team--&--Detection-gray)  
+None
 
 
 ### [Art of Dancing with Shackles: Best Practice of App Store Malware Automatic Hunting System](#)  
@@ -5901,6 +3942,26 @@ This framework focuses on consolidating, correlating, and cross-referencing the 
 The presentation will include a live demo of the system processing real different categories of malware taken from the wild.
 
 
+### [Beagle: Accelerating Incident Response With Graphs](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Blue--Team--&--Detection](https://img.shields.io/badge/Category-Blue--Team--&--Detection-gray)  
+Beagle is a tool which aims to accelerate an analyst's ability to respond to incidents by allowing them to quickly and reliably generate incident response oriented graphs from a variety of data sources.
+
+Beagle takes, as input, a wide variety of types of data:
+
+Host based logs such as FireEye HX, Sysmon or security event logs.
+Full memory images (using volatility).
+Sandbox reports such as Cuckoo.
+Streamed data from your SIEM.
+
+Beagle also supports inserting alert nodes into your graphs. For example, FireEye HX triages will contain an alert, and the process which it has alerted on. Beagle will automatically insert an alert node, and create the edge between the alert node and what it alerted on.
+
+In Beagle's web interface, analysts can select the data they uploaded and quickly work through the incident. If an alert node is present, the graph will automatically focus on the context around that node based on what the alert node has an edge to, allowing analysts to extremely quickly pivot through an incident. Analysts can pivot between nodes using simple clicks, as well as remove and search for nodes. Additionally, the graphs can be transformed into rooted trees, or seen as timelines (based on what is currently visible in the graph).
+
+Beagle is also easily extended. Do you have a unique data source not yet supported? Implement 7 functions and Beagle will support it. Graph algorithms can also be implemented using networkx, and can be automatically run when a graph is viewed in the browser, allowing you to even further speed up your incident response time.
+
+Beagle: https://github.com/yampelo/beagle
+
+
 ### [BlueHound](#)  
 ![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Blue--Team--&--Detection](https://img.shields.io/badge/Category-Blue--Team--&--Detection-gray)  
 BlueHound helps blue teams pinpoint the security issues that actually matter. By combining information about user permissions, network access and unpatched vulnerabilities, BlueHound reveals the paths attackers would take if they were inside your network
@@ -5921,6 +3982,27 @@ Moreover, BSF provides an interactive visualization module to further study the 
 [1] Leon Böck, Emmanouil Vasilomanolakis, Jan Helge Wolf, Max Mühlhäuser: Autonomously detecting sensors in fully distributed botnets. Computers & Security 83: 1-13 (2019)
 [2] Leon Böck, Emmanouil Vasilomanolakis, Max Mühlhäuser, Shankar Karuppayah: Next Generation P2P Botnets: Monitoring Under Adverse Conditions. RAID 2018: 511-531
 [3] https://www.blackhat.com/eu-17/briefings.html#i-trust-my-zombies-a-trust-enabled-botnet
+
+
+### [Bro: Do You Bro? Beginner to Expert](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Blue--Team--&--Detection](https://img.shields.io/badge/Category-Blue--Team--&--Detection-gray)  
+The Bro Network Security Monitor is an open-source framework that gives total visibility over network traffic in real-time. Since most cyber attacks cross the network (and hosts themselves can be compromised), threat hunters and incident responders typically rely on network data as a vital source of truth, to reconstruct what really happened (or is happening now) in their environment. Bro is perhaps the best and most widely used tool for network traffic analysis. Join us to learn more about Bro with Seth Hall, longtime Bro developer, and see a demo where he will provide a comprehensive overview of Bro, from introduction to advanced custom scripting.
+
+
+### [CASPR - Code Trust Audit Framework](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Blue--Team--&--Detection](https://img.shields.io/badge/Category-Blue--Team--&--Detection-gray)  
+With CASPR, we are addressing the Supply Chain Attacks by Left Shifting the code signing process.
+CASPR aims to provide simple scripts and services architecture to ensure all code changes in an organization are signed by trusted keys; trustability of these keys should be instantly verifiable every time the code changes are consumed. It also makes the auditing and accountability of code-changes easier and cryptographically verifiable, leaving no scope for malicious actors to sneak in untrusted code at any point in the Software Development Life Cycle.
+
+
+### [CASPR - Code Trust Auditing Framework](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Blue--Team--&--Detection](https://img.shields.io/badge/Category-Blue--Team--&--Detection-gray)  
+CASPR is known for addressing the Supply Chain Attacks by Left Shifting the code signing process.
+CASPR provides simple scripts and services architecture to ensure all code changes in an organisation are signed by trusted keys. What matters is where these keys are residing. Storing signing keys on a user's device has a certain degree of risk when the device is compromised.
+
+In the latest release of CASPR, we are enabling developers to sign code commits from the keys stored on the phone.
+
+CASPR makes the auditing and accountability of code-changes easier and cryptographically verifiable, leaving no scope for malicious actors to sneak in untrusted code at any point in the Software Development Life Cycle.
 
 
 ### [CCAT: Cisco Config Analysis Tool](#)  
@@ -5964,6 +4046,21 @@ CNAPPgoat helps:
 * Security teams benchmark CNAPP solutions against known environments to prove their ability to deliver what they promise
 * Instructors create vulnerable environments for hands-on workshops or chalk talks
 * Educators create learning environments where cloud infrastructure risks can be explored, understood - and avoided
+
+
+### [CQData: Data Extraction & Forensic Toolkit](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Blue--Team--&--Detection](https://img.shields.io/badge/Category-Blue--Team--&--Detection-gray)  
+CQData Toolkit enables you to perform extraction of data that can be extremely useful during the investigation and incident. One of the most important things to learn during the incident is to learn the identity connected with the attack and also become familiar with hacker's actions through the detailed process tracking. CQData can extract information from the Automatic Destinations, generate a timeline, convert Automatic Destination into useful lists of processes, recover files, extract information from the configuration, calculate the vector of the attack based on the process related information and search across other affected computers, decode encrypted users' data, find encrypted data on the computer and display its characteristic, search for confirmation that logs were not manipulated with etc. It is a toolkit that authors use during the incident investigation. Toolkit was created with one purpose, to address the gaps in the evidence analysis and data collection tools. CQData also leverages the reverse engineering research done in the DPAPI area and our recent 1-year research in the Automatic Destinations area.
+
+
+### [CQSysmon Toolkit: Advanced System Monitoring Toolkit](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Blue--Team--&--Detection](https://img.shields.io/badge/Category-Blue--Team--&--Detection-gray)  
+Our toolkit has proven to be useful in the 25000 computers environment. It relies on a free Sysmon deployment and its goal is to boost information delivered by the original tool. CQSysmon Toolkit allows you to extract information about what processes have been running in the operating system, get their hashes and submit them into Virus Total for the forensic information about the malware cases. It also allows to extract information into spreadsheet about what types of network connections have been made: what is the destination IP address, which process was responsible for it and who is the owner of IP. The toolkit also allows to extract information about the current system configuration and compare it with the other servers and much more that allows to become familiar of what is going on in your operating system. There is a special bonus tool in a toolkit that allows to bypass some parts of the Sysmon with another tool that allows to spot that situation so that everything stays in control. CQSysmon Toolkit allows you to established detailed monitoring of the situation on your servers and it is a great complement to the existing forensic tools in your organization.
+
+
+### [CQSysmonToolkit: Advanced System Monitoring Toolkit](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Blue--Team--&--Detection](https://img.shields.io/badge/Category-Blue--Team--&--Detection-gray)  
+Our toolkit has proven to be useful in the 25000 computers environment. It relies on a free Sysmon deployment and its goal is to boost information delivered by the original tool. CQSysmon Toolkit allows you to extract information about what processes have been running in the operating system, get their hashes and submit them into Virus Total for the forensic information about the malware cases. It also allows to extract information into spreadsheet about what types of network connections have been made: what is the destination IP address, which process was responsible for it and who is the owner of IP. The toolkit also allows to extract information about the current system configuration and compare it with the other servers and much more that allows to become familiar of what is going on in your operating system. There is a special bonus tool in a toolkit that allows to bypass some parts of the Sysmon with another tool that allows to spot that situation so that everything stays in control. CQSysmon Toolkit allows you to established detailed monitoring of the situation on your servers and it is a great complement to the existing forensic tools in your organization.
 
 
 ### [CUCKOODROID](#)  
@@ -6077,6 +4174,11 @@ CornerShot relies on several, well documented, standard Remote Procedure Call (R
 We will demonstrate real world applications, for example: how to scan an entire network access from a single deployment of CornerShot, and how to validate which BloodHound paths are practical given the underlying network access.
 
 
+### [CrackQ: Intelligent Password Cracking](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Blue--Team--&--Detection](https://img.shields.io/badge/Category-Blue--Team--&--Detection-gray)  
+CrackQ is, first and foremost, a Python based queuing system for managing hash cracking using Hashcat. There are several tools available for this purpose, CrackQ was born from the frustration of using these tools on a daily basis. It adds some new and interesting additional features as solutions to these frustrations. CrackQ is essentially a REST API with clients in the form of a Python CLI tool and a web GUI. The API design is very stable and works very reliably as a platform to use for day-to-day password cracking within an offensive-security team. The tool is designed to be easy to install and comprises of currently 4 docker images, built on production ready containers segregating each component, all controlled seamlessly using docker-compose. The tool will also include detailed analysis/reporting with graphs representing a multitude of metrics and automated "intelligent" cracking using various pre-existing techniques and machine learning solutions. The tool will be released open-source in the coming months.
+
+
 ### [CrowdSec - the network effect of cybersecurity](#)  
 ![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Blue--Team--&--Detection](https://img.shields.io/badge/Category-Blue--Team--&--Detection-gray)  
 Discover CrowdSec, an open-source and collaborative intrusion prevention and detection system relying on IP behavior analysis and IP reputation. CrowdSec analyzes visitor behavior & provides an adapted response to all kinds of attacks. The solution also enables users to protect each other. Each time an IP is blocked, all community members are informed, so they can also block it. Already used in 160+ countries, the solution builds a crowd-sourced CTI database to secure individuals, companies, institutions etc. The recent release of CrowdSec Security Engine 1.5 brings new features to the table:
@@ -6088,6 +4190,11 @@ Discover CrowdSec, an open-source and collaborative intrusion prevention and det
 - Auditd support
 - CrowdSec CTI API helpers
 - AWS Cloudtrail Scenarios
+
+
+### [CrowdSec: The Open-Source and Participative IPS](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Blue--Team--&--Detection](https://img.shields.io/badge/Category-Blue--Team--&--Detection-gray)  
+None
 
 
 ### [CureIAM: The Ultimate Solution to Least Privilege Principle Enforcement on GCP](#)  
@@ -6102,6 +4209,15 @@ Key Features
 - Plugin-driven architecture for additional functionality
 - Track actionable insights and records actions for audit purposes
 - Scoring and enforcement of recommendations to ensure safety and security
+
+
+### [CyBot: Open-Source Threat Intelligence Chat Bot (Full Circle)](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Blue--Team--&--Detection](https://img.shields.io/badge/Category-Blue--Team--&--Detection-gray)  
+Threat intelligence chat bots are useful friends. They perform research for you and can even be note takers or central aggregators of information. However, it seems like most organizations want to design their own bot in isolation and keep it internal. To counter this trend, our goal was to create a repeatable process using a completely free open source framework, an inexpensive Raspberry Pi (or even virtual machine), and host a community-driven plugin framework to open up the world of threat intel chat bots to everyone from the average home user to the largest security operations center.
+
+We were thrilled to debut the end result of our research (a chat bot that we affectionately call CyBot) at Black Hat Arsenal Vegas 2017. To build on that momentum we also brought CyBot to Black Hat Europe and Asia to gather more great feedback and ideas from an enthusiastic international crowd. This year's Black Hat Vegas will allow us to share new features that stemmed from Black Hat Asia feedback as well as lessons learned from the global collaboration effort.
+
+Best of all, if you know even a little bit of Python, you can help our collaboration efforts by writing plugins and sharing them with the community. If you want to build your own CyBot, the instructions in this project will let you do so with about an hour of invested time and anywhere from $0-$35 in expenses. Come make your own threat intelligence chat bot today!
 
 
 ### [CyBot: Open-Source Threat Intelligence Chat Bot (Platform Enhanced)](#)  
@@ -6125,6 +4241,13 @@ More than 300,000 new malware samples are generated everyday, and it is well kno
 This research seeks to remedy these problems by introducing a deep metric learning method and proposes a new malware retrieval system which has learned a semantic similarities of malware samples. This system could retrieve information from perceptually similar samples as well as structurally similar samples. It could deal with new samples rapidly and roles as a good feature extractor for another tasks like malware classification or categorization. This approach can be easily adapted to other neural network models because it doesn't change the structure of the original network.
 
 In this presentation, we describe the problems that arise when creating a malware retrieval system, and how we solve them. Also we visualize the embedding vectors of malware samples and show the retrieval results to prove the synchronization between our perception on malware and embedding space.
+
+
+### [DeepViolet: SSL/TLS Scanning API & Tools](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Blue--Team--&--Detection](https://img.shields.io/badge/Category-Blue--Team--&--Detection-gray)  
+DeepViolet TLS/SSL scanner is an information gathering tool to test TLS/SSL configuration on secure web servers. DeepViolet is an API written in Java. Two proof of concept tools implement the API to demonstrate DeepViolet running from the command line or alternatively from a desktop application. Features of DeepViolet include enumeration of web server cipher suites, display X.509 certificate metadata, examine X.509 certificate trust chains, user configurable ciphersuite naming conventions and more. DeepViolet is an OWASP open source project written to help educate the technical community around TLS/SSL and strengthen knowledge of security protocols while strengthen security of web applications. DeepViolet project is always looking for volunteers.
+
+Source Code: https://github.com/spoofzu/DeepViolet
 
 
 ### [Defending software development ecosystems with Safe Package](#)  
@@ -6259,6 +4382,29 @@ By combining Security Onion's robust capabilities with Sublime Platform's innova
 Equip yourself with the knowledge and tools needed to combat the evolving landscape of email threats by attending this workshop, and take advantage of these powerful, free solutions to bolster your organization's defenses.
 
 
+### [EventList](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Blue--Team--&--Detection](https://img.shields.io/badge/Category-Blue--Team--&--Detection-gray)  
+EventList: What the log?! So many events, so little time...
+Detecting adversaries is not always easy - especially when it comes to correlating Windows Event Logs to real-world attack patterns and techniques. EventList helps to match Windows Event Log IDs with the MITRE ATT&CK framework (and vice-versa) and offers methods to simplify the detection in corporate environments worldwide.
+
+Use this tool to:
+
+Import either MSFT Baselines or custom GPOs
+Find out immediately which Events are being generated and what MITRE ATT&CK techniques are being covered by the selected Baseline/GPO
+Choose MITRE ATT&CK techniques and generate GPOs to generate the events needed for detection
+Generate Agent Forwarder Configs to only cover the events needed for the detection (avoid being "Log spammed")
+Generate Queries to detect the chosen MITRE ATT&CK techniques, regardless of the SIEM solution used
+
+
+### [Eventpad: Rapid and Cost Effective Malware Analysis Using Visual Analytics](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Blue--Team--&--Detection](https://img.shields.io/badge/Category-Blue--Team--&--Detection-gray)  
+The analysis of malware behavior in network activity and event logs is a costly and time-consuming task. Even with automated techniques, inspection of network traffic in tools such as Wireshark is often tedious and overwhelming due to the many packet details.
+
+We need faster techniques to speedup the discovery of malware activity and gain insight in our event logs by combining machine learning and visualization together. To this end we developed "Eventpad - the notepad editor for event data", a tool that enables analysts to quickly analyze network traffic by exploiting the human mind. Eventpad is a visual analytics tool that enables analysts to visually inspect system events as blocks on a screen. Just like a notepad editor find&replace, conditional formatting, and rewrite functionality can be used to accurately search and highlight system vulnerabilities in these block collections. Together with automated techniques such as clustering and multiple sequence alignment analysts can quickly drill down and extract nontrivial patterns and threat indicators from network conversations and event logs.
+
+We demonstrate how we can use Eventpad to quickly discover patterns in PCAP DPI traffic. In particular, we give live demos on how we can use the tool to discover protocol misusage in VoIP traffic and reverse engineer Ransomware viruses in back office environments.
+
+
 ### [FalconEye: Windows Process Injection Techniques - Catch Them All](#)  
 ![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Blue--Team--&--Detection](https://img.shields.io/badge/Category-Blue--Team--&--Detection-gray)  
 Process injection (PI) in Windows has been a well-known security topic for many years. It is used to gain more stealth because it does not create additional processes in the system that could attract unwanted attention from the defender. It is also used to bypass security products that have limited visibility into the injection behaviors. Since PI techniques use legitimate windows APIs, detecting them becomes a challenging task.
@@ -6290,6 +4436,15 @@ Introducing FalconHound, a toolkit that integrates with Microsoft Sentinel, Defe
 This additional bi-directional context allows you to make better decisions and focus on the most important alerts and incidents. Allowing you, for instance, to run new path calculations frequently based on modifications, sessions or alerts and respond to these attacks which are very hard to detect without this information.
 
 
+### [Find Blind Spots in Your Security with Paladin Cloud](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Blue--Team--&--Detection](https://img.shields.io/badge/Category-Blue--Team--&--Detection-gray)  
+Paladin Cloud is an extensible, Security-as-Code (SaC) platform designed to help developers and security teams reduce risks in their cloud environments. It functions as a policy management plane across multi-cloud and enterprise systems, protecting applications and data. The platform contains best practice security policies and performs continuous monitoring of cloud assets, prioritizing security violations based on severity levels to help you focus on the events that matter..
+
+Its resource discovery capability creates an asset inventory, then evaluates security policies against each asset. Powerful visualization enables developers to quickly identify and remediate violations on a risk-adjusted basis. An auto-fix framework provides the ability to automatically respond to policy violations by taking predefined actions.
+
+Paladin Cloud is more than a tool to manage cloud misconfiguration. It's a holistic cloud security platform that can be used for continuous monitoring and reporting across any domain.
+
+
 ### [Firmware Audit: Platform Firmware Security Automation for Blue Teams and DFIR](#)  
 ![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Blue--Team--&--Detection](https://img.shields.io/badge/Category-Blue--Team--&--Detection-gray)  
 The first major release of our platform firmware security automation tool, Firmware Audit, aka: fwaudit. fwaudit automates the running and forensic hashing of output and firmware blobs for a variety of platform firmwares and across a variety of FOSS tools. fwaudit provides a pre-composed profiles for defense, exploration and forensics, to reduce the risk of bricking and maximize operational uptime.
@@ -6314,6 +4469,43 @@ Our presentation aims to empower GCP users with the knowledge and tools necessar
 By the end of this talk, attendees will have gained practical knowledge in leveraging open source software to strengthen their GCP security posture. Don't miss this opportunity to stay ahead in the world of cloud security and enhance the protection of your GCP environment.
 
 
+### [GIBBER SENSE](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Blue--Team--&--Detection](https://img.shields.io/badge/Category-Blue--Team--&--Detection-gray)  
+Found a Gibberish string or file in the wild and don't know what is it? Throw it to GibberSense - it might start to make some sense. GibberSense is a python-based tool and extension to LAMMA as a BCAF (Basic Crypt Analysis Framework) module.
+
+The best use of Gibber Sense is to verify the robustness of encryption libraries if they are free from any backdoors or flaws. Itt can also be used to guess the type of encryption, hashing schemes, and type of encrypted session cookies. If you trying to develop your own secrete encryption scheme, try and see what GibberSense has to say about it.
+
+
+### [Gargamel](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Blue--Team--&--Detection](https://img.shields.io/badge/Category-Blue--Team--&--Detection-gray)  
+Gargamel is a Windows tool for acquiring the forensic evidence from remote Windows or Linux machines using several different methods.
+
+The program is able to download the following content from remote Windows machine:
+- Windows Event Logs in evt and evtx format,
+- dump of memory,
+- specified files described with the support of expansions (*,?),
+- output of commands specified in a text file,
+- registry,
+- state of firewall,
+- state of network interfaces,
+- logged on users,
+- running processes,
+- active network connections,
+
+When targeting the remote Linux machine, the program will download:
+- content of /var/log/directory
+- specified files described with the support of expansions (*,?),
+- output of commands specified in a text file,
+- state of firewall,
+- state of network interfaces,
+- logged on users,
+- running processes,
+- active network connections,
+
+
+Gargamel supports 5 connection methods, naming PowerShell remoting, WMI, PsExec, RDP and SSH (with SCP).
+
+
 ### [Grove: An Open-Source Log Collection Framework](#)  
 ![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Blue--Team--&--Detection](https://img.shields.io/badge/Category-Blue--Team--&--Detection-gray)  
 Grove is a log collection framework designed to support a unified way of collecting, storing, and routing logs from Software as a Service (SaaS) providers which do not natively support log streaming.
@@ -6321,6 +4513,29 @@ Grove is a log collection framework designed to support a unified way of collect
 This is performed by periodically collecting logs from configured sources, and writing them to arbitrary destinations.
 
 Grove enables teams to collect security related events from their vendors in a reliable and consistent way, while allowing this data to be stored and analyzed with existing tools.
+
+
+### [HASHVIEW](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Blue--Team--&--Detection](https://img.shields.io/badge/Category-Blue--Team--&--Detection-gray)  
+Hashview is a web front-end to hashcat with many powerful features geared towards penetration testers. Leverage task automation and real-time analytics for increased results and fancy reports.
+
+Hashview includes the following features:
+
+Automate workflow methodologies
+Create custom password cracking tasks
+Use data from previous jobs to increase cracking speeds
+Fancy analytics useful for client reports
+Distributed cracking
+Email/SMS Notifications
+Retroactively crack hashes from previous jobs
+Advanced searching of hashes, usernames, and plains
+Smart wordlists
+Optional community integration for accelerated cracking
+
+
+### [Hayabusa](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Blue--Team--&--Detection](https://img.shields.io/badge/Category-Blue--Team--&--Detection-gray)  
+Hayabusa is a sigma-based threat hunting and fast forensics timeline generator for Windows event logs written in rust by Yamato Security. Rules can either be written sigma or built-in hayabusa rules that let the analyst extract out only the important fields for Windows DFIR investigations.
 
 
 ### [Honeyscanner: a vulnerability analyzer for Honeypots](#)  
@@ -6333,6 +4548,13 @@ We present honeyscanner, an open-source vulnerability analyzer for honeypots. It
 ### [HosTaGe: mobile honeypots for rapid deployment](#)  
 ![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Blue--Team--&--Detection](https://img.shields.io/badge/Category-Blue--Team--&--Detection-gray)  
 HosTaGe is a lightweight, low-interaction, and portable honeypot for mobile devices that aims on the detection of malicious network environments. As most malware propagate over the network via specific protocols, a low-interaction honeypot located at a mobile device can check wireless networks for actively propagating malware. HosTaGe supports many commonly used protocols (e.g. HTTP, TELNET, SSH) along with many IoT/ICS specific ones (e.g. MQTT, S7COMM, MODBUS). We envision such honeypots running on all kinds of mobile devices to provide a quick assessment on the potential security state of a network.
+
+
+### [IOC Explorer: Correlate IOC in Automatic Way](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Blue--Team--&--Detection](https://img.shields.io/badge/Category-Blue--Team--&--Detection-gray)  
+IOC correlation is usually a manual or semi-automatic work. It takes a lot of time to search multiple data sources and process different IOC types. IOC Explorer aims to introduce an automatic way to search data across major OSINT sources, like VirusTotal. Moreover, recursive searching feature will explore more possible IOCs based on previous IOCs, then build IOC relations automatically.
+
+Source Code: https://github.com/lion-gu/ioc-explorer
 
 
 ### [Identify iOS Malicious Code Based on MachO File Structure](#)  
@@ -6385,6 +4607,11 @@ In0ri the first source machine learning project to detect defacement attacks, we
 In0ri is the first open source system for detecting defacement attacks by utilizing image-classification convolutional neural network. In this presentation, we will be demonstrating the process of setting up In0ri and have it detect defacement attacks. And optionally the process of training the machine learning model. We will also be explaining the reason behind In0ri's high accuracy when classifying defacement attacks.
 
 
+### [JVMXRay](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Blue--Team--&--Detection](https://img.shields.io/badge/Category-Blue--Team--&--Detection-gray)  
+JVMXRay is technology for monitoring access to system resources within the Java Virtual Machine at runtime. Since JVMXRay integrates with virtual machine, no code changes to the application are required for operation. An ancillary benefit of no code required is that the technology provides insight into 3rd party libraries used by your application and commercial software where no source code is available. JVMXRay is designed with application security emphasis but it's beneficial for other areas like software quality processes and diagnostics. JVMXRay may be extended to work with many technologies like OWASP Dependency Check and other tools.
+
+
 ### [KSBox: A Fine-Grained macOS Malware Sandbox](#)  
 ![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Blue--Team--&--Detection](https://img.shields.io/badge/Category-Blue--Team--&--Detection-gray)  
 Last year I published the Kemon open source project, which included a Pre and Post callback-based kernel inline hook engine. By using this engine, we can easily implement IPC and XPC monitoring, which helps build a fine-grained macOS malware sandbox. Therefore, there will be a new useful tool in our arsenal in August: KSBox.
@@ -6400,6 +4627,11 @@ In order to bring about some changes, I'd like to introduce you to Kemon, an ope
 
 Source Code: https://github.com/didi/kemon
 Documentation: https://github.com/didi/kemon/blob/master/doc/Kemon
+
+
+### [Kraker](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Blue--Team--&--Detection](https://img.shields.io/badge/Category-Blue--Team--&--Detection-gray)  
+Kraker is a distributed password brute-force system that allows you to run and manage the hashcat on different servers and workstations, focused on ease of use. There were two main goals during the design and development: to create the most simple tool for distributed hash cracking and make it fault-tolerant.
 
 
 ### [LATMA - lateral movement analyzer](#)  
@@ -6477,6 +4709,13 @@ Presentation:
 https://fortinetweb.s3.amazonaws.com/fortiguard/research/Learn_How_to_Build_Your_Own_Utility_to_Monitor_Malicious_Behaviors_of_Malware_on%20macOS_KaiLu.pdf
 
 
+### [LogonTracer](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Blue--Team--&--Detection](https://img.shields.io/badge/Category-Blue--Team--&--Detection-gray)  
+LogonTracer is a tool to investigate malicious logon by visualizing and analyzing Windows Active Directory event logs. Event log analysis is a key element in DFIR. In the lateral movement phase of APT incidents, analysis Windows Active Directory event logs is crucial since it is one of the few ways to identify compromised hosts. At the same time, examining the logs is usually a painful task because Windows Event Viewer is not a best tool. Analysts often end up exporting entire logs into text format, then feeding them to other tools such as SIEM. However, SIEM is neither a perfect solution to handle the increasing amount of logs.
+
+We would like to introduce a more specialized event log analysis tool for incident responders. It visualizes event logs using network analysis and machine learning so as to show the correlation of accounts and hosts. Proven with our on the ground response experience, most importantly it is an open source tool.
+
+
 ### [Malboxes](#)  
 ![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Blue--Team--&--Detection](https://img.shields.io/badge/Category-Blue--Team--&--Detection-gray)  
 Malboxes is a tool to streamline and simplify the creation and management of virtual machines used for malware analysis.
@@ -6515,6 +4754,26 @@ Security analyst can upload either static or dynamic malware dataset to storage,
 None
 
 
+### [MSTICpy: The Security Analysis Swiss Army Knife](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Blue--Team--&--Detection](https://img.shields.io/badge/Category-Blue--Team--&--Detection-gray)  
+MSTIC Jupyter and Python Security Tools (MSTICpy) is a Python library of security investigation tools developed by the Microsoft Threat Intelligence Center (MSTIC) to assist and support security analysts conducting security investigations and threat hunting.
+
+The library provides features to collect data from a range of data sources, to enrich the data with Threat Intelligence and OSINT, to analyse the data using ML and data analysis techniques, and to visualise the output of this analysis for quick and easy comprehension.
+
+Rather than a single tool MSTICpy is a Swiss Army knife for security investigations.
+
+
+### [MalConfScan with Cuckoo: Automatic Malware Configuration Data Extraction and Memory Forensic](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Blue--Team--&--Detection](https://img.shields.io/badge/Category-Blue--Team--&--Detection-gray)  
+"MalConfScan with Cuckoo" is a tool for automatically extracting known malware configuration data. With the growing number of malware variants emerging day by day, the automation of malware analysis using sandbox systems is becoming popular. Such systems have a function to list malware behavior on Windows OS, such as communication, file and registry creation. On the other hand, malware analysts spend more time extracting malware configuration data rather than analyzing malware behavior. There are two reasons for it:
+
+1. Many malware variants mostly share the same code except for configuration data. In other words, a type of malware and configuration data are the only elements that need to be checked.
+
+2. Malware configuration data contains an attack campaign ID and communication encryption keys. This information would be the critical data for investigating logs in incident response, and also for knowing the actor's target.
+
+We present a malware analysis tool to extract configuration data for incident responders and malware analysts. This tool automates analysis for many types of malware based on our long-time research and, reduce the time spent on malware analysis. In addition, this tool can be used not only for malware analysis but also for memory forensics. It can help a victim organization with malware infection to identify C2 server information and encryption key which are necessary for their incident response.
+
+
 ### [MalViz.ai](#)  
 ![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Blue--Team--&--Detection](https://img.shields.io/badge/Category-Blue--Team--&--Detection-gray)  
 The growth of internet and users increases exponentially and drastically in this decade that provides services inheriting various benefits to users such as online banking,marketing, buying /selling and various facility management services etc. It attracts some people to develop programs that perform
@@ -6546,6 +4805,17 @@ We will walk you through real-world scenarios based on recent threats and malwar
 ### [Malware Initial Assessment with pestudio](#)  
 ![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Blue--Team--&--Detection](https://img.shields.io/badge/Category-Blue--Team--&--Detection-gray)  
 pestudio is used by Computer Emergency Response Teams and Labs worldwide in order to perform Malware Initial Assessment.
+
+
+### [Memhunter: A Live Alternative to Volatility Memory Forensic Plugins](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Blue--Team--&--Detection](https://img.shields.io/badge/Category-Blue--Team--&--Detection-gray)  
+Memhunter automates the hunting of memory resident malware, improving the threat hunter analysis process and remediation times. The tool detects and reports memory-resident malware living on endpoint processes. Memhunter only works on Windows at the moment, and it detects known malicious memory injection techniques. The detection process is performed through live analysis and without needing memory dumps. The tool was designed as a replacement of memory forensic volatility plugins such as malfind and hollowfind. The idea of not requiring memory dumps helps on performing the memory resident malware threat hunting at scale, without manual analysis, and without the complex infrastructure needed to move dumps to forensic environments.
+
+In order to find footprints left by malware code injection techniques, memhunter relies on a set of memory inspection heuristics and ETW trace collection. Once a suspicious process gets identified, the tool filters out false-positives through Yara Rules analysis and VirusTotal queries. This down-selection process helps the tool to reduce the number of false positives, leaving only known-bad processes. The tool then gets forensic information on the remaining set of suspicious findings and report them back to the analyst for remediation steps.
+
+The tool itself is a self-contained binary which can be run on the endpoint to conduct the memory hunting. The idea of a self-contained binary helps on reducing the footprint, the dependencies needed, and improving the deployability of the tool. The binary contains a set of embedded "hunters" plugins, each one in charge of performing a specific heuristic detection. It also contains the ability to register the binary as an ETW collection service, which will augment the findings of next runs by providing contextual information on the attack. The down-selection is performed through libyara and VirusTotal client functionality.
+
+Source Code: https://github.com/marcosd4h/memhunter
 
 
 ### [Mimicry: An Active Deception Tool](#)  
@@ -6590,6 +4860,11 @@ Firstly, we replace the traditional rulesets with deep learning models to reduce
 Malicious data detected will then be redirected into our novel system: an interactive, honeypotted, quarantine environment built to isolate potential hostile attackers and act as a sinkhole to gather current attack methods. Unlike conventional WAFs that just drop or block malicious attempts, NGWAF traps and diverts the threat actors to emulated systems to soften the impact of their malicious actions. By detaining the attacker to a series of scalable honeypotted environments, we are able to observe and collect their out-in-the-wild malicious data for future improvements to the detection mechanism. These data are automatically scrubbed and can be batched to be retrained into our detection model.
 
 NGWAF is scalable and can be easily deployed either natively or in a cloud environment.
+
+
+### [NEW TSURUGI LINUX ACQUIRE & DIGITAL FORENSIC ACQUISITIONS](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Blue--Team--&--Detection](https://img.shields.io/badge/Category-Blue--Team--&--Detection-gray)  
+Tsurugi ACQUIRE is a dedicated Linux OS to perform DIGITAL FORENSIC acquisition before to start post mortem DFIR investigations.
 
 
 ### [NFC Scrambler](#)  
@@ -6675,15 +4950,15 @@ Omniscient does it in two phases:
 2. Monitoring: This is a continuous and automatic process, where Omniscient monitors the 'identified' network (with user-defined periodicity) for any changes, compare it with existing information and update the graph database accordingly.
 
 
-### [Out-Of-Band Anti Virus Dock (OOBAVD) - A Hardware & Artificial Intelligence Based Anti Virus Solution](#)  
+### [Ox4Shell - Deobfuscate Log4Shell payloads with ease](#)  
 ![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Blue--Team--&--Detection](https://img.shields.io/badge/Category-Blue--Team--&--Detection-gray)  
-USB-based attacks account for more than 52% of all cybersecurity attacks on operational technology (OT) systems in the industrial control systems (ICS) industry. The discovery of Stuxnet in 2015 served as a stark reminder that even air-gapped computers, previously thought to be impervious to cyberattacks, are vulnerable. These systems are found in secure military organizations or Supervisory Control and Data Acquisition (SCADA) systems. The societal impact of such attacks can be enormous. Stuxnet, for example, caused significant damage to Iran's nuclear programs and facilities.
+Since the release of the Log4Shell vulnerability (CVE-2021-44228), many tools were created to obfuscate Log4Shell payloads, making the lives of security engineers a nightmare.
 
-While air-gapped systems are considered "secure," they are inconvenient for computer operators, particularly when performing updates and transferring data, which require the use of mobile storage devices, such as USB sticks. Unfortunately, this introduces a flaw into the air-gapped systems, exposing them to computer viruses and malware. Furthermore, adding new peripherals to these systems, such as keyboards and mice, allows BadUSB attacks to be carried out.
+Threat actors tend to apply obfuscation techniques to their payloads for several reasons. Most security protection tools, such as web application firewalls (WAFs), rely on rules to match malicious patterns. By using obfuscated payloads, threat actors are able to circumvent the rules logic and bypass security measures. Moreover, obfuscated payloads increase analysis complexity and, depending upon the degree of obfuscation, can also prevent them from being reverse-engineered.
 
-OOBAVD is a solution to close this gap. OOBAVD acts as a intermediary between the air-gapped system and USB devices, scanning and blocking detected malicious files from the air-gapped system. Furthermore, malware can attack commercial software-based antivirus software on the host machine by blocking, corrupting, and replacing core antivirus engine files, rendering them inoperable and defenseless. OOBAVD being out of band in the transfer process, is mitigated from this risk.
+Decoding and analyzing obfuscated payloads is time-consuming and often results in inaccurate data. However, doing so is crucial for understanding attackers' intentions.
 
-OOBAVD is designed to have minimum software pre-installed, which reduces the attack surface area to be infected by malware. OOBAVD can also be wiped clean and flashed before connecting to new air-gapped computers, removing persistent malware that manages to infect OOBAVD.
+We believe that security teams around the world can benefit from using Ox4Shell to dramatically reduce their analysis time. To help the security community, we have decided to release Ox4Shell - a payload deobfuscation tool that would make your life much easier.
 
 
 ### [PA Toolkit: Wireshark Plugins for Pentesters](#)  
@@ -6705,6 +4980,20 @@ https://raw.githubusercontent.com/packing-box/docker-packing-box/main/docs/mater
 This Docker image is an experimental toolkit gathering detectors, packers, tools and machine learning mechanics for making datasets of packed executables and training machine learning models for the static detection of packing. It aims to support PE, ELF and Mach-O executables and to study the best static features that can be used in learning-based static detectors.
 
 
+### [Performing Live Forensics Without Killing Your Evidence](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Blue--Team--&--Detection](https://img.shields.io/badge/Category-Blue--Team--&--Detection-gray)  
+In a threat landscape characterized by targeted attacks, file-less malware and other advanced hacking techniques, the days of relying solely on traditional "dead box" forensics for investigations are, well… dead. Live forensics, a practice considered a dangerous and dark art just a decade ago, has now become the de-facto standard. However, many CSIRT teams still struggle with this type of threat hunting.
+
+This session will discuss the benefits, pitfalls to avoid and best practices for performing live box forensics as a threat hunting tool. The presenter will also introduce a free and publicly available command line tool for Windows that automates the execution and data acquisition from other live forensics tools in a more secure, easier to maintain manner.
+
+
+### [Post-Quantum Cryptography Library](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Blue--Team--&--Detection](https://img.shields.io/badge/Category-Blue--Team--&--Detection-gray)  
+This library provides a convenient way for developers to integrate post-quantum cryptography into their applications, helping to protect sensitive information from potential quantum computing attacks. We present f5oqs_sdk, a Python 3 library that wraps the liboqs C library, which is part of the Open Quantum Safe (OQS) project. The OQS project aims to develop and prototype quantum-resistant cryptography. The f5oqs_sdk offers a unified API for post-quantum key encapsulation and digital signature schemes, as well as a collection of open-source implementations of post-quantum cryptography algorithms. It also provides support for alternative RNGs through the randombytes[] functions. The library is available on PyPI and can be easily installed with pip. The paper provides a brief overview of the installation process and usage of the library, along with examples of how to use the API.
+
+f5oqs_sdk is a powerful tool for developers who want to integrate post-quantum cryptography into their applications. It provides a unified and easy-to-use API for implementing quantum-resistant cryptography, helping to protect sensitive information from potential quantum computing attacks.
+
+
 ### [Protecting your Crypto Asset against Malicious JS Phishing](#)  
 ![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Blue--Team--&--Detection](https://img.shields.io/badge/Category-Blue--Team--&--Detection-gray)  
 Cryptocurrencies and NFT are taking over with predictions of 90% of the population holding at least one of them by the end of the decade. Users that want to facilitate these new assets, trade them and sell them typically do that using wallets, and in particular hot wallets that are easy-to-use. The most popular hot wallets today (e.g., MetaMask) are browser based and are thus vulnerable to phishing and scams made possible through malicious JavaScript, such as a recent campaign carried out by the Lazarus group which resulted in more than 400M$ worth of stolen cryptocurrencies.
@@ -6714,11 +5003,6 @@ It includes a Python recursive crawler that extracts every JS from any domain (w
 The code works also as a Web App and exposes a REST API as well.
 
 We will finish by presenting some real detection we caught with this tool and explaining them.
-
-
-### [Prowler, Open Source for Multi-Cloud Security Assessments and Pentesting](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Blue--Team--&--Detection](https://img.shields.io/badge/Category-Blue--Team--&--Detection-gray)  
-Whether you use AWS, Azure or Google Cloud, Prowler helps to assess, audit, pentest and harden your cloud infrastructure configuration and resources.
 
 
 ### [PurpleSharp 2.0: Active Directory Attack Simulations](#)  
@@ -6749,6 +5033,17 @@ PurpleSharp can assist blue teams in the following use cases:
 None
 
 
+### [PyExfil - A Python Data Exfiltration & C2 Framework](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Blue--Team--&--Detection](https://img.shields.io/badge/Category-Blue--Team--&--Detection-gray)  
+PyExfil is a python data exfiltration package. It is currently an open source package allowing everyone to download, use and edit the code. It has several modules classified in 4 types of data exfiltration purposes. It is designed to enable Security personnel to test their Data Leakage Prevention mechanisms by attempting to leak various types of data and examine alerting and prevention mechanisms employed in their infrastructure.
+
+
+### [REW-sploit: Dissecting Metasploit Attacks](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Blue--Team--&--Detection](https://img.shields.io/badge/Category-Blue--Team--&--Detection-gray)  
+Metasploit and Cobalt Strike are wildly used tool for red-teams, pen-testers and sometimes malicious actors. They deliver a lot of ready-to-use exploits facilitating work of the attacker. But who thinks about the poor blue-team members? They are left alone. It looks automation is for attackers only!
+But now, there is a hope: REW-sploit is a new tool with the aim to help defenders in analyzing Metasploit (and in some form Cobalt Strike) based attacks. Leveraging some well know frameworks it can emulate payloads, extracts crypto keys and correlate PCAP dumps to get extra info about what is going on. Automation is now for defenders too!
+
+
 ### [RIoTPot: A Modular Hybrid-Interaction IoT/OT Honeypot](#)  
 ![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Blue--Team--&--Detection](https://img.shields.io/badge/Category-Blue--Team--&--Detection-gray)  
 None
@@ -6770,6 +5065,11 @@ ROADrecon is a tool for exploring information in Azure AD from both a Red Team a
 ROADrecon also provides a built-in plugin to export it's data to a custom version of BloodHound with Azure AD capabilities.
 
 Both ROADtools and ROADrecon are completely free and open source software.
+
+
+### [Rapid Data Exploration With Apache Drill](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Blue--Team--&--Detection](https://img.shields.io/badge/Category-Blue--Team--&--Detection-gray)  
+None
 
 
 ### [Real-Time AD Attack Detection: Detect Attacks Leveraging Domain Administrator Privilege](#)  
@@ -6807,6 +5107,13 @@ Finally, ATT&CK, a knowledge base of adversary tactics and techniques, is becomi
 Source code: https://github.com/sisoc-tokyo/Real-timeDetectionAD_ver2
 
 
+### [RedHunt OS (VM): A Virtual Machine for Adversary Emulation and Threat Hunting](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Blue--Team--&--Detection](https://img.shields.io/badge/Category-Blue--Team--&--Detection-gray)  
+The ultimate aim of any security exercise (offensive or defensive) is to make the organization more resilient and adaptive towards modern adversaries. RedHunt OS (Virtual Machine) aims to provide defenders a platform containing the toolset to emulate adversaries and on the other hand arm them with advanced logging and monitoring setup to actively hunt such adversaries. The project aims to provide a one stop shop which defenders can quickly spin up and practice blue team exercises in the presence as well as absence of an active attacker. Similarly, red team can utilize the platform to identify and understand the footprints they leave behind during a red team exercise. Both the teams can utilize the setup to become better at what they do ultimately leading to better security.
+
+Source Code: https://github.com/redhuntlabs/RedHunt-OS/﻿
+
+
 ### [RedHunt-OS v2: Virtual Machine for Adversary Emulation and Threat Hunting](#)  
 ![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Blue--Team--&--Detection](https://img.shields.io/badge/Category-Blue--Team--&--Detection-gray)  
 The ultimate aim of any security exercise (offensive or defensive) is to make the organization more resilient and adaptive towards modern adversaries. RedHunt OS (Virtual Machine) from RedHunt Labs aims to provide defenders a platform containing the toolset to emulate adversaries as well as advanced logging and monitoring setup to actively hunt such adversaries.
@@ -6814,14 +5121,30 @@ The ultimate aim of any security exercise (offensive or defensive) is to make th
 The project aims to provide a one-stop shop which defenders can quickly spin up and practice blue team exercises in the presence as well as the absence of an active attacker. On the other hand, the red team can utilize the platform to identify and understand the footprints they leave behind during a red team exercise. Apart from Adversary Emulation and Threat Hunting tools, the OS also provides Open Source Intelligence (OSINT) and Threat Intelligence tools. Both red and blue teams can utilize the setup to become better at what they do, ultimately leading to better security.
 
 
-### [Responding to Microsoft 365 Security Reviews Faster with Monkey365](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Blue--Team--&--Detection](https://img.shields.io/badge/Category-Blue--Team--&--Detection-gray)  
-Monkey 365 is a multi-threaded plugin-based tool to help assess the security posture of not only Microsoft 365, but also Azure subscriptions and Azure Active Directory. It contains multiple controls and currently supports CIS 1.4/1.5, HIPAA, GDPR, as well as custom security rules.
-
-
 ### [RuleCraftLab - A Detection Rule Development Platform](#)  
 ![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Blue--Team--&--Detection](https://img.shields.io/badge/Category-Blue--Team--&--Detection-gray)  
 "RuleCraftLab" is an open-source platform that provides SOC engineers, security researchers, and detection engineers with a robust environment for developing and testing detection content using real threat logs from actual systems. As the landscape of threats continues to evolve and diversify, there is a growing need for accurate and effective rules to detect and mitigate these threats. However, traditional rule development methods often lack real-world context, relying on blog posts or public rules without thorough testing. "RuleCraftLab" addresses these challenges by offering a dedicated playground where users can develop and test their rules in a realistic environment to streamline the rule development process.
+
+
+### [S-TIP: Seamless Threat Intelligence Platform](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Blue--Team--&--Detection](https://img.shields.io/badge/Category-Blue--Team--&--Detection-gray)  
+S-TIP is an open-source platform for those who analyze threats and share the results with CSIRT etc.
+
+There are a variety of CTI (Cyber Threat Intelligence) in the world. "Human CTI" is knowledge of cyberattacks to be consumed by people through social media, email, and other channels. "System CTI" is cyber attack-related knowledge that is consumed by systems in a format that can be understood by computers, namely STIX.
+
+However, there were barriers between Human CTI and System CTI. There were divided and could not be utilized from the other realm. For example, security operators need intensive manual labor to convert a new threat report for human readers into CTI in a machine-readable format for automated defense.
+
+S-TIP solves this problem by integrating Human CTI and System CTI seamlessly through its STIX database to bring down those barriers. When a user creates a new post, it is automatically converted to the STIX file and saved into the database. The system can trigger automated defense by consuming the STIX file. These processes can be done transparently while a user is unaware of the conversion.
+
+Main features of S-TIP are:
+1. CTI Element Extractor: Human posts to the social media UI of S-TIP are automatically captured as STIX data.
+2. CTI Graph Analytics View: The STIX data can be associated with other pieces of CTI. This mechanism makes it much easier for users to grasp the whole picture of the cyberattack quickly.
+3. Integration with Other Platforms: The STIX data can be readily consumed by security tools like MISP, Splunk, JIRA, and Slack.
+4. STIX/TAXII - Compliant: Collects CTI from open STIX / TAXII servers on the Internet like AlienVault OTX.
+
+These features support a more predictive and proactive response.
+
+Available at : https://github.com/s-tip
 
 
 ### [SCYTHE: The Yara Signature Crafter that Fingerprints Honeypot Traffic](#)  
@@ -6912,6 +5235,11 @@ The only disadvantage: to utilize this framework, application developers have to
 All this makes seccomp not widely adopted—but what if there was a way to easily sandbox any application in any programming language without writing a single line of code? This presentation discusses potential approaches with their pros and cons.
 
 
+### [Siembol: An Open-Source Real-Time SIEM Tool Based on Big Data Technologies](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Blue--Team--&--Detection](https://img.shields.io/badge/Category-Blue--Team--&--Detection-gray)  
+None
+
+
 ### [Sigma Hunting App for Splunk](#)  
 ![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Blue--Team--&--Detection](https://img.shields.io/badge/Category-Blue--Team--&--Detection-gray)  
 The Sigma Hunting App for Splunk addresses two main challenges: missing collaboration in detection rule development and automated deployment of detection rules. By using Sigma as an generic signature description language, security analysts and security researcher from all over the world can work together independent from their SIEM tool. The joint detection rule development improves the general detection capabilities of the Security Operations Centers. The manual deployment of a detection rule in Splunk was a time-consuming task in order to complete all the needed fields for a scheduled search. The Sigma Hunting App solves that problem by providing a dedicated Splunk App, which can be used to dynamically update Sigma detection rules from a Git repository.
@@ -6928,9 +5256,13 @@ Features of the Sigma Hunting App
 Using Sigma Hunting App to find suspicious behavior
 
 
-### [SimpleRisk: Governance, Risk Management & Compliance](#)  
+### [SilkETW: Collecting Actionable ETW Data](#)  
 ![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Blue--Team--&--Detection](https://img.shields.io/badge/Category-Blue--Team--&--Detection-gray)  
-As security professionals, almost every action we take comes down to making a risk-based decision. Web application vulnerabilities, malware infections, physical vulnerabilities, and much more all boils down to some combination of the likelihood of an event happening and the impact it will have. Risk management is a relatively simple concept to grasp, but the place where many practitioners fall down is in the tool set. The lucky security professionals work for companies who can afford expensive GRC tools to aide in managing risk. The unlucky majority out there usually end up spending countless hours managing risk via spreadsheets. It's cumbersome, time consuming, and just plain sucks. After starting a Risk Management program from scratch at a $1B/year company, Josh Sokol ran into these same barriers and where budget wouldn't let him go down the GRC route, he finally decided to do something about it. SimpleRisk is a simple and free tool to perform organizational Governance, Risk Management, and Compliance activities. Based entirely on open source technologies and sporting a Mozilla Public License 2.0, a SimpleRisk instance can be stood up in minutes and instantly provides the security professional with the ability to manage control frameworks, policies, and exceptions, facilitate audits, and perform risk prioritization and mitigation activities. It is highly configurable and includes dynamic reporting and the ability to tweak risk formulas on the fly. It is under active development with new features being added all the time. SimpleRisk is Enterprise Risk Management simplified.
+Event Tracing for Windows (ETW) provides researchers with a rich data set which can be leveraged both for defensive as well as offensive purposes. ETW collectors can alert the user to malicious behavior such as user-land APC injection from the Kernel, or equally, allow an attacker to spy on keyboard and mouse activity. The scope for ETW research is large but the information security community has been slow to adopt it. The two primary problems with ETW are: the complexities involved in event collection, and the volume of data that is generated.
+
+SilkETW is a flexible C# ETW wrapper which attempts to mitigate the aforementioned issues by providing a straightforward interface for data collection, various filtering mechanics, and an output format that can be easily processed. ETW output can be written locally to disk, to the Windows event log or shipped off (using POST requests) to 3rd party infrastructure such as Elasticsearch.
+
+This project was originally implemented by the FireEye Advanced Practices (AP) team to aid in the rapid analysis of novel attacker trade-craft, and to feed that analysis back into the detection engineering process.
 
 
 ### [SinCity: Build Your Dream Lab Environment](#)  
@@ -7070,6 +5402,65 @@ Suricata's fast-paced community driven development focuses on security, usabilit
 The Suricata project and code are owned and supported by the Open Information Security Foundation (OISF), a non-profit foundation committed to ensuring Suricata's development and sustained success as an open source project.
 
 
+### [SysmonX: An Augmented and Community-Driven Drop-In Replacement of Sysmon](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Blue--Team--&--Detection](https://img.shields.io/badge/Category-Blue--Team--&--Detection-gray)  
+Sysmon is a free and powerful host-level tracing tool, developed by an epic team at Microsoft, which has been widely adopted and deployed by defenders over the last few years. The tool provides a free alternative for those who want to augment the Microsoft Windows Auditing Capabilities, effectively enabling them to detect anomalous endpoint behaviors and to perform threat-hunting activities over the collected data.
+
+Despite providing a lot of features, Sysmon main disadvantage is around its closed-source nature. Not having the ability to extend the tool data collection or to extend the way that the tool filters, aggregate and logically correlate events are impacting on the tool's ability to keep up with the current threat landscape. What is more, the infosec community is not empowered to fix the well-known subversion and evasion techniques created to bypass tool auditing (i.e Matt Graeber talk at BH USA 18).
+
+Introducing SysmonX: SysmonX is an open-source, community-driven, and drop-in replacement version of Sysmon that provides a modularized architecture with the purpose of enabling the infosec community to:
+
+Extend the Sysmon data collection sources and create new security events
+Extend the Sysmon ability to correlate events. Effectively enabling new logical operations between events and the creation of advanced detection capabilities
+Enrich the current set of events with more data!
+Enable the false positive reduction by narrowing down suspicious events through dedicated scanners
+Extend the security configuration schema
+React to known subversion and evasion techniques that impact Sysmon, and by doing so, increasing the resilience of security auditing and data collection mechanism such as this one.
+
+SysmonX is composed of a standalone binary that gets itself deployed as a windows service, supports legacy Sysmon configurations and event reporting mechanism, while also providing users the ability to configure all the SysmonX aspects through command-line interface. The SysmonX binary is a drop-in replacement of Sysmon. This effectively means that SysmonX is a feature-compatible version of Sysmon (same input, same output). This is possible thanks to the SysmonX ability to package, deploy, manage Sysmon binaries behind the scene. SysmonX uses this to intercept data collected by Sysmon drivers, enrich them, along with the ability to create, combine, and add scanning logic on top of new security events. The result is a combined output, with the old good features from Sysmon + the new features from SysmonX.
+
+Example of new security events and features added to SysmonX are:
+
+Cmdline and Parent Process Spoofing detection
+WMI calls over all the namespaces, not just root:subscription
+Ability to collect authentication information
+Ability to collect powershell events
+Ability to collect DNS lookups
+Ability to detect userspace injection techniques (eventing + memory inspection through built in scanner modules)
+Ability to perform regex over security event fields
+Many more!
+
+Source Code: https://github.com/marcosd4h/sysmonx
+
+
+### [T3SF (Technical TableTop Exercises Simulation Framework)](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Blue--Team--&--Detection](https://img.shields.io/badge/Category-Blue--Team--&--Detection-gray)  
+T3SF is a framework that offers a modular structure for the orchestration of events from a master scenario events list (MSEL) together with a set of rules defined for each exercise and a configuration that allows defining the parameters of the correspondent platform. The main module performs the communication with the specific module (Discord, Slack, Telegram, WhatsApp, Teams, etc.) which allows the events to be presented in the input channels as injects for each platform. Also, the framework supports different use cases: single organization-multiple areas, multiple organization-single area, and multiple organization-multiple areas. It has been successfully tested in exercises with international companies, which allowed us to validate its commercial level.
+
+Tabletop exercises have 2 approaches: traditional (scenarios with discussion) and modern (automatic events on a platform). The 1st platform was funded by the DHS (USA) with USD20 MM over 10 years. In 2021 we proposed a novel approach using free collaborative platforms, which allowed the development of a free and open source framework.
+
+The original research paper presented and published at the IEEE ARGENCON 2022 academic congress, under the title "Cybersecurity Incident Response Simulation for Organizational and Classroom Learning." (preprint available at IEEE TechRxiv).
+
+The tool itself was first presented and released in the most important cybersecurity conference in Spain (RootedCon 2022) and then updated and presented in the most important cybersecurity conference in Latin America (Ekoparty 2022, video available on YouTube). Then it was presented at FIRST Technical Colloquium Amsterdam 2023 (April) and BlackHat Asia Arsenal 2023.
+
+This version is a major update that includes new features like a better GUI frontend for configuration and scenario setup, an automatic inject creation engine based on a given set of parameters (design decisions) and real time interactions based on ChatGPT predefined prompts.
+
+
+### [TSURUGI LINUX - the sharpest weapon in your DFIR arsenal](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Blue--Team--&--Detection](https://img.shields.io/badge/Category-Blue--Team--&--Detection-gray)  
+Any DFIR analyst knows that everyday in many companies, it doesn't matter the size, it's not easy to perform forensics investigations often due to lack of internal information (like mastery all IT architecture, have the logs or the right one...) and ready to use DFIR tools.
+
+As DFIR professionals we have faced these problems many times and so we decided last year to create something that can help who will need the right tool in the "wrong time" (during a security incident).
+
+And the answer is the Tsurugi Linux project that, of course, can be used also for educational purposes.
+A special Tsurugi Linux BLACKHAT EDITION will be shared only with the participants.
+
+
+### [Telegrip Forensic Tool](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Blue--Team--&--Detection](https://img.shields.io/badge/Category-Blue--Team--&--Detection-gray)  
+None
+
+
 ### [Telfhash: Hunting IoT elves](#)  
 ![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Blue--Team--&--Detection](https://img.shields.io/badge/Category-Blue--Team--&--Detection-gray)  
 Telfhash is an architecture-agnostic hash based on symbols of ELF files. It can also cluster ELF files with no symbols based on a creative algorithm to cluster them. Designed as a Python library, Telfhash is also shipped with a command-line tool that allows malware researchers to correctly group similar ELF files together. In this demo I'll show you how Telfhash works and how to extract the most of it while conducting malware investigations that involves ELF files, which is a common situation in this IoT/non-PC malware era.
@@ -7105,6 +5496,13 @@ The recent Falco update introduced the feature to keep track of all the syscalls
 In this talk, we explain how you can use Falco to detect and monitor container escaping techniques based on capabilities. We walk through show real-world scenarios based on recent CVEs to show where Falco can help in detection and automatically respond to those behaviors
 
 
+### [The Mathematical Mesh](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Blue--Team--&--Detection](https://img.shields.io/badge/Category-Blue--Team--&--Detection-gray)  
+The Mathematical Mesh is a Threshold Key Infrastructure that allows cryptographic applications to provide effortless security. Threshold key generation and threshold key agreement are used to provide end-to-end security of data in transmission and data at rest without requiring any additional user interactions.
+
+Once a device is connected to a user's personal Mesh through a simple, one-time configuration step, all private key and credential management functions are automated. Devices may be provisioned with private keys required to support applications such as OpenPGP, S/MIME and SSH according to intended use of that device.
+
+
 ### [ThreatPatrol](#)  
 ![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Blue--Team--&--Detection](https://img.shields.io/badge/Category-Blue--Team--&--Detection-gray)  
 ThreatPatrol is a powerful open-source SaaS tool that offers Blue Teams a wealth of information on potential threats, allowing them to gain situational awareness and perform threat hunting. The tool's flexibility is a significant advantage, as it can be hosted on the cloud or on an internal standalone machine, providing users with the convenience and customisation options they need.
@@ -7126,6 +5524,26 @@ By leveraging ThreatScraper, developers can efficiently identify potentially mal
 ### [Trash Taxi: Taking Out the Garbage in Your Infrastructure](#)  
 ![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Blue--Team--&--Detection](https://img.shields.io/badge/Category-Blue--Team--&--Detection-gray)  
 Auditors dream of a world in which they can guarantee that few possess unrestricted administrator access. Yet, developers and operations staff often need to debug complex events - that only occur with load - in production. How can we balance the need to grant occasional superuser access with the incentive to ensure changes make their way back into configuration management, while reducing the risk of configuration drift? We built Trash Taxi to help us understand why people use "sudo -i," and also clean up hosts that have had arbitrary commands run on them by "taking out the trash" as in: terminating them.
+
+
+### [Tsurugi Linux Project the Right DFIR Tool in the Wrong Time](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Blue--Team--&--Detection](https://img.shields.io/badge/Category-Blue--Team--&--Detection-gray)  
+Any DFIR analyst knows that everyday in many companies, it doesn't matter the size, it's not easy to perform forensics investigations often due to lack of internal information (like mastery all IT architecture, have the logs or the right one...) and ready to use DFIR tools.
+
+As DFIR professionals we have faced these problems many times and so we decided last year to create something that can help who will need the right tool in the "wrong time" (during a security incident).
+
+And the answer is the Tsurugi Linux project that, of course, can be used also for educational purposes.
+After more than a year since the last release, a Tsurugi Linux special BLACK HAT EDITION with this major release will be shared with the participants before the public release.
+
+
+### [Tsurugi Linux Project: The Right Tool in the Wrong Time](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Blue--Team--&--Detection](https://img.shields.io/badge/Category-Blue--Team--&--Detection-gray)  
+Any DFIR analyst knows that everyday in many companies, it doesn't matter the size, it's not easy to perform forensics investigations often due to lack of internal information (like mastery all IT architecture, have the logs or the right one...) and ready to use DFIR tools.
+
+As DFIR professionals we have faced these problems many times and so we decided last year to create something that can help who will need the right tool in the "wrong time" (during a security incident).
+
+And the answer is the Tsurugi Linux project that, of course, can be used also for educational purposes.
+After more than a year since the last release, a Tsurugi Linux special BLACK HAT EDITION with this major release will be shared with the participants before the public release.
 
 
 ### [Unprotect Project: Malware Evasion Techniques](#)  
@@ -7186,17 +5604,6 @@ The way the tool works is pretty straightforward. You load Vovk into the debugge
 Web Sight is a platform that automates the process of enumerating enterprise attack surface at scale. Starting with IP addresses, domain names, and networks, Web Sight can quickly enumerate subdomains, collect DNS records, run network scans, analyze SSL/TLS certificates and protocol support, and perform network service fingerprinting and application-layer inspection. The end goal of this information gathering process is to provide users with the situational awareness required to successfully attack and/or defend target organizations.
 
 
-### [Wabhawk/Catch - Unsupervised Machine Learning Detection](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Blue--Team--&--Detection](https://img.shields.io/badge/Category-Blue--Team--&--Detection-gray)  
-Webhawk/Catch helps automatically finding web attack traces in HTTP logs without using any preset rules. Based on the usage of Unsupervised Machine Learning, Catch groups log lines into clusters, and detects the outliers that it considers as potentially attack traces. The tool takes as input a raw HTTP log file (Apache, Nginx..) and returns a report with a list of findings.
-
-Catch uses PCA (Principal Component Analysis) technique to select the most relevant features (Example: user-agent, IP address, number of transmitted parameters, etc.. ). Then, it runs DBSCAN (Density-Based Spatial Clustering of Applications with Noise) algorithm to get all the possible log line clusters and anomalous points (potential attack traces).
-
-Advanced users can fine tune Catch based on a set of options that help optimising the clustering algorithm (Example: minimum number of points by cluster, or the maximum distance between two points within the same cluster).
-
-The current version of Webhawk/Catch generates an easy-to-read HTML report which includes all the findings, and the severity of each one.
-
-
 ### [Weapons of Office Destruction: Prevention with Machine Learning](#)  
 ![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Blue--Team--&--Detection](https://img.shields.io/badge/Category-Blue--Team--&--Detection-gray)  
 The broad-brush popularity of Microsoft (MS) Office documents led them to become one of the main cyber-attacking vectors to spread malware via email attachments or web downloads. The first major outbreak of its kind is the notorious macro-based malware "Melissa" during the turn of last century and this century. Since 2014 we started to see rising weaponized Office documents, particularly visual basic application (VBA) macro-based attacks (banking Trojan like "Dridex" or ransomware such as "Locky"). According to a Sophos report in 2017, over 80% of document-based malware were delivered via MS Word or Excel files. Even though these attacks are not new in nature, the increasing volume and complexity of the attacks impose huge challenges to traditional signature-based anti-virus (AV) products.
@@ -7207,6 +5614,19 @@ As a countermeasure, AV companies have spent an enormous amount of effort creati
 ### [White Phoenix - Beating Intermittent Encryption](#)  
 ![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Blue--Team--&--Detection](https://img.shields.io/badge/Category-Blue--Team--&--Detection-gray)  
 Intermittent Encryption (aka Partial Encryption) is a new trend in the world of ransomware. It's been adopted by many notorious groups such as BlackCat Ransomware, Play Ransomware and more. Altogether, the groups using intermittent encryption have successfully targeted hundreds of organizations in 2022 alone. However, even though intermittent encryption has its advantages, it leaves much of the content of targeted files unencrypted. In this talk, we will demonstrate a tool that uses this limitation to recover valuable data, such as text and images from documents encrypted by these groups, allowing the victims to recover some of their lost data.
+
+
+### [Wireshark Forensics Toolkit](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Blue--Team--&--Detection](https://img.shields.io/badge/Category-Blue--Team--&--Detection-gray)  
+Wireshark is the most widely used network traffic analyzer. It is an important tool for both live traffic analysis & forensic analysis for forensic/malware analysts. Even though Wireshark provides incredibly powerful functionalities for protocol parsing & filtering, it does not provide any contextual information about network endpoints. For a typical analyst, who has to comb through GBs of PCAP files to identify malicious activity, it's like finding a needle in a haystack.
+
+Wireshark Forensics Toolkit is a cross-platform Wireshark plugin that correlates network traffic data with threat intelligence, asset categorization & vulnerability data to speed up network forensic analysis. It does it by extending Wireshark native search filter functionality to allow filtering based on these additional contextual attributes. It works with both PCAP files and real-time traffic captures.
+
+This toolkit provides the following functionality
+- Loads malicious Indicators CSV exported from Threat Intelligence Platforms like MISP and associates it with each source/destination IP from network traffic
+- Loads asset classification information based on IP-Range to Asset Type mapping which enables filtering incoming/outgoing traffic from a specific type of assets (e.g. filter for 'Database Server', 'Employee Laptop' etc)
+- Loads exported vulnerability scan information exported from Qualys/Nessus map IP to CVEs.
+- Extends native Wireshark filter functionality to allow filtering based severity, source, asset type & CVE information for each source or destination IP address in network logs
 
 
 ### [YAMA: Yet Another Memory Analyzer for Malware Detection](#)  
@@ -7273,6 +5693,23 @@ eBPFShield Forensics helps address Linux security issues by analyzing system cal
 During the workshop, we'll delve deeper into these features and demonstrate how eBPFShield can help you protect your systems against even the most advanced threats.
 
 
+### [goKey: Reclaim Back Keys for Your Kingdom - A Vaultless Password Manager](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Blue--Team--&--Detection](https://img.shields.io/badge/Category-Blue--Team--&--Detection-gray)  
+The password is the oldest and most widely used pillar of authentication. We use passwords everywhere: from everyday online shopping to accessing government services and managing our money. Every day, the number of online services increases and each of service most likely requires a password to use it.
+
+On the other hand, as password-cracking techniques increase and evolve, so do the restrictions on the types of passwords we can use. It is not enough anymore to use your favourite movie as a password across all your accounts. The modern Internet threat model requires passwords to be either ridiculously long or look like random gibberish of uppercase and lowercase letters, numbers and special characters. And in NO WAY should you reuse same password on any two services. In other words, the most secure passwords are hardly memorable to ordinary people and the number of passwords you have to remember makes this task even harder.
+
+That's where password managers kick in. Instead of remembering each password, you only have to remember the password for your password manager (the "master password"), and the password manager remembers your other passwords for you. But how? They store your other passwords in a vault (a simple encrypted database). However, as with any database, a vault requires management: you need to store it somewhere (which means more backups), sync it across all your devices (you definitely want to access your services from home/work laptops, smartphone, tablet etc). And as with any database management, there comes usability and security issues. Basically, you either have to manually update and manage the vault yourself (if you use a free open-source password manager) or rely on some kind of cloud-based service (often paid and proprietary) for that.
+
+So it is a matter of usability vs security: either you're using a convenient proprietary password manager and have no idea if it is working as advertised, or you have more confidence in your open-source password manager, but have to deal with your vault yourself.
+
+Wouldn't it be great to have a password manager without a vault? We would no longer have to manage vaults or rely on any third parties. This presentation introduces an open-source vaultless password manager, which does not store your passwords, but rather derives them from the master-password in a cryptographically secure manner. There is an option to generate secure cryptographic keys so that your passwords/keys are never stored anywhere, but can be reliably regenerated when needed.
+
+
+Presentation: https://drive.google.com/file/d/1B5CXRaTzG8yYTW6sN9L70GW3NBLpZVJb/view?usp=sharing
+GitHub: https://github.com/cloudflare/gokey
+
+
 ### [h0neytr4p - How to catch the external threat actors with an easy to configure Honeypot.](#)  
 ![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Blue--Team--&--Detection](https://img.shields.io/badge/Category-Blue--Team--&--Detection-gray)  
 Working for large clients, we realised that large enterprises don't have any mechanism to trap external threat actors primarily exploiting web vulnerabilities. They are still reliant on threat intel firms to block potential attacker IPs. Sure, there are honeypots but it's really hard and time taking to configure. The turnaround time for SOC teams to configure a honeypot for a recently disclosed vulnerability is very high, discouraging the use of the same. We aim to fix this by introducing a template based honeypot. Honeytrap is stateless, it understands patterns and it can be configured to catch complicated 0day or 1day vulnerability exploitation attempts within minutes. It empowers and encourages blue teams to put an active honeytrap network around the network which can be used to capture Indicators of compromise that can be used to block at the perimeter firewall. h0neytr4p comes in a light weight single binary deployment mode, takes either one or multiple templates as input and has csv output mode which can be easily piped onto custom tools. Currently, it supports HTTP and HTTPS only but the plan is to make it a unified platform that supports SSH, RDP or any other protocols spanning multiple scenarios.
@@ -7292,6 +5729,19 @@ RpiDNS is a new feature integrated into ioc2rpz.gui which includes an installati
 ### [pwnSpoof](#)  
 ![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Blue--Team--&--Detection](https://img.shields.io/badge/Category-Blue--Team--&--Detection-gray)  
 None
+
+
+### [rastrea2r (reloaded!): Collecting & Hunting for IOCs with Gusto and Style](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Blue--Team--&--Detection](https://img.shields.io/badge/Category-Blue--Team--&--Detection-gray)  
+Rastrea2r (pronounced "rastreador" - hunter- in Spanish) is a multi-platform open source tool that allows incident responders and SOC analysts to triage suspect systems and hunt for Indicators of Compromise (IOCs) across thousands of endpoints in minutes. To parse and collect artifacts of interest from remote systems (including memory dumps), rastrea2r can execute sysinternal, system commands and other 3rd party tools across multiples endpoints, saving the output to a centralized share for automated or manual analysis. By using a client/server RESTful API, rastrea2r can also hunt for IOCs on disk and memory across multiple systems using YARA rules. As a command line tool, rastrea2r can easily integrate with AV consoles and SOAR tools, allowing incident responders and SOC analysts to collect forensics evidence and hunt for IOCs without the need for an additional agent, with 'gusto' and style!
+
+Source Code: https://github.com/rastrea2r/rastrea2r
+Presentation: https://github.com/rastrea2r/rastrea2r/blob/master/presentations/BH%20Arsenal%20rastrea2r%202018.pdf
+
+
+### [soc-faker: A python package for use in generating fake data for SOC and security automation](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Blue--Team--&--Detection](https://img.shields.io/badge/Category-Blue--Team--&--Detection-gray)  
+soc-faker is used to generate fake data for use by Security Operation Centers, Information security professionals, product teams, and many more.
 
 
 ### [stegoWiper: A powerful and flexible active attack for disrupting stegomalware](#)  
@@ -7366,6 +5816,162 @@ Presentation: https://alex.stanev.org/presentations/en/BlackHatUSA2018_DEFCON26-
 
 ---
 
+## Social Engineering / General
+
+
+### [A DECEPTICON and AUTOBOT walk into a bar: A NEW Python tool for enhanced OPSEC](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Social--Engineering--/--General](https://img.shields.io/badge/Category-Social--Engineering--/--General-gray)  
+When we see the terms Natural Language Processing (NLP) or Machine Learning (ML), often, our guts are correct, and it is vendor marketing material, frequently containing FUD. After tinkering with various libraries in Python and R with the use of some OSINT and SOCMINT techniques, I have found a use for NLP and ML that is 100% FUD free in the form of a brand new, Python-based tool.
+
+In this presentation, which goes further than the previous DECEPTICON presentation, we address topics that I have frequently spoken about in past years is disinformation, deception, OSINT, and OPSEC. When working through learning NLP and ML in Python, it dawned on me: marry these technologies with DECEPTICON for good. Enter the DECEPTICON bot. The DECEPTICON bot is a python* based tool that connects to social media via APIs to read posts/tweets to determine patterns of posting intervals and content then takes over to autonomously post for the user. What is the application you ask: people who are trying to enhance their OPSEC and abandon social media accounts that have been targeted without setting off alarms to their adversaries. Use case scenarios include public figures, executives, and, most importantly – domestic violence and trafficking victims.
+
+
+### [AiCEF: An AI-powered Cyber Exercise Content Generation Framework](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Social--Engineering--/--General](https://img.shields.io/badge/Category-Social--Engineering--/--General-gray)  
+The core idea of AiCEF, is to harness the intelligence that is available from online and MISP reports, as well as threat groups' activities, arsenal etc., from, e.g., MITRE, to create relevant and timely cybersecurity exercises. To this end, we have developed a specialised ontology called Cyber Exercise Scenario Ontology (CESO), which extends STIX [2]. The core idea is to map reports; both from online resources and MISP, via a common ontology to graphs. This way, we abstract the events from the reports in a machine-readable form. The produced graphs can be infused with additional intelligence, e.g. the threat actor profile from MITRE, also mapped in our ontology. While this may fill gaps that would be missing from a report, one can also manipulate the graph to create custom and unique models. Finally, we exploit transformer-based language models like GPT to convert the graph into text that can serve as the scenario of a cybersecurity exercise.
+We have tested and validated AiCEF with a group of experts in cybersecurity exercises, and the results clearly show that AiCEF significantly augments the capabilities in creating timely and relevant cybersecurity exercises in terms of both quality and time.
+
+
+### [Amini Project](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Social--Engineering--/--General](https://img.shields.io/badge/Category-Social--Engineering--/--General-gray)  
+The AirTag IoT device is a tracking tool developed by Apple and designed to help people find misplaced objects. However, even when Apple states that AirTag technology is solely used for tracking items, a growing number of malicious individuals are taking advantage for the simplicity to install it and set up to track unaware targets, in other words, people.
+
+Amini is a specialized open-source hardware project to scan, detect, spoof, and play a sound for AirTag devices. This project is part of "Spy-wear: Misuse of Apple AirTags" research where we analyzed a privacy concern about AirTag misuse for tracking capabilities. It was designed to be implemented with Arduino environment, for flexible designs, and to be used in any Arduino-supported devices with BLE capabilities.
+
+
+### [Faceless - Deepfake detection](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Social--Engineering--/--General](https://img.shields.io/badge/Category-Social--Engineering--/--General-gray)  
+Faceless is a deepfake detection system.
+
+The proposed deepfake detection model is based on the EfficientNet structure with some customizations. It is hoped that an approachable solution could remind Internet users to stay secure against fake contents and counter the emergence of deepfakes.
+The deepfake dataset were used in the final model is Celeb-DF
+
+
+### [From Boar to More: Upgrading Your Security with Trufflehog's Terminal UI](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Social--Engineering--/--General](https://img.shields.io/badge/Category-Social--Engineering--/--General-gray)  
+Trufflehog is an open-source tool that helps organizations detect sensitive data leaks across their software development life cycle. It identifies text with potentially sensitive information and verifies if they are actually secret keys or passwords, reducing false-positive noise that often leads to alert fatigue.
+
+Previously Trufflehog required command-line interface expertise and familiarity, which could be challenging to non-technical users. A new feature was recently added to provide a terminal user interface (TUI), enhancing accessibility for individuals with varying levels of technical expertise. Easy-to-use tooling contributes to a collaborative security culture that ultimately empowers individuals to engage in and improve their organization's security posture. Trufflehog's TUI enables anyone, regardless of technical skills, to scan for secrets across their organization and be a hero.
+
+
+### [Ghostwriter](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Social--Engineering--/--General](https://img.shields.io/badge/Category-Social--Engineering--/--General-gray)  
+Ghostwriter is a part of your team. It enables collaborative management of penetration test and red team assessments. It helps you manage the critical pieces of every project, including client information, project plans, infrastructure, findings, and reports in one application.
+
+Since its debut at BHUSA Arsenal in 2019, Ghostwriter has grown and matured. Last year was a building year for the project. Now, the development team is excited to re-introduce Ghostwriter with new features to be rolled out in Q1 and Q2 2022 – such as a new GraphQL API! This new version gives teams the power to manage their projects via the API layer and custom scripts or integration with third-party projects.
+
+
+### [ISTHISLEGIT](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Social--Engineering--/--General](https://img.shields.io/badge/Category-Social--Engineering--/--General-gray)  
+When it comes to mitigating phishing, visibility is half the battle. Knowing what phishing attacks are hitting your organization is key to stopping them. Users can be an incredible source of alerting for phishing emails, but they often don't know where to report the emails. Also, having the ability to collect, correlate, and auto-respond to these reports is key to stopping attacks as quickly they come in. These are problems solved by IsThisLegit for free via open-source, unlike any somewhat similar but cost-prohibitive offerings out there.
+
+IsThisLegit is a Chrome extension and web application dashboard (leveraging Google App Engine) designed to support the management of phishing response for end-users and admins. By rolling out the Chrome extension, users will see a button in Gmail that allows them to easily report phishing emails to their security team with a single click. Now there's no need for users to remember which email address they need to send reports to. The email is then automatically reported and deleted from their inbox.
+
+Once submitted, admins can then use the dashboard to rapidly analyze reported emails, identify phishing trends, categorize phishing emails, and set up auto-response rules.This allows the security team to quickly identify and respond to ongoing attacks.
+
+This demo will be unique for Arsenal because it covers the full lifecycle of phishing mitigation with the 'holy trinity' of tools (all developed by the Duo Labs team). These three distinct open-source tools work together seamlessly to test and train users (Gophish), help protect/take the burden off of users by making it more difficult for attackers (Phinn), and make reporting incidents as easy as a click of the button (IsThisLegit).
+
+
+
+https://github.com/duo-labs/isthislegit
+
+
+### [King Phisher: A Phishing Campaign Toolkit](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Social--Engineering--/--General](https://img.shields.io/badge/Category-Social--Engineering--/--General-gray)  
+King Phisher is a phishing toolkit created to meet the highly customized and flexible needs that offensively-focused security testers require. It boasts a wide range of features to facilitate it's use both on offensive, breaching-centric engagements as well as for user awareness training.
+
+This arsenal demonstration will show the newer features that have been added to King Phisher in recent years. Viewers will see the latest campaign improvements including from the template selection process to gathering MFA tokens, validating submitted credentials and the Let's Encrypt integration. By integrating with Let's Encrypt through certbot, users are able to quickly and easily issue certificates for, and enable HTTPS for their phishing sites. Finally, viewers will see a demonstration of the newest plugins for campaign data management, the usage of various alerting services and finally SPAM evasion.
+
+Source code: https://github.com/securestate/king-phisher
+
+
+### [Phishing Simulation Assessment](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Social--Engineering--/--General](https://img.shields.io/badge/Category-Social--Engineering--/--General-gray)  
+People in IT eco-system are becoming 'favorite' targets because, 1. they remain weakest link and 2. organisation are becoming mature in securing technology. For a security tester, it is a daunting task to set up a phishing campaign, which includes, decide a look-alike domain, buy it, setup a phishing website with infrastructure, design an email and choose target audience, track the open/click/download and build the analytics. All of these activities are time-consuming and demands a certain skill-set.
+
+Phishing Simulation provides one-stop-solution for organisation to understand security awareness posture without actually performing 'live' phishing attack. Phishing Simulation prepares phishing assessment with tailor-made questions specific to organisation, facilitates target users to complete the assessment, provides an intuitive tutorial and builds the analytics on basis of responses and the meta-data collected about user.
+
+Phishing Simulation has 2 modules:
+Admin Module: This module will be used by tester to setup and monitor phishing assessments
+- On the basis of inputs provided by tester like organisation name, email ID, domain name, tool automatically generates questions with tailor-made data such as look-alike domains using typo-squatting technique, spoofed sender address, look-alike web-site content
+- Assessment will comprise of questions having phishing web-site, spear-phishing email, SMiShing, scenario-based question to make it close to real-world phishing attacks
+- Tool also provides analytics in form of graphs to represent security awareness posture of organisation by different categories such as department, employee, target-user action
+
+Client Module: This module will be used by target user to complete the assessment and view tutorial
+- Every user within a campaign itself will have 10 unique questions to answer, with the mix of positive and negative scenarios
+- Passing criteria is to answer every question correct because all it takes is just one click!
+
+
+### [Pwnppeteer - Phishing Post {Exploi/Automa}tion at Scale](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Social--Engineering--/--General](https://img.shields.io/badge/Category-Social--Engineering--/--General-gray)  
+None
+
+
+### [RAT Exploitation Tool for Social Networks](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Social--Engineering--/--General](https://img.shields.io/badge/Category-Social--Engineering--/--General-gray)  
+As we all know, many risks are involved with social networks such as impersonation, social-engineering, and data breach.
+
+To demonstrate these attacks, we developed an innovative tool that can hijack and remotely control social network accounts by combining the powers of social engineering with malicious third party apps.
+
+We built a private app store of phishing apps, with genres, that a bad actor can choose from to gain RAT control over victim accounts. To enable this, our tool manages oauth tokens within a single web console, allowing the hacker to exercise the functions of the victim accounts. To this end, we discuss other features and extensions of our tool, such as social engineering chat bots, crawlier bots, password crackers, and visualization tools for social network analytics.
+
+
+### [SPF: SpeedPhishing Framework](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Social--Engineering--/--General](https://img.shields.io/badge/Category-Social--Engineering--/--General-gray)  
+SpeedPhishing Framework (SPF) is a small collection of tools which can assist penetration testers in quickly/automatically deploying phishing exercises in minimal time.
+
+Among the various capabilities included with SPF is the ability to automate the phishing process of OSINT and target selection, deployment of one or more phishing websites, the crafting and sending of phishing emails to the targets, recording the results, and generating a basic report.
+
+SPF also includes more advanced capabilities such as dynamically building new web phishing templates, automatically validating captured credentials against target mail servers and the pillaging of sensitive information, and SPF can assist in the phishing of multifactor authentication portals.
+
+
+### [Sharkcop: A Phishing Detector Using Machine Learning](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Social--Engineering--/--General](https://img.shields.io/badge/Category-Social--Engineering--/--General-gray)  
+Sharkcop use criterias such as ssl certifucate, domain length, domain age,... with SVM classification algorithm to determine if a url is phishing or not. Sharkcop includes a restful web server and a chrome extension to highlight malicious links on Facebook and Messenger.
+
+
+### [SniperPhish: The Web-Email Spear Phishing Toolkit](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Social--Engineering--/--General](https://img.shields.io/badge/Category-Social--Engineering--/--General-gray)  
+Spear Phishing campaigns are commonly used to test employees' awareness in a company/organization. This exercise involves mostly the combination of phishing emails and websites. An effective campaign requires sophisticated methods starting from designing a phishing website to executing payload at the target in an undetectable manner. A platform is required to send emails to targeted users and tracking campaign progress. This basically involves the use of a mail server (to send email) and a web server (to host phishing website). To collect campaign data, these two domains need to be considered. Precisely, the campaign required to track email delivery status and the data submitted in the phishing website.
+
+Usually, the data from these two domains can be collected easily, but it is more challenging and time-consuming when these data are to be consolidated and address questions such as which victim in the mail submitted data through the website. SniperPhish comes in handy here so that the data is tracked centrally, and displays the consolidated data in its dashboard.
+
+SniperPhish is an advanced Web-Email spear-phishing toolkit developed in PHP to conduct professional phishing assessments. The abstract idea behind this toolkit is to simulate, combine, and centrally track all campaigns that involve email and phishing websites. SniperPhish supports tracking data from web site containing n number of pages. The data submitted in the phishing website containing multiple pages are tracked sequentially with email campaigns. The advanced customization in the report generation module helps to customize column fields and export in multiple outputs. In addition to the core campaign module, SniperPhish also provides additional functionalities such as hosting phishing websites, payload generation, encryption options, and options to convert payloads to FUD using different methods (eg: conversion to reflective DLL/PE).
+
+
+### [Social Attacker: Automated Phishing on Social Media Platforms](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Social--Engineering--/--General](https://img.shields.io/badge/Category-Social--Engineering--/--General-gray)  
+Social Attacker is the first Open Source, Multi-Site, automated Social Media Phishing Framework. It allows you to automate the phishing of Social Media users on a mass scale by handling the connecting to, and messaging of targets.
+
+You provide Social Attacker with a phishing message and a list of target profiles (collected either by hand or with Social Mapper). Then over a timeframe you set, it attempts to connect to the targets and, if they accept, sends them phishing message. It can even scrape a targets public profile history and use rudimentary message generation to craft a personal message specific to that person, as an alternative to sending the same phish to all targets.
+
+Social Attacker provides Red Teamers, Penetration Testers & Social Engineers an efficient way to exploit and pivot through an alternative attack route.
+
+Social Attacker supports the following Social Media platforms:
+
+LinkedIn
+Facebook
+Twitter
+VKontakte
+
+Additional Features Include:
+
+Report Generation
+Tracking Connections & Clicks
+Customized Phishing Message Generation
+
+
+### [TapIt: SMS Phishing Framework](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Social--Engineering--/--General](https://img.shields.io/badge/Category-Social--Engineering--/--General-gray)  
+Email phishing is the weapon of choice for most attackers and red teamers alike for getting initial compromise on a network. Email phishing awareness is also heightened in today's cyber security atmosphere. What if I told you there's another social engineering method to achieve initial compromise that is largely unnoticed by defenders?
+
+Mobile phones and SMS are technologies that are largely unmonitored by defenders. TapIt aims to exploit scenarios and situations where SMS Phishing (SMiShing) may be used by attackers to achieve their goals, such as initial compromise, credentials harvesting & 2FA phishing.
+
+TapIt allows easy execution of large-scale SMS phishing campaigns, allowing SMS to be sent to large number of recipients, and to follow-up with tracking of these SMS. Its in-built functionality will also allow ease of setup for purpose of credentials harvesting, delivery of payloads and social engineering.
+
+
+---
+
 ## Web/AppSec
 
 
@@ -7376,27 +5982,6 @@ Today more and more websites are becoming subject to the constant and malevolent
 We will first take a look at how the popular and highly adopted open source proxy server known as NGINX can be combined with the long respected open source web application firewall known as ModSecurity to achieve an effective and highly secure layer for your web application stack. We will explain the detailed benefits that NGINX and ModSecurity can provide, including protection from layer 7 attacks such as XSS, SQLi and LFI. We will showcase how the combination of these technologies can automatically block traffic from known malicious IP addresses. We will cover the visibility and auditing ModSecurity can provide from its detailed log files.
 
 Lastly, we will walk through the setup process and configurations so that after attending this session you can easily and quickly setup NGINX and ModSecurity as a effective and highly secure web application firewall.
-
-
-### [APKHunt | OWASP MASVS Static Analyzer](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Web/AppSec](https://img.shields.io/badge/Category-Web/AppSec-gray)  
-APKHunt is a comprehensive static code analysis tool for Android apps that is based on the OWASP MASVAS framework. The OWASP MASVS (Mobile Application Security Verification Standard) is the industry standard for mobile app security. APKHunt is intended primarily for mobile app developers and security testers, but it can be used by anyone to identify and address potential security vulnerabilities in their code.
-
-With APKHunt, mobile software architects or developers can conduct thorough code reviews to ensure the security and integrity of their mobile applications, while security testers can use the tool to confirm the completeness and consistency of their test results. Whether you're a developer looking to build secure apps or an infosec tester charged with ensuring their security, APKHunt can be an invaluable resource for your work.
-
-Key features of APKHunt:
-- Scan coverage: Covers most of the SAST (Static Application Security Testing) related test cases of the OWASP MASVS framework.
-- Optimised scanning: Specific rules are designed to check for particular security sinks, resulting in an almost accurate scanning process.
-- Low false-positive rate: Designed to pinpoint and highlight the exact location of potential vulnerabilities in the source code.
-- Output format: Results are provided in a TXT file format for easy readability for end-users.
-
-Current Limitation:
-- Supporting OS/Language: Capable of scanning the source code of an android APK file and is only supported on Linux environments.
-
-Upcoming Features:
-- Scanning of multiple APK files at the same time
-- More output format such as HTML
-- Integration with third-party tools
 
 
 ### [Akto - Open Source API Security Tool](#)  
@@ -7424,17 +6009,6 @@ This tool will be very interesting for:
 - Blue teamers/infra security - Getting an automated API inventory and getting alerts for any new sensitive APIs. They can also get a view of all sensitive PII data being shared across all their services and across all their APIs. They can check unauthenticated APIs, download the swagger file and use it in other security apps too.
 
 
-### [Analyzing SAP Communication Security: Introducing sncscan](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Web/AppSec](https://img.shields.io/badge/Category-Web/AppSec-gray)  
-SAP systems are used around the world to handle crucial business processes and highly confidential data such as financial details or information regarding a company's staff. To ensure confidentiality and integrity, sensitive data, and especially access credentials, must only be transmitted over encrypted communication channels. Transport layer encryption for SAP systems is provided by the Secure Network Communications (SNC) protocol. Currently, the configuration of the SAP SNC protocol (such as the Quality of Protection parameter or the installed CryptoLib) can only be audited with authenticated access to the SAP system or by manually connecting to the system through the SAP GUI. These approaches have additional requirements and are impractical for assessing the security of a larger number of systems.
-
-To address the beforementioned issues, we developed 'sncscan', an SNC scanner, that works without authentication and similar to the various tools that are available to analyze the security of services that use SSL/TLS. To achieve this, 'sncscan' starts SNC handshakes with varying encryption parameters to the tested service and analyzes the returned error messages and responses. This is especially useful in context of professional penetration tests and enables us to identify configuration weaknesses and provide actionable recommendations on improving the transport security in SAP environments.
-
-'sncscan' benefits from the tools and research of the `pysap` project and will be released as Open-Source tool in the OWASP CBAS-SAP project. It aims to enable security researchers, professional penetration testers and SAP basis administrators to verify the correct use of the SNC protocol.
-
-Currently 'sncscan' can analyze the SNC configuration of the SAP Router protocol. The next steps are to implement similar functionality for the protocols DIAG and RFC to increase the coverage of SAP services.
-
-
 ### [AppSecLens: AI-Driven Adaptive Application Risk Ranking](#)  
 ![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Web/AppSec](https://img.shields.io/badge/Category-Web/AppSec-gray)  
 AppSecLens is an innovative web application security tool, specifically designed to assist organizations in proactively managing their attack surface, identifying vulnerabilities, and prioritizing remediation efforts with a focus on Application Risk Ranking.
@@ -7444,35 +6018,12 @@ Inspired by VulnHero, AppSecLens identifies related web applications using domai
 By integrating with third-party APIs and threat intelligence databases, AppSecLens remains up-to-date with the latest vulnerabilities and exploits. The tool also supports seamless collaboration with other security tools and systems, facilitating coordinated remediation efforts. Its customizable dashboards and reporting options empower users to monitor and manage risks effectively, ensuring a more robust and secure web application environment.
 
 
-### [AppsecStudy - open-source elearning management system for information security](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Web/AppSec](https://img.shields.io/badge/Category-Web/AppSec-gray)  
-AppsecStudy is an open-source platform for seminars, training, and organizing courses for practical information security for developers and IT specialists. This tool has all the built-in basic requirements needed for organizing normal and productive training.
-
-
 ### [AppsecStudy: Open-Source eLearning Management System for Information Security](#)  
 ![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Web/AppSec](https://img.shields.io/badge/Category-Web/AppSec-gray)  
 Because preventing vulnerability is less costly than redeveloping the complete application, infosec education and training become more and more actual. As a result, developers can greatly reduce the risk and expense from cyber attacks in the future by creating secure code. In addition, training the team based on the security assessment results to correct actual errors provides ongoing protection for existing and future products.
 
 Since studying is impossible without a practical part, providing hands-on lab training for developing teams is a necessary step.
 AppsecStudy - an open-source platform for seminars, training, and organizing courses for practical information security for developers and IT specialists. This tool has all the built-in basic requirements needed for organizing normal and productive training.
-
-
-### [ArcherySec - Manage and Automate your Vulnerability Assessment](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Web/AppSec](https://img.shields.io/badge/Category-Web/AppSec-gray)  
-ArcherySec is an open-source vulnerability assessment and automation tool which helps developers and pentesters to perform scans and manage vulnerabilities. ArcherySec uses popular open-source tools to perform comprehensive scanning for web applications and networks. It also performs web application dynamic authenticated scanning and covers the whole application by using selenium. The developers can also utilize the tool for the implementation of their DevOps CI/CD environment.
-
-Overview of the tool
-- Perform web and network vulnerability scanning using open-source tools.
-- Correlates and collaborates all raw scans data, shows them in a consolidated manner.
-- Multi-user role-based accounts admin, analyst & viewer
-- Policy-based CI/CD integration
-- Perform authenticated web scanning.
-- Perform web application scanning using selenium.
-- Vulnerability management.
-- Enable REST APIs for developers to perform scanning and vulnerability management.
-- JIRA Ticketing System.
-- Periodic scans.
-- Useful for DevOps teams for vulnerability management.
 
 
 ### [Astra: Automated Security Testing For REST APIs](#)  
@@ -7511,18 +6062,6 @@ The tool leaves minimum traffic in the network logs to help during red team enga
 None
 
 
-### [Bugsy - Automated Vulnerability Remediation CLI](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Web/AppSec](https://img.shields.io/badge/Category-Web/AppSec-gray)  
-Bugsy is a command-line interface (CLI) tool that provides automatic security vulnerability remediation for your code. It is a community edition version of Mobb, the first vendor-agnostic automatic security vulnerability remediation tool. Bugsy is designed to help developers easily identify and fix security vulnerabilities in their code.
-
-When pointed at an open-source repo, Bugsy will automatically scan the repo using Snyk Code and produce fixes the developer can easily review and commit.
-
-
-### [Build Inspector Open Source](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Web/AppSec](https://img.shields.io/badge/Category-Web/AppSec-gray)  
-Build Inspector provides processing of plain-text CI/CD build and deployment logs with an eye towards identifying consumed and produced dependencies, along with identifying actions that introduce additional risk into the process. Quickly identify changes from one pipeline run to the next, and home in on spots where developers have added unnecessary risk or are performing actions that could be opportunities for a supply chain compromise.
-
-
 ### [Build Your Own Reconnaissance System with Osmedeus Workflow Engine](#)  
 ![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Web/AppSec](https://img.shields.io/badge/Category-Web/AppSec-gray)  
 Osmedeus is a is a workflow framework designed to perform reconnaissance, with a focus on identifying the attack surface and conducting security testing on the specified target, including vulnerability scanning, port scanning, and content discovery
@@ -7531,22 +6070,6 @@ Osmedeus is a is a workflow framework designed to perform reconnaissance, with a
 ### [Burp Replicator: Automate Reproduction of Complex Vulnerabilities](#)  
 ![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Web/AppSec](https://img.shields.io/badge/Category-Web/AppSec-gray)  
 Developers often struggle to reproduce vulnerabilities discovered during pen tests. This is especially true for complex issues that need to bypass JavaScript validation, work with multi-step forms, handle dynamic CSRF tokens and more. This does not fit well with agile development where the ability to quickly reproduce problems enables efficient test driven development. Replicator solves this issue by allowing a pen tester to create a reproduction script that a developer can use on their system. Complex vulnerabilities can be confirmed with a single click, allowing the developer to stay in their productive coding flow. The tool is fully integrated with Burp Suite, making the script greatly easier to produce than a shell script, and keeping the tester in productive flow.
-
-
-### [CASPR - Code Trust Audit Framework](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Web/AppSec](https://img.shields.io/badge/Category-Web/AppSec-gray)  
-With CASPR, we are addressing the Supply Chain Attacks by Left Shifting the code signing process.
-CASPR aims to provide simple scripts and services architecture to ensure all code changes in an organization are signed by trusted keys; trustability of these keys should be instantly verifiable every time the code changes are consumed. It also makes the auditing and accountability of code-changes easier and cryptographically verifiable, leaving no scope for malicious actors to sneak in untrusted code at any point in the Software Development Life Cycle.
-
-
-### [CASPR - Code Trust Auditing Framework](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Web/AppSec](https://img.shields.io/badge/Category-Web/AppSec-gray)  
-CASPR is known for addressing the Supply Chain Attacks by Left Shifting the code signing process.
-CASPR provides simple scripts and services architecture to ensure all code changes in an organisation are signed by trusted keys. What matters is where these keys are residing. Storing signing keys on a user's device has a certain degree of risk when the device is compromised.
-
-In the latest release of CASPR, we are enabling developers to sign code commits from the keys stored on the phone.
-
-CASPR makes the auditing and accountability of code-changes easier and cryptographically verifiable, leaving no scope for malicious actors to sneak in untrusted code at any point in the Software Development Life Cycle.
 
 
 ### [CSP AUDITOR](#)  
@@ -7566,63 +6089,9 @@ CAZT is a simulator of cloud-provider responsible REST APIs. It includes a lab m
 It is different from other vulnerable cloud practice environments because it focuses on the cloud-provider shared responsibility instead of the customer. This enables pen testers to gain experience with testing the cloud vendor itself as well as an understanding of what a vulnerable cloud service will look like.
 
 
-### [CodeTotal: Shift Left Just Became Easier](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Web/AppSec](https://img.shields.io/badge/Category-Web/AppSec-gray)  
-Looking for a powerful and easy-to-use open-source scanning tool? CodeTotal is your solution! CodeTotal is an online scanning tool aggregates multiple open-source scanning tools, providing free and lightning-fast code scanning.
-
-But CodeTotal offers much more than just speed and convenience. Our unique tool also aggregates the data from these scans, enabling users to identify any security issues that their current scanning software may have missed. With CodeTotal, you can even verify alerts suspected to be possible false positives, getting a valuable second opinion that can help you stay ahead of any potential threats.
-
-Tired of maintaining multiple tool environments for each repository? CodeTotal offers a simple and streamlined solution. No more wasting time setting up and maintaining 10 to 20 tool environments - CodeTotal takes care of everything for you. Our revolutionary tool allows developers to independently scan their code for security issues in minutes, freeing up valuable resources and avoiding the need for involvement or approval from R&D and DevOps.
-
-But that's not all. CodeTotal also produces an SBOM, giving developers a detailed view of their code dependencies and ensuring that any licensing issues are immediately flagged. With CodeTotal, you can use open-source libraries confidently and with peace of mind.
-
-
-### [Daksh SCRA (Source Code Review Assist Tool)](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Web/AppSec](https://img.shields.io/badge/Category-Web/AppSec-gray)  
-Daksh SCRA is an open source tool that assists with manual source code review by providing helpful information to the code reviewer. This tool differs from traditional code review tools because it aims to help reviewers collect various details about the code base and identify areas of interest to review and confirm potential vulnerabilities. Even if code reviewers use automated code review tools, there are still many manual tasks they must perform to confirm findings and ensure precision in the code review process.
-
-Although there are numerous automated code review tools available, none of them can perform a reconnaissance of the code base and provide code reviewers with useful insights. Typically, code reviewers must search for relevant information to confirm findings or ensure precision. Daksh SCRA offers valuable information such as technology and platform usage, functionalities, use cases, vulnerable patterns, and libraries used, among other data.
-
-While most code review tools search for vulnerable patterns, they often report a high percentage of false positives. Daksh SCRA, on the other hand, is designed to be a reconnaissance tool that provides code reviewers with maximum insights about the target code base to assist with precise code review. Although Daksh SCRA is in its infancy stage, it is still a usable tool that supports a wide range of languages and platforms, and new features will be added in future releases.
-
-
-### [Defending GitHub Actions: Unmasking Attack Vectors and Verifying Integrity with eBPF](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Web/AppSec](https://img.shields.io/badge/Category-Web/AppSec-gray)  
-GitHub Actions has gained immense popularity as a powerful tool for software development and release. However, this popularity has also attracted bad actors, In this session, we will delve into the active risks that attackers leverage to abuse and attack GitHub Actions, shedding light on their techniques and exploits.
-In response, we will show an OSS Runtime Security solution, which introduces the concept of profiling with eBPF the CI\CD runtime environment, we will demonstrated how it can prevent and alert on malicious behaviour, and create a build profile of the environment
-
-
-### [Dependency Combobulator](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Web/AppSec](https://img.shields.io/badge/Category-Web/AppSec-gray)  
-None
-
-
-### [DetectiveSQ: A Extension Auditing Framework](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Web/AppSec](https://img.shields.io/badge/Category-Web/AppSec-gray)  
-In the modern digital realm, internet browsers, particularly Chrome, have transcended traditional boundaries, becoming hubs of multifunctional extensions that offer everything from AI-integrated chatbots to sophisticated digital wallets. This surge, however, comes with an underbelly of cyber vulnerabilities. Hidden behind the guise of innovation, malicious extensions lurk, often camouflaged as benign utilities. These deceptive extensions not only infringe upon user privacy and security but also exploit users with unasked-for ads, skewed search results, and misleading links. Such underhanded strategies, targeting the unsuspecting user, have alarmingly proliferated.
-
-Addressing this conundrum, we present DetectiveSQ - an advanced command-line interface designed to rigorously audit Chrome extensions. At its core, DetectiveSQ is engineered to be compatible with both Manifest V2 (MV2) and Manifest V3 (MV3) architecture, ensuring a wide-ranging applicability across extensions of different generations. Through an intricate examination of permissions - delving deep into how they're invoked and utilized within the extension's codebase - DetectiveSQ brings forth potential security and privacy breaches. The tool not only assesses permissions but also correlates them with actual behaviors, scripts, and external calls, offering a holistic evaluation. DetectiveSQ will be open source and made available after the talk.
-
-
-### [DumpTheGit](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Web/AppSec](https://img.shields.io/badge/Category-Web/AppSec-gray)  
-DumpTheGit searches through public repositories to find sensitive information uploaded to the Github repositories.
-
-
 ### [EASILY EXPLOIT TIMING ATTACKS IN WEB APPLICATIONS WITH THE 'TIMING_ATTACK' GEM](#)  
 ![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Web/AppSec](https://img.shields.io/badge/Category-Web/AppSec-gray)  
 The timing_attack gem is a simple application to exploit timing attacks in web applications. It focuses on ease-of-use over extreme resolution; its primary use is in exploiting known timing vulnerabilities in web applications.
-
-
-### [Electronegativity: Identify Misconfigurations and Security Anti-Patterns in Electron Applications](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Web/AppSec](https://img.shields.io/badge/Category-Web/AppSec-gray)  
-Electronegativity is a tool to identify misconfigurations and security anti-patterns in Electron-based applications (electronjs.org).
-
-This is the first and only tool capable of detecting potential weaknesses and implementation bugs when developing applications using Electron, as recommended in the official security guidelines of the Electron project. Software developers and security auditors can use this tool to create secure desktop applications using web technologies.
-
-After being first introduced at Black Hat US 2017 (Electronegativity - A Study of Electron Security) and featured in Black Hat Asia 2019 (Preloading Insecurity In Your Electron), the tool will be showcased for the first time ever at the Black Hat USA 2019 Arsenal where we will demonstrate its potential by scanning well-known applications.
-
-Come see live demonstrations of Electronegativity hunting Electron applications for vulnerabilities and walk away with an open-source (Apache 2.0) static analysis engine to help secure your Electron applications!
 
 
 ### [Emulating Any HTTP Software as a Honeypot with HASH: A Deceptive Defense Against Cyberattacks](#)  
@@ -7652,17 +6121,6 @@ Test and verify custom rules for WAFs that are not leveraging the core rule set
 ### [FUZZAPI - FUZZING YOUR RESTAPIS SINCE YESTERDAY](#)  
 ![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Web/AppSec](https://img.shields.io/badge/Category-Web/AppSec-gray)  
 After seeing the benefits of Automating REST API pen testing using a basic Fuzzapi tool, the authors have decided to come up with a better version which can automatically look into vulnerabilities in APIs from the time they are written. REST APIs are often one of the main sources of vulnerabilities in most web/mobile applications. Developers quite commonly make mistakes in defining permissions on various cross-platform APIs. This gives a chance for the attackers to abuse these APIs for vulnerabilities. Fuzzapi is a tool written in Ruby on Rails which helps to quickly identify such commonly found vulnerabilities in APIs which helps developers to fix them earlier in SDLC life cycle. The first released version of the tool only has limited functionalities however, the authors are currently working on releasing the next version which will completely automate the process which saves a lot of time and resources.
-
-
-### [Find Security Bugs](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Web/AppSec](https://img.shields.io/badge/Category-Web/AppSec-gray)  
-Find Security Bugs is a plugin for the Java static analysis tool SpotBugs. This plugin consists of set rules that focus only on security weaknesses. It can be used by developers or security professionals to find vulnerabilities in their code.
-
-The plugin can identify weaknesses in Java web applications from 138 different bug patterns including XSS, SQL injection, XXE, template injection and many more. It can scan any JVM languages such as Kotlin, Scala and Groovy. The assessment can be done in an IDE, such as Eclipse, or IntelliJ. It can also be configured in a continuous integration environment.
-
-The most recent additions to the project include features to the IDE integration and Continuous Integration (CI). The IDE IntelliJ integration was greatly improved to have better support for alternative languages such as Kotlin. This makes it easier to scan Android applications. IDE integration is a great perspective for code audit. For developers, continuous integration is a highly sought-after configuration. A new Github Action will be presented. It provides an easy feedback for developers when integrating code to the master branch with a pull request.
-
-The Black Hat Arsenal's demonstrations will include a live code review where samples of vulnerability and practical methods will be showcased in the new IDE and CI environment.
 
 
 ### [FireTail - inline API security checking](#)  
@@ -7749,50 +6207,11 @@ HAWK Eye is continuously evolving, and we have an exciting roadmap ahead! Our pl
 What if you could super-charge your bug hunting? Not through automation (since it can miss so much) but through powerful alerts created from real threat intelligence? What if you had a Burp plugin that did this for you? What if that plugin not only told you where to look for vulns but also gave you curated resources for additional exploitation and methodology? Well, now you do! HUNT is a new Burp Suite extension that aims to arm bug hunters and web testers with parameter level suggestions on where to look for certain classes of vulnerabilities (SQLi, CMDi, LFI/RFI, and more!).
 
 
-### [Introducing RAVEN: Discovering and Analyzing CI/CD Vulnerabilities in Scale](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Web/AppSec](https://img.shields.io/badge/Category-Web/AppSec-gray)  
-As the adoption of CI/CD practices continues to grow, securing these pipelines has become increasingly important. However, identifying vulnerabilities in CI/CD pipelines can be daunting, especially at scale. In this talk, we present our tooling, which we intend to release as open-source software to the public that helped us uncover hundreds of vulnerabilities in popular open-source projects' CI/CD pipelines.
-
-RAVEN (Risk Analysis and Vulnerability Enumeration for CI/CD) is a powerful security tool designed to perform massive scans for GitHub Actions CI workflows and digest the discovered data into a Neo4j database. With RAVEN, we were able to identify and address potential security vulnerabilities in some of the most popular repositories hosted on GitHub, including FreeCodeCamp (the most popular project on GitHub), Storybook (One of the most popular frontend frameworks), Fluent UI by Microsoft, and much more.
-This tool provides a reliable and scalable solution for security analysis, enabling users to query the database and gain valuable insights into their codebase's security posture.
-
-
 ### [JSShell: An Interactive XSS Management & Browser Debugging Tool](#)  
 ![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Web/AppSec](https://img.shields.io/badge/Category-Web/AppSec-gray)  
 JSShell is an interactive multi-user web based javascript shell that enables the user to debug esoteric browsers and manage XSS (cross site scripting) campaigns. It was originally created during research to have the ability to debug remote esoteric browsers that did not have a simple debugging console. This tool can be also used to easily attach to a XSS (Cross Site Scripting) payload to achieve browser remote code execution (similar to the BeeF framework) and manage the vulnerability.
 
 Version 2.0 is created entirely from scratch, introducing new exciting features, stability and maintainability.
-
-
-### [KICS](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Web/AppSec](https://img.shields.io/badge/Category-Web/AppSec-gray)  
-KICS is an open-source solution for static code analysis of Infrastructure as Code. It finds security vulnerabilities, compliance issues, and infrastructure misconfigurations in the following Infrastructure as Code solutions: Terraform, Kubernetes, Docker, AWS CloudFormation, Ansible. And more to come. Over 1000 rules are already available.
-
-
-### [KICS: Keeping Infrastructure-as-Code Secure](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Web/AppSec](https://img.shields.io/badge/Category-Web/AppSec-gray)  
-Infrastructure as Code (IaC) makes deploying cloud or container configurations scalable and faster. If you are launching a microservice into a Kubernetes cluster, or even building an entire AWS virtual infrastructure, IaC can automate the deployment. By building repeatable templates you can also ensure that deployments happen exactly as you design, every time.
-
-However, errors in infrastructure configuration are now regarded as the second biggest cause of data breaches. There are many ways to give adversaries an advantage through security misconfigurations. Overly permissive storage volumes, unauthenticated database access, or ports left open to the internet have all been a cause of compromise. The solution? Treat your infrastructure code the same as your application code. During your build process, use tools to scan for infrastructure misconfigurations. When you find them raise alerts or even break the build. 
-
-In this session, we will discuss common types of IaC misconfigurations, and demonstrate a free, open source security tool that developers can build into their pipelines to help protect infrastructure from compromise.
-
-
-### [Kubescape: Open-Source Kubernetes Security Single-Pane-of-Glass](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Web/AppSec](https://img.shields.io/badge/Category-Web/AppSec-gray)  
-Kubescape (https://github.com/armosec/kubescape) is a K8s open-source tool that provides a multi-cloud K8s single pane of glass, including risk analysis, security compliance, RBAC visualizer, and image vulnerabilities scanning.
-Kubescape scans K8s clusters, YAML files, and HELM charts, detecting misconfigurations according to multiple frameworks (such as the NSA-CISA, MITRE ATT&CK, and more), software vulnerabilities, and RBAC (role-based-access-control) violations at early stages of the CI/CD pipeline, calculates risk score instantly and shows risk trends over time.
-It became one of the fastest-growing Kubernetes tools among developers due to its easy-to-use CLI interface, flexible output formats, and automated scanning capabilities, saving Kubernetes users and admins precious time, effort, and resources.
-Kubescape integrates natively with other DevOps tools, including Jenkins, CircleCI, Github workflows, Prometheus, and Slack, and supports multi-cloud K8s deployments like EKS, GKE, and AKS.
-
-in this session, we will reveal new capabilities and features for the first time
-
-
-### [Kurukshetra: Playground for Interactive Security Learning](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Web/AppSec](https://img.shields.io/badge/Category-Web/AppSec-gray)  
-Kurukshetra is a web framework that's developed with the aim of being the first open source framework which provides a solid foundation to host reasonably complex secure coding challenges where developers can learn secure coding practices in a hands-on manner. It is composed of two components, the backend framework written in PHP, which manages and leverages the underlying docker system to provide the secure sandbox for the challenge execution, and the frontend, which is a user facing web app providing all the necessary controls, for the admin to host and modify the challenges, and the user to execute and view the result of each of his input.
-
-The Framework currently supports challenges written in 4 major languages including PHP, Python, NodeJS and Ruby.
 
 
 ### [LazyCSRF: A More Useful CSRF PoC Generator on BurpSuite](#)  
@@ -7945,11 +6364,6 @@ REST API exposed to control and extend the functionality of OWTF
 This release will see new completely revamped web interface, code refactoring, and much easier installation process. OWTF is expected to undergo an extensive change to add features like distributed architecture, proxy transaction modification/replay, plugin chaining, and much more for the new 2.1 release in the summer. The OWTF project, started in 2011, has grown into a community for tools like HTTP request translator, tool health monitor, Pentester's Tools Parser (PTP), and WafBypasser. OWTF has participated in Google Summer of Code 2013, 2014, and 2016. In addition to this, it was voted as 10th and 7th most popular tool in 2015 and 2014 respectively (Toolswatch Hackers Arsenal).
 
 
-### [OWASP Dependency-Check](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Web/AppSec](https://img.shields.io/badge/Category-Web/AppSec-gray)  
-With the number of critical vulnerabilities in FOSS libraries that have affected so many applications over the last few years - Software Composition Analysis is a critical component to maintaining the security of your custom application. From Struts to Spring to jackson-databind, etc. the list of libraries that have had vulnerabilities that lead to remote code execution in the applications using the libraries goes on and on. As does the list of sites that have been compromised by these vulnerabilities. OWASP dependency-check is an open source Software Composition Analysis tool that provides a solution the `OWASP Top 10 2017: A9 - Using Components with Known Vulnerabilities`.
-
-
 ### [OWASP JoomScan Project](#)  
 ![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Web/AppSec](https://img.shields.io/badge/Category-Web/AppSec-gray)  
 OWASP Joomla! Vulnerability Scanner (JoomScan) is an open source project, developed with the aim of automating the task of vulnerability detection and reliability assurance in Joomla CMS deployments. Implemented in Perl, this tool enables seamless and effortless scanning of Joomla installations, while leaving a minimal footprint with its lightweight and modular architecture. It not only detects known offensive vulnerabilities, but also is able to detect many misconfigurations and admin-level shortcomings that can be exploited by adversaries to compromise the system. Furthermore, OWASP JoomScan provides a user-friendly interface and compiles the final reports in both text and HTML formats for ease of use and minimization of reporting overheads.
@@ -7976,28 +6390,6 @@ OWTF is highly configurable and anybody can trivially create simple plugins or a
 The open-source API Firewall by Wallarm is a great option for API development. It offers a rich feature set, and its underlying technology is mature. The firewall's new feature of blocklisting for compromised tokens and cookies is a great way to gain visibility into threats and prevent issues. The feature is easy to set up and offers a high degree of visibility into the security posture of your APIs and services.
 
 
-### [OpenSecDevOps (OSDO)](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Web/AppSec](https://img.shields.io/badge/Category-Web/AppSec-gray)  
-Join us to easily build a fortified software development lifecycle (SDLC) using open source tools. Find out how these powerful resources can improve the security of your software applications and improve your development process. We'll explore popular open source tools like Gitlab, Harbor, defectdojo... Seamlessly integrating them into your workflow to enforce strong security policies, detect vulnerabilities, and ensure compliance with industry best practices. Through hands-on exercises and real-world examples, you'll learn how to mitigate security risks, harden your code, and adopt security best practices, resulting in secure, scalable, and resilient software applications. Don't miss this transformative opportunity to unlock the potential of open source tools in your SDLC and strengthen your organization's overall security posture. All the information will be published on opensecdevops.com for the community to use and improve on the day of the presentation, in addition to integrating the different tools, an app will be shown to facilitate said integration according to your needs.
-
-
-### [Patronus: Swiss Army Knife SAST Toolkit](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Web/AppSec](https://img.shields.io/badge/Category-Web/AppSec-gray)  
-Patronus is a fully dockerised and comprehensive config driven Security Framework which helps to detect security vulnerabilities in the Software Development Life Cycle of any application. The framework inculcates a highly automated approach for vulnerability identification and management. With Patronus's fully whitebox approach, the framework currently covers four major verticals; Secrets Scanning, Software Composition Analysis, Static Application Security Testing and Asset Inventory. Finding all these four verticals together is a very strenuous task in the industry as no other framework currently solves this like Patronus which provides a fully comprehensive dashboard containing all the four verticals in a single central platform, and this is something very unique to Patronus. Patronus automatically identifies the latest code commits and focuses on the major aspects of the application source code to identify and detect key and high severity vulnerabilities within the application and aims for minimal false positives in the reports.
-
-The framework focuses on the needs of the security engineers and the developers alike with a dedicated web dashboard to abstract all the nitty gritty technicalities of the security vulnerabilities detected and also empowers the user with higher level of vulnerability tracking for better patch management. The dashboard is built completely with analytics, functionality and maintaining ease in mind to demonstrate and display various metrics for the scans and vulnerabilities. It also helps to search, analyse and resolve vulnerabilities on-the-go and provides a completely consolidated vulnerability report.
-
-Patronus is very powerful and hugely reduces the time and efforts of the security team in thoroughly reviewing any application from a security lens. The framework comes with an on-demand scanning feature apart from the scheduled daily automated scans, using which developers and security engineers can scan particular branches and repositories at any point of time in the SDLC, directly from the dashboard or integrations like Slack. The framework is completely adaptable and various softwares like Slack and Jira can be easily integrated directly with Patronus for better accessibility and tracking since most organisations today use these extensively.
-
-
-### [Puma Scan](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Web/AppSec](https://img.shields.io/badge/Category-Web/AppSec-gray)  
-Puma Scan provides real-time, continuous source code analysis for .NET applications with over 50 security-focused rules targeting insecure deserialization, injection, weak cryptography, cross-site request forgery, misconfiguration, and many more insecure coding patterns. Puma Scan displays vulnerabilities in Visual Studio as spell check errors and compiler warnings to prevent engineers from committing vulnerabilities into code repositories.
-
-DevSecOps teams can use Puma Scan's command line interface to enable security scanning in continuous integration pipelines (e.g. Jenkins, TFS), monitor code for security issues, and verify security thresholds are met during each build.
-Come see live demonstrations of the Puma hunting source code for vulnerabilities and walk away with an open-source (MPL v2.0) static analysis engine to help secure your .NET applications.
-
-
 ### [Purpleteaming with OWASP PurpleTeam (tool)](#)  
 ![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Web/AppSec](https://img.shields.io/badge/Category-Web/AppSec-gray)  
 OWASP PurpleTeam is a security regression testing SaaS and CLI that targets web applications and APIs. It can be run manually or sit within your build pipeline to continuously test your creations in close to real-time. Not only does PurpleTeam help you find and fix your security defects, it also helps train Developers and DevOps Engineers to recognise security defects and how to not introduce the same defects in the future.
@@ -8019,13 +6411,6 @@ Intentionally vuln web Application Security in django. our roadmap build intenti
 • A10:2017-Insufficient Logging & Monitoring
 
 
-### [RIDE: Efficient Highly-Precise Systematic Automatic Bug Hunting in Android Systems](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Web/AppSec](https://img.shields.io/badge/Category-Web/AppSec-gray)  
-Vulnerabilities in various android systems such as the AOSP and vendor-specific components directly impact user security & privacy and should be eliminated. Do we have a way to efficiently identify bugs in ready-to-ship phones conveniently and precisely? From a researcher perspective, vendor codes are mainly closed-source which means they cannot use open-source auditing tools and usually the only obtainable resource is phone firmware. From vendor QA and security team's perspective, the ability to perform a systematic vulnerability assessment directly on ready-to-ship phone images would also be much more useful and easier than maintaining complex dependency and version information on each model.
-
-We come up with a framework named RIDE (Rom Intelligent Defect assEsment) that directly operates on factory images of major android systems such as AOSP, Samsung, Huawei, Xiaomi, Oppo etc, which discovered 40+ CVEs including critical and high severity level bugs in the vendors in less than one year. RIDE combines highly precise whole-program static taint analysis and dynamic blackbox binary fuzzing to pinpoint vulnerabilities in user-space code such as system apps, system services and bundled closed-source libraries. In this talk, we will share in detail about the system's design and architecture, including the whole-program static analysis algorithm and implementation with high precision and acceptable performance, and the blackbox fuzzing component which is fed by the information collected from previous static analysis. Also, we will share the detail and exploitation of several bugs found, which range from system-level arbitrary file read/write/code execution to RCE ones in AOSP and other major vendors etc.
-
-
 ### [RWDD: Remote Web Deface Detection Tool](#)  
 ![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Web/AppSec](https://img.shields.io/badge/Category-Web/AppSec-gray)  
 RWDD (Remote Web Deface Detection) tool is an application designed to help secure a web with IoT (Internet Of Things) and notify users (via various communication mechanisms), whenever source code of website changed (by programmer or attacker).
@@ -8043,117 +6428,9 @@ Too many secrets (2ms) is a command line tool written in Go language and built o
 https://github.com/checkmarx/2ms
 
 
-### [Route Sixty-Sink: Connecting Application Inputs to Sinks Using Static Analysis](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Web/AppSec](https://img.shields.io/badge/Category-Web/AppSec-gray)  
-Route Sixty-Sink is an open source static analysis tool that traces the flow of user input through any .NET binary and determines whether it is passed as an argument to a dangerous function call (a "sink"). Route Sixty-Sink does this using two main modules:
-
-1. RouteFinder, which enumerates API routes in MVC-based and classic ASP page web applications.
-2. SinkFinder, which takes an entry point and creates a call graph of all classes and method calls. Then, it queries strings, method calls, and class names for "sinks".
-
-By tying these two pieces of functionality together, Route Sixty-Sink is able to quickly identify high fidelity vulnerabilities that would be difficult to discover using black box or manual static analysis approaches.
-
-We have used Route Sixty-Sink to reveal and successfully exploit vulnerabilities including unsafe object deserialization, SQL injection, command injection, arbitrary file uploads and access, authorization bypasses, and more in both open-source and proprietary .NET applications.
-
-
-### [SASTRI: Plug and Play VM for SAST/*Static Application Security Testing Realtime Integration*/](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Web/AppSec](https://img.shields.io/badge/Category-Web/AppSec-gray)  
-Abiding by the new hot concept of "Secure By Design," SASTRI is project carved out of the experiences/struggles/conflicts of product security engineers. It is an in-house SAST capability (plug and play VM) we are proposing, to make security engineers' inputs more receivable and reachable to the product developers and the decision-makers - while making our products more and more secure. This will save a lot of security engineers' and DevOps experts' time when it coms to setting up and fine tuning the SAST tools.
-
-Highlights of SASTRI are:
-
-Open source (hence free to edit and reconfigure)
-Presently capable of scanning Python, C, C++ programs
-Almost zero understanding of security principles is required to "run" SASTRI. (For bug resolution, yes definitely a deep understanding is required)
-Automated bug reporting
-Email alert for the issues reported
-Same email contains attachment of report where buggy code snippet is mentioned along with the exact position of bug
-Easy to integrate approach
-
-SASTRI is an effort towards making SAST tools available right at the time of unit testing of code, in an automated way. The reason being, in most of Agile flavors of development, security testing is done in the end of the sprint, leaving very little to no time for bug fixes. Also, the smaller time window for security testing results in "not so in depth security testing" and "superficial fixes."
-However, on the other hand, introducing security testing right at the programming phase in SDLC, can help in:
-
-Finding vulnerabilities which are easy to exploit but difficult to mitigate
-Finding vulnerabilities which are present due to complicated execution paths
-Finding vulnerabilities specific to insecure configuration
-Setting up basic secure code development principles amongst developers (Trust me this is the trickiest task, as most of the Devs are super possessive about their code and coding styles.
-
-Also, this effort can help reduce apprehensions of security engineers when uploading source code on some vendors server which they do not trust. The list of advantages is huge; we have tried generalize them to the least count possible.
-
-
-### [SCoDA: Smart COntract Defender and Analyzer](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Web/AppSec](https://img.shields.io/badge/Category-Web/AppSec-gray)  
-SCoDA (Smart Contract Defender and Analyzer) module in LAMMA tool, written in python for solidity based smart contract scanning. The tools is a unified and python ported version of various other scanners and vulnerabilities reported on Ethereum Platform.
-
-
-### [SCodeScanner (SourceCodeScanner)](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Web/AppSec](https://img.shields.io/badge/Category-Web/AppSec-gray)  
-None
-
-
-### [SCodeScanner - An Open-Source Source-Code Scanner](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Web/AppSec](https://img.shields.io/badge/Category-Web/AppSec-gray)  
-SCodeScanner is a powerful tool for identifying vulnerabilities in source-code. It is designed to be easy to use and provides a range of features to help users quickly and accurately identify vulnerabilities with fewer false positives.
-
-Some key features of SCodeScanner include:
-
-- Support multiple languages: SCodeScanner is capable of scanning source code written in multiple languages such as JAVA, PHP and YAML. The most commonly used languages in web development.
-
-- Relatively Less false positives: SCodeScanner includes flags that help to eliminate false positives and only report on vulnerabilities that are mostly confirmed to exist.
-
-- Custom rules: SCodeScanner works with semgrep and allows users to create their own rules to scan for advanced patterns.
-
-- Ability to track user input variables: SCodeScanner can identify instances where user input variables are defined in one file but used insecurely in another file for better coverage.
-
-- Fast scanning: SCodeScanner's rules are designed to check for multiple vulnerabilities at once, which results in a faster scanning process.
-
-- Integration: SCodeScanner can integrate with CI/CD pipelines and also pass results to bug-tracking services such as Jira and Slack, allowing users to easily share the results of their scans with their team.
-
-- Scan mutltiple ways: It automatically download all git repo mentioned inside a txt file and start scan. Not only this but also support git, folder, file scans aswell.
-
-Proof of results, SCodeScanner has already found 5 vulnerabilities in multiple Wordpress plugins and has been awarded following CVEs:
-
-CVE-2022-1604
-CVE-2022-1465
-CVE-2022-1474
-CVE-2022-1527
-CVE-2022-1532
-
-Overall, SCodeScanner is a valuable tool for any developer or security professional looking to identify vulnerabilities in their source-code before it is published in production. Its fast scanning, less false positives, and CI/CD pipeline integrations as well as bug-tracking services, make it a powerful tool for ensuring the security of your code.
-
-
-### [SGXRay: Automated Vulnerability Finding in SGX Enclave Application](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Web/AppSec](https://img.shields.io/badge/Category-Web/AppSec-gray)  
-None
-
-
-### [Scanning DNA to Detect Malicious Packages in Your Code](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Web/AppSec](https://img.shields.io/badge/Category-Web/AppSec-gray)  
-PackageDNA is an open-source tool, free and modular tool developed in Python3, that offers developers and researchers the ability to analyze code packages from different programming languages, in search of vulnerabilities in the code, the possible manipulations or spoofing of the package ('typosquatting'), identifying suspicious files, searching for strings in the code, among other data for analysis.
-
-PackageDNA, enables threat intelligence analysis or code audits, which allow to detect attacks to the software supply chain, the vast majority of companies integrate third-party code in their developments, thus the need to have a suite such as PackageDNA that performs the analysis of all these external codes and delivers the results of the analysis in a standardized way.
-
-
 ### [Security Attacks as Software Tests: Building dev-oriented AppSec challenges with Play open source SDK](#)  
 ![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Web/AppSec](https://img.shields.io/badge/Category-Web/AppSec-gray)  
 This talk focuses on the unique process of transforming security attacks into software tests for building secure programming challenges using an open-source SDK, 'Play'. A practical workshop where we explore the mechanics of choosing real-world-inspired security vulnerabilities, and transforming them into cloud-native apps with integrated security tests which can then be played as challenges. These challenge provides a new dimension to the traditional Capture The Flag experiences, emphasizing not just the identification but the remediation of vulnerabilities
-
-
-### [Security Code Scan: Vulnerability Patterns Detector](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Web/AppSec](https://img.shields.io/badge/Category-Web/AppSec-gray)  
-Security Code Scan is static code analysis tool for C# and VB.NET. It detects various security vulnerability patterns: SQL and XPath injections, Cross-Site Request Forgery (CSRF), XML eXternal Entity Injection (XXE), unsafe deserialization and many more...
-
-It is available as Visual Studio extension (2015 and higher), but can be integrated into other editors, that support Roslyn analyzers. It is also available as NuGet package and can be integrated into continuous integration builds.
-
-
-### [Semgrep: a code-aware grep for finding vulnerabilities and enforcing secure defaults](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Web/AppSec](https://img.shields.io/badge/Category-Web/AppSec-gray)  
-Semgrep is a tool for easily detecting and preventing bugs and anti-patterns in your codebase. It combines the convenience of grep with the correctness of syntactical and semantic search.
-
-Semgrep is fast (scans 100Ks LOC in seconds), supports multiple languages (JavaScript, Python, Golang, Java, C), and is easy to customize, so that users can create high value org-specific or project-specific checks without spending weeks learning a complicated DSL.
-
-Semgrep works by parsing source code into an abstract syntax tree (AST), then allows users to supply patterns that fuzzily match the interesting code patterns. Because it's source code aware, its checks are higher signal than regexes (i.e., it's easy to match function calls, and not match text in comments, multi-line calls, or strings), but because it isn't doing interprocedural dataflow analysis, it doesn't take hours to run and won't make assumptions that result in hundreds of false positives requiring triage.
-
-https://github.com/returntocorp/semgrep
 
 
 ### [SnitchDNS](#)  
@@ -8168,15 +6445,6 @@ Ideal use cases are as a DNS Tunnel, DNS forwarding server, red teams, canary to
 ### [SucoshScanny](#)  
 ![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Web/AppSec](https://img.shields.io/badge/Category-Web/AppSec-gray)  
 SucoshScan is a automated open source SAST(Static Application Security Testing) framework. It's can detect a lot of vulnerability(RCE,SSTI,Insecure Deserilisation,SSRF,SQLI,CSRF etc.) in given source code.For now, only the detection modules of python(flask,django) and nodejs(express js.) languages are finished. In the future, specific detection functions will be written for php (Laravel, Codeigniter), .NET, Go languages.
-
-
-### [SupplyShield: Protecting your software supply chain](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Web/AppSec](https://img.shields.io/badge/Category-Web/AppSec-gray)  
-SupplyShield is a comprehensive supply chain security framework aimed at defending against the increasingly sophisticated attacks posed by software supply chain vulnerabilities. With numerous organizations hosting hundreds of micro-services and thousands of builds occurring daily, effectively monitoring the software supply chain to construct the final application becomes a complex challenge. This is where SupplyShield can assist any organization in seamlessly integrating this framework into their Software Development Lifecycle (SDLC) to ensure software supply chain security.
-
-The current framework version is predominantly designed for the AWS environment. Any organization utilizing AWS infrastructure can seamlessly implement this framework with minimal effort via AWS CloudFormation templates to enhance the security of their supply chain. The framework mainly focuses on generating and maintaining a Software Bill of Materials (SBOM) and performing Software Composition Analysis (SCA) for all the micro-services within an organization. The scans are event-driven, targeting the final micro-service image pushed into AWS ECR. As a result, it generates an SBOM of base image binaries and 3rd-party packages introduced by developers, and performs SCA on top of that. This approach provides a comprehensive view of the software components involved in the overall development of a micro service.
-
-Built with scalability in mind, SupplyShield is capable of generating an SBOM and performing SCA in a CI/CD environment where thousands of builds take place daily. SupplyShield enables the rapid detection of zero-day vulnerabilities, such as the log4j exploit, even for organizations with over 100 micro-services, significantly reducing the Mean Time To Detect (MTTD) to mere minutes. This significantly simplifies the tasks of both security engineers and developers in identifying and managing patches for events like the log4j vulnerability. The framework also offers a dashboard for developers and security engineers, presenting relevant metrics and actionable insights.
 
 
 ### [Swimming with the (Data)Flow – Analyzing & Visualizing Web Application Data Flows for Enhanced Penetration Testing](#)  
@@ -8197,13 +6465,6 @@ Visually inspect web application attack surface to target manual penetration tes
 Pre-seed dynamic application security testing tools like OWASP ZAP and Burpsuite
 Calculate changes to application attack surface over time and across git commits
 Run targeted DAST scans based on new attack surface and attack surface that has changed since previous tests were run
-
-
-### [The OWASP RAF: Static Application Security Testing Tool](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Web/AppSec](https://img.shields.io/badge/Category-Web/AppSec-gray)  
-The OWASP Risk Assessment Framework consist of Static Application Security Testing and Risk Assessment tools. Even though there are many SAST tools available for testers, the compatibility and the environment setup process is complex. By using OWASP Risk Assessment Framework's Static Application Security Testing tool, testers will be able to analyze and review their code quality and vulnerabilities without any additional setup. OWASP Risk Assessment Framework can be integrated in the DevSecOps toolchain to help developers to write and produce secure code.
-
-User Guide https://github.com/OWASP/RiskAssessmentFramework/blob/master/user-guide.md
 
 
 ### [Threagile: Agile Threat Modeling Toolkit](#)  
@@ -8232,25 +6493,6 @@ The key benefits of ThreatPlaybook is that you can:
 * Auto-generate Process Flow Diagrams from Codified Threat Models
 * Capture Security Test Cases linked to Threat Modeling
 * Generate reports correlating Threat Models to Vulnerabilities, Security Test Cases and so on.
-
-
-### [TINTORERA: SOURCE CODE INTELLIGENCE](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Web/AppSec](https://img.shields.io/badge/Category-Web/AppSec-gray)  
-Tintorera is a static analysis tool developed in Python that uses the GCC compiler to build C projects aiming to obtain intelligence from them. GCC offers a powerful plugin architecture that allows tapping into its internals, and static analysis tools can benefit from it to gather information of the source code while compiling.
-
-Some Tintorera features that a code auditor can benefit from:
-
-Obtain many code metrics: Cyclomatic Complexity (CC), comment density, physical lines of codes, design complexity, code averages and etc.
-Attack Surface analysis of the entire project, identifies all entry and exit of data.
-Can identify Linux API and well-known libraries such as OpenSSL
-Perform different visualization maps of the source code such as function structure, logic and function calls relationship
-Context and code analysis of: comments, inline assembly, global variables, function parameters and more
-The entire source code is converted to a JSON representation allowing performing queries
-Creates HTML reports while the project gets compiled by GCC
-Extend Tintorera to fit your needs easily using Python
-Tap into GCC internals and passes
-
-By using static analysis techniques, Tintorera can gather intelligence of a C source code allowing a code auditor to learn about the project faster. Tintorera is a tactical response as projects grow in complexity and code reviews are usually performed under limited time.
 
 
 ### [VulnLab Web Application Vulnerabilities Lab](#)  
@@ -8328,41 +6570,6 @@ In this session, you will learn about:
 ### [huskyCI: Performing Security Tests Inside Your CI](#)  
 ![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Web/AppSec](https://img.shields.io/badge/Category-Web/AppSec-gray)  
 huskyCI is an open-source tool that performs security tests inside CI pipelines of multiple projects and centralizes all results into a database for further analysis and metrics.
-
-
-### [npm-scan: An Extensible, Heuristic-Based Vulnerability Scanning Tool for Installed NPM Packages](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Web/AppSec](https://img.shields.io/badge/Category-Web/AppSec-gray)  
-An extensible, heuristic-based vulnerability scanning tool for installed npm packages.
-
-Active heuristics-based scanning: quick and easy for anyone to use
-
-Improves/enforces quality of open source coding
-
-
-### [promptmap](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Web/AppSec](https://img.shields.io/badge/Category-Web/AppSec-gray)  
-Prompt injection is a type of security vulnerability that can be exploited to control the behavior of a ChatGPT instance. By injecting malicious prompts into the system, an attacker can force the ChatGPT instance to do unintended actions.
-
-promptmap is a tool that automatically tests prompt injection attacks on ChatGPT instances. It analyzes your ChatGPT rules to understand its context and purpose. This understanding is used to generate creative attack prompts tailored for the target. promptmap then run a ChatGPT instance with the system prompts provided by you and sends attack prompts to it. It can determine whether the prompt injection attack was successful by checking the answer coming from your ChatGPT instance.
-
-
-### [pytm: A Pythonic Framework for Threat Modeling](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Web/AppSec](https://img.shields.io/badge/Category-Web/AppSec-gray)  
-pytm is a Pythonic framework for threat modeling. Developers can define their system in Python code as a collection of objects and annotate them with properties. Security practitioners can add threats to the "Threats" object (see https://github.com/izar/pytm/blob/master/pytm/threats.py). The logic lives in the "condition" of the "Threats" object, where members of target can be logically evaluated. If the "condition" returns a "True", that means the rule found a potential threat. More details at https://github.com/izar/pytm
-
-Usage:
-tm.py [-h] [--debug] [--resolve] [--dfd] [--report] [--all]
-[--exclude EXCLUDE] [--seq]
-
-optional arguments:
--h, --help show this help message and exit
---debug print debug messages
---resolve identify threats
---dfd output DFD (default)
---report output report
---all output everything
---exclude EXCLUDE specify threat IDs to be ignored
---seq output sequential diagram
 
 
 ### [reNgine: an automated reconnaissance Framework](#)  
@@ -8447,6 +6654,15 @@ ACsploit is a command-line utility that generates worst-case inputs to commonly 
 ACsploit comes with algorithmic complexity exploits for 30+ algorithms and is easily extensible. It's designed to allow members of the community to contribute new exploit modules, input constraints, and output formatters to expand upon all aspects of its functionality. Future plans for the development of ACsploit include debugger integration and a testing framework for measuring resource usage by the targeted application.
 
 
+### [ADRecon: Active Directory Recon](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming](https://img.shields.io/badge/Category-Red--Teaming-gray)  
+ADRecon is a tool which extracts various artifacts (as highlighted below) out of an AD environment in a specially formatted Microsoft Excel report that includes summary views with metrics to facilitate analysis. The report can provide a holistic picture of the current state of the target AD environment. The tool is useful to various classes of security professionals like system administrators, security professionals, DFIR, etc. It can also be an invaluable post-exploitation tool for a penetration tester. It can be run from any workstation that is connected to the environment, even hosts that are not domain members. Furthermore, the tool can be executed in the context of a non-privileged (i.e. standard domain user) accounts. Fine Grained Password Policy, LAPS and BitLocker may require Privileged user accounts. The tool will use Microsoft Remote Server Administration Tools (RSAT) if available, otherwise it will communicate with the Domain Controller using LDAP.
+
+The following information is gathered by the tool: Forest; Domain; Trusts; Sites; Subnets; Default Password Policy; Fine Grained Password Policy (if implemented); Domain Controllers, SMB versions, whether SMB Signing is supported and FSMO roles; Users and their attributes; Service Principal Names (SPNs); Groups and memberships; Organizational Units (OUs); ACLs for the Domain, OUs, Root Containers and GroupPolicy objects; Group Policy Object details; DNS Zones and Records; Printers; Computers and their attributes; LAPS passwords (if implemented); BitLocker Recovery Keys (if implemented); and GPOReport (requires RSAT).
+
+Available at https://github.com/sense-of-security/ADRecon
+
+
 ### [ATTPwn](#)  
 ![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming](https://img.shields.io/badge/Category-Red--Teaming-gray)  
 ATTPwn is a computer security tool designed to emulate adversaries. The tool aims to bring emulation of a real threat into closer contact with implementations based on the techniques and tactics from the MITRE ATT&CK framework. The goal is to simulate how a threat works in an intrusion scenario, where the threat has been successfully deployed. It is focused on Microsoft Windows systems through the use of the Powershell command line. This enables the different techniques based on MITRE ATT&CK to be applied. ATTPwn is designed to allow the emulation of adversaries as for a Red Team exercise and to verify the effectiveness and efficiency of the organization's controls in the face of a real threat.
@@ -8525,6 +6741,15 @@ For red team operators, SQLRecon helps address the post-exploitation tooling gap
 Furthermore, I will be releasing a new version, one that is currently only used internally on advanced red team engagements by IBM X-Force Red's Adversary Services team.
 
 
+### [Afterimage: Evading Traditional IOC Blocking](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming](https://img.shields.io/badge/Category-Red--Teaming-gray)  
+Malicious IP addresses are critical indicators of cyber threats, and blocking these addresses is a standard practice during network forensics and incident response. Current solutions for maintaining anonymity, such as Tor nodes and botnets, have proven to be either compromised or illegal, thus posing challenges for legitimate red team exercises. In response to this growing demand for an effective solution, we have developed Afterimage, a novel application that enables attackers to enumerate and attack from multiple IP addresses without requiring the infrastructure of a botnet and with minimal time and effort.
+
+Afterimage operates as an intermediary, accepting malicious traffic from an attacker through an open port, forwarding it to a proxy, and ultimately to the victim. If the proxy's IP is blocked, the application automatically cycles to another proxy to continue sending traffic. This process is more efficient and secure than existing methods such as VPNs, which are often monitored and costly, or compromised solutions like Tor nodes and botnets.
+
+Our proposed solution, written in Python, is designed for deployment on remote servers, enabling multiple attackers to connect simultaneously. This unique approach to IP address cycling addresses key challenges faced during red team exercises, providing a more secure and effective solution for cyber security testing. By leveraging Afterimage, blue teams and SOCs can enhance their incident response capabilities and improve their overall cyber defense strategies.
+
+
 ### [All-Purpose Remote Access Trojan](#)  
 ![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming](https://img.shields.io/badge/Category-Red--Teaming-gray)  
 None
@@ -8533,6 +6758,11 @@ None
 ### [Apfell: Multi-Platform Command and Control](#)  
 ![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming](https://img.shields.io/badge/Category-Red--Teaming-gray)  
 Apfell is a collaborative, command and control platform designed to facilitate a plug-n-play architecture. It uses a web-based front-end so that it can be accessed from any OS and a Python/Docker based back-end. Apfell focuses on quality of life improvements for operators, especially while operating across macOS and *nix operating systems, such as searchable tasks, per-task comments, artifact tracking, MITRE ATT&CK mappings/exports, multiple concurrent c2 profiles, command versioning, and much more. It features a JavaScript for Automation (JXA) agent that runs in memory on macOS devices, but offers agents across a variety of platforms and services.
+
+
+### [Armory](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming](https://img.shields.io/badge/Category-Red--Teaming-gray)  
+Armory is a tool designed to run various existing tools, collating all of the output into a local database, and using that information for further attacks. It is extremely modular, and it is pretty easy to create custom modules and reports. Armory's purpose is to streamline client discovery and external penetration tests.
 
 
 ### [AtlasReaper: Sowing Chaos and Reaping Rewards in Confluence and Jira](#)  
@@ -8649,6 +6879,13 @@ The user will be able to deploy AzureGoat on their Azure account using a pre-cre
 All the code and deployment scripts will be made open-source after the talk.
 
 
+### [BLOODHOUND 1.3 - ARSENAL THEATER DEMO](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming](https://img.shields.io/badge/Category-Red--Teaming-gray)  
+Released on-stage at DEF CON 24 last year, BloodHound fundamentally changed the way penetration testers and red teamers approach escalating rights in Active Directory domains. By combining the concepts of derivative local admin and graph theory, coupled with a powerful data ingestion and front-end analysis capability, BloodHound simplified the tedious, repetitive task of escalating rights, saving days, weeks, and sometimes months of manual processing.
+
+In 2017, the BloodHound attack graph schema, data ingestor, and front-end were overhauled to provide greater speed, easier analysis, and brand new attack paths never discovered before. By adding object control edges to the attack graph, a brand new attack landscape was unveiled, allowing attackers and defenders to identify attacks which rely solely on Active Directory object manipulation. These attack paths require no malware, no pivoting, and can always be executed as long as the attacker can communicate with at least one domain controller. From the defender's perspective, identifying and measuring such attack paths was nigh impossible. Now, defenders can also quickly identify and remediate those same attack paths before an attacker can find and exploit them.
+
+
 ### [BUILDING C2 ENVIRONMENTS WITH WARHORSE](#)  
 ![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming](https://img.shields.io/badge/Category-Red--Teaming-gray)  
 Building full featured command-and-control (C2) environments can be a major undertaking, taking significant time and effort. However, deployment or proper infrastructure is key to avoiding detection and maintaining proper operational security during offensive engagements. In many instances, once a C2 environment is operational, it's utilized for a short period then destroyed. There are many different tools used within these C2 environments, with most tools requiring significant amounts of manual configuration. In recent years, API-based, on-demand cloud infrastructure has reduced the cost of building a C2 environment while also exposing functionality that encourages process automation. Combine these on-demand cloud services with the rapid development of Docker containers, and you have the building blocks to create and deploy C2 environments on the fly. Warhorse has been designed to build these C2 environments with only minimal configuration. Warhorse enables pentesters to focus on tactics instead of managing C2 infrastructure. Warhorse approaches this creation of a C2 environment with a few unique features. First, it uses a module-based approach to everything that it creates. This way, any new tactics or tools can be added as a module to utilize in creating a C2 environment. Second, Warhorse is vendor-agnostic and can be used with any cloud service provider. This allows C2 environments to live in multiple data centers and utilize multiple vendors. Lastly, Warhorse employs a two-zone approach to limit backend C2 exposure. Systems that communicate directly with the target are treated as expendable and can have very short life spans. These features combined not only help with rapid deployment but also allow pentesters to build environments with the latest tactics and techniques that can evolve on the fly and be moved whenever required.
@@ -8671,6 +6908,28 @@ GUI.
 ### [Backoori: Tool Aided Persistence via Windows URI Schemes Abuse](#)  
 ![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming](https://img.shields.io/badge/Category-Red--Teaming-gray)  
 The widespread adoption of custom URI protocols to launch specific Universal App can be diverted to nefarious purposes. The URI schemes in Windows 10 can be abused in such a way to maintain persistence via fileless technique. Backdooring a compromised user (Administrator privileges not required) is a matter of seconds. The attack is transparent to the unaware victim that won't be able to identify the attack and to the antivirus solutions that are currently not monitoring the specific Registry keys involved. These subtle fileless payloads can be triggered in many contexts, from the Narrator in the Windows logon screen (a novel Accessibility Feature abuse discovered by Giulio right before deciding to implement Backoori) to the classical web attack surface. The payloads can also be dropped in gadgets that can interact between each other by abusing, once again, the Windows URI protocols.
+
+
+### [Badrats: Initial Access Made Easy](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming](https://img.shields.io/badge/Category-Red--Teaming-gray)  
+Remote Access Trojans (RATs) are one of the defining tradecraft for identifying an Advanced Persistent Threat. The reason being is that APTs typically leverage custom toolkits for gaining initial access, so they do not risk burning full-featured implants. Badrats takes characteristics from APT Tactics, Techniques, and Procedures (TTPs) and implements them into a custom Command and Control (C2) tool with a focus on initial access and implant flexibility. The key goal is to emulate that modern threat actors avoid loading fully-featured implants unless required, instead opting to use a smaller staged implant.
+
+Badrats implants are written in various languages, each with a similar yet limited feature set. The implants are designed to be small for antivirus evasion and provides multiple methods of loading additional tools, such as shellcode, .NET assemblies, PowerShell, and shell commands on a compromised host. One of the most advanced TTPs that Badrats supports is peer-to-peer communications over SMB to allow implants to communicate through other compromised hosts.
+
+
+### [Batea: Digging for gold in network data](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming](https://img.shields.io/badge/Category-Red--Teaming-gray)  
+Batea is a simple tool that showcases how basic machine learning can help security analysts in their day-to-day operations. It is a context-driven network device ranking framework based on the anomaly detection family of machine learning algorithms. The goal of Batea is to allow security teams to automatically filter interesting network devices in large networks using nmap scan reports. We call those Gold Nuggets. Batea outputs the gold nuggets in order of interest for an attacker given the context of the network.
+
+The human challenge is, on the one hand, that a typical enterprise network will host thousands of endpoints, far too many for a few security team members to constantly track and evaluate for their "attractiveness" to a potential intruder. On the other hand, the notion of interest is highly context-sensitive.
+
+Batea works by constructing a numerical representation of all devices from your nmap reports (XML) and then applying the Isolation Forest algorithm to uncover the gold nuggets. It is easily extendable by adding specific "features", or interesting characteristics, to the numerical representation of the network elements.
+
+The features act as elements of intuition, and the unsupervised anomaly detection methods allow the context of the device, along with the total description of the network, to be used as the central building block of the ranking algorithm.
+
+Given that we have taken meaningful elements of intuition all at once, the fact that the Isolation Forest algorithm always takes the whole dataset into consideration ensures that the network context is embedded in the ranking used to predict Gold Nuggets.
+
+Pen testers can train the Batea machine learning model from scratch on new network data, or use a model that has been pre-trained on various networks.
 
 
 ### [BloodHound 1.5](#)  
@@ -8696,9 +6955,11 @@ None
 BOtB is the first tool aimed at hackers and developers to automate Container exploitation. BOtB is a tool that can be used to analyze and identify vulnerabilities for Containers such as LXC and Docker. Not only does BOtB provide the user with a detailed analysis of identified vulnerabilities of the container, BOtB provides an autopwn feature which allows for the user to automagically exploit the vulnerabilities identified and break out onto the host. BOtB is able to identify multiple container vulnerabilities and contains a vast collection of exploits to break out of the container. BOtB is also developer friendly and has a Continuous Integration Continuous Development (CICD) mode which when enabled, BOtB will attempt to autopwn identified vulnerabilities but instead of dropping to host shells, it will return exit codes greater than 0 which is used by CICD technologies to indicate failed tests. When used in an Agile SDLC process implementing DevSecOps principles, this can assist developers with identifying Container issues prior to production deployments. BOtB is written in Golang and is distributed as a binary for multiple platforms.
 
 
-### [BucketLoot - An Automated S3-compatible Bucket Inspector](#)  
+### [Building Our Nemesis: Fighting Data with Data](#)  
 ![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming](https://img.shields.io/badge/Category-Red--Teaming-gray)  
-BucketLoot is an automated S3-compatible Bucket inspector that can help users extract assets, flag secret exposures and even search for custom keywords as well as Regular Expressions from publicly-exposed storage buckets by scanning files that store data in plain text.
+The offensive industry is about exploring what's possible. Part of this is observing and taking lessons from other disciplines that have already solved a myriad of related challenges, from proper software engineering practices to using graph theory for offensive problems. But despite various leaps forward over the last several years, the offensive post-exploitation community has yet to fully embrace data analysis and enrichment pipelines beyond basic log aggregation and searching. If offensive tools were structured for automated processing instead of solely human consumption, we could unify post-ex data to exploit the known (and unknown) relationships within the data our offensive tools emit.
+
+Imagine a system that could ingest data from any C2 framework or post-ex tool, and could not just automate common operator tasks like binary analysis for known vulnerabilities and hash extraction and cracking of encrypted documents, but could perform complex offline analysis like host privilege escalation. If we could unify all post-exploitation data from offensive engagements we could improve operator workflows, provide tradecraft assistance, facilitate automation of onerous tasks, and uncover new data-driven research opportunities. A year ago, our team embarked on the development of just such a system, and we are excited to introduce the result of our effort: Nemesis.
 
 
 ### [C2 Matrix](#)  
@@ -8723,17 +6984,23 @@ The C2 Matrix currently has 41 command and control frameworks documented in a Go
 For Blackhat, C2 Matrix will release phase 2 of the project which involves mapping each C2 to MITRE ATT&CK and correlate with known adversaries. This will allow much quicker selection of which C2s to use for a given adversary or threat scenarios.
 
 
+### [CALDERA: Automating Adversary Emulation](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming](https://img.shields.io/badge/Category-Red--Teaming-gray)  
+Adversary emulation is great, but it can be time consuming – so why not automate it? CALDERA automates the adversary emulation process, allowing users to run fully automated adversary emulation exercises, aligning its operations with MITRE ATT&CK. Blue and red teamers alike can use CALDERA for training, to test analytics and defensive tools, and just generally to stress test their networks and systems.
+
+
+CALDERA was first released in late 2017 featuring its end-to-end “adversary mode” capability, where operators could use CALDERA to run fully end-to-end tests emulating the full adversary lifecycle. This mode allowed CALDERA to run intelligently and autonomously, leveraging a planning system to dynamically compose operations.
+
+
+Since this first release, the MITRE team has continued to expand CALDERA’s capabilities, releasing a new “chain mode” in 2019. This new mode allows users much more control over CALDERA, letting them orchestrate and automate atomic unit tests as opposed to end-to-end operations. With more fine-grained control over CALDERA, users can better control their operations to accommodate more use cases, such as testing and refining analytics.
+
+
+This demo will highlight both of CALDERA’s modes, providing demos and guides on how to use CALDERA including how to extend it with new plugins and adding additional tests. CALDERA is open source and can be downloaded off of the MITRE GitHub repository.
+
+
 ### [CANalyse: A Vehicle Network Analysis and Attack Tool](#)  
 ![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming](https://img.shields.io/badge/Category-Red--Teaming-gray)  
 CANalyse is a software tool built to analyze the log files to find out unique data sets automatically and able to connect to simple attacker interfaces such as Telegram. Basically, while using this tool you can provide your bot-ID and be able to use the tool over the internet through telegram. It is made to be installed inside a raspberry-PI and able to exploit the vehicle through a telegram bot by recording and analyzing the data logs, it is like a hardware implant planted inside a car which acts as a bridge between the Telegram bot and the Vehicle's network.
-
-
-### [CATSploit](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming](https://img.shields.io/badge/Category-Red--Teaming-gray)  
-CATSploit is an automated penetration testing tool using Cyber Attack Techniques Scoring (CATS) method that can be used without pentester.
-Currently, pentesters implicitly made the selection of suitable attack techniques for target systems to be attacked.
-CATSploit uses system configuration information such as OS, open ports, software version collected by scanner and calculates a score value for capture eVc and detectability eVd of each attack techniques for target system.
-By selecting the highest score values, it is possible to select the most appropriate attack technique for the target system without hack knack(professional pentester's skill) .
 
 
 ### [CDK: Zero Dependency Container Penetration Toolkit](#)  
@@ -8775,6 +7042,25 @@ The Cloud enables software projects to speed up development because it allows de
 Over the years there have been various discussions around cloud security, e.g., Pivoting in Amazon Clouds (2013), and few tools have been developed to enable testing the security of Cloud deployments. These tools are standalone, have not attained wide adoption, and/or have not made it into widely adopted toolkits. To fill this void, we have developed the Cumulus Toolkit. The Cumulus Toolkit is a Cloud exploitation toolkit based on the Metasploit Framework. We chose Metasploit because of its wide adoption and its wealth of existing features.
 
 The Cumulus toolkit is a set of modules that can be used perform privilege escalation, account takeover, and to launch unauthorized workloads. To illustrate security concerns resulting from lax IAM policies, we present the Create IAM User module which can be used to create a user with administrative privileges. To perform complete account takeover, an attack that we've seen in the wild, we present the User Locker module which is used to lock out all legitimate users out of the account. Finally, we present the Launch Instances module which can be used to launch Cloud hosts on demand.
+
+
+### [Chiron: An Advanced IPv6 Security Assessment and Penetration Testing Framework](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming](https://img.shields.io/badge/Category-Red--Teaming-gray)  
+Chiron is an IPv6 Security Assessment Framework, written in Python and employing Scapy. It is comprised of the following modules:
+
+• IPv6 Scanner
+• IPv6 Local Link
+• IPv4-to-IPv6 Proxy
+• IPv6 Attack Module
+• IPv6 Proxy
+All the above modules are supported by a common library that allows the creation of completely arbitrary IPv6 header chains, fragmented or not. Suggested host OS: Linux (*BSD may also work).
+
+Source Code: https://github.com/aatlasis/Chiron﻿
+
+
+### [Cloud Katana](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming](https://img.shields.io/badge/Category-Red--Teaming-gray)  
+None
 
 
 ### [Cloudtopolis: Zero Infrastructure Password Cracking](#)  
@@ -8838,6 +7124,16 @@ Being built on Windows, CommandoVM comes with all the native support for accessi
 Quality-of-Life changes to the OS include: disabling UAC, Windows Defender and Windows Firewall, disabling LLMNR and NetBIOS , having some pinned applications (CMD, PowerShell, Sublime Text, VS Code) run as administrator automatically, as well as added context menu options like "Open With Sublime Text" and "Open Command Prompt Here" to ease the frustration of working with a Windows pen-testing environment. CommandoVM strives to be your go-to Windows environment for penetration tests, red team engagements, and Capture-the-Flag events.
 
 
+### [Cotopaxi - M2M Protocols Assessment Toolkit](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming](https://img.shields.io/badge/Category-Red--Teaming-gray)  
+Cotopaxi is a set of tools for security testing of endpoints using state-of-the-art Machine-To-Machine network protocols (like AMQP, CoAP, gRPC, HTTP/2, HTCPCP, MQTT, DTLS, KNX, mDNS, QUIC, RTSP, SSDP).
+
+
+### [Cotopaxi: IoT/IIoT/M2M Protocols Security Testing Toolkit](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming](https://img.shields.io/badge/Category-Red--Teaming-gray)  
+Cotopaxi is a set of tools for security testing of network devices using specific and general network IoT/IIoT/M2M protocols (AMQP, CoAP, DTLS, gRPC, HTTP/2, HTCPCP, KNX, mDNS, MQTT, MQTT-SN, QUIC, RTSP, SSDP).
+
+
 ### [Covenant: .NET Command and Control](#)  
 ![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming](https://img.shields.io/badge/Category-Red--Teaming-gray)  
 Covenant is a .NET command and control platform and web application that aims to highlight the attack surface of the .NET Framework and .NET Core, make the use of offensive .NET tradecraft easier, and serve as a collaborative platform for red teamers.
@@ -8853,6 +7149,11 @@ Covenant includes tons of built-in tasks based on libraries such as SharpSploit 
 Covenant also has an emphasis on implant and network communication security to protect the data accessed by implants. Covenant implements an Encrypted Key Exchange protocol between implants and listeners to achieve forward secrecy for new implants and enforces SSL certificate pinning for implants.
 
 In the age of EDR and threat hunting, red teamers need flexible, robust, and intuitive command and control platforms. Red teamers need the ability to collaborate with teammates, customize implant behavior and command and control traffic, track artifacts, and quickly adapt for defensive technologies. In this demo, you'll be shown how to accomplish this with Covenant.
+
+
+### [CRACKMAPEXEC V4](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming](https://img.shields.io/badge/Category-Red--Teaming-gray)  
+CrackMapExec (a.k.a CME) is a fully open-source, post-exploitation tool written in Python that helps automate assessing the security of *large* Active Directory networks. Built with stealth in mind, CME follows the concept of "Living off the Land:" abusing built-in Active Directory features/protocols to achieve it's functionality and allowing it to evade endpoint protection/IDS/IPS solutions. CME makes heavy use of the Impacket library and the PowerSploit Toolkit for working with network protocols and performing a variety of post-exploitation techniques. Although meant to be used primarily for offensive purposes (e.g. red teams), CME can be used by blue teams as well to assess account privileges, find possible misconfigurations and simulate attack scenarios. In this demo the author will be showing version 4.0: a major update to the tool bringing more modules, features and capabilities than ever before. If you're interested in the latest & greatest Active Directory attacks, techniques and general cool AD stuff this is the demo for you!
 
 
 ### [CuddlePhish: Bypassing MFA on Nearly Impenetrable Web Portals](#)  
@@ -8872,6 +7173,33 @@ This CyberRange project represents the first open-source Cyber Range blueprint i
 This project provides a bootstrap framework for a complete offensive, defensive, reverse engineering, and security intelligence tooling in a private research lab using the AWS Cloud. This project contains vulnerable systems, open-source tools.
 
 It simply provides a researcher with a disposable offensive/defensive AWS-based environment in less than 10 minutes.
+
+
+### [DELTA: SDN Security Evaluation Framework](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming](https://img.shields.io/badge/Category-Red--Teaming-gray)  
+Software-Defined Networking (SDN) allows network operators to manage the entire network in a centralized manner by separating the vendor specific control plane from legacy routers/switches. Thus, this concept provides an intelligent way to design novel network functions. However, although SDN offers significant advantages over the traditional networking, the security of SDN has not been sufficiently verified. So, here, we introduce an open source tool for systematically assessing the security of SDN called DELTA.
+
+DELTA is a first SDN security evaluation framework, which has two primary functions; (1) It can automatically instantiate known attack cases against SDN elements across diverse environments, and (2) it can assist in uncovering unknown security problems within an SDN deployment. For replaying attack cases, our framework has a number of test cases against open source SDN controllers and all SDN-enabled switch devices (software and hardware). Also, our framework provides a protocol-aware fuzzer for OpenFlow, which is a de-facto standard protocol of SDN, in order to find new vulnerabilities.
+
+DELTA has following main features:
+
+Fully automatically reproduce 40 published exploits against all SDN components composed of SDN controllers, a control channel, and OpenFlow-enabled switches.
+Provide a blackbox fuzzing module that randomizes OpenFlow messages.
+Support for both VM-based all-in-one single machine and hardware-based environments.
+Fully compatible with promising SDN controllers (ONOS, OpenDaylight, Floodlight, and Ryu).
+[NEW] Support additional 7 new attacks against SDN switches (i.e., OVS, HP, and Pica8), which are discovered from DELTA fuzzing module.
+[NEW] Support DISTRIBUTED controller testing and related attack cases.
+[NEW] Provide a new fuzzing module that discovers security problems of REST-API implementations in SDN controllers and related attack cases.
+
+
+### [DFEX](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming](https://img.shields.io/badge/Category-Red--Teaming-gray)  
+DFEX - [DNS File EXfiltration]
+
+Data exfiltration is a common technique used for post-exploitation, DNS is one of the most common protocols through firewalls.
+We take the opportunity to build a unique protocol for transferring files across the network.
+
+Existing tools have some limitations and NG Firewalls are getting a bit "smarter", we have been obliged to explore new combinations of tactics to bypass these. Using the good old fashion "HIPS" (Hidden In Plain Sigh) tricks to push files out.
 
 
 ### [DNSStager: A Tool to Hide Your Payload in DNS](#)  
@@ -8953,6 +7281,11 @@ It uses a agent/server architecture. The agents are modular and are designed to 
 Docker Security Playground is an architecture leveraging a microservices-based approach in order to build complex network infrastructures specifically tailored to the study of network security. The idea is to leverage latest fashion virtualization techniques in order to: (i) reproduce real-world networking scenarios; (ii) build ad-hoc network playgrounds involving vulnerable nodes/services and malicious users/tools; (iii) provide lab participants with low-cost, COTS-based, easily reproducible networking tools.
 
 
+### [Dolos Cloak: Your NAC Can't See This](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming](https://img.shields.io/badge/Category-Red--Teaming-gray)  
+Dolos Cloak is a new tool designed to give penetration testers and red team members the ability to easily bypass 802.1x network access controls. The tool performs an advanced man-in-the-middle attack against nearly any authorized network device, automatically configures a NAT to blend in, and pass legitimate traffic unaltered. Simply plug a Dolos Cloak device in between a network jack and an available workstation, IP phone, printer, or other device and walk away. Dolos Cloak can be configured to call home using TPC/UDP reverse shells, SSH, VPN, Empire, or other custom methods to maintain a stealthy foothold on the network. The creation of Dolos Cloak was inspired by sysadmins that thought they could rely solely on 802.1x to keep attackers off their networks.
+
+
 ### [Dragnmove: Infect Shared Files In Memory for Lateral Movement](#)  
 ![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming](https://img.shields.io/badge/Category-Red--Teaming-gray)  
 People share files with each other every day using different applications like email clients, chat applications, browsers, etc. These channels are commonly used for lateral movement usually in the context of internal phishing. Dragnmove tool provides a different approach to abuse file sharing in order to move laterally in the target environment. Dragnmove can be used to inject payloads into the files that are being sent without touching the files in the file system.
@@ -8972,6 +7305,27 @@ Alfa labs allows:
 - Replicate any technical issues and confirm your results
 
 Therefore, stop by and spin up your own lab to practise your Windows Active Directory tools, techniques and procedures (TTPs) in isolation, or red-team your way through the dynamically-built Alfa labs.
+
+
+### [EAPHAMMER](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming](https://img.shields.io/badge/Category-Red--Teaming-gray)  
+EAPHammer is a toolkit for performing targeted evil twin attacks against WPA2-Enterprise networks. It is designed to be used in full scope wireless assessments and red team engagements. As such, focus is placed on providing an easy-to-use interface that can be leveraged to execute powerful wireless attacks with minimal manual configuration. To illustrate how fast this tool is, here's an example of how to setup and execute a credential stealing evil twin attack against a WPA2-TTLS network in just two commands:
+
+# generate certificates
+./eaphammer --cert-wizard
+
+# launch attack
+./eaphammer -i wlan0 --channel 4 --auth ttls --wpa 2 --essid CorpWifi --creds
+
+Features:
+
+Steal RADIUS credentials from WPA-EAP and WPA2-EAP networks.
+Perform hostile portal attacks to steal AD creds and perform indirect wireless pivots
+Perform captive portal attacks
+Built-in Responder integration
+Support for Open networks and WPA-EAP/WPA2-EAP
+No manual configuration necessary for most attacks.
+No manual configuration necessary for installation and setup process
 
 
 ### [Echidna: Penetration Test Assist & Collaboration Tool](#)  
@@ -9001,6 +7355,17 @@ We feel that ElfPack and section docking in general can help solve some of the p
 ### [EmoLoad: Loading Emotet Modules without Emotet](#)  
 ![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming](https://img.shields.io/badge/Category-Red--Teaming-gray)  
 None
+
+
+### [Empire: Post-Exploitation Framework](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming](https://img.shields.io/badge/Category-Red--Teaming-gray)  
+Empire is a Command and Control (C2) framework powered by Python 3 that supports Windows, Linux, and macOS exploitation. It leverages many widely used offensive security tools through PowerShell, Python 3, and C# agents. At the same time, it offers cryptologically-secure communications and flexible modular architecture that links Advanced Persistent Threats (APTs) Tactics, Techniques, and Procedures (TTPs) through the MITRE ATT&CK database.
+
+Empire has evolved significantly since its introduction in 2015 and has become one of the most widely used open-source C2 platforms. Through this time, Empire has advanced from a single user experience to allowing multiple user operations through an API with Empire acting as a teamserver. Currently, 2 different applications are available to connect to the Empire teamserver: Empire Command Line Interface (CLI) and Starkiller.
+
+The Empire CLI is built from the ground up as a replacement to the embedded legacy CLI and gives users a familiar feel of the legacy CLI, but is portable and connects through the Empire API. While Starkiller is a cross-platform UI available in Linux, Windows, and macOS powered by ElectronJS.
+
+The framework's flexibility to easily incorporate new modules allows for a single solution for red team operations with the aim for Empire to provide an easy-to-use platform for emulating APTs. Customization is essential to any successful red team operation, which has driven the expansion of user plugins. These plugins allow any custom program to run side-by-side with the Empire teamserver. In addition, the commonality between other C2 platforms allows profiles and modules to be easily dropped in without the need for additional development. These features allow both red and blue teams to easily emulate and defend against the APT attack vectors.
 
 
 ### [EmploLeaks: Finding Leaked Employees Info for the Win](#)  
@@ -9064,6 +7429,29 @@ While the idea of end-to-end application encryption is certainly not new, the ex
 And if your standalone Foxtrot agent is caught, the delivery mechanism may live on, you could still manually bring the agent back into the environment via the browser. A concept tool built on these ideas will be presented and released. It will be used as basis for our discussion.
 
 
+### [FruityDC](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming](https://img.shields.io/badge/Category-Red--Teaming-gray)  
+FruityDC is focused on dynamic callbacks for re-establishing communication with C2 infrastructure and for achieving persistence, how payloads can heal themselves after being blocked including how communication can be re-established via dynamic parametric data. The methods described are code agnostic.
+
+
+### [Fudge: A Collaborative C2 Framework for Purple Teaming](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming](https://img.shields.io/badge/Category-Red--Teaming-gray)  
+Fudge is a Python3/Flask web-based C2 framework and Powershell implant designed to facilitate purple teaming activities, post-campaign review and timelining.
+
+Fudges' inception is based on 3 main areas:
+
+Creating a suitable way for blue teamers to review the chronological activities a red team engagement, allowing them to assess if key alerts were missed.
+Finding ways to incrementally increase detection rates, allowing defenders to identify the intrusion. This provides a gauge of skill & target areas for upskilling if the intrusion is not identified.
+Providing a way for junior testers to experience red teaming without increasing risk to the campaign OpSec/client network.
+Purple teaming was born out of the need for tighter integration between offensive and defensive teams. If the red team is successful in compromise, their ability to export the campaign timeline and logging can prove invaluable insight to the blue team. Allowing defenders to review network and host logs as they follow a campaign timeline, allows for blind spots to be identified and tooling adjusted and tuned.
+
+Fudges' implant also supports varying levels and types of obfuscation to allow for varying levels of noise to be made during the engagement to help a SoC benchmark their detection skills.
+
+Lastly, Fudge is designed around team usage, which allows for a senior red teamer to allow another user to have read or read/write access to the campaign. These access controls allow a junior member to view the campaign and see the kind of commands, and techniques used in a post-exploitation environment.
+
+Fudge can be found on Github at: https://github.com/Ziconius/Fudge
+
+
 ### [FumbleChain: A Purposefully Vulnerable Blockchain](#)  
 ![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming](https://img.shields.io/badge/Category-Red--Teaming-gray)  
 FumbleChain is a deliberately insecure blockchain designed to raise awareness about blockchain security. Cryptocurrencies and blockchains are still relatively new, and there have been plenty of news stories about people losing money through compromises in various components making up a blockchain ecosystem. FumbleChain hopes to bridge the awareness gap in a fun way, one in which nobody loses money.
@@ -9091,9 +7479,43 @@ In the demo, we will talk about the scanner architecture and show the audience o
 GEF is a set of commands for GDB, to massively boost the exploit development process on X86, ARM, MIPS, PowerPC and SPARC. GEF aims to be used mostly by exploit development and reverse-engineers, to provide greatly enhanced features to GDB heavily relying on Python API to assist during the process of dynamic analysis and exploit development.
 
 
+### [GOFETCH](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming](https://img.shields.io/badge/Category-Red--Teaming-gray)  
+GoFetch is a tool to automatically exercise an attack plan generated by the BloodHound application. The tool first loads a path of local admin users and computers generated by BloodHound and convert it to it's own attack plan format. Once the attack plan is ready, it advances towards the destination according to the plan, step by step by successively apply remote code execution techniques and compromising credentials with Mimikatz.
+
+
 ### [GONE IN 59 SECONDS - HIGH SPEED BACKDOOR INJECTION VIA BOOTABLE USB - ARSENAL THEATER DEMO](#)  
 ![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming](https://img.shields.io/badge/Category-Red--Teaming-gray)  
 Gaining physical access was trivial, but now the computer is locked (or off) and time is running out…the "SmuggleBus" allows us to take advantage of unencrypted drives to quickly collect local password hashes and implant the backdoor of our choice without modifying any system binaries - all from a bootable USB and in a matter of seconds.
+
+
+### [GR-LORA: AN OPEN-SOURCE SDR IMPLEMENTATION OF THE LORA PHY](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming](https://img.shields.io/badge/Category-Red--Teaming-gray)  
+gr-lora is an open-source GNU Radio/Software Defined Radio implementation of the LoRa radio physical layer, as derived from the author's black box analysis of the protocol. gr-lora empowers developers and security researchers to think beyond packet sniffing and injection by exposing LoRa's physical layer in software.
+
+LoRa is a wireless networking technology that can be thought of as high-endurance cellular for IoT and embedded devices. It utilizes a unique Chirp Spread Spectrum modulation and layered encoding scheme to achieve remarkable range while remaining frugal on power.
+
+PHYs have long been taken for granted, however research such as Travis Goodspeed's packet-in-packet and Dartmouth/River Loop Security's 802.15.4 chipset fingerprinting have demonstrated that physical layer abuse can have severe consequences further up the stack. As a closed protocol, LoRa has only been exposed via layer 2+ interfaces; thus security researchers and developers have lacked the necessary tools to audit and analyze the security and robustness of its PHY.
+
+With its flexible and open architecture, gr-lora gives security researchers the capability required to explore this nascent protocol from its most fundamental layer.
+
+
+### [Ghost Tunnel: Covert Data Exfiltration Channel to Circumvent Air Gapping - ARSENAL THEATER DEMO](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming](https://img.shields.io/badge/Category-Red--Teaming-gray)  
+In recent years, attacking air gapped networks through HID devices is becoming popular. The HID attack uses the USB interface to forge the user's keystrokes or mouse movement to modify the system settings and run malware. In 2009, NSA's Office of Tailored Access Operations (TAO) developed the COTTON-MOUTH – a USB hardware implant which provides a wireless bridge into a target network as well as the ability to load exploit software onto a target machine. Unlike COTTON-MOUTH, Ghost Tunnel attacks the target through the HID device only to release the payload, and it can be removed after the payload is released.
+
+Advantages:
+
+Covertness
+HID attack device is only required to release the payload and it can be removed after that
+No interference with the target's existing connection status and communications
+Can bypass firewalls
+Can be used to attack strictly isolated networks
+Communication channel does not depend on the target's existing network connection
+Cross-Platform Support
+Can be used to attack any device with wireless communication module, we tested this attack on Window 7 up to Windows 10, and OSX
+
+Source Code: https://github.com/360PegasusTeam/GhostTunnel
 
 
 ### [GodPotato: As Long as You Have the ImpersonatePrivilege Permission, Then You are the SYSTEM!](#)  
@@ -9104,13 +7526,6 @@ Based on the history of Potato privilege escalation for 6 years, from the beginn
 
 Potato privilege escalation is usually used when we obtain WEB/database privileges. We can elevate a service user with low privileges to "NT AUTHORITY\SYSTEM" privileges.
 However, the historical Potato has no way to run on the latest Windows system. When I was researching DCOM, I found a new method that can perform privilege escalation. There are some defects in rpcss when dealing with oxid, and rpcss is a service that must be opened by the system. , so it can run on almost any Windows OS, I named it GodPotato
-
-
-### [HIDE & SEEK: An Open Source Implant for Red Teams](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming](https://img.shields.io/badge/Category-Red--Teaming-gray)  
-Many Enterprises are shifting away from dedicated workstations and cubes, and moving to a more flexible workspace with thin client and desk hoteling. This creates the ideal landscape for hardware implant attacks. The current implant market, as it exists today, has not kept up with this shift. While closed source for-profit solutions exist, by their nature they lack the flexibility and customization to adapt to large scale targeted deployments. Open source projects similarly exist but focus more on individual workstations (dumb keyboards and remote terminals) relying on corporate networks for remote control and are easily detectable. Neither solution today is able to meet the needs of a modern Red Team.
-This presentation introduces an open source, freely available hardware implant which adopts modern IoT technologies, leveraging non-standard communication channels to create a remotely managed mesh network of hardware implants. Attendees will learn about the new techniques and tactics that we used to create a new breed of open-source hardware implant. Topics covered in this presentation will include the scaling of implants for a stealthy enterprise takeover, creating and utilizing a flexible command and control mesh network, creating a new class of remote access shells that survive idle screen lock, and more. Attendees will leave the talk with new tactics and a new platform from which to innovate their own custom implants from. Live demos will be used to demonstrate these new tactics against real world infrastructure.
-Previous hardware implant talks have covered: basic implants, their benefits, injecting keystrokes, Wi-Fi connectivity, and attack scripts. This presentation builds off of those but shows attendees how to leverage new techniques and technologies to push the innovation of hardware implants forward evolutionarily for use in today's modern Red Team operations.
 
 
 ### [Haaukins: A Highly Accessible and Automated Virtualization Platform for Security Education](#)  
@@ -9141,24 +7556,9 @@ The tool offers a significant benefit to users, each check that the tool perform
 We hope to contribute to the cybersecurity community and benefit from their ideas and perceptions to extend our features and make HardeningMeter a better tool that supports systems other than Linux in the future.
 
 
-### [HazProne : Cloud Hacking](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming](https://img.shields.io/badge/Category-Red--Teaming-gray)  
-HazProne is a Cloud Pentesting Framework that emulates close to Real-World Scenarios by deploying Vulnerable-By-Demand aws resources enabling you to pentest Vulnerabilities within, and hence, gain a better understanding of what could go wrong and why!!
-
-
 ### [HazProne](#)  
 ![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming](https://img.shields.io/badge/Category-Red--Teaming-gray)  
 HazProne is a Cloud Pentesting Framework that emulates close to Real-World Scenarios by deploying Vulnerable-By-Demand aws resources enabling you to pentest Vulnerabilities within, and hence, gain a better understanding of what could go wrong and why!!
-
-
-### [HazProne: Cloud Security Ed](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming](https://img.shields.io/badge/Category-Red--Teaming-gray)  
-HazProne is a Cloud Pentesting Framework that emulates close to Real-World Scenarios by deploying Vulnerable-By-Demand AWS resources enabling you to pentest Vulnerabilities within, and hence, gain a better understanding of what could go wrong and why!!
-
-
-### [HazProne: Cloud Vulnerability Simulator](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming](https://img.shields.io/badge/Category-Red--Teaming-gray)  
-HazProne is a Cloud Vulnerability Simulator Framework that emulates close to Real-World Scenarios by deploying Vulnerable-By-Demand AWS resources enabling you to pentest Vulnerabilities within, and hence, gain a better understanding of what could go wrong and why!!
 
 
 ### [HomePwn](#)  
@@ -9168,6 +7568,11 @@ The hyperconnected world is a reality nowadays. Today, we should consider that c
 The emergence of millions of devices, from different nature, have caused changes in the security applied for each of them. Using several technologies between these devices makes security heterogeneous. Bluetooth Low-Energy, WiFi, NFC are just some examples of the technologies being used by millions of devices around our society. Most of them can be found at home or in our offices. Companies are suffering many attacks that can come through a wrong configuration and can be used by an attacker to gain access to other resources within the company itself. HomePwn is a framework that provides several features for auditing and pentesting on devices connected to the Internet using different technologies such: WiFi, Bluetooth Low-Energy, or NFC, among others.
 
 HomePwn is a framework that provides features to audit and pentesting devices that company employees can use in their day-to-day work and inside the same working environment.
+
+
+### [Humble Chameleon: Eating 2FA for Breakfast](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming](https://img.shields.io/badge/Category-Red--Teaming-gray)  
+By creating a simple tool that performs a man-in-the-middle attack against the HTTP protocol, we can eliminate the need to manually create phishing sites. In addition, this same tool can be used to harvest session cookies from applications that require 2FA, disallow victims from logging out and killing our stolen cookies, hide phishing domains behind legitimate content, categorize phishing domains, serve malware alongside legitimate content, only serve payloads in response to whitelisted requests, and target multiple services at the same time, all without SSL warnings. *Note: This is not just a tool, but a release of a new attack methodology.
 
 
 ### [InQL: Introspection GraphQL Scanner](#)  
@@ -9232,6 +7637,21 @@ None
 ### [JACKIT](#)  
 ![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming](https://img.shields.io/badge/Category-Red--Teaming-gray)  
 JackIt is a wireless HID injection attack into NRF-based keyboard/mouse dongles based off the MouseJack vulnerability. It has a strong focus on providing system admins with the tools to demonstrate the attack to help promote and justify the need to move away from wireless keyboard and mice in a corporate environment.
+
+
+### [JavaScript Obfuscation - It's All About the P-a-c-k-e-r-s](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming](https://img.shields.io/badge/Category-Red--Teaming-gray)  
+The usage of JavaScript obfuscation techniques have become prevalent in today's threats, from phishing pages, to Magecart, and supply chain injection to JavaScript malware droppers all use JavaScript obfuscation techniques on some level.
+
+The usage of JavaScript obfuscation enables evasion from detection engines and poses a challenge to security professionals, as it hinders them from getting quick answers on the functionality of the examined source code.
+
+Deobfuscation can be technically challenging (sometimes), risky (if you don't know what you are doing), and time consuming (if you are lazy, as I am). Yet, the need to find and analyze high scaled massive attacks using JavaScript obfuscation is a task I'm faced with on a daily basis.
+
+In this arsenal showcase I will present a lazy, performance cost effective approach, focusing on the detection of JavaScript packer templates. Once combined with threat intelligence heuristics, this approach can predict the maliciousness level of JavaScript with high probability of accuracy.
+
+In addition, the showcase will include insights based on detections of the tool that were collected from the threat landscape, including some of the challenges associated with benign websites using obfuscation.
+
+The showcase will also suggest techniques showing how the tool obfuscation detection can also be combined with other threat intelligence signals and heuristics, that can lead to better classification of detect obfuscated code as being malicious.
 
 
 ### [KernelGoat](#)  
@@ -9318,9 +7738,29 @@ SQL Injection Scanner: Discover SQL injection vulnerabilities on websites with s
 Exploit Specific Vulnerabilities: Discover vulnerable targets with Shodan, Censys or masscan and mass exploit them by providing your own exploit or using pre-included exploits.
 
 
+### [Lauschgerät: Gets in the Way of your Victim's Traffic and Out of Yours](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming](https://img.shields.io/badge/Category-Red--Teaming-gray)  
+Lauschgerät gets in the way of your victim and out of yours. This python tool acts as a convenient man-in-the-middle tool to sniff traffic, terminate TLS encryption, host malicious services and bypass 802.1X - provided you have physical access to the victim machine, or at least its network cable.
+
+There are three ways to run it: Either on its own dedicated device like a Raspberry Pi or Banana Pi, in a virtual machine with two physical USB-NICs attached, or on your regular pentest system in its own network namespace. It will look like a completely transparent piece of wire to both victim systems you are getting in the middle of, even if they are using 802.1X because it is implementing the ideas presented in a talk by Alva Lease 'Skip' Duckwall IV.
+
+The Lauschgerät operates with three interfaces: Two interfaces going to the victim client and the victim switch respectively, and one management interface which you can connect to and initiate the redirection of traffic, inject your own traffic, start and stop malicious services, and so forth. It comes with a few services included, such as a service that terminates TLS encryption (which will of course cause a certificate warning on the victim's end) or a service that performs the classic "SSL strip" attack. And more to come!
+
+An optional wireless interfaces can either be used as another management interface or for intercepting traffic of wireless devices. The management can be done via SSH or via a web application, making sure you can hit the ground running.
+
+
 ### [Lazyrecon v2.0](#)  
 ![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming](https://img.shields.io/badge/Category-Red--Teaming-gray)  
 Lazyrecon v2.0 is a subdomain discovery tool that discovers and resolves valid subdomains then performs SSRF/LFI/SQLi fuzzing and port scanning. It has a simple modular architecture and is optimized for speed while working with github and wayback machine.
+
+
+### [LinkTap: New Threats are Already Around You - The IPV6 Attack Must be Understood](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming](https://img.shields.io/badge/Category-Red--Teaming-gray)  
+Due to the exhaustion of IPv4 free address space, the use of IPv6 on the Internet is gradually increasing. All Windows operating systems since Windows Vista have IPv6 enabled by default. IPv6 brings a series of improvements compared to IPV4, but these improvements are also put a double-edged sword.
+
+Recently, we have been focusing on "IPv6" attack research and found that in the IPV6 environment, there are many attack points, such as Iptables will fail, use IPV6 to bypass the Web defense strategy and abuse IPV6-specific protocols for man-in-the-middle attacks, and Other attack ideas!
+
+In this presentation, I will disclose the attack methods and ideas I have found for IPV6, and will also release tools for IPV6 attacks.
 
 
 ### [MAILSNIPER](#)  
@@ -9341,9 +7781,24 @@ This time, we have newly evolved MUSHIKAGO as MUSHIKAGO-femto, incorporating cut
 Other additional features include the implementation of a scan function to detect ICS protocols in order to detect ICS devices with high accuracy. MUSHIKAGO-femto has both Active Scan and Passive Scan functions, enabling comprehensive detection of PLCs and ICS devices. This enables automatic penetration of OT system. This makes it possible to perform automatic penetration tests on OT system with high accuracy. In the demo, we will show how it can perform automatic penetration testing and automatic protection against Hack THe Box and VulnHub machines. We will also show that it is possible to perform effective penetration testing in our OT/ICS environment.
 
 
+### [MacAttack - A Client/Server Framework with Macro Payloads for Domain Recon and Initial Access](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming](https://img.shields.io/badge/Category-Red--Teaming-gray)  
+While using macros for malicious purposes is nothing new, this tool provides a suite of payloads ideal for initial recon and footholds that will not burn other methods of attack. MacAttack is a framework that generates payloads for use in Excel and includes client/server communication to perform dynamic alterations at runtime and collate received data.
+The payloads included in MacAttack cover a number of areas that have not been published before, including a new stealth technique for hiding payloads, methods for retrieving a user's hash, and performing common recon/early stages attacks such as As-Rep roasting, retrieving documents, browser credentials, password spraying the domain, enumerating users, and domain fronting. The client/server communication and GUI will allow for dynamic checks such as only allowing a password spray to run once or once within a certain time period even if multiple targets enable the payload at the same time, and will provide a visual representation of the enumerated information. Part of the benefit of this tool is that this information is retrievable from a "zero foothold" position - a phishing campaign may be detected or blocked - but this does not burn any existing beacons and the potential rewards can be as great as multiple sets of credentials for users and relevant authentication portals. Microsoft are rolling out changes to macros that have still not been fully deployed by the time of the deadline - and research into these changes and impacts will be included in the discussion. It looks like these changes will only affect O365 to begin with and will include a "recommended policy" to implement.
+
+
 ### [Malicious NFTs](#)  
 ![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming](https://img.shields.io/badge/Category-Red--Teaming-gray)  
 Web3 stands as a dynamic technology harboring significant potential for diverse business opportunities and applications. As web3's technological landscape continues to evolve, malicious actors are similarly driven to explore novel and innovative methods to exploit these technologies. A notable example of such exploitative endeavors involves the realm of Malicious NFTs.
+
+
+### [Mallet: An Intercepting Proxy for Arbitrary Protocols](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming](https://img.shields.io/badge/Category-Red--Teaming-gray)  
+This prsentation will focus on a new open-source intercepting proxy named Mallet, based on the mature and high-performance Netty framework, that wraps it with a drag and drop graph-based graphical user interface and a datastore. In doing so, we gain access to an existing library of protocol implementations, including TLS (and SNI), various compression algorithms, HTTP, HTTP/2, MQTT, REDIS, and many others, and most important, an existing community of developers creating new protocol decoders and encoders, and the associated body of knowledge in this area.
+
+The Mallet user interface closely follows the Netty model, making it simple to construct a pipeline of encoders and decoders by dragging existing codecs, or adding your own codecs or script blocks to a palette, taking the researcher from a simple TCP intercept-and-forward proxy, to a full-blown protocol stack with scriptable processing, with every change being recorded for review and replay in a subsequent connection. As Netty supports a variety of transports, from the common TCP and UDP to SCTP, Serial Port and File, as well as native kqueue and epoll transports, Mallet can be used to intercept all sorts of data, however you may find it.
+
+Source Code: https://github.com/SensePost/Mallet
 
 
 ### [Merlin](#)  
@@ -9371,11 +7826,90 @@ Active Directory is the foundation of the infrastructure for many organizations.
 The Kerberos features added in Metasploit 6.3 will be a focal point. The audience will learn how to execute multiple attack techniques, including Pass-The-Ticket (PTT), forging Golden/Silver Tickets, and authenticating with AD CS certificates. Finally, users will see how these attack primitives can be combined within Metasploit to streamline attack workflows with integrated ticket management. The demonstration will also highlight inspection capabilities that are useful for decrypting traffic and tickets for debugging and research purposes.
 
 
+### [Mr.SIP: SIP-Based Audit & Attack Tool](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming](https://img.shields.io/badge/Category-Red--Teaming-gray)  
+Mr.SIP is a simple console based SIP-based Audit and Attack Tool. Originally it was developed to be used in academic work to help developing novel SIP-based DDoS attacks and then as an idea to convert it to a fully functional SIP-based penetration testing tool.
+
+Initially, it was developed to be used in academic researches to help developing novel SIP-based DDoS attacks and then as an idea to convert it to a fully functional SIP-based penetration testing tool. So far it has been used more than 5 journal papers. Mr.SIP can also be used as SIP client simulator and SIP traffic generator.
+
+The initial academic journal paper which Mr.SIP is used is titled "Novel SIP-based DDoS Attacks and Effective Defense Strategies" published in Computers & Security 63 (2016) 29-44 by Elsevier, Science Direct http://sciencedirect.com/science/article/pii/S0167404816300980.
+
+In the current state, Mr.SIP comprises 7 sub-modules named as SIP-NES (network scanner), SIP-ENUM (enumerator), SIP-DAS (DoS attack simulator), SIP-ASP (attack scenario player), SIP-EVA (eavesdropper), SIP-SIM (signaling manipulator) and SIP-CRACK (cracker). Since it provides a modular structure to developers, more modules will continue be added by the authors and it is open to be contributed by the open-source developer community.
+
+SIP-NES is a network scanner. It needs the IP range or IP subnet information as input. It sends SIP OPTIONS message to each IP addresses in the subnet/range and according to the responses, it provides the output of the potential SIP clients and servers on that subnet.
+
+SIP-ENUM is a enumerator. It needs the output of SIP-NES and also pre-defined SIP usernames. It generates SIP REGISTER messages and sends them to all SIP components and try to find the valid SIP users on the target network. You can write the output in a file.
+
+SIP-DAS is a DoS/DDoS attack simulator. It comprises four components: powerful spoofed IP address generator, SIP message generator, message sender and response parser. It needs the outputs of SIP-NES and SIP-ENUM along with some pre-defined files.
+
+IP spoofing generator has 3 different options for spoofed IP address generation, i.e., manual, random and by selecting spoofed IP address from subnet. IP addresses could be specified manually or generated randomly. Furthermore, in order to bypass URPF filtering, which is used to block IP addresses that do not belong to the subnet from passing onto the Internet, we designed a spoofed IP address generation module. Spoofed IP generation module calculated the subnet used and randomly generated spoofed IP addresses that appeared to come from within the subnet.
+
+SIP-DAS basically generates legitimate SIP INVITE message and sends it to the target SIP component via TCP or UDP. In the current state it doesn't support instrumentation which helps you to understand the impact of the attack by using Mr.SIP, but we will support it very soon. In the current state, we can see the impact of the attack by checking the CPU and memory usage of the victim SIP server.
+
+SIP is a text based protocol such as HTTP but more complex than HTTP. For example, when we talk about SIP INVITE message, there are some specific headers and parameters need to be vendor specific and unique for each call. SIP Message Generator allows you to bypass security perimeters bu generating all these headers and parameters as it should be, so basic it is harder to be detected by anomaly detection engines that these messages are generated automatically. You can generate SIP methods such as INVITE message, REGISTER message etc.
+
+You can specify the message count, the destination port, you can use predefined toUser list, fromUser list, userAgent list etc.
+
+In order to bypass automatic message generation detection (anomaly detection) systems, random "INVITE" messages are generated that contained no patterns within the messages. Each generated "INVITE" message is grammatically compatible with SIP RFCs and acceptable to all of the SIP components.
+
+"INVITE" message production mechanism specifies the target user(s) in the "To" header of the message. This attack can be executed against a single user or against legitimate SIP users on the target SIP server as an intermediary step before the DoS attack. The legitimate SIP users are enumerated and written to a file. Next, they are placed randomly in the "To" header of the generated "INVITE" messages. "Via, "User-Agent, "From," and "Contact" headers within an "INVITE" message were syntactically generated using randomly selected information from the valid user agent and IP address lists. The tag parameter in the "From" header, the branch and source-port parameters in the "Via" header, and the values in the "Call-ID" header are syntactically and randomly generated using the valid user agent list. In addition, the source IP addresses in the "Contact" and "Via" headers are also generated using IP spoofing.
+
+UDP is used widely in SIP systems as a transport protocol, so attacks on the target server are implemented by sending the generated attack messages in the network using UDP. Also TCP can be used optionally. The message sender of SIP-DAS allows the optional selection of how many SIP messages could be sent during one second. The number of SIP messages sent in one second depended on the resources (CPU and RAM) of the attacker machine.
+
+SIP-ASP is Attack Scenario Player. It is working like a sub function of SIP-DAS. It has a powerful parser and allows you to create stateful SIP attack call flows. In our academic studies, we have developed new attack vectors by using our SIP-DAS and SIP-ASP such as re-transmission based DDoS attacks and reflection based DRDoS attacks.
+
+SIP-EVA is an eavesdropper. It sniffs the target network and can grasp the SIP messages. It allows you to extract call specific information such as who is calling, who i called, the duration of the call, the unique call-ID value and you can even download the media content of the call.
+
+SIP-SIM is a signaling manipulator. It is working like Intercepting SIP Proxy. It uses the same sniffer mechanism with SIP-EVA but it allows you to catch the messages between clients and server and you can replicate the messages and manipulate some headers and/or parameters as you want and send it to the victim server.
+
+By using SIP-SIM you can do do Caller-ID spoofing attacks. SIP-SIM support both LAN-based and WAN-based Caller-ID spoofing attacks. But in order to make WAN-based Caller-ID spoofing attack, you need to have proper service provider account.
+
+SIP-CRACK is a password cracker. Again, it uses the same sniffing mechanism and it allows you to catch the SIP REGISTER messages, extract the authentication data such as hash values. You can do brute-force based cracking, or you can choose dictionary or rainbow table cracking. So SIP is a time critical protocol and cracking should be an offline attack.
+
+
+### [Mr.SIP: SIP-Based Audit and Attack Tool](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming](https://img.shields.io/badge/Category-Red--Teaming-gray)  
+Mr.SIP Pro is a comprehensive attack-oriented VoIP product developed to simulate VoIP-based attacks and audit VoIP networks and applications from a security perspective. Originally it was developed to be used in academic work to support developing novel SIP-based attacks and then as an idea to convert it to a fully functional SIP-based penetration testing tool. So far Mr.SIP resulted in several academic research papers and journal articles and won first prizes in various cyber security competitions. Mr.SIP can also be used as a SIP client simulator and SIP traffic generator.
+
+Mr.SIP Pro detects SIP components and existing users on the network, intercepts, filters, and manages call information, reports known vulnerabilities and exploits, develops various TDoS attacks, and cracks user passwords. It has many innovative and competitive features such as high-performance multi-threading, IP spoofing, intelligent SIP message generation, self-hiding, and interception capabilities. Mr.SIP also has a customizable scenario development framework for stateful attacks.
+
+In the current state, the public version of Mr.SIP contains 3 modules; SIP-NES (network scanner), SIP-ENUM (enumerator), and SIP-DAS (DoS attack simulator). The Pro version includes 19 modules in 4 categories; Information Gathering, Vulnerability Scanning, Offensive, and Utility modules as listed below.
+
+Information Gathering Modules: SIP-NES (network scanner), SIP-ENUM (SIP enumerator), SIP-SNIFF (SIP traffic sniffer), SIP-EAVES (call eavesdropper)
+
+Vulnerability Scanning Modules: SIP-VSCAN (vulnerability & exploit scanner), Auto-Deep (automated scanner)
+
+Offensive Modules: SIP-DAS (DoS attack simulator), SIP-MITM (man in the middle attacker), SIP-ASP (attack scenario player), SIP-CRACK (digest authentication cracker), SIP-SIM (signaling manipulator), SIP-FUZZ (protocol fuzzer), RTP-EAVES (media sniffer), RTP-MIM (media manipulator), RTP-Robo (robocall/SPIT attacker), RTP-DTMF (DTMF stealer)
+Utility Modules: IP Spoofing Engine, Message Generator, GUI
+
+
+### [Mr.SIP: The Ultimate SIP-Based Penetration Testing Tool for VoIP Systems](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming](https://img.shields.io/badge/Category-Red--Teaming-gray)  
+Mr.SIP is a cutting-edge penetration testing tool designed specifically for VoIP systems. It is the most advanced and comprehensive offensive security tool available in the market for VoIP systems. Developed to assist security experts and system administrators in assessing the security of their VoIP systems and evaluating potential risks, Mr.SIP Pro offers a wide range of features to aid in this process.
+
+Mr.SIP Pro enables users to discover VoIP servers and active users on the network, intercept and manipulate call data, crack user passwords, and identify and report on security vulnerabilities, exploits, and misconfigurations. It also provides a framework for creating advanced, stateful attack scenarios, such as stateful TDoS (Telephony Denial of Service) attacks. Additionally, it allows users to test the server's protocol stack for undiscovered zero-day vulnerabilities by sending irregular messages. With Mr.SIP Pro, security experts and system administrators can have complete visibility and control over their VoIP systems, enabling them to proactively identify and mitigate potential threats.
+
+
 ### [Mushikago: IT and OT Automation Penetration Tool Using Game AI](#)  
 ![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming](https://img.shields.io/badge/Category-Red--Teaming-gray)  
 Penetration testing is an effective means of discovering vulnerabilities and inadequate settings in the overall system, and of investigating whether there are any operational security risks. However, in manual penetration testing, there are many cases where it is unclear whether the test content is really appropriate, because the diagnosis varies depending on the tester's strong and weak, interests, physical condition, and mental state on that day. Also, excellent testers are already booked by a large amount of work, and it is not always possible to request them without fail. In addition, cyber attacks on ICS (Industrial Control System) have been increasing recently, especially in 2020, when there were many cases of ransomware infections that caused damage to ICS. Furthermore, the number of reports of ICS vulnerabilities is increasing every year. In response to this situation, penetration testing for ICS has been attracting much attention.
 
 In this work, we developed Mushikago, an automatic penetration testing tool using game AI, which focuses on the verification of post-exploit among penetration tools. A post-exploit is an attack that an attacker carries out after entering the target environment. By focusing on post-exploit verification, we can understand how far an attacker can actually penetrate and what kind of information is collected. Mushikago uses the GOAP (Goal Oriented Action Planning), which is game AI commonly used in NPC (Non Player Character). To using Mushikago, we can flexibly change the content of the attack according to the environment and mimic the attacks conducted by actual APT attackers and testers. It is also possible to identify terminal information, account information, and network information without manual intervention, and visualize and report them based on MITRE ATT&CK. In addition, Mushikago supports ICS, and can be used for penetration testing across IT and OT (Operation Technology).
+
+
+### [Mística: Anything is a tunnel if you're brave enough - Covert channels for everyone!](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming](https://img.shields.io/badge/Category-Red--Teaming-gray)  
+From exposing internal network ports in restricted environments to the internet to controlling a meterpreter implant via DNS, everything is possible with protocol encapsulation.
+
+To prove this, we have developed Mística, a tool that allows us to finely tune how we want to create a tunnel over protocols like HTTP, DNS and more, and combine this encapsulation with custom applicatrions like io, shell or port redirection.
+
+Mística allows to embed data into other protocol fields, with the goal of establishing a bi-directional channel for arbitrary communications. Mística has a modular design, built around a custom transport protocol, called SOTP (Simple Overlay Transport Protocol). Data is encrypted, chunked and put into SOTP packets. SOTP packets are encoded and embedded into the desired field of the application protocol, and sent to the other end.
+
+During this talk, we will talk about how to quickly design and create covert channels over different protocols and for different purposes. This is both useful for red teams that need new ways to hide their traffic and blue teams that want to easily test their monitoring capabilities.
+
+We will do several demos, where we showcase how encapsulation works and how we can end up tunneling a RAT (meterpreter, in this case) connection over DNS. We will also showcase how to expose any port over the desired covert channel to combine it with tools like Evil-WinRM, for instance.
+
+Mística is available at https://github.com/IncideDigital/Mistica under the GPLv3 license
 
 
 ### [Nebula: A Case Study in Penetrating Something as Soft as a Cloud](#)  
@@ -9387,6 +7921,57 @@ It started as a project to unify all Cloud + DevOps Pentest and Security Techniq
 ### [NetRipper: Smart Traffic Sniffing for PenetrationTesters](#)  
 ![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming](https://img.shields.io/badge/Category-Red--Teaming-gray)  
 NetRipper is a post-exploitation tool targeting Windows systems which uses API hooking in order to intercept network traffic. It also uses encryption-related functions from a low privileged user, making it able to capture both plain-text traffic and encrypted traffic before encryption/after decryption.
+
+
+### [NovAttack](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming](https://img.shields.io/badge/Category-Red--Teaming-gray)  
+The NovAttack platform requires minimal setup time and few resources to implement. We love open source. So NovAttack is open source, it will remain open source.
+
+NovAttack simulates real cyber attacks, focusing on the following attack categories.
+
+Features / Test Capabilities
+
+- IPS / IDS / Firewall
+- Malware Download
+- Content Filtering
+- DLP (Data Loss Protection)
+- WAF (Web Application Firewall) (New)
+
+How does NovAttack work?
+
+NovAttack advocates the open source philosophy. Uses the capabilities of PHP and libraries. All communication is prepared with API.
+
+NovAttack simulates cyber attacks with its point-to-point connection. Thus, it reduces the amount of false positive. Attack vectors in it can be edited and updated.
+
+- NovAttack simulates web-based attacks.
+- You can provide continuous cyber attack simulation by adding current malware to NovAttack.
+- You can develop DLP vectors specific to your organization, such as credit card leak). NovAttack provides continuous analysis for you.
+- You can test your institution's content or URL filter.
+
+
+### [NovAttack: Cyber Attack Simulation for Perimeter Security](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming](https://img.shields.io/badge/Category-Red--Teaming-gray)  
+The NovAttack platform requires minimal setup time and few resources to implement. We love open source. So NovAttack is open source, it will remain open source.
+
+NovAttack simulates real cyber attacks, focusing on the following attack categories.
+
+### Features / Test Capabilities
+
+- IPS / IDS / Firewall
+- Malware Download
+- Content Filtering
+- DLP (Data Loss Protection)
+- WAF (Web Application Firewall) / Roadmap
+
+### How does NovAttack work?
+
+NovAttack advocates the open source philosophy. Uses the capabilities of python and libraries. All communication is prepared with API.
+
+NovAttack simulates cyber attacks with its point-to-point connection. Thus, it reduces the amount of false positive. Attack vectors in it can be edited and updated.
+
+- You can provide continuous cyber attack simulation by adding current malware to NovAttack.
+- You can develop DLP vectors specific to your organization, such as credit card leak). NovAttack provides continuous analysis for you.
+- You can test your institution's content or URL filter.
 
 
 ### [OMLASP - Open Machine Learning Application Security Project](#)  
@@ -9401,6 +7986,20 @@ Generally, when deploying applications that use Machine Learning or Deep Learnin
 ### [OWASP Nettacker (Updated - More in-depth Demo)](#)  
 ![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming](https://img.shields.io/badge/Category-Red--Teaming-gray)  
 Nettacker project was created to automate for information gathering, vulnerability scanning and eventually generating a report for networks, including services, bugs, vulnerabilities, misconfigurations, and information. This software is able to use SYN, ACK, TCP, ICMP and many other protocols to detect and bypass the Firewalls/IDS/IPS and devices. By using a unique solution in Nettacker to find protected services such as SCADA, we could make a point to be one of the bests of scanners.
+
+
+### [OWASP Nettacker: Automated Penetration Testing Framework](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming](https://img.shields.io/badge/Category-Red--Teaming-gray)  
+OWASP Nettacker project is created to automate information gathering, vulnerability scanning and eventually generating a report for networks, including services, bugs, vulnerabilities, misconfigurations, and other information. This software will utilize TCP SYN, ACK, ICMP and many other protocols in order to detect and bypass Firewall/IDS/IPS devices. By leveraging a unique method in OWASP Nettacker for discovering protected services and devices such as SCADA. It would make a competitive edge compared to other scanner making it one of the bests.
+
+
+### [OWFuzz: WiFi Protocol Fuzzing Tool Based on OpenWiFi](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming](https://img.shields.io/badge/Category-Red--Teaming-gray)  
+Generally, when using WiFi Fuzzing Tool to test the security of WiFi protocol, you need a WiFi USB dongle that supports monitor mode and set the WiFi USB dongle to monitor mode to listen and inject arbitrary WiFi frames. However, many WiFi USB dongles fail to meet our expectations. For example, some are not stable enough in monitor mode and often get stuck, which leads to the interruption of the fuzzing process. And some, we don't have complete control over some frame fields.
+
+OWFuzz is a WiFi protocol testing tool using OpenWiFi. OpenWiFi is an open-source WiFi protocol stack based on SDR that is fully compatible with Linux mac80211. It's driver takes advantage of the Linux kernel's supports (mac80211, cfg80211) for WiFi high MAC, so it can provide an interface to the application layer like a common WiFi USB dongle. In The hardware part, CSMA/CA protocol and other functions of WiFi low MAC layer are implemented on FPGA. It supports monitoring and injection of arbitrary WiFi frames，The application layer software can also directly communicate with the OpenWiFi driver/FPGA/RF underlying functions through nl80211, which provides users with great autonomous and controllable ability. OWFuzz is the first to use OpenWiFi platform (Xilinx ZC706 dev board + FMCOMMS3) to implements a WiFi protocol fuzzing test framework, which supports the fuzzing test of all WiFi frames and the interactivity testing of WiFi protocols.
+
+This research introduces a comprehensive overview of the OWFuzz. We will introduce its architecture, implementation (arbitrary frame and protocol interactivity fuzzing test), and how it works. And finally we will have a video demonstration.
 
 
 ### [Octopus: Pre-operation C2 Server](#)  
@@ -9471,6 +8070,13 @@ The tool presented and views expressed are solely our own and do not express the
 When developing exploits for complex platforms, finding function relationships between dynamically compiled binaries and its libraries, and representing them in a Graph Database, we can quickly identify exploitation points. In this presentation, I'll discuss Graphs, Binary Relationships and Vulnerable Functions.
 
 
+### [Pentest Collaboration Framework](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming](https://img.shields.io/badge/Category-Red--Teaming-gray)  
+Pentest Collaboration Framework - An opensource, cross-platform and portable toolkit that allows you to exchange information on the penetration testing process. It also contains a model of differentiation of rights for use by several teams or independent researchers.
+
+One of latest major updates from previous Black Hat conference is a new feature - issue templates library which allow pentesters to create issues much more faster!
+
+
 ### [Phishmonger: Welcome to the Phish Market](#)  
 ![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming](https://img.shields.io/badge/Category-Red--Teaming-gray)  
 None
@@ -9535,6 +8141,15 @@ On successful authentication on a Windows machine, backdoor triggers the keystro
 Target system can be identified using attachments naming convention which is Computer name followed by the timestamp. The backdoor Python file can be converted into an executable using Pyinstaller. During demo, I would also walk through a number of defence mechanisms to detect stealthy backdoors using publicly available tools such as Sysinternals from Microsoft.
 
 
+### [PowerUpSQL: A PowerShell Toolkit for Attacking SQL Serversin Enterprise Environments](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming](https://img.shields.io/badge/Category-Red--Teaming-gray)  
+PowerUpSQL includes functions that support SQL Server discovery, weak configuration auditing, privilege escalation on scale, and post exploitation actions such as OS command execution. It is intended to be used during internal penetration tests and red team engagements. However, PowerUpSQL also includes many functions that can be used by administrators to quickly inventory the SQL Servers in their ADS domain and perform common threat hunting tasks related to SQL Server. This should be interesting to red, blue, and purple teams interested in automating day to day tasks involving SQL Server.
+
+Source Code: https://github.com/netspi/powerupsql
+Slides: https://bit.ly/2OxbGYy﻿
+Video: https://youtu.be/UX_tBJQtqW0
+
+
 ### [Powerglot: Encoding offensive scripts using polyglots for stego-malware, privilege escalation & lateral movement](#)  
 ![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming](https://img.shields.io/badge/Category-Red--Teaming-gray)  
 In red-team exercises or offensive tasks, masking of payloads is usually done by using steganography, especially to avoid network level protections, being one of the most common payloads scripts developed in powershell. Recent malware and APTs make use of some of these capabilities: APT32, APT37, Ursnif, Powload, LightNeuron/Turla, Platinum APT, Waterbug/Turla, Lokibot, The dukes (operation Ghost), Titanium, etc. But offensive tools based on steganography need a loader to run the payload. Powerglot tries to reduce this exposition using polyglots in several scenarios.
@@ -9542,14 +8157,6 @@ In red-team exercises or offensive tasks, masking of payloads is usually done by
 Powerglot is a multifunctional and multi-platform attack and defense tool based on polyglots. Powerglot allows to mask a script (powershell, shellscripting, php, ...) mainly in a digital image, although other file formats are in progress. Unlike the usual offensive tools or malware, Powerglot does not need any loader to execute the "information hidden", minimizing the noise on the target system.
 
 PowerGlot has a clear utility in offensive tasks but it is also defined as a discovery and blue team tool. To our knowledge, it is the first general and complete open-source tool that allows to search for the presence of masked information with polyglots, information that could be useful to achieve persistence in a system or to hide malware (stego-malware, privilege escalation, lateral movement, reverse shell, etc.)
-
-
-### [Puppet Fuzz: Discovering Critical Kernel Vulnerabilities with Innovative Approach](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming](https://img.shields.io/badge/Category-Red--Teaming-gray)  
-Internet of Things (IoT) devices have become an integral part of our lives, but their security vulnerabilities pose a significant risk to our privacy and security. While previous research has focused on user space components of embedded firmware, we have discovered that kernel vulnerabilities in these complex devices are particularly high-risk, potentially leading to full system compromise.
-Kernel modules are typically tightly bound to the kernel, but because different IoT devices use different kernel versions and compile options, it is difficult to load them correctly in other simulated environments. However, true device-based fuzz testing is very time-consuming and resource-intensive. Additionally, unlike user-level programs, kernel-level programs require a device reboot after every crash, which further limits the development of IoT kernel fuzz testing.
-To address these challenges, we propose a novel approach that abstracts closed-source kernel modules code to execute on a stable Linux kernel environment that we have constructed by using our aspect oriented system. This platform allows us to transfer library function calls and stack management, enabling us to detect kernel-level vulnerabilities that were previously difficult to identify. In addition, due to our front-end and back-end separation design, the platform can easily support IoT drivers of multiple architectures. Our approach has enabled us to discover a multitude of issues across devices from top manufacturers such as Netgear, Cisco, Asus, HP,TPLink,DLink and Western Digital etc.
-In this talk, we will show our method and present one such universal kernel hardware module vulnerability, demonstrating how we were able to exploit a kernel driver vulnerability to achieve remote command execution on the device. Our platform provides a replicable and stable environment that forms the basis for efficient and effective kernel fuzz testing, ultimately improving the security of IoT devices and protecting the privacy of their users.
 
 
 ### [PyExfil: A Python Data Exfiltration Package](#)  
@@ -9608,6 +8215,11 @@ None
 None
 
 
+### [Rate Unlimiter](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming](https://img.shields.io/badge/Category-Red--Teaming-gray)  
+None
+
+
 ### [Red Kube](#)  
 ![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming](https://img.shields.io/badge/Category-Red--Teaming-gray)  
 Red Kube is a red team cheat sheet based on kubectl commands to Asses the Kubernetes Cluster Security Posture.
@@ -9633,9 +8245,37 @@ Remove-Signature aims to automate this process by identifying the signatures in 
 The use of Remove-Signature can help to reduce the workload of red team operators and allow them to focus on other aspects of the red team engagement.
 
 
+### [Route53Sweep: Empowering AWS Route53 Security with Automated Scanning & Comprehensive Inventory Management](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming](https://img.shields.io/badge/Category-Red--Teaming-gray)  
+Route53Sweep uses the AWS Route53 service to improve the management of Route53 security providing a innovative solution to DNS Security. AWS Route53-managed resources like domains, subdomains, DNS records, and related services are all secured and protected by this, which also adopts a comprehensive approach to DNS security management. Organizations can easily track changes to their AWS Route53 resources with Route53Sweep, as well as automate procedures for scanning public IPs and fixing them. Organizations can increase their security and dependability with Route53Sweep, freeing them up to concentrate on other important business operations.
+
+Key Topics:
+
+Addressing the Urgent Need: We investigate the escalating security issues surrounding AWS Route53 and the necessity of specialized scanning software like Route53Sweep. To protect organizations from potential threats, we emphasize the value of ongoing monitoring and keeping a complete inventory of Route53 assets.
+
+Route53Sweep Unleashed: Learn more about our cutting-edge tool's inner workings and how it effectively makes use of a variety of open source tools such as the Nuclei engine, Anew, Httpx, and Notify. The combination of these open-source components with Route53Sweep improves vulnerability scanning capabilities and makes asset discovery and monitoring in real time easier.
+
+A Unique Approach: We are proud of our "Desi Jugaad" spirit, which embodies ingenuity and resourcefulness. This idea is embodied by Route53Sweep, which offers an unusual but effective way to automate AWS Route53 security management. Our tool ensures user friendliness while streamlining scanning, automating inventory management, and reducing common security issues.
+
+Mitigating Critical Security Issues: Learn how Route53Sweep handles important security issues like NXDomain, Subdomain Takeovers & External Vulnerability Scanning. We demonstrate how our tool enables businesses to proactively address these issues and fortify their security defenses.
+
+Real-Time Alerting with Slack: Take a glimpse at the power of Slack integration, which enables real-time alerting for discovered assets and vulnerabilities. Organizations are kept informed and ready to act quickly in case of threats thanks to Route53Sweep.
+
+Live Demonstration: It presents a interactive, live demonstration of Route53Sweep in use. Discover how the tool manages AWS Route53 assets, identifies vulnerabilities, and performs all of these tasks in a simple and effective way.
+
+
 ### [Router Exploit Shovel: Automated Application Generation for Stack Overflow Types on Wireless Routers](#)  
 ![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming](https://img.shields.io/badge/Category-Red--Teaming-gray)  
 Router exploits shovel is an automated application generation tool for stack overflow types on wireless routers. The tool implements the key functions of exploits, it can adapt to the length of the data padding on the stack, generate the ROP chain, generate the encoded shellcode, and finally assemble them into a complete attack code. The user only needs to attach the attack code to the overflow location of the POC to complete the Exploit of the remote code execution. The tool also incorporates live recovery, leaving no trace of attack after the Exploit attack is completed.
+
+
+### [Routopsy: Routing Protocol Vulnerability Analysis and Exploitation](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming](https://img.shields.io/badge/Category-Red--Teaming-gray)  
+Routopsy is a new network attack toolkit that leverages a "virtual router" in a Docker container to scan for and attack various networking protocols and misconfigurations. Vulnerabilities include overly broad configured network statements within routing protocols, unauthenticated or plaintext authentication for protocols such as OSPF and HSRP, and the lack of passive interface usage within routing protocols.
+
+Routopsy was designed in a way that will allow users to trivially perform attacks without requiring extensive networking knowledge. Attacks include the injection of new routes, discovery of new networks and gateway takeover attacks which ultimately could lead to Person-in-the-Middle attacks. Additionally, a fully-fledged router interface is also available for more experienced users and for more advanced attacks.
+
+Internally, Routopsy leverages a "virtual router" which has been around for a number of years, is well maintained and supports a variety of protocols. Once the scan phase of Routopsy is complete a simple configuration is loaded within the virtual router and used to attack the target protocol.
 
 
 ### [SCADAsploit: a Command & Control for OT. How to break an ICS system](#)  
@@ -9647,6 +8287,17 @@ SCADAsploit boasts a robust client/server architecture that ensures seamless com
 
 
 But it is even more than that. Thanks to its flexibility and inherent EDR evasion capability, SCADAsploit is also an effective and powerful tool for traditional IT infrastructures.
+
+
+### [SCAVENGER: A Post-Exploitation Scanning/Mapping Tool](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming](https://img.shields.io/badge/Category-Red--Teaming-gray)  
+SCAVENGER is a multi-threaded post-exploitation scanning tool for mapping systems and finding "interesting" and most frequently used files, folders and services. Once credentials are gained, it can scan remote systems (Linux, Windows and OSX) via services like SMB and SSH to scrape that system looking for "interesting" things and then cache the result. SCAVENGER has the ability to find the newest files that have been accessed/modified/created and keep the result in an ordered database. Then, after time has passed, hours or days later the systems can be scanned again. SCAVENGER can then compare the previous list of "newest files" to the latest list of "newest files." This gives the user the ability to find the "interesting" and most frequently files used on that system, for example password files being accessed by an administrator or heavily used credit card database files.
+
+Whilst looking for "interesting" files, folder and services, SCAVENGER scans these filenames and their content for various "interesting" phrases, for example "password" or "secret." Once detected SCAVENGER then downloads the "interesting" file to the local system. At the same time SCAVENGER also scans for Card Holder Data and also downloads the file if Card Holder Data is found.
+
+Future features will be the addition of services like NFS, FTP and database connections. Also adding more capability of retrieving passwords from remote Linux or Windows systems, without touching to the disk of the remote system. And without reinventing the wheel using SCAVENGER as a wrapper to use on Windows systems performing more post-exploitation techniques.
+
+Source Code: https://github.com/SpiderLabs/scavenger﻿
 
 
 ### [SCMKit: Source Code Management Attack Toolkit](#)  
@@ -9685,6 +8336,25 @@ Based on the results of this research, we developed an open source tool in Pytho
 SILENTTRINITY is an asynchronous post-exploitation agent powered by Python, IronPython, C# and .NET's DLR (Dynamic Language Runtime), it attempts to weaponize and demonstrate the flexibility that BYOI (Bring Your Own Interpreter) payloads have over traditional C# implants. What are BYOI payloads? Turns out, by harnessing the sheer craziness of the .NET framework, you can embed entire interpreters inside of .NET languages allowing you to natively execute scripts written in third-party languages (like Python) on windows! Not only does this allow you to dynamically access all of the .NET API from a scripting language of your choosing, but it also allows you to still remain completely in memory and has a number of advantages over traditional C# payloads! Essentially, BYOI payloads allow you to have all the "power" of PowerShell, without going through PowerShell in anyway! Additionally, you can nest multiple interpreters within each other to perform what I've coined "engine inception"! If you're interested in bleeding-edge and out of the ordinary C#/.NET offensive trade-craft, this is the demo for you!
 
 
+### [SMBeagle](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming](https://img.shields.io/badge/Category-Red--Teaming-gray)  
+SMBeagle is an SMB file share auditing and enumeration tool that rapidly hunts out file shares and inventories their contents. Built from a desire to find poorly protected files, SMBeagle casts the spotlight on files vulnerable to ransomware, watering hole attacks and which may contain sensitive credentials.
+
+SMBeagle hunts out all files it can see in the network and reports if the file can be read and/or written. All these findings are streamed out to either a CSV file or an elasticsearch host?
+
+Businesses of all sizes often have file shares with awful file permissions.
+
+Large businesses have sprawling file shares and its common to find sensitive data with misconfigured permissions and small businesses often have a small NAS in the corner of the office with no restrictions at all!
+
+SMBeagle crawls these shares and lists out all the files it can read and write. If it can read them, so can ransomware.
+
+SMBeagle can provide penetration testers with the less obvious routes to escalate privileges and move laterally.
+
+By outputting directly into elasticsearch, testers can quickly find readable scripts and writeable executables.
+
+Finding watering hole attacks and unprotected passwords never felt so easy!
+
+
 ### [SMERSH](#)  
 ![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming](https://img.shields.io/badge/Category-Red--Teaming-gray)  
 It's a collaborative open source tool to manage pentest campaigns.
@@ -9703,6 +8373,18 @@ SSHoRTY is a Linux/MacOS implant attempting to alleviate the challenges Red Team
 A lot of the initial steps in black box penetration testing involve information gathering using techniques such as port scanning. This information is then usually used for OSINT such as searching for known vulnerabilities for the found services and versions. Next steps often include searching for exploits for the found vulnerabilities. This process is inconvenient as it is often both labor and time intensive, both of which can often be a limiting factor for an engagement.
 Scanhanced solves this by providing an easy command line interface that can then perform the previously mentioned steps automatically, reducing both labor and time needed to minutes. It will perform a port scan, and then using that information attempt to find vulnerabilities and search community resources for exploits. Additionally, Scanhanced provides additional features such as identifying whether a given exploit is available in existing exploit frameworks, being able to download exploits, or download the vulnerable apps in question. Moreover, Scanhanced can produce output in JSON, XML, or CSV for use in further automation or ingestion into another tool if so desired.
 This entire process in addition to more complex functionality can be performed with an easy to use command and flags, saving pentesters time and from having to do tedious work.
+
+
+### [Scapy: Python-Based Interactive Packet Manipulation Program + Library](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming](https://img.shields.io/badge/Category-Red--Teaming-gray)  
+Scapy (https://github.com/secdev/scapy) is a renowned packet manipulation tool written in Python that supports a wide number of protocols on many different platforms (Linux, macOS, *BSD, and Windows). Initially developed by Philippe Biondi since 2003, it is now maintained by Guillaume Valadon, Pierre Lalet and Gabriel Potter. While the existence of this tool is well-known, its grip is much less, to the community's detriment. This presentation aims at filling this gap using practical and detailed examples.
+
+
+### [SecScanC2 -- Manage Assesment to Create P2P Network for Security Scanning & C2](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming](https://img.shields.io/badge/Category-Red--Teaming-gray)  
+In the realm of security attack and defense, as well as penetration testing, two key challenges often arise. Firstly, attack scanning is frequently detected by defensive security systems, resulting in the scanning IP being blocked. Secondly, when defensive assets are controlled and connected back to the command and control (C2) server, security devices may detect the connection, leading to countermeasures against penetration testers. To address these challenges and enable safe, efficient asset detection and secure connections to controlled assets, we have enhanced the Kademlia protocol and developed a Distributed Hash Table (DHT) technology.
+
+Our hacking tool is highly effective during attack scanning, consisting of a large number of Internet nodes that dynamically update IDs and node tree structures at regular intervals. This approach allows each session to initiate requests from different nodes during the scanning process, thus avoiding IP blocking due to high-frequency scanning. Moreover, when connecting controlled assets back to the C2 server, nodes are randomly selected based on a user-defined hop count, effectively preventing penetration testers from being traced and significantly enhancing the stealthiness of the entire penetration testing process.
 
 
 ### [Secureworks® Primary Refresh Token (PRT) viewer](#)  
@@ -9724,6 +8406,18 @@ The release of SharpSCCM 2.0 includes new functionality to execute arbitrary com
 This session will include demonstrations of multiple techniques that can be used to take over an SCCM site, dump credentials from an SCCM client, execute arbitrary commands on remote SCCM clients, and coerce NTLM authentication from remote SCCM clients and servers.
 
 Each demo will be followed by practical recommendations for mitigating these attacks and Q&A.
+
+
+### [SharpSCCM](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming](https://img.shields.io/badge/Category-Red--Teaming-gray)  
+SharpSCCM is an open-source C# utility for interacting with SCCM, inspired by the PowerSCCM project by @harmj0y, @jaredcatkinson, @enigma0x3, and @mattifestation. This tool can be used to demonstrate the impact of configuring SCCM without the recommended security settings, which can be found here: https://docs.microsoft.com/en-us/mem/configmgr/core/clients/deploy/plan/security-and-privacy-for-clients
+
+Currently, SharpSCCM supports the NTLMv2 coercion attack techniques noted in this post (https://posts.specterops.io/coercing-ntlm-authentication-from-sccm-e6e23ea8260a), as well as the attack techniques noted in this post (https://enigma0x3.net/2016/02/29/offensive-operations-with-powersccm/), which have been modified to coerce NTLMv2 authentication rather than running PowerShell on the target. SharpSCCM can also be used to dump information about the SCCM environment from a client, including the plaintext credentials for Network Access Accounts.
+
+Research is ongoing to add SharpSCCM features to:
+- pull and decrypt Network Access Account credentials from SCCM servers using a low-privileged account on any client machine
+- execute actions in SCCM environments that require PKI certificates to secure client/server communications
+- escalate privileges from local administrator on site servers to SCCM Full Administrator
 
 
 ### [SharpToken: Windows Token Stealing Expert](#)  
@@ -9778,6 +8472,28 @@ This technique will dynamically create an invisible machine account with custom 
 To show its effectiveness, the attack is going to be demonstrated against the latest Windows version available.
 
 
+### [The Air-Gap Malware of X-Sploit](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming](https://img.shields.io/badge/Category-Red--Teaming-gray)  
+X-Sploit is a Linux-based Red-Teaming-Toolkit for IT security experts and geeks. In this presentation, we will introduce a physical penetration tip, the Air-gap malware in X-Sploit Toolkit. The victim device's hardware adapter could be controlled and used for backdoor data transmission without interfering with the target's existing connection status and communication.
+
+
+Advantage:
+Cross-platform support (Windows, Mac OS, Linux)
+Bypass Firewall/IDS/IPS
+No signature, more difficult to detect
+Used in isolate network environment attack
+Does not affect the victim's existing connection status and communication
+
+
+### [The Grinder Framework - Bringing Light to the Shodan](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming](https://img.shields.io/badge/Category-Red--Teaming-gray)  
+The security-related search engines like Shodan, Censys or ZoomEye are daily cybersecurity research tools. They can be used to gather information within threat Intelligence, discover vulnerable hosts, craft fingerprints for vulnerability scanners. At the same time, such search engines have some fundamental limitations and constraints leading to blind spots, false negatives and wrong results. It is very disappointing, especially when new research has been started and the cost of a mistake could be days or even weeks spent in the wrong direction.
+
+The Grinder Framework is an open-source security research toolkit adopted to Internet-wide surveys and allows you to use the full power of tools like Nmap, Shodan, Censys, Vulners, TLS-attacker and bringing the light through tailored scanning and threat intelligence approach. The Grinder was born in the SD-WAN New Hope project when we explored SD-WAN security on the Internet.
+
+In this talk, we will describe the essence of the Grinder framework and show how you can employ it in your security researches. We will consider the blind spots of the modern search engines, describe non-trivial use cases we worked out during our Internet-scale surveys and illustrate new features by examples from the SD-WAN New Hope, AIsec and DICOMSec projects.
+
+
 ### [The Metasploit Framework's Payload Improvements](#)  
 ![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming](https://img.shields.io/badge/Category-Red--Teaming-gray)  
 Memory corruption vulnerabilities are becoming less common than their more reliable command execution counterparts. In the last year, two-thirds of the exploits Metasploit released resulted in OS command execution in some way as opposed to direct execution of injected code. Metasploit has made multiple improvements to its command payloads to keep pace with these exploitation trends. These updates make it easier for module authors to deliver a wider variety of second-stage payloads and grant users greater flexibility in selecting their delivery mechanism.
@@ -9818,17 +8534,6 @@ This exploitation framework also helps teams within organizations to do red team
 ThunderCloud version 2 will now support GCP and Azure exploitation. Additionally will be releasing an open source "CLOUD OFFENSIVE" gitbook along with the same
 
 
-### [Thunderstorm: Turning Off the Lights in Your Data Center](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming](https://img.shields.io/badge/Category-Red--Teaming-gray)  
-One of the main premises of any IT installation, is to protect the entire infrastructure against possible failures. In addition to firewalls and other network elements, one of the vital points is the electrical system.
-
-Thanks to uninterruptible power supplies (UPS), it is possible to cover and manage these issues economically. The main problem, is that many of these systems inherit the same bugs as other IoT devices, which makes them vulnerable to all kinds of attacks.
-
-In this presentation, we will explain how it has been possible to develop different zero-day vulnerabilities thanks to social engineering, some investment, and a bit of common sense. Among other things, these flaws would make it possible to compromise the electrical system of an office or even that of a Data Center.
-
-Since these devices share common components, it would be possible to obtain remote code execution (with the highest possible privileges) and/or denial of service on more than 100 different manufacturers. Moreover, all of this has been automated in a single framework, making it possible to detect and exploit these vulnerabilities easily, simply and fully automatically.
-
-
 ### [Tool Aids in Monitoring Dynamic Scanning](#)  
 ![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming](https://img.shields.io/badge/Category-Red--Teaming-gray)  
 Antivirus software, as one of the important tools to protect computer security, its detection technology is also constantly developing. At the same time, penetration testing and malicious attacks have become more difficult. The core principle of our newly developed network security tool is to load the security software to be used into memory and relocate all import function tables (IAT) to a middle code area, so that it can continue to run without being killed. When each external function is referenced, it will jump to the middle stub function and retain the call information. If our security tool is killed by antivirus software, we can easily find the detection point of antivirus software based on the call information. Our security tool can detect its scanning rules in real time while antivirus software is running, so as to help you understand the behavior and rules of antivirus software. Our tool can detect antivirus software without disrupting its normal work, so as to help you better understand the behavior and rules of antivirus software.
@@ -9865,6 +8570,50 @@ The following modules are currently available:
 1. IAM Enumeration
 2. S3 Scanner
 - Misconfiguration
+
+
+### [WIG: Wi-Fi Information Gathering](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming](https://img.shields.io/badge/Category-Red--Teaming-gray)  
+WIG (Wi-Fi Information Gathering) is a free and open source (GPLv3) utility for IEEE 802.11 device fingerprinting. WIG uses Wi-Fi network interfaces that supports monitor mode to obtain information on nearby devices with Wi-Fi support. The tool supports vendors proprietary protocols such as Apple AirDrop/AirPlay, Cisco Client eXtensions, Wi-Fi Protected Setup (WPS) and Wi-Fi Direct. Using these protocols the tool is able to find and fingerprint potential Wi-Fi targets that other tools are not able to find. The tool output it's useful on the threat modeling phase during wi-fi penetration testing or to find potential targets during a network assessment.
+
+
+### [WMIHacker: A New Way to Use 135 Port Lateral Movement Bypass AV and Transfer File](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming](https://img.shields.io/badge/Category-Red--Teaming-gray)  
+After the eternal blue virus flood, most intranets no longer open port 445, so the 135-port DCOM service becomes another exploitable point. We need a tool or method that can use 135 ports to execute commands and the Ability to transfer files. WMIHacker is such a tool and can bypass av.
+
+Remote command execution tools such as psexec (sysinternals) and wmiexec (impacket) are frequently used during lateral movement. However, these tools will be killed by anti-virus software and the command executed will fail. Psexec will create services and leaves a lot of logs, including a lot of operations such as service creation. The way win32_process.create used by wmiexec.py will no doubt be blocked by AV. I found a new way to execute commands on a machine with an AV and can overwrite window2003 to the latest version of windows. Because I use VBScript to run it. There is no doubt that someone is studying the same content as I did. I found that there are many ways to execute on the internet, including deriving win32_process, registering COM and making it as a malicious provider, msi abuse, etc., but these known ways of using Being intercepted by av.
+
+
+### [WMImplant: An Offensive Use Case of WMI](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming](https://img.shields.io/badge/Category-Red--Teaming-gray)  
+When looking forward to the latest defenses that are being seen in environments all over the world today, we're consistently seeing EDR, "Next-Gen AV", and application whitelisting. Of the available defenses, application whitelisting seemed like the most interesting challenge to undertake. We wanted to build something that would work against one of the best application whitelisting solutions from a detection/prevention perspective, Windows Defender Application Control (WDAC), previously known as Device Guard.
+
+WDAC aims to lock down Windows workstations via multiple methods, one example is digital signature based rule enforcement when determining if an application is allowed to execute. Another, is that WDAC automatically enforces PowerShell into Constrained Language Mode (CLM), a severely restricted version of PowerShell. So how can you operate in a restricted WDAC environment?
+
+WMImplant is one possible answer. Why not leverage a service that is built in to Windows and enabled by default since the days of Windows Server 2000? Windows Management Instrumentation (WMI) enables us to execute commands on systems, remotely and locally. WIth the enforcement of PowerShell Constrained Langauge Mode (CLM), our PowerShell based code had to adhere to the restrictions of the language mode. WMImplant is fully PowerShell CLM compliant and is designed to provide a Meterpreter-esque menu for users to easily perform post-exploitation tasks against the targeted system.
+
+Come learn how a CLM compliant code-base designed to operate exclusively over WMI can allow you to survive and thrive in a heavily restricted application whitelisting environment.
+
+
+### [WTS: Scenario-Based WiFi Network Threat Simulation](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming](https://img.shields.io/badge/Category-Red--Teaming-gray)  
+The WiFi Network Threat Simulation project is designed to perform scenario-based wifi network security tests. Thanks to the modules inside, you can test both the user and AP devices as well as the wireless IDS and IPS devices.
+
+
+### [WarBerryPi - ARSENAL THEATER DEMO](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming](https://img.shields.io/badge/Category-Red--Teaming-gray)  
+WarBerryPi was built to be used as a hardware implant during red teaming scenarios where we want to obtain as much information as possible in a short period of time while being as stealthy as possible. The WarBerryPi also includes an intuitive interactive reporting module for viewing the results of each red teaming engagement.
+
+
+### [When World War II meets CDNs: A New Class of Pulsing DDoS Attack](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming](https://img.shields.io/badge/Category-Red--Teaming-gray)  
+Content Delivery Networks (CDNs) are commonly believed to offer their customers protection against denial of service (DoS) attacks. However, our research reveals a novel architecture vulnerability in CDNs, enabling attackers to turn globally distributed CDN Infrastructure into powerful DDoS amplifiers.
+
+In this talk, we draw the analogy to a military tactic used in World War II and introduce a new class of pulsing denial-of-service attacks. We demonstrate how CDNs can be exploited to concentrate low-rate attacking requests into short, high-bandwidth pulse waves, resulting in a pulsing DDoS attack to saturate targeted TCP services periodically.
+
+We tested five leading CDN vendors and found all of them are susceptible to this attack. By mounting an attack against our own Web site, we show that attackers can use it to achieve peak bandwidths over 1000 times greater than their upload bandwidth, seriously degrading the performance and availability of target services. We have reported our findings to all tested CDNs and received positive feedback.
+
+As this problem is rooted in the inherent nature of CDN forwarding networks, it is difficult to eliminate entirely. We discuss possible mitigation strategies for this emerging threat. We believe it is important that CDN operators and their customers be aware of this attack so that they can protect themselves accordingly.
 
 
 ### [WhiskeySAML and Friends](#)  
@@ -9941,6 +8690,16 @@ The shell is downloaded directly to memory giving access to many pentesting feat
 In addition, iBombShell allows a second way of execution called Silently. Using this execution way, an iBombShell instance (called warrior) can be launched. When the Warrior is executed over a compromised machine, it will connect to a C2 through the http protocol. From the C2, written in Python, a warrior can be controlled to dynamically load functions to the memory and to offer pentesting remote execution functionalities. All those steps are part of the post-exploitation phase.
 
 
+### [on the fly](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming](https://img.shields.io/badge/Category-Red--Teaming-gray)  
+The 'on-the-fly' tool intends to give the pentester an 'all-in-one' tool by deploying different functionalities applicable across the three domains of work: IoT, ICS & IT. The present work introduces a new framework in which enough functionalities will be provided to discover, evaluate, and audit technologies from the three mentioned domains.
+
+
+### [peetch - an eBPF based networking tool](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming](https://img.shields.io/badge/Category-Red--Teaming-gray)  
+peetch is a collection of tools aimed at experimenting with different aspects of eBPF to bypass TLS protocol protections.
+
+
 ### [pstf^2: Link Scanners Evasion Made Easy](#)  
 ![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming](https://img.shields.io/badge/Category-Red--Teaming-gray)  
 Link scanners are a critical component in many essential security products, checking whether a URL is malicious or not. It is embedded within email security products, sandbox solutions and as a standalone direct link scanner.
@@ -9959,618 +8718,1361 @@ tty2web can take any console program and convert it into a web application. It p
 
 ---
 
-## Network & Recon
+## Red Teaming / AppSec
 
 
-### [ADRecon: Active Directory Recon](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Network--&--Recon](https://img.shields.io/badge/Category-Network--&--Recon-gray)  
-ADRecon is a tool which extracts various artifacts (as highlighted below) out of an AD environment in a specially formatted Microsoft Excel report that includes summary views with metrics to facilitate analysis. The report can provide a holistic picture of the current state of the target AD environment. The tool is useful to various classes of security professionals like system administrators, security professionals, DFIR, etc. It can also be an invaluable post-exploitation tool for a penetration tester. It can be run from any workstation that is connected to the environment, even hosts that are not domain members. Furthermore, the tool can be executed in the context of a non-privileged (i.e. standard domain user) accounts. Fine Grained Password Policy, LAPS and BitLocker may require Privileged user accounts. The tool will use Microsoft Remote Server Administration Tools (RSAT) if available, otherwise it will communicate with the Domain Controller using LDAP.
+### [AARDVARK AND REPOKID](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--AppSec](https://img.shields.io/badge/Category-Red--Teaming--/--AppSec-gray)  
+Amazon AWS provides a tool called "Access Advisor" that shows unused permissions for a given IAM role. Access advisor data can be very valuable for security practitioners as it shows unused permissions that can be removed to harden the environment and promote least privilege best practices.
 
-The following information is gathered by the tool: Forest; Domain; Trusts; Sites; Subnets; Default Password Policy; Fine Grained Password Policy (if implemented); Domain Controllers, SMB versions, whether SMB Signing is supported and FSMO roles; Users and their attributes; Service Principal Names (SPNs); Groups and memberships; Organizational Units (OUs); ACLs for the Domain, OUs, Root Containers and GroupPolicy objects; Group Policy Object details; DNS Zones and Records; Printers; Computers and their attributes; LAPS passwords (if implemented); BitLocker Recovery Keys (if implemented); and GPOReport (requires RSAT).
+In the past retrieving Access Advisor information and reclaiming unused permissions has been a tedious and manual process involving logging in to the console and making changes by hand. Aardvark and Repokid are two complementary tools that make this process easy and automatable. Aardvark automatically retrieves access advisor for all roles in all accounts in your environment and exposes it as a queryable API. Repokid uses data presented by Aardvark to enable automatic role right-sizing.
 
-Available at https://github.com/sense-of-security/ADRecon
-
-
-### [Afterimage: Evading Traditional IOC Blocking](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Network--&--Recon](https://img.shields.io/badge/Category-Network--&--Recon-gray)  
-Malicious IP addresses are critical indicators of cyber threats, and blocking these addresses is a standard practice during network forensics and incident response. Current solutions for maintaining anonymity, such as Tor nodes and botnets, have proven to be either compromised or illegal, thus posing challenges for legitimate red team exercises. In response to this growing demand for an effective solution, we have developed Afterimage, a novel application that enables attackers to enumerate and attack from multiple IP addresses without requiring the infrastructure of a botnet and with minimal time and effort.
-
-Afterimage operates as an intermediary, accepting malicious traffic from an attacker through an open port, forwarding it to a proxy, and ultimately to the victim. If the proxy's IP is blocked, the application automatically cycles to another proxy to continue sending traffic. This process is more efficient and secure than existing methods such as VPNs, which are often monitored and costly, or compromised solutions like Tor nodes and botnets.
-
-Our proposed solution, written in Python, is designed for deployment on remote servers, enabling multiple attackers to connect simultaneously. This unique approach to IP address cycling addresses key challenges faced during red team exercises, providing a more secure and effective solution for cyber security testing. By leveraging Afterimage, blue teams and SOCs can enhance their incident response capabilities and improve their overall cyber defense strategies.
+Used together, Aardvark and Repokid can ensure roles retain only the necessary privileges, even in large dynamic AWS deployments.
 
 
-### [Armory](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Network--&--Recon](https://img.shields.io/badge/Category-Network--&--Recon-gray)  
-Armory is a tool designed to run various existing tools, collating all of the output into a local database, and using that information for further attacks. It is extremely modular, and it is pretty easy to create custom modules and reports. Armory's purpose is to streamline client discovery and external penetration tests.
+### [ADA: Android Dynamic Analysis Tool](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--AppSec](https://img.shields.io/badge/Category-Red--Teaming--/--AppSec-gray)  
+ADA analyzes the dynamic behavior of an Android application in runtime. ADA discovers the attack surface that is not shown during the static analysis and performs a rapid vulnerability assessment of the application.
+
+ADA discovers the best attack path to follow to compromise the application. The automated dynamic analysis is focused on discovering the security measures implemented in the application. In this way, ADA shows the best attack path to compromise the application. Some of the features that ADA detects are whether the application uses certificate pinning, JNI libraries, SQL database discovery, KeyStores identification, hardware-backed KeyStore (TEE), etc.
 
 
-### [BLOODHOUND 1.3 - ARSENAL THEATER DEMO](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Network--&--Recon](https://img.shields.io/badge/Category-Network--&--Recon-gray)  
-Released on-stage at DEF CON 24 last year, BloodHound fundamentally changed the way penetration testers and red teamers approach escalating rights in Active Directory domains. By combining the concepts of derivative local admin and graph theory, coupled with a powerful data ingestion and front-end analysis capability, BloodHound simplified the tedious, repetitive task of escalating rights, saving days, weeks, and sometimes months of manual processing.
+### [AISY: A Framework for Deep Learning-Based Side-Channel Analysis](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--AppSec](https://img.shields.io/badge/Category-Red--Teaming--/--AppSec-gray)  
+Profiling side-channel attacks (SCA) allow evaluators to verify the worst-case security scenario of their products. Nowadays, deep learning has become the state-of-the-art method for profiling SCA as deep neural networks show the ability to learn side-channel leakages from protected implementations. While deep learning is a powerful technique for security evaluations, it offers numerous possibilities for neural network configurations and optimization techniques. Selecting the best setup for each evaluated product is far from trivial and requires expertise in SCA and deep learning fields. To improve SCA methods, and at the same time to be able to investigate the resistance of the product to more complex attack scenarios, researchers continuously propose new techniques.
+Unfortunately, several obstacles are making the acceptance of such techniques a challenge. Security evaluators from the industry face difficulties following up on new promising methods. What is more, certification bodies also must be aware of new SCA techniques to issue the certifications. Indeed, one of the main issues is the lack of publicly available, easy-to-use frameworks that allow powerful and reliable side-channel analysis. Moreover, due to the absence of the uniformed evaluation/implementation method, the reproducibility of the outcomes is not easy to ensure.
 
-In 2017, the BloodHound attack graph schema, data ingestor, and front-end were overhauled to provide greater speed, easier analysis, and brand new attack paths never discovered before. By adding object control edges to the attack graph, a brand new attack landscape was unveiled, allowing attackers and defenders to identify attacks which rely solely on Active Directory object manipulation. These attack paths require no malware, no pivoting, and can always be executed as long as the attacker can communicate with at least one domain controller. From the defender's perspective, identifying and measuring such attack paths was nigh impossible. Now, defenders can also quickly identify and remediate those same attack paths before an attacker can find and exploit them.
-
-
-### [Badrats: Initial Access Made Easy](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Network--&--Recon](https://img.shields.io/badge/Category-Network--&--Recon-gray)  
-Remote Access Trojans (RATs) are one of the defining tradecraft for identifying an Advanced Persistent Threat. The reason being is that APTs typically leverage custom toolkits for gaining initial access, so they do not risk burning full-featured implants. Badrats takes characteristics from APT Tactics, Techniques, and Procedures (TTPs) and implements them into a custom Command and Control (C2) tool with a focus on initial access and implant flexibility. The key goal is to emulate that modern threat actors avoid loading fully-featured implants unless required, instead opting to use a smaller staged implant.
-
-Badrats implants are written in various languages, each with a similar yet limited feature set. The implants are designed to be small for antivirus evasion and provides multiple methods of loading additional tools, such as shellcode, .NET assemblies, PowerShell, and shell commands on a compromised host. One of the most advanced TTPs that Badrats supports is peer-to-peer communications over SMB to allow implants to communicate through other compromised hosts.
+We propose AISY as a tool to allow state-of-the-art deep learning-based SCA. AISY is a python-based open-source framework, and it provides state-of-the-art functionalities for profiling SCA with easy usage, extensibility, reproducibility, integrated database, and user interface. We envision a system where the user can efficiently run the attacks with few lines of code and based on state-of-the-art but also extend those functionalities to support new developments. AISY supports the complete development cycle for deep learning-based SCA: from dataset preparation to the automated development of new models and their assessment concerning the side-channel metrics.
 
 
-### [Batea: Digging for gold in network data](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Network--&--Recon](https://img.shields.io/badge/Category-Network--&--Recon-gray)  
-Batea is a simple tool that showcases how basic machine learning can help security analysts in their day-to-day operations. It is a context-driven network device ranking framework based on the anomaly detection family of machine learning algorithms. The goal of Batea is to allow security teams to automatically filter interesting network devices in large networks using nmap scan reports. We call those Gold Nuggets. Batea outputs the gold nuggets in order of interest for an attacker given the context of the network.
+### [ART: Adversarial Robustness 360 Toolbox for Machine Learning Models](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--AppSec](https://img.shields.io/badge/Category-Red--Teaming--/--AppSec-gray)  
+Adversarial attacks against machine learning systems have become an indisputable threat. Attackers can compromise the training of machine learning models by injecting malicious data into the training set (so-called poisoning attacks), or by crafting adversarial samples that exploit the blind spots of machine learning models at test time (so-called evasion attacks). These attacks have been demonstrated in a number of different application domains, including malware detection, spam filtering, visual recognition, speech-to-text conversion, and natural language understanding. Devising comprehensive defences against poisoning and evasion attacks by adaptive adversaries is still an open challenge.
 
-The human challenge is, on the one hand, that a typical enterprise network will host thousands of endpoints, far too many for a few security team members to constantly track and evaluate for their "attractiveness" to a potential intruder. On the other hand, the notion of interest is highly context-sensitive.
-
-Batea works by constructing a numerical representation of all devices from your nmap reports (XML) and then applying the Isolation Forest algorithm to uncover the gold nuggets. It is easily extendable by adding specific "features", or interesting characteristics, to the numerical representation of the network elements.
-
-The features act as elements of intuition, and the unsupervised anomaly detection methods allow the context of the device, along with the total description of the network, to be used as the central building block of the ranking algorithm.
-
-Given that we have taken meaningful elements of intuition all at once, the fact that the Isolation Forest algorithm always takes the whole dataset into consideration ensures that the network context is embedded in the ranking used to predict Gold Nuggets.
-
-Pen testers can train the Batea machine learning model from scratch on new network data, or use a model that has been pre-trained on various networks.
+We will present the Adversarial Robustness 360 Toolbox (ART), a library which allows rapid crafting and analysis of both attacks and defense methods for machine learning models. ART provides an implementation for many state-of-the-art methods for attacking and defending machine learning. At Black Hat, we will introduce the major version 1.0, which contains new powerful black-box attacks, support for additional machine learning libraries, as well as new defenses and detectors. Through ART, the attendees will (re)discover how to attack and defend diverse machine learning systems.
 
 
-### [Building Our Nemesis: Fighting Data with Data](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Network--&--Recon](https://img.shields.io/badge/Category-Network--&--Recon-gray)  
-The offensive industry is about exploring what's possible. Part of this is observing and taking lessons from other disciplines that have already solved a myriad of related challenges, from proper software engineering practices to using graph theory for offensive problems. But despite various leaps forward over the last several years, the offensive post-exploitation community has yet to fully embrace data analysis and enrichment pipelines beyond basic log aggregation and searching. If offensive tools were structured for automated processing instead of solely human consumption, we could unify post-ex data to exploit the known (and unknown) relationships within the data our offensive tools emit.
+### [ART: Adversarial Robustness Toolbox for Machine Learning Models](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--AppSec](https://img.shields.io/badge/Category-Red--Teaming--/--AppSec-gray)  
+Adversarial attacks of machine learning systems have become an indisputable threat. Attackers can compromise the training of machine learning models by injecting malicious data into the training set (so-called poisoning attacks) or by crafting adversarial samples that exploit the blind spots of machine learning models at test time (so-called evasion attacks). Adversarial attacks have been demonstrated in a number of different application domains, including malware detection, spam filtering, visual recognition, speech-to-text conversion, and natural language understanding. Devising comprehensive defences against poisoning and evasion attacks by adaptive adversaries is still an open challenge.
 
-Imagine a system that could ingest data from any C2 framework or post-ex tool, and could not just automate common operator tasks like binary analysis for known vulnerabilities and hash extraction and cracking of encrypted documents, but could perform complex offline analysis like host privilege escalation. If we could unify all post-exploitation data from offensive engagements we could improve operator workflows, provide tradecraft assistance, facilitate automation of onerous tasks, and uncover new data-driven research opportunities. A year ago, our team embarked on the development of just such a system, and we are excited to introduce the result of our effort: Nemesis.
-
-
-### [CALDERA: Automating Adversary Emulation](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Network--&--Recon](https://img.shields.io/badge/Category-Network--&--Recon-gray)  
-Adversary emulation is great, but it can be time consuming – so why not automate it? CALDERA automates the adversary emulation process, allowing users to run fully automated adversary emulation exercises, aligning its operations with MITRE ATT&CK. Blue and red teamers alike can use CALDERA for training, to test analytics and defensive tools, and just generally to stress test their networks and systems.
+We will present the Adversarial Robustness Toolbox (ART), a library which allows rapid crafting and analysis of both attacks and defense methods for machine learning models. It provides an implementation for many state-of-the-art methods for attacking and defending machine learning. Through ART, the attendees will (re)discover how to attack and defend machine learning systems.
 
 
-CALDERA was first released in late 2017 featuring its end-to-end “adversary mode” capability, where operators could use CALDERA to run fully end-to-end tests emulating the full adversary lifecycle. This mode allowed CALDERA to run intelligently and autonomously, leveraging a planning system to dynamically compose operations.
+### [Adversarial Robustness Toolbox for Machine Learning Models - ARSENAL THEATER DEMO](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--AppSec](https://img.shields.io/badge/Category-Red--Teaming--/--AppSec-gray)  
+Adversarial attacks of machine learning systems have become an undisputable threat. Attackers can compromise the training of machine learning models by injecting malicious data into the training set (so-called poisoning attacks), or by crafting adversarial samples that exploit the blind spots of machine learning models at test time (so-called evasion attacks). Adversarial attacks have been demonstrated in a number of different application domains, including malware detection, spam filtering, visual recognition, speech-to-text conversion, and natural language understanding. Devising comprehensive defences against poisoning and evasion attacks by adaptive adversaries is still an open challenge.
+
+We will present the Adversarial Robustness Toolbox (ART), a library which allows rapid crafting and analysis of both attacks and defence methods for machine learning models. It provides an implementation for many state-of-the-art methods for attacking and defending machine learning. Through ART, the attendees will (re)discover how to attack and defend machine learning systems.
 
 
-Since this first release, the MITRE team has continued to expand CALDERA’s capabilities, releasing a new “chain mode” in 2019. This new mode allows users much more control over CALDERA, letting them orchestrate and automate atomic unit tests as opposed to end-to-end operations. With more fine-grained control over CALDERA, users can better control their operations to accommodate more use cases, such as testing and refining analytics.
+### [Adversarial Threat Detector](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--AppSec](https://img.shields.io/badge/Category-Red--Teaming--/--AppSec-gray)  
+In recent years, deep learning technology has been developing, and various systems using deep learning are spreading in our society, such as face recognition, security cameras (anomaly detection), and ADAS (Advanced Driver-Assistance Systems).
+
+On the other hand, there are many attacks that exploit vulnerabilities in deep learning algorithms. For example, the Evasion Attacks are an attack that causes the target classifier to misclassify the Adversarial Examples into the class intended by the adversary. The Exfiltration Attacks are an attack that steals the parameters and train data of a target classifier. If your system is vulnerable to these attacks, it can lead to serious incidents such as face recognition being breached, allowing unauthorized intrusion, or information leakage due to inference of train data.
+
+So we released a vulnerability scanner called "Adversarial Threat Detector" (a.k.a. ATD), which automatically detects vulnerabilities in deep learning-based classifiers.
+
+ATD contributes to the security of your classifier by executing the four cycles of "Detecting vulnerabilities (Scanning & Detection)", "Understanding vulnerabilities (Understanding)", "Fixing vulnerabilities (Fix)", and "Check fixed vulnerabilities (Re-Scanning)".
+
+1. Detecting vulnerabilities（Scanning & Detection）
+ATD automatically executes a variety of attacks against the classifier and detects vulnerabilities.
+
+2. Understanding vulnerabilities (Understanding)
+When a vulnerability is detected, ATD will generate a countermeasure report (HTML style) and a replay environment (ipynb style) of the vulnerabilities. Developers can understand the vulnerabilities by referring to the countermeasure report and the replay environment.
+
+3. Fixing vulnerabilities (Fix)
+ATD automatically fixes detected vulnerabilities.
+
+4. Check fixed vulnerabilities (Re-Scanning)
+The ATD checks fixed vulnerabilities of the fixed classifier.
+
+Our "Adversarial Threat Detector" will contribute greatly to keep your safety.
 
 
-This demo will highlight both of CALDERA’s modes, providing demos and guides on how to use CALDERA including how to extend it with new plugins and adding additional tests. CALDERA is open source and can be downloaded off of the MITRE GitHub repository.
+### [ArcherySec - Manage and Automate your Vulnerability Assessment](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--AppSec](https://img.shields.io/badge/Category-Red--Teaming--/--AppSec-gray)  
+ArcherySec is an open-source vulnerability assessment and automation tool which helps developers and pentesters to perform scans and manage vulnerabilities. ArcherySec uses popular open-source tools to perform comprehensive scanning for web applications and networks. It also performs web application dynamic authenticated scanning and covers the whole application by using selenium. The developers can also utilize the tool for the implementation of their DevOps CI/CD environment.
+
+Overview of the tool
+- Perform web and network vulnerability scanning using open-source tools.
+- Correlates and collaborates all raw scans data, shows them in a consolidated manner.
+- Multi-user role-based accounts admin, analyst & viewer
+- Policy-based CI/CD integration
+- Perform authenticated web scanning.
+- Perform web application scanning using selenium.
+- Vulnerability management.
+- Enable REST APIs for developers to perform scanning and vulnerability management.
+- JIRA Ticketing System.
+- Periodic scans.
+- Useful for DevOps teams for vulnerability management.
 
 
-### [Chiron: An Advanced IPv6 Security Assessment and Penetration Testing Framework](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Network--&--Recon](https://img.shields.io/badge/Category-Network--&--Recon-gray)  
-Chiron is an IPv6 Security Assessment Framework, written in Python and employing Scapy. It is comprised of the following modules:
+### [ArcherySec 2.0 - Open Source Vulnerability Assessment and Management](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--AppSec](https://img.shields.io/badge/Category-Red--Teaming--/--AppSec-gray)  
+ArcherySec is an opensource vulnerability assessment and management tool which helps developers and pentesters to perform scans and manage vulnerabilities. ArcherySec uses popular opensource tools to perform comprehensive scanning for web applications and networks. It also supports multiple continuous integrations and continuous delivery software. The developers could utilize this tool for the implementation of vulnerability management in the DevOps CI/CD environment.
 
-• IPv6 Scanner
-• IPv6 Local Link
-• IPv4-to-IPv6 Proxy
-• IPv6 Attack Module
-• IPv6 Proxy
-All the above modules are supported by a common library that allows the creation of completely arbitrary IPv6 header chains, fragmented or not. Suggested host OS: Linux (*BSD may also work).
+- Perform Web and Network Vulnerability Scanning using opensource tools.
+- Correlates and Collaborate all raw scans data, shows them in a consolidated manner.
+- Perform authenticated web scanning.
+- Vulnerability Management.
+- Enable REST API's for developers to perform scanning and Vulnerability Management.
+- JIRA Ticketing System.
+- Sub domain discovery and scanning.
+- Periodic scans.
+- Concurrent scans.
+- Integrate with CI/CD software.
 
-Source Code: https://github.com/aatlasis/Chiron﻿
+
+### [Archery: Open Source Vulnerability Assessment and Management - ARSENAL THEATER DEMO](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--AppSec](https://img.shields.io/badge/Category-Red--Teaming--/--AppSec-gray)  
+Archery is an open-source vulnerability assessment and management tool that helps developers and pentesters to perform scans and manage vulnerabilities. Archery uses popular open-source tools to perform comprehensive scanning for web application and network. It also performs web application dynamic authenticated scanning and covers the whole applications by using selenium. The developers can also utilize the tool for implementation of their DevOps CI/CD environment.
+
+The main capabilities of our Archery include:
+
+Perform Web and Network Vulnerability Scanning using vulnerability scanner tools
+Correlates and Collaborate all raw scans data, show them in a consolidated manner
+Perform authenticated web scanning
+Perform web application scanning using selenium
+Automate your scanners
+Vulnerability Management including Web, Network and Mobile Applications
+Enable REST API's for developers to perform scanning and Vulnerability Management
+Useful for DevOps teams for Vulnerability Management
 
 
-### [Cloud Katana](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Network--&--Recon](https://img.shields.io/badge/Category-Network--&--Recon-gray)  
+### [Artificial Intelligence Phishing Email Detector](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--AppSec](https://img.shields.io/badge/Category-Red--Teaming--/--AppSec-gray)  
+An artificial intelligence-based phishing email detector that analyses emails and its content, vocabulary, sender, subject etc and detects if it's a phishing email even if it was not flagged as one by an email gateway based on the analysis of collection of phishing emails.
+
+
+### [Attack Knowledge Base for Automotive](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--AppSec](https://img.shields.io/badge/Category-Red--Teaming--/--AppSec-gray)  
+Ensuring cybersecurity in the automotive sector is more crucial than ever, especially with the rising intricacies and susceptibilities of vehicle-connected systems. The ISO/SAE 21434 standard serves as a beacon in this endeavor. However, compliance with this standard reveals discernible information disparities across its V-model phases: Concept & Design, Implementation, and Verification & Validation. Addressing these gaps is paramount for cohesive vehicle cybersecurity.
+
+To tackle these hurdles, we introduce the "Attack Knowledge Base for Automotive." Inspired and aligned with the ATT&CK framework, this tool aids in seamless compliance with the ISO/SAE 21434 standard. We will demonstrate its efficacy in delivering a thorough and objective outcome during Threat Analysis and Risk Assessment (TARA). Moreover, it bridges information lacunas across the lifecycle, enabling the red team to synergize insights from earlier stages with our Attack Knowledge Base, ensuring holistic automotive cybersecurity.
+
+
+### [Automatic API Attack Tool](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--AppSec](https://img.shields.io/badge/Category-Red--Teaming--/--AppSec-gray)  
+Imperva's customizable API attack tool takes an API specification as an input, creates and runs attacks which are based on it as an output.
+
+After researching the web, we didn't find an automatic tool which takes an API specification and checks the server offering the service against it. But we saw a high demand for such a tool from the community. So we decided to build it.
+
+The tool is able to parse the API specification and create fuzzing attack scenarios based on what it defines, and outside of its definition. Each endpoint is injected with cleverly generated values within the boundaries defined by the specification, and outside of it, the appropriate requests are sent and their success or failure are reported in a detailed manner. It is also able to run various security attack vectors targeted at the existing endpoints, or even non-existing ones (such as illegal resource access, XSS, SQLi and RFI).
+No human intervention needed, simply run the tool and get the results.
+
+The tool can be easily extended to adapt to the various needs; whether it is a developer who wants to test the API she wrote or an organization which wants to run regular vulnerability or positive security scans on its public API, you name it. It is built with CI/CD in mind.
+
+We are using this tool, among other tools, to check our security products internally.
+
+
+### [Automating Fuzzable Target Discovery with Static Analysis](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--AppSec](https://img.shields.io/badge/Category-Red--Teaming--/--AppSec-gray)  
+Vulnerability researchers conducting security assessments on software will often harness the capabilities of coverage-guided fuzzing through powerful tools like AFL++ and libFuzzer. This is important as it automates the bughunting process and reveals exploitable conditions in targets quickly. However, when encountering large and complex codebases or closed-source binaries, researchers have to painstakingly dedicate time to manually audit and reverse engineer them to identify functions where fuzzing-based exploration can be useful.
+
+Fuzzable is a framework that integrates both with C/C++ source code and binaries to assist vulnerability researchers in identifying function targets that are viable for fuzzing. This is done by applying several static analysis-based heuristics to pinpoint risky behaviors in the software and the functions that executes them. Researchers can then utilize the framework to generate basic harness templates, which can then be used to hunt for vulnerabilities, or to be integrated as part of a continuous fuzzing pipeline, such as Google's oss-fuzz.
+
+In addition to running as a standalone tool, Fuzzable is also integrated as a plugin for Binary Ninja, with support for other disassembly backends being developed.
+
+
+### [Azucar: Multi-Threaded Plugin-Based Tool to Help Assess the Security of Azure Cloud Environment Subscription](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--AppSec](https://img.shields.io/badge/Category-Red--Teaming--/--AppSec-gray)  
+Azucar is a multi-threaded plugin-based tool to help assess the security of Azure Cloud environment subscription. By leveraging the Azure API, Azucar automatically gathers a variety of configuration data and analyses all data relating to a particular subscription in order to determine security risks.
+
+
+### [BucketLoot - An Automated S3-compatible Bucket Inspector](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--AppSec](https://img.shields.io/badge/Category-Red--Teaming--/--AppSec-gray)  
+BucketLoot is an automated S3-compatible Bucket inspector that can help users extract assets, flag secret exposures and even search for custom keywords as well as Regular Expressions from publicly-exposed storage buckets by scanning files that store data in plain text.
+
+
+### [C0deVari4nt](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--AppSec](https://img.shields.io/badge/Category-Red--Teaming--/--AppSec-gray)  
 None
 
 
-### [Cotopaxi - M2M Protocols Assessment Toolkit](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Network--&--Recon](https://img.shields.io/badge/Category-Network--&--Recon-gray)  
-Cotopaxi is a set of tools for security testing of endpoints using state-of-the-art Machine-To-Machine network protocols (like AMQP, CoAP, gRPC, HTTP/2, HTCPCP, MQTT, DTLS, KNX, mDNS, QUIC, RTSP, SSDP).
+### [CATSploit](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--AppSec](https://img.shields.io/badge/Category-Red--Teaming--/--AppSec-gray)  
+CATSploit is an automated penetration testing tool using Cyber Attack Techniques Scoring (CATS) method that can be used without pentester.
+Currently, pentesters implicitly made the selection of suitable attack techniques for target systems to be attacked.
+CATSploit uses system configuration information such as OS, open ports, software version collected by scanner and calculates a score value for capture eVc and detectability eVd of each attack techniques for target system.
+By selecting the highest score values, it is possible to select the most appropriate attack technique for the target system without hack knack(professional pentester's skill) .
 
 
-### [Cotopaxi: IoT/IIoT/M2M Protocols Security Testing Toolkit](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Network--&--Recon](https://img.shields.io/badge/Category-Network--&--Recon-gray)  
-Cotopaxi is a set of tools for security testing of network devices using specific and general network IoT/IIoT/M2M protocols (AMQP, CoAP, DTLS, gRPC, HTTP/2, HTCPCP, KNX, mDNS, MQTT, MQTT-SN, QUIC, RTSP, SSDP).
+### [CSF: Container Security Framework](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--AppSec](https://img.shields.io/badge/Category-Red--Teaming--/--AppSec-gray)  
+There are billions of containers started by organizations on a daily basis. Thus, there has been a considerable need to invest in container security along with the security for conventional compute instance (like a physical machine, AWS EC2, etc.). Currently, there is no open-source automated solution that enables the organization to constantly monitor security hygiene of their container ecosystem.
 
+ArmourBird CSF - Container Security Framework is an extensible, modular, API-first framework build for regular security monitoring of docker installations and containers against CIS and other custom security checks.
 
-### [CRACKMAPEXEC V4](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Network--&--Recon](https://img.shields.io/badge/Category-Network--&--Recon-gray)  
-CrackMapExec (a.k.a CME) is a fully open-source, post-exploitation tool written in Python that helps automate assessing the security of *large* Active Directory networks. Built with stealth in mind, CME follows the concept of "Living off the Land:" abusing built-in Active Directory features/protocols to achieve it's functionality and allowing it to evade endpoint protection/IDS/IPS solutions. CME makes heavy use of the Impacket library and the PowerSploit Toolkit for working with network protocols and performing a variety of post-exploitation techniques. Although meant to be used primarily for offensive purposes (e.g. red teams), CME can be used by blue teams as well to assess account privileges, find possible misconfigurations and simulate attack scenarios. In this demo the author will be showing version 4.0: a major update to the tool bringing more modules, features and capabilities than ever before. If you're interested in the latest & greatest Active Directory attacks, techniques and general cool AD stuff this is the demo for you!
+ArmourBird CSF has a client-server architecture and is thus divided into two components:
 
+a) CSF Client
 
-### [DELTA: SDN Security Evaluation Framework](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Network--&--Recon](https://img.shields.io/badge/Category-Network--&--Recon-gray)  
-Software-Defined Networking (SDN) allows network operators to manage the entire network in a centralized manner by separating the vendor specific control plane from legacy routers/switches. Thus, this concept provides an intelligent way to design novel network functions. However, although SDN offers significant advantages over the traditional networking, the security of SDN has not been sufficiently verified. So, here, we introduce an open source tool for systematically assessing the security of SDN called DELTA.
+This component is responsible for monitoring the docker installations, containers, and images on target machines
+In the initial release, it will be checking against Docker CIS benchmark
+The checks in the CSF client will be configurable and thus will be expanded in future releases and updates
+It has been build on top of Docker bench for security
 
-DELTA is a first SDN security evaluation framework, which has two primary functions; (1) It can automatically instantiate known attack cases against SDN elements across diverse environments, and (2) it can assist in uncovering unknown security problems within an SDN deployment. For replaying attack cases, our framework has a number of test cases against open source SDN controllers and all SDN-enabled switch devices (software and hardware). Also, our framework provides a protocol-aware fuzzer for OpenFlow, which is a de-facto standard protocol of SDN, in order to find new vulnerabilities.
+b) CSF Server
 
-DELTA has following main features:
+This will be the receiver agent for the security logs generated by the various distributed CSF clients (installed on multiple physical/virtual machines)
+This will also have a UI sub-component for unified management and dashboard-ing of the various vulnerabilities/issues logged by the CSF Clients
+This server will also expose APIs that can be used for integrating with other systems
 
-Fully automatically reproduce 40 published exploits against all SDN components composed of SDN controllers, a control channel, and OpenFlow-enabled switches.
-Provide a blackbox fuzzing module that randomizes OpenFlow messages.
-Support for both VM-based all-in-one single machine and hardware-based environments.
-Fully compatible with promising SDN controllers (ONOS, OpenDaylight, Floodlight, and Ryu).
-[NEW] Support additional 7 new attacks against SDN switches (i.e., OVS, HP, and Pica8), which are discovered from DELTA fuzzing module.
-[NEW] Support DISTRIBUTED controller testing and related attack cases.
-[NEW] Provide a new fuzzing module that discovers security problems of REST-API implementations in SDN controllers and related attack cases.
+Watch out this GitHub space for update: https://github.com/armourbird
+Follow the tool updates on twitter: https://twitter.com/ArmourBird
 
 
-### [DFEX](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Network--&--Recon](https://img.shields.io/badge/Category-Network--&--Recon-gray)  
-DFEX - [DNS File EXfiltration]
+### [CWE_Checker: Architecture-Independent Binary Vulnerability Analysis](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--AppSec](https://img.shields.io/badge/Category-Red--Teaming--/--AppSec-gray)  
+Assessing the security of programs running on embedded devices is a difficult task. Source code is generally unavailable and both static and dynamic binary analysis tools often do not offer support for the many different hardware configurations found in embedded devices.
 
-Data exfiltration is a common technique used for post-exploitation, DNS is one of the most common protocols through firewalls.
-We take the opportunity to build a unique protocol for transferring files across the network.
+The cwe_checker is an open-source tool for finding bugs and vulnerabilities in binary executables without requiring source code access or any knowledge about the hardware. By using static analysis techniques built atop Ghidra P-Code it supports a wide range of CPU architectures including x86, ARM, MIPS and PowerPC. While its focus is the analysis of ELF binaries commonly found in Linux-based firmware, there exists experimental support for PE files and even bare-metal binaries.
 
-Existing tools have some limitations and NG Firewalls are getting a bit "smarter", we have been obliged to explore new combinations of tactics to bypass these. Using the good old fashion "HIPS" (Hidden In Plain Sigh) tricks to push files out.
+The cwe_checker offers detection of over 16 different bug classes including Buffer Overflows (CWE-119), Use-After-Frees (CWE-416) and Null Dereferences (CWE-476). The tool is built in a modular fashion where each analysis can use its own bug detection technique ranging from simple heuristics to complex data flow analysis. Furthermore, each analysis has a set of configuration parameters that can be modified to adjust the analysis to specific usage scenarios. For example, you can add your own functions to the "Use of potentially dangerous function" check (CWE-676).
 
+It is easy to integrate the cwe_checker into other tools and workflows using the alternative JSON output. For example, as a plugin into the Firmware Analysis and Comparison Tool (FACT) you can use it to hunt for vulnerabilities in large firmware data sets.
 
-### [Dolos Cloak: Your NAC Can't See This](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Network--&--Recon](https://img.shields.io/badge/Category-Network--&--Recon-gray)  
-Dolos Cloak is a new tool designed to give penetration testers and red team members the ability to easily bypass 802.1x network access controls. The tool performs an advanced man-in-the-middle attack against nearly any authorized network device, automatically configures a NAT to blend in, and pass legitimate traffic unaltered. Simply plug a Dolos Cloak device in between a network jack and an available workstation, IP phone, printer, or other device and walk away. Dolos Cloak can be configured to call home using TPC/UDP reverse shells, SSH, VPN, Empire, or other custom methods to maintain a stealthy foothold on the network. The creation of Dolos Cloak was inspired by sysadmins that thought they could rely solely on 802.1x to keep attackers off their networks.
 
+### [Carnivore: Microsoft External Attack Tool](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--AppSec](https://img.shields.io/badge/Category-Red--Teaming--/--AppSec-gray)  
+Carnivore is a username enumeration and password spraying tool for Microsoft services (Skype for Business, ADFS, RDWeb, Exchange and O365). It includes new post compromise functionality for Skype for Business (pulling the internal address list and user presence), and a new method for smart detection of the username format. Carnivore originally began as an on-premises Skype for Business enumeration/spray tool as, these days, organizations have often locked down their implementations of Exchange, however, Skype for Business has been left externally accessible, and does not seem to have received as much attention from penetration tests.
 
-### [EAPHAMMER](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Network--&--Recon](https://img.shields.io/badge/Category-Network--&--Recon-gray)  
-EAPHammer is a toolkit for performing targeted evil twin attacks against WPA2-Enterprise networks. It is designed to be used in full scope wireless assessments and red team engagements. As such, focus is placed on providing an easy-to-use interface that can be leveraged to execute powerful wireless attacks with minimal manual configuration. To illustrate how fast this tool is, here's an example of how to setup and execute a credential stealing evil twin attack against a WPA2-TTLS network in just two commands:
 
-# generate certificates
-./eaphammer --cert-wizard
+### [CloudPathSniffer: Detect and Visualize Abnormal Lateral Movements in Cloud](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--AppSec](https://img.shields.io/badge/Category-Red--Teaming--/--AppSec-gray)  
+CloudPathSniffer is an open-source, straightforward, and extensible Cloud Anomaly Detection Tool explicitly crafted to assist security teams in uncovering hard-to-see risks and undetected attackers within their control plane of cloud environments.
 
-# launch attack
-./eaphammer -i wlan0 --channel 4 --auth ttls --wpa 2 --essid CorpWifi --creds
+In the dynamic environment of cloud security, the invisibility of temporary credentials has consistently posed a risk, making identifying and tracing potential malicious activity a challenging endeavor.
 
-Features:
+Unlike traditional tools, CloudPathSniffer boasts a unique capability that sets it apart: It can effectively track temporary credentials and attack paths made by them. Beyond monitoring, it reveals vulnerabilities concealed within logs and creates a comprehensive attack schema. Utilizing graphics-based visualization, it offers a simplified interpretation of lateral movements within data. By seamlessly integrating these insights into a graph database alongside your credentials, CloudPathSniffer provides an unmatched defense strategy, ensuring every detail is meticulously addressed.
 
-Steal RADIUS credentials from WPA-EAP and WPA2-EAP networks.
-Perform hostile portal attacks to steal AD creds and perform indirect wireless pivots
-Perform captive portal attacks
-Built-in Responder integration
-Support for Open networks and WPA-EAP/WPA2-EAP
-No manual configuration necessary for most attacks.
-No manual configuration necessary for installation and setup process
 
-
-### [Empire: Post-Exploitation Framework](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Network--&--Recon](https://img.shields.io/badge/Category-Network--&--Recon-gray)  
-Empire is a Command and Control (C2) framework powered by Python 3 that supports Windows, Linux, and macOS exploitation. It leverages many widely used offensive security tools through PowerShell, Python 3, and C# agents. At the same time, it offers cryptologically-secure communications and flexible modular architecture that links Advanced Persistent Threats (APTs) Tactics, Techniques, and Procedures (TTPs) through the MITRE ATT&CK database.
-
-Empire has evolved significantly since its introduction in 2015 and has become one of the most widely used open-source C2 platforms. Through this time, Empire has advanced from a single user experience to allowing multiple user operations through an API with Empire acting as a teamserver. Currently, 2 different applications are available to connect to the Empire teamserver: Empire Command Line Interface (CLI) and Starkiller.
-
-The Empire CLI is built from the ground up as a replacement to the embedded legacy CLI and gives users a familiar feel of the legacy CLI, but is portable and connects through the Empire API. While Starkiller is a cross-platform UI available in Linux, Windows, and macOS powered by ElectronJS.
-
-The framework's flexibility to easily incorporate new modules allows for a single solution for red team operations with the aim for Empire to provide an easy-to-use platform for emulating APTs. Customization is essential to any successful red team operation, which has driven the expansion of user plugins. These plugins allow any custom program to run side-by-side with the Empire teamserver. In addition, the commonality between other C2 platforms allows profiles and modules to be easily dropped in without the need for additional development. These features allow both red and blue teams to easily emulate and defend against the APT attack vectors.
-
-
-### [FruityDC](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Network--&--Recon](https://img.shields.io/badge/Category-Network--&--Recon-gray)  
-FruityDC is focused on dynamic callbacks for re-establishing communication with C2 infrastructure and for achieving persistence, how payloads can heal themselves after being blocked including how communication can be re-established via dynamic parametric data. The methods described are code agnostic.
-
-
-### [Fudge: A Collaborative C2 Framework for Purple Teaming](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Network--&--Recon](https://img.shields.io/badge/Category-Network--&--Recon-gray)  
-Fudge is a Python3/Flask web-based C2 framework and Powershell implant designed to facilitate purple teaming activities, post-campaign review and timelining.
-
-Fudges' inception is based on 3 main areas:
-
-Creating a suitable way for blue teamers to review the chronological activities a red team engagement, allowing them to assess if key alerts were missed.
-Finding ways to incrementally increase detection rates, allowing defenders to identify the intrusion. This provides a gauge of skill & target areas for upskilling if the intrusion is not identified.
-Providing a way for junior testers to experience red teaming without increasing risk to the campaign OpSec/client network.
-Purple teaming was born out of the need for tighter integration between offensive and defensive teams. If the red team is successful in compromise, their ability to export the campaign timeline and logging can prove invaluable insight to the blue team. Allowing defenders to review network and host logs as they follow a campaign timeline, allows for blind spots to be identified and tooling adjusted and tuned.
-
-Fudges' implant also supports varying levels and types of obfuscation to allow for varying levels of noise to be made during the engagement to help a SoC benchmark their detection skills.
-
-Lastly, Fudge is designed around team usage, which allows for a senior red teamer to allow another user to have read or read/write access to the campaign. These access controls allow a junior member to view the campaign and see the kind of commands, and techniques used in a post-exploitation environment.
-
-Fudge can be found on Github at: https://github.com/Ziconius/Fudge
-
-
-### [GOFETCH](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Network--&--Recon](https://img.shields.io/badge/Category-Network--&--Recon-gray)  
-GoFetch is a tool to automatically exercise an attack plan generated by the BloodHound application. The tool first loads a path of local admin users and computers generated by BloodHound and convert it to it's own attack plan format. Once the attack plan is ready, it advances towards the destination according to the plan, step by step by successively apply remote code execution techniques and compromising credentials with Mimikatz.
-
-
-### [GR-LORA: AN OPEN-SOURCE SDR IMPLEMENTATION OF THE LORA PHY](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Network--&--Recon](https://img.shields.io/badge/Category-Network--&--Recon-gray)  
-gr-lora is an open-source GNU Radio/Software Defined Radio implementation of the LoRa radio physical layer, as derived from the author's black box analysis of the protocol. gr-lora empowers developers and security researchers to think beyond packet sniffing and injection by exposing LoRa's physical layer in software.
-
-LoRa is a wireless networking technology that can be thought of as high-endurance cellular for IoT and embedded devices. It utilizes a unique Chirp Spread Spectrum modulation and layered encoding scheme to achieve remarkable range while remaining frugal on power.
-
-PHYs have long been taken for granted, however research such as Travis Goodspeed's packet-in-packet and Dartmouth/River Loop Security's 802.15.4 chipset fingerprinting have demonstrated that physical layer abuse can have severe consequences further up the stack. As a closed protocol, LoRa has only been exposed via layer 2+ interfaces; thus security researchers and developers have lacked the necessary tools to audit and analyze the security and robustness of its PHY.
-
-With its flexible and open architecture, gr-lora gives security researchers the capability required to explore this nascent protocol from its most fundamental layer.
-
-
-### [Ghost Tunnel: Covert Data Exfiltration Channel to Circumvent Air Gapping - ARSENAL THEATER DEMO](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Network--&--Recon](https://img.shields.io/badge/Category-Network--&--Recon-gray)  
-In recent years, attacking air gapped networks through HID devices is becoming popular. The HID attack uses the USB interface to forge the user's keystrokes or mouse movement to modify the system settings and run malware. In 2009, NSA's Office of Tailored Access Operations (TAO) developed the COTTON-MOUTH – a USB hardware implant which provides a wireless bridge into a target network as well as the ability to load exploit software onto a target machine. Unlike COTTON-MOUTH, Ghost Tunnel attacks the target through the HID device only to release the payload, and it can be removed after the payload is released.
-
-Advantages:
-
-Covertness
-HID attack device is only required to release the payload and it can be removed after that
-No interference with the target's existing connection status and communications
-Can bypass firewalls
-Can be used to attack strictly isolated networks
-Communication channel does not depend on the target's existing network connection
-Cross-Platform Support
-Can be used to attack any device with wireless communication module, we tested this attack on Window 7 up to Windows 10, and OSX
-
-Source Code: https://github.com/360PegasusTeam/GhostTunnel
-
-
-### [Humble Chameleon: Eating 2FA for Breakfast](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Network--&--Recon](https://img.shields.io/badge/Category-Network--&--Recon-gray)  
-By creating a simple tool that performs a man-in-the-middle attack against the HTTP protocol, we can eliminate the need to manually create phishing sites. In addition, this same tool can be used to harvest session cookies from applications that require 2FA, disallow victims from logging out and killing our stolen cookies, hide phishing domains behind legitimate content, categorize phishing domains, serve malware alongside legitimate content, only serve payloads in response to whitelisted requests, and target multiple services at the same time, all without SSL warnings. *Note: This is not just a tool, but a release of a new attack methodology.
-
-
-### [JavaScript Obfuscation - It's All About the P-a-c-k-e-r-s](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Network--&--Recon](https://img.shields.io/badge/Category-Network--&--Recon-gray)  
-The usage of JavaScript obfuscation techniques have become prevalent in today's threats, from phishing pages, to Magecart, and supply chain injection to JavaScript malware droppers all use JavaScript obfuscation techniques on some level.
-
-The usage of JavaScript obfuscation enables evasion from detection engines and poses a challenge to security professionals, as it hinders them from getting quick answers on the functionality of the examined source code.
-
-Deobfuscation can be technically challenging (sometimes), risky (if you don't know what you are doing), and time consuming (if you are lazy, as I am). Yet, the need to find and analyze high scaled massive attacks using JavaScript obfuscation is a task I'm faced with on a daily basis.
-
-In this arsenal showcase I will present a lazy, performance cost effective approach, focusing on the detection of JavaScript packer templates. Once combined with threat intelligence heuristics, this approach can predict the maliciousness level of JavaScript with high probability of accuracy.
-
-In addition, the showcase will include insights based on detections of the tool that were collected from the threat landscape, including some of the challenges associated with benign websites using obfuscation.
-
-The showcase will also suggest techniques showing how the tool obfuscation detection can also be combined with other threat intelligence signals and heuristics, that can lead to better classification of detect obfuscated code as being malicious.
-
-
-### [Lauschgerät: Gets in the Way of your Victim's Traffic and Out of Yours](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Network--&--Recon](https://img.shields.io/badge/Category-Network--&--Recon-gray)  
-Lauschgerät gets in the way of your victim and out of yours. This python tool acts as a convenient man-in-the-middle tool to sniff traffic, terminate TLS encryption, host malicious services and bypass 802.1X - provided you have physical access to the victim machine, or at least its network cable.
-
-There are three ways to run it: Either on its own dedicated device like a Raspberry Pi or Banana Pi, in a virtual machine with two physical USB-NICs attached, or on your regular pentest system in its own network namespace. It will look like a completely transparent piece of wire to both victim systems you are getting in the middle of, even if they are using 802.1X because it is implementing the ideas presented in a talk by Alva Lease 'Skip' Duckwall IV.
-
-The Lauschgerät operates with three interfaces: Two interfaces going to the victim client and the victim switch respectively, and one management interface which you can connect to and initiate the redirection of traffic, inject your own traffic, start and stop malicious services, and so forth. It comes with a few services included, such as a service that terminates TLS encryption (which will of course cause a certificate warning on the victim's end) or a service that performs the classic "SSL strip" attack. And more to come!
-
-An optional wireless interfaces can either be used as another management interface or for intercepting traffic of wireless devices. The management can be done via SSH or via a web application, making sure you can hit the ground running.
-
-
-### [LinkTap: New Threats are Already Around You - The IPV6 Attack Must be Understood](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Network--&--Recon](https://img.shields.io/badge/Category-Network--&--Recon-gray)  
-Due to the exhaustion of IPv4 free address space, the use of IPv6 on the Internet is gradually increasing. All Windows operating systems since Windows Vista have IPv6 enabled by default. IPv6 brings a series of improvements compared to IPV4, but these improvements are also put a double-edged sword.
-
-Recently, we have been focusing on "IPv6" attack research and found that in the IPV6 environment, there are many attack points, such as Iptables will fail, use IPV6 to bypass the Web defense strategy and abuse IPV6-specific protocols for man-in-the-middle attacks, and Other attack ideas!
-
-In this presentation, I will disclose the attack methods and ideas I have found for IPV6, and will also release tools for IPV6 attacks.
-
-
-### [MacAttack - A Client/Server Framework with Macro Payloads for Domain Recon and Initial Access](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Network--&--Recon](https://img.shields.io/badge/Category-Network--&--Recon-gray)  
-While using macros for malicious purposes is nothing new, this tool provides a suite of payloads ideal for initial recon and footholds that will not burn other methods of attack. MacAttack is a framework that generates payloads for use in Excel and includes client/server communication to perform dynamic alterations at runtime and collate received data.
-The payloads included in MacAttack cover a number of areas that have not been published before, including a new stealth technique for hiding payloads, methods for retrieving a user's hash, and performing common recon/early stages attacks such as As-Rep roasting, retrieving documents, browser credentials, password spraying the domain, enumerating users, and domain fronting. The client/server communication and GUI will allow for dynamic checks such as only allowing a password spray to run once or once within a certain time period even if multiple targets enable the payload at the same time, and will provide a visual representation of the enumerated information. Part of the benefit of this tool is that this information is retrievable from a "zero foothold" position - a phishing campaign may be detected or blocked - but this does not burn any existing beacons and the potential rewards can be as great as multiple sets of credentials for users and relevant authentication portals. Microsoft are rolling out changes to macros that have still not been fully deployed by the time of the deadline - and research into these changes and impacts will be included in the discussion. It looks like these changes will only affect O365 to begin with and will include a "recommended policy" to implement.
-
-
-### [Mallet: An Intercepting Proxy for Arbitrary Protocols](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Network--&--Recon](https://img.shields.io/badge/Category-Network--&--Recon-gray)  
-This prsentation will focus on a new open-source intercepting proxy named Mallet, based on the mature and high-performance Netty framework, that wraps it with a drag and drop graph-based graphical user interface and a datastore. In doing so, we gain access to an existing library of protocol implementations, including TLS (and SNI), various compression algorithms, HTTP, HTTP/2, MQTT, REDIS, and many others, and most important, an existing community of developers creating new protocol decoders and encoders, and the associated body of knowledge in this area.
-
-The Mallet user interface closely follows the Netty model, making it simple to construct a pipeline of encoders and decoders by dragging existing codecs, or adding your own codecs or script blocks to a palette, taking the researcher from a simple TCP intercept-and-forward proxy, to a full-blown protocol stack with scriptable processing, with every change being recorded for review and replay in a subsequent connection. As Netty supports a variety of transports, from the common TCP and UDP to SCTP, Serial Port and File, as well as native kqueue and epoll transports, Mallet can be used to intercept all sorts of data, however you may find it.
-
-Source Code: https://github.com/SensePost/Mallet
-
-
-### [Mr.SIP: SIP-Based Audit & Attack Tool](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Network--&--Recon](https://img.shields.io/badge/Category-Network--&--Recon-gray)  
-Mr.SIP is a simple console based SIP-based Audit and Attack Tool. Originally it was developed to be used in academic work to help developing novel SIP-based DDoS attacks and then as an idea to convert it to a fully functional SIP-based penetration testing tool.
-
-Initially, it was developed to be used in academic researches to help developing novel SIP-based DDoS attacks and then as an idea to convert it to a fully functional SIP-based penetration testing tool. So far it has been used more than 5 journal papers. Mr.SIP can also be used as SIP client simulator and SIP traffic generator.
-
-The initial academic journal paper which Mr.SIP is used is titled "Novel SIP-based DDoS Attacks and Effective Defense Strategies" published in Computers & Security 63 (2016) 29-44 by Elsevier, Science Direct http://sciencedirect.com/science/article/pii/S0167404816300980.
-
-In the current state, Mr.SIP comprises 7 sub-modules named as SIP-NES (network scanner), SIP-ENUM (enumerator), SIP-DAS (DoS attack simulator), SIP-ASP (attack scenario player), SIP-EVA (eavesdropper), SIP-SIM (signaling manipulator) and SIP-CRACK (cracker). Since it provides a modular structure to developers, more modules will continue be added by the authors and it is open to be contributed by the open-source developer community.
-
-SIP-NES is a network scanner. It needs the IP range or IP subnet information as input. It sends SIP OPTIONS message to each IP addresses in the subnet/range and according to the responses, it provides the output of the potential SIP clients and servers on that subnet.
-
-SIP-ENUM is a enumerator. It needs the output of SIP-NES and also pre-defined SIP usernames. It generates SIP REGISTER messages and sends them to all SIP components and try to find the valid SIP users on the target network. You can write the output in a file.
-
-SIP-DAS is a DoS/DDoS attack simulator. It comprises four components: powerful spoofed IP address generator, SIP message generator, message sender and response parser. It needs the outputs of SIP-NES and SIP-ENUM along with some pre-defined files.
-
-IP spoofing generator has 3 different options for spoofed IP address generation, i.e., manual, random and by selecting spoofed IP address from subnet. IP addresses could be specified manually or generated randomly. Furthermore, in order to bypass URPF filtering, which is used to block IP addresses that do not belong to the subnet from passing onto the Internet, we designed a spoofed IP address generation module. Spoofed IP generation module calculated the subnet used and randomly generated spoofed IP addresses that appeared to come from within the subnet.
-
-SIP-DAS basically generates legitimate SIP INVITE message and sends it to the target SIP component via TCP or UDP. In the current state it doesn't support instrumentation which helps you to understand the impact of the attack by using Mr.SIP, but we will support it very soon. In the current state, we can see the impact of the attack by checking the CPU and memory usage of the victim SIP server.
-
-SIP is a text based protocol such as HTTP but more complex than HTTP. For example, when we talk about SIP INVITE message, there are some specific headers and parameters need to be vendor specific and unique for each call. SIP Message Generator allows you to bypass security perimeters bu generating all these headers and parameters as it should be, so basic it is harder to be detected by anomaly detection engines that these messages are generated automatically. You can generate SIP methods such as INVITE message, REGISTER message etc.
-
-You can specify the message count, the destination port, you can use predefined toUser list, fromUser list, userAgent list etc.
-
-In order to bypass automatic message generation detection (anomaly detection) systems, random "INVITE" messages are generated that contained no patterns within the messages. Each generated "INVITE" message is grammatically compatible with SIP RFCs and acceptable to all of the SIP components.
-
-"INVITE" message production mechanism specifies the target user(s) in the "To" header of the message. This attack can be executed against a single user or against legitimate SIP users on the target SIP server as an intermediary step before the DoS attack. The legitimate SIP users are enumerated and written to a file. Next, they are placed randomly in the "To" header of the generated "INVITE" messages. "Via, "User-Agent, "From," and "Contact" headers within an "INVITE" message were syntactically generated using randomly selected information from the valid user agent and IP address lists. The tag parameter in the "From" header, the branch and source-port parameters in the "Via" header, and the values in the "Call-ID" header are syntactically and randomly generated using the valid user agent list. In addition, the source IP addresses in the "Contact" and "Via" headers are also generated using IP spoofing.
-
-UDP is used widely in SIP systems as a transport protocol, so attacks on the target server are implemented by sending the generated attack messages in the network using UDP. Also TCP can be used optionally. The message sender of SIP-DAS allows the optional selection of how many SIP messages could be sent during one second. The number of SIP messages sent in one second depended on the resources (CPU and RAM) of the attacker machine.
-
-SIP-ASP is Attack Scenario Player. It is working like a sub function of SIP-DAS. It has a powerful parser and allows you to create stateful SIP attack call flows. In our academic studies, we have developed new attack vectors by using our SIP-DAS and SIP-ASP such as re-transmission based DDoS attacks and reflection based DRDoS attacks.
-
-SIP-EVA is an eavesdropper. It sniffs the target network and can grasp the SIP messages. It allows you to extract call specific information such as who is calling, who i called, the duration of the call, the unique call-ID value and you can even download the media content of the call.
-
-SIP-SIM is a signaling manipulator. It is working like Intercepting SIP Proxy. It uses the same sniffer mechanism with SIP-EVA but it allows you to catch the messages between clients and server and you can replicate the messages and manipulate some headers and/or parameters as you want and send it to the victim server.
-
-By using SIP-SIM you can do do Caller-ID spoofing attacks. SIP-SIM support both LAN-based and WAN-based Caller-ID spoofing attacks. But in order to make WAN-based Caller-ID spoofing attack, you need to have proper service provider account.
-
-SIP-CRACK is a password cracker. Again, it uses the same sniffing mechanism and it allows you to catch the SIP REGISTER messages, extract the authentication data such as hash values. You can do brute-force based cracking, or you can choose dictionary or rainbow table cracking. So SIP is a time critical protocol and cracking should be an offline attack.
-
-
-### [Mr.SIP: SIP-Based Audit and Attack Tool](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Network--&--Recon](https://img.shields.io/badge/Category-Network--&--Recon-gray)  
-Mr.SIP Pro is a comprehensive attack-oriented VoIP product developed to simulate VoIP-based attacks and audit VoIP networks and applications from a security perspective. Originally it was developed to be used in academic work to support developing novel SIP-based attacks and then as an idea to convert it to a fully functional SIP-based penetration testing tool. So far Mr.SIP resulted in several academic research papers and journal articles and won first prizes in various cyber security competitions. Mr.SIP can also be used as a SIP client simulator and SIP traffic generator.
-
-Mr.SIP Pro detects SIP components and existing users on the network, intercepts, filters, and manages call information, reports known vulnerabilities and exploits, develops various TDoS attacks, and cracks user passwords. It has many innovative and competitive features such as high-performance multi-threading, IP spoofing, intelligent SIP message generation, self-hiding, and interception capabilities. Mr.SIP also has a customizable scenario development framework for stateful attacks.
-
-In the current state, the public version of Mr.SIP contains 3 modules; SIP-NES (network scanner), SIP-ENUM (enumerator), and SIP-DAS (DoS attack simulator). The Pro version includes 19 modules in 4 categories; Information Gathering, Vulnerability Scanning, Offensive, and Utility modules as listed below.
-
-Information Gathering Modules: SIP-NES (network scanner), SIP-ENUM (SIP enumerator), SIP-SNIFF (SIP traffic sniffer), SIP-EAVES (call eavesdropper)
-
-Vulnerability Scanning Modules: SIP-VSCAN (vulnerability & exploit scanner), Auto-Deep (automated scanner)
-
-Offensive Modules: SIP-DAS (DoS attack simulator), SIP-MITM (man in the middle attacker), SIP-ASP (attack scenario player), SIP-CRACK (digest authentication cracker), SIP-SIM (signaling manipulator), SIP-FUZZ (protocol fuzzer), RTP-EAVES (media sniffer), RTP-MIM (media manipulator), RTP-Robo (robocall/SPIT attacker), RTP-DTMF (DTMF stealer)
-Utility Modules: IP Spoofing Engine, Message Generator, GUI
-
-
-### [Mr.SIP: The Ultimate SIP-Based Penetration Testing Tool for VoIP Systems](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Network--&--Recon](https://img.shields.io/badge/Category-Network--&--Recon-gray)  
-Mr.SIP is a cutting-edge penetration testing tool designed specifically for VoIP systems. It is the most advanced and comprehensive offensive security tool available in the market for VoIP systems. Developed to assist security experts and system administrators in assessing the security of their VoIP systems and evaluating potential risks, Mr.SIP Pro offers a wide range of features to aid in this process.
-
-Mr.SIP Pro enables users to discover VoIP servers and active users on the network, intercept and manipulate call data, crack user passwords, and identify and report on security vulnerabilities, exploits, and misconfigurations. It also provides a framework for creating advanced, stateful attack scenarios, such as stateful TDoS (Telephony Denial of Service) attacks. Additionally, it allows users to test the server's protocol stack for undiscovered zero-day vulnerabilities by sending irregular messages. With Mr.SIP Pro, security experts and system administrators can have complete visibility and control over their VoIP systems, enabling them to proactively identify and mitigate potential threats.
-
-
-### [Mística: Anything is a tunnel if you're brave enough - Covert channels for everyone!](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Network--&--Recon](https://img.shields.io/badge/Category-Network--&--Recon-gray)  
-From exposing internal network ports in restricted environments to the internet to controlling a meterpreter implant via DNS, everything is possible with protocol encapsulation.
-
-To prove this, we have developed Mística, a tool that allows us to finely tune how we want to create a tunnel over protocols like HTTP, DNS and more, and combine this encapsulation with custom applicatrions like io, shell or port redirection.
-
-Mística allows to embed data into other protocol fields, with the goal of establishing a bi-directional channel for arbitrary communications. Mística has a modular design, built around a custom transport protocol, called SOTP (Simple Overlay Transport Protocol). Data is encrypted, chunked and put into SOTP packets. SOTP packets are encoded and embedded into the desired field of the application protocol, and sent to the other end.
-
-During this talk, we will talk about how to quickly design and create covert channels over different protocols and for different purposes. This is both useful for red teams that need new ways to hide their traffic and blue teams that want to easily test their monitoring capabilities.
-
-We will do several demos, where we showcase how encapsulation works and how we can end up tunneling a RAT (meterpreter, in this case) connection over DNS. We will also showcase how to expose any port over the desired covert channel to combine it with tools like Evil-WinRM, for instance.
-
-Mística is available at https://github.com/IncideDigital/Mistica under the GPLv3 license
-
-
-### [NovAttack](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Network--&--Recon](https://img.shields.io/badge/Category-Network--&--Recon-gray)  
-The NovAttack platform requires minimal setup time and few resources to implement. We love open source. So NovAttack is open source, it will remain open source.
-
-NovAttack simulates real cyber attacks, focusing on the following attack categories.
-
-Features / Test Capabilities
-
-- IPS / IDS / Firewall
-- Malware Download
-- Content Filtering
-- DLP (Data Loss Protection)
-- WAF (Web Application Firewall) (New)
-
-How does NovAttack work?
-
-NovAttack advocates the open source philosophy. Uses the capabilities of PHP and libraries. All communication is prepared with API.
-
-NovAttack simulates cyber attacks with its point-to-point connection. Thus, it reduces the amount of false positive. Attack vectors in it can be edited and updated.
-
-- NovAttack simulates web-based attacks.
-- You can provide continuous cyber attack simulation by adding current malware to NovAttack.
-- You can develop DLP vectors specific to your organization, such as credit card leak). NovAttack provides continuous analysis for you.
-- You can test your institution's content or URL filter.
-
-
-### [NovAttack: Cyber Attack Simulation for Perimeter Security](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Network--&--Recon](https://img.shields.io/badge/Category-Network--&--Recon-gray)  
-The NovAttack platform requires minimal setup time and few resources to implement. We love open source. So NovAttack is open source, it will remain open source.
-
-NovAttack simulates real cyber attacks, focusing on the following attack categories.
-
-### Features / Test Capabilities
-
-- IPS / IDS / Firewall
-- Malware Download
-- Content Filtering
-- DLP (Data Loss Protection)
-- WAF (Web Application Firewall) / Roadmap
-
-### How does NovAttack work?
-
-NovAttack advocates the open source philosophy. Uses the capabilities of python and libraries. All communication is prepared with API.
-
-NovAttack simulates cyber attacks with its point-to-point connection. Thus, it reduces the amount of false positive. Attack vectors in it can be edited and updated.
-
-- You can provide continuous cyber attack simulation by adding current malware to NovAttack.
-- You can develop DLP vectors specific to your organization, such as credit card leak). NovAttack provides continuous analysis for you.
-- You can test your institution's content or URL filter.
-
-
-### [OWASP Nettacker: Automated Penetration Testing Framework](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Network--&--Recon](https://img.shields.io/badge/Category-Network--&--Recon-gray)  
-OWASP Nettacker project is created to automate information gathering, vulnerability scanning and eventually generating a report for networks, including services, bugs, vulnerabilities, misconfigurations, and other information. This software will utilize TCP SYN, ACK, ICMP and many other protocols in order to detect and bypass Firewall/IDS/IPS devices. By leveraging a unique method in OWASP Nettacker for discovering protected services and devices such as SCADA. It would make a competitive edge compared to other scanner making it one of the bests.
-
-
-### [OWFuzz: WiFi Protocol Fuzzing Tool Based on OpenWiFi](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Network--&--Recon](https://img.shields.io/badge/Category-Network--&--Recon-gray)  
-Generally, when using WiFi Fuzzing Tool to test the security of WiFi protocol, you need a WiFi USB dongle that supports monitor mode and set the WiFi USB dongle to monitor mode to listen and inject arbitrary WiFi frames. However, many WiFi USB dongles fail to meet our expectations. For example, some are not stable enough in monitor mode and often get stuck, which leads to the interruption of the fuzzing process. And some, we don't have complete control over some frame fields.
-
-OWFuzz is a WiFi protocol testing tool using OpenWiFi. OpenWiFi is an open-source WiFi protocol stack based on SDR that is fully compatible with Linux mac80211. It's driver takes advantage of the Linux kernel's supports (mac80211, cfg80211) for WiFi high MAC, so it can provide an interface to the application layer like a common WiFi USB dongle. In The hardware part, CSMA/CA protocol and other functions of WiFi low MAC layer are implemented on FPGA. It supports monitoring and injection of arbitrary WiFi frames，The application layer software can also directly communicate with the OpenWiFi driver/FPGA/RF underlying functions through nl80211, which provides users with great autonomous and controllable ability. OWFuzz is the first to use OpenWiFi platform (Xilinx ZC706 dev board + FMCOMMS3) to implements a WiFi protocol fuzzing test framework, which supports the fuzzing test of all WiFi frames and the interactivity testing of WiFi protocols.
-
-This research introduces a comprehensive overview of the OWFuzz. We will introduce its architecture, implementation (arbitrary frame and protocol interactivity fuzzing test), and how it works. And finally we will have a video demonstration.
-
-
-### [Pentest Collaboration Framework](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Network--&--Recon](https://img.shields.io/badge/Category-Network--&--Recon-gray)  
-Pentest Collaboration Framework - An opensource, cross-platform and portable toolkit that allows you to exchange information on the penetration testing process. It also contains a model of differentiation of rights for use by several teams or independent researchers.
-
-One of latest major updates from previous Black Hat conference is a new feature - issue templates library which allow pentesters to create issues much more faster!
-
-
-### [PowerUpSQL: A PowerShell Toolkit for Attacking SQL Serversin Enterprise Environments](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Network--&--Recon](https://img.shields.io/badge/Category-Network--&--Recon-gray)  
-PowerUpSQL includes functions that support SQL Server discovery, weak configuration auditing, privilege escalation on scale, and post exploitation actions such as OS command execution. It is intended to be used during internal penetration tests and red team engagements. However, PowerUpSQL also includes many functions that can be used by administrators to quickly inventory the SQL Servers in their ADS domain and perform common threat hunting tasks related to SQL Server. This should be interesting to red, blue, and purple teams interested in automating day to day tasks involving SQL Server.
-
-Source Code: https://github.com/netspi/powerupsql
-Slides: https://bit.ly/2OxbGYy﻿
-Video: https://youtu.be/UX_tBJQtqW0
-
-
-### [Rate Unlimiter](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Network--&--Recon](https://img.shields.io/badge/Category-Network--&--Recon-gray)  
+### [Counterfit: Attacking Machine Learning in Blackbox Settings](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--AppSec](https://img.shields.io/badge/Category-Red--Teaming--/--AppSec-gray)  
 None
 
 
-### [Route53Sweep: Empowering AWS Route53 Security with Automated Scanning & Comprehensive Inventory Management](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Network--&--Recon](https://img.shields.io/badge/Category-Network--&--Recon-gray)  
-Route53Sweep uses the AWS Route53 service to improve the management of Route53 security providing a innovative solution to DNS Security. AWS Route53-managed resources like domains, subdomains, DNS records, and related services are all secured and protected by this, which also adopts a comprehensive approach to DNS security management. Organizations can easily track changes to their AWS Route53 resources with Route53Sweep, as well as automate procedures for scanning public IPs and fixing them. Organizations can increase their security and dependability with Route53Sweep, freeing them up to concentrate on other important business operations.
+### [Deep Exploit](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--AppSec](https://img.shields.io/badge/Category-Red--Teaming--/--AppSec-gray)  
+DeepExploit is fully automated penetration tool linked with Metasploit. It identifies the status of all opened ports on the target server and executes the exploit at pinpoint using Machine Learning.
 
-Key Topics:
+Deep Exploit's key features are the following:
 
-Addressing the Urgent Need: We investigate the escalating security issues surrounding AWS Route53 and the necessity of specialized scanning software like Route53Sweep. To protect organizations from potential threats, we emphasize the value of ongoing monitoring and keeping a complete inventory of Route53 assets.
+Self-learning: DeepExploit can learn how to exploitation by itself (uses reinforcement learning). It is not necessary for humans to prepare learning data.
+Efficiently execute exploit: DeepExploit can execute exploits at pinpoint (minimum 1 attempt) using self-learned data.
+Deep penetration: If DeepExploit succeeds the exploit to the target server, it further executes the exploit to other internal servers.
+Operation is very easy: Your only operation is to input one command. It is very easy!
+Learning time is very fast: DeepExploit uses distributed learning by multi agents. So, we adopted an advanced machine learning model called A3C.
 
-Route53Sweep Unleashed: Learn more about our cutting-edge tool's inner workings and how it effectively makes use of a variety of open source tools such as the Nuclei engine, Anew, Httpx, and Notify. The combination of these open-source components with Route53Sweep improves vulnerability scanning capabilities and makes asset discovery and monitoring in real time easier.
+Current Deep Exploit's version is a beta, but it can fully automatically execute following actions:
 
-A Unique Approach: We are proud of our "Desi Jugaad" spirit, which embodies ingenuity and resourcefulness. This idea is embodied by Route53Sweep, which offers an unusual but effective way to automate AWS Route53 security management. Our tool ensures user friendliness while streamlining scanning, automating inventory management, and reducing common security issues.
+Intelligence gathering
+Threat modeling
+Vulnerability analysis
+Exploitation
+Post-Exploitation
+Reporting
 
-Mitigating Critical Security Issues: Learn how Route53Sweep handles important security issues like NXDomain, Subdomain Takeovers & External Vulnerability Scanning. We demonstrate how our tool enables businesses to proactively address these issues and fortify their security defenses.
+By using our DeepExploit, you will benefit from the following:
 
-Real-Time Alerting with Slack: Take a glimpse at the power of Slack integration, which enables real-time alerting for discovered assets and vulnerabilities. Organizations are kept informed and ready to act quickly in case of threats thanks to Route53Sweep.
+For pentesters: (a) They can greatly improve the test efficiency; (b) The more pentesters use DeepExploit, DeepExploit learns how to method of exploitation using machine learning. As a result, accuracy of test can be improve.
+For Information Security Officers: (c) They can quickly identify vulnerabilities of own servers. As a result, prevent that attackers attack to your servers using vulnerabilities, and protect your reputation by avoiding the negative media coverage after breach.
 
-Live Demonstration: It presents a interactive, live demonstration of Route53Sweep in use. Discover how the tool manages AWS Route53 assets, identifies vulnerabilities, and performs all of these tasks in a simple and effective way.
+Because attack methods to servers are evolving day by day, there is no guarantee that yesterday's security countermeasures are safety today. It is necessary to quickly find vulnerabilities and take countermeasures. Our DeepExploit will contribute greatly to keep your safety.
 
+Source Code:
+https://github.com/13o-bbr-bbq/machine_learning_security/tree/master/DeepExploit
 
-### [Routopsy: Routing Protocol Vulnerability Analysis and Exploitation](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Network--&--Recon](https://img.shields.io/badge/Category-Network--&--Recon-gray)  
-Routopsy is a new network attack toolkit that leverages a "virtual router" in a Docker container to scan for and attack various networking protocols and misconfigurations. Vulnerabilities include overly broad configured network statements within routing protocols, unauthenticated or plaintext authentication for protocols such as OSPF and HSRP, and the lack of passive interface usage within routing protocols.
+Document:
+https://github.com/13o-bbr-bbq/machine_learning_security/blob/master/DeepExploit/doc/BHUSA2018Arsenal_20180802.pdf﻿
 
-Routopsy was designed in a way that will allow users to trivially perform attacks without requiring extensive networking knowledge. Attacks include the injection of new routes, discovery of new networks and gateway takeover attacks which ultimately could lead to Person-in-the-Middle attacks. Additionally, a fully-fledged router interface is also available for more experienced users and for more advanced attacks.
 
-Internally, Routopsy leverages a "virtual router" which has been around for a number of years, is well maintained and supports a variety of protocols. Once the scan phase of Routopsy is complete a simple configuration is loaded within the virtual router and used to attack the target protocol.
+### [Deep Exploit: Fully Automatic Penetration Test Tool Using Machine Learning](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--AppSec](https://img.shields.io/badge/Category-Red--Teaming--/--AppSec-gray)  
+DeepExploit is fully automated penetration tool linked with Metasploit. It identifies the status of all opened ports on the target server and executes the exploit at pinpoint using Machine Learning.
 
+Deep Exploit's key features are the following:
 
-### [SCAVENGER: A Post-Exploitation Scanning/Mapping Tool](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Network--&--Recon](https://img.shields.io/badge/Category-Network--&--Recon-gray)  
-SCAVENGER is a multi-threaded post-exploitation scanning tool for mapping systems and finding "interesting" and most frequently used files, folders and services. Once credentials are gained, it can scan remote systems (Linux, Windows and OSX) via services like SMB and SSH to scrape that system looking for "interesting" things and then cache the result. SCAVENGER has the ability to find the newest files that have been accessed/modified/created and keep the result in an ordered database. Then, after time has passed, hours or days later the systems can be scanned again. SCAVENGER can then compare the previous list of "newest files" to the latest list of "newest files." This gives the user the ability to find the "interesting" and most frequently files used on that system, for example password files being accessed by an administrator or heavily used credit card database files.
+Efficiently execute exploit: DeepExploit can execute exploits at pinpoint (minimum 1 attempt) using self-learned data.
+Deep penetration: If DeepExploit succeeds the exploit to the target server, then it further executes the exploit to other internal servers.
+Self-learning: DeepExploit can learn how to exploitation by itself (uses reinforcement learning). It is not necessary for humans to prepare learning data.
+Powerful intelligence gathering. To gather the information of software operated on the target server is very important for successful the exploitation. DeepExploit can identify product name and version using following methods.
++ Port scanning; Machine Learning (Analyze HTTP responses gathered by Web crawling); Google Hacking
 
-Whilst looking for "interesting" files, folder and services, SCAVENGER scans these filenames and their content for various "interesting" phrases, for example "password" or "secret." Once detected SCAVENGER then downloads the "interesting" file to the local system. At the same time SCAVENGER also scans for Card Holder Data and also downloads the file if Card Holder Data is found.
+Current Deep Exploit's version is a beta, but it can fully automatically execute following actions:
 
-Future features will be the addition of services like NFS, FTP and database connections. Also adding more capability of retrieving passwords from remote Linux or Windows systems, without touching to the disk of the remote system. And without reinventing the wheel using SCAVENGER as a wrapper to use on Windows systems performing more post-exploitation techniques.
+Intelligence gathering
+Threat modeling
+Vulnerability analysis
+Exploitation
+Post-Exploitation
+Reporting
 
-Source Code: https://github.com/SpiderLabs/scavenger﻿
+By using our DeepExploit, you will benefit from the following:
 
+For pentesters:
+(a) They can greatly improve the test efficiency; (b) The more pentesters use DeepExploit, DeepExploit learns how to method of exploitation using machine learning. As a result, accuracy of test can be improve.
 
-### [SMBeagle](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Network--&--Recon](https://img.shields.io/badge/Category-Network--&--Recon-gray)  
-SMBeagle is an SMB file share auditing and enumeration tool that rapidly hunts out file shares and inventories their contents. Built from a desire to find poorly protected files, SMBeagle casts the spotlight on files vulnerable to ransomware, watering hole attacks and which may contain sensitive credentials.
 
-SMBeagle hunts out all files it can see in the network and reports if the file can be read and/or written. All these findings are streamed out to either a CSV file or an elasticsearch host?
+For Information Security Officers:
+(c) They can quickly identify vulnerabilities of own servers. As a result, prevent that attackers attack to your servers using vulnerabilities, and protect your reputation by avoiding the negative media coverage after breach.
 
-Businesses of all sizes often have file shares with awful file permissions.
+Because attack methods to servers are evolving day by day, there is no guarantee that yesterday's security countermeasures are safety today. It is necessary to quickly find vulnerabilities and take countermeasures. Our DeepExploit will contribute greatly to maintaining your safety.
 
-Large businesses have sprawling file shares and its common to find sensitive data with misconfigured permissions and small businesses often have a small NAS in the corner of the office with no restrictions at all!
+Presentation: https://www.slideshare.net/babaroa/deep-exploitblack-hat-europe-2018-arsenal
+Source Code:: https://github.com/13o-bbr-bbq/machine_learning_security/tree/master/DeepExploit
 
-SMBeagle crawls these shares and lists out all the files it can read and write. If it can read them, so can ransomware.
 
-SMBeagle can provide penetration testers with the less obvious routes to escalate privileges and move laterally.
+### [Demystifying the State of Kubernetes Cluster Security - The Cloud Native Way](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--AppSec](https://img.shields.io/badge/Category-Red--Teaming--/--AppSec-gray)  
+Attackers always get better with new attack techniques, so our threat modelling and defense mechanisms needs to level up.
 
-By outputting directly into elasticsearch, testers can quickly find readable scripts and writeable executables.
+The security of the Kubernetes cluster, of course, cannot be achieved in a single process. There are many moving parts within the Kubernetes cluster that must be properly secured.
 
-Finding watering hole attacks and unprotected passwords never felt so easy!
+Kube-striker performs numerous in depth checks on kubernetes infra to identify the security misconfigurations and challenges that devops/developers are likely to encounter when using Kubernetes.
 
+Kube-striker is Platform agnostic and works equally well across more than one platform such as self hosted kubernetes, EKS, AKS, GKE etc.
 
-### [Scapy: Python-Based Interactive Packet Manipulation Program + Library](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Network--&--Recon](https://img.shields.io/badge/Category-Network--&--Recon-gray)  
-Scapy (https://github.com/secdev/scapy) is a renowned packet manipulation tool written in Python that supports a wide number of protocols on many different platforms (Linux, macOS, *BSD, and Windows). Initially developed by Philippe Biondi since 2003, it is now maintained by Guillaume Valadon, Pierre Lalet and Gabriel Potter. While the existence of this tool is well-known, its grip is much less, to the community's detriment. This presentation aims at filling this gap using practical and detailed examples.
 
+### [DetectiveSQ: A Extension Auditing Framework](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--AppSec](https://img.shields.io/badge/Category-Red--Teaming--/--AppSec-gray)  
+In the modern digital realm, internet browsers, particularly Chrome, have transcended traditional boundaries, becoming hubs of multifunctional extensions that offer everything from AI-integrated chatbots to sophisticated digital wallets. This surge, however, comes with an underbelly of cyber vulnerabilities. Hidden behind the guise of innovation, malicious extensions lurk, often camouflaged as benign utilities. These deceptive extensions not only infringe upon user privacy and security but also exploit users with unasked-for ads, skewed search results, and misleading links. Such underhanded strategies, targeting the unsuspecting user, have alarmingly proliferated.
 
-### [SecScanC2 -- Manage Assesment to Create P2P Network for Security Scanning & C2](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Network--&--Recon](https://img.shields.io/badge/Category-Network--&--Recon-gray)  
-In the realm of security attack and defense, as well as penetration testing, two key challenges often arise. Firstly, attack scanning is frequently detected by defensive security systems, resulting in the scanning IP being blocked. Secondly, when defensive assets are controlled and connected back to the command and control (C2) server, security devices may detect the connection, leading to countermeasures against penetration testers. To address these challenges and enable safe, efficient asset detection and secure connections to controlled assets, we have enhanced the Kademlia protocol and developed a Distributed Hash Table (DHT) technology.
+Addressing this conundrum, we present DetectiveSQ - an advanced command-line interface designed to rigorously audit Chrome extensions. At its core, DetectiveSQ is engineered to be compatible with both Manifest V2 (MV2) and Manifest V3 (MV3) architecture, ensuring a wide-ranging applicability across extensions of different generations. Through an intricate examination of permissions - delving deep into how they're invoked and utilized within the extension's codebase - DetectiveSQ brings forth potential security and privacy breaches. The tool not only assesses permissions but also correlates them with actual behaviors, scripts, and external calls, offering a holistic evaluation. DetectiveSQ will be open source and made available after the talk.
 
-Our hacking tool is highly effective during attack scanning, consisting of a large number of Internet nodes that dynamically update IDs and node tree structures at regular intervals. This approach allows each session to initiate requests from different nodes during the scanning process, thus avoiding IP blocking due to high-frequency scanning. Moreover, when connecting controlled assets back to the C2 server, nodes are randomly selected based on a user-defined hop count, effectively preventing penetration testers from being traced and significantly enhancing the stealthiness of the entire penetration testing process.
 
+### [Extensible Azure Security Tool](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--AppSec](https://img.shields.io/badge/Category-Red--Teaming--/--AppSec-gray)  
+Extensible Azure Security Tool (Later referred to as E.A.S.T) is a tool for assessing Azure and to some extent Azure AD security controls. The primary use case of EAST is Security data collection for evaluation in Azure Assessments. This information (JSON content) can then be used in various reporting tools, which we use to further correlate and investigate the data.
 
-### [SharpSCCM](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Network--&--Recon](https://img.shields.io/badge/Category-Network--&--Recon-gray)  
-SharpSCCM is an open-source C# utility for interacting with SCCM, inspired by the PowerSCCM project by @harmj0y, @jaredcatkinson, @enigma0x3, and @mattifestation. This tool can be used to demonstrate the impact of configuring SCCM without the recommended security settings, which can be found here: https://docs.microsoft.com/en-us/mem/configmgr/core/clients/deploy/plan/security-and-privacy-for-clients
 
-Currently, SharpSCCM supports the NTLMv2 coercion attack techniques noted in this post (https://posts.specterops.io/coercing-ntlm-authentication-from-sccm-e6e23ea8260a), as well as the attack techniques noted in this post (https://enigma0x3.net/2016/02/29/offensive-operations-with-powersccm/), which have been modified to coerce NTLMv2 authentication rather than running PowerShell on the target. SharpSCCM can also be used to dump information about the SCCM environment from a client, including the plaintext credentials for Network Access Accounts.
+### [FuzzCube](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--AppSec](https://img.shields.io/badge/Category-Red--Teaming--/--AppSec-gray)  
+Fuzzing over the ages has improved in tooling, logic, and process, but is still a number-crunching problem! You are improving your odds by throwing more CPU power at it.
 
-Research is ongoing to add SharpSCCM features to:
-- pull and decrypt Network Access Account credentials from SCCM servers using a low-privileged account on any client machine
-- execute actions in SCCM environments that require PKI certificates to secure client/server communications
-- escalate privileges from local administrator on site servers to SCCM Full Administrator
+How do we make it happen without hacking through custom solutions that cannot be reused? Enter FuzzCube - Batteries Included! FuzzCube comes with State Sharing Features, Mutation Engines and Crash Verification tools that you could leverage in your projects. It leverages Kubernetes for its infrastructure orchestration capabilities. Using Kubernetes operators, we abstract the complexity of deploying a fuzzing infrastructure with distributed high throughput workloads, fault tolerance, storage orchestration, and high scalability. We will practise distributed fuzzing in the era of Cloud Native Computing and use our new skills to find some 0days ;)
 
 
-### [The Air-Gap Malware of X-Sploit](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Network--&--Recon](https://img.shields.io/badge/Category-Network--&--Recon-gray)  
-X-Sploit is a Linux-based Red-Teaming-Toolkit for IT security experts and geeks. In this presentation, we will introduce a physical penetration tip, the Air-gap malware in X-Sploit Toolkit. The victim device's hardware adapter could be controlled and used for backdoor data transmission without interfering with the target's existing connection status and communication.
+### [Git Wild Hunt: A Tool for Hunting Leaked Credentials](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--AppSec](https://img.shields.io/badge/Category-Red--Teaming--/--AppSec-gray)  
+Git Wild Hunt is a tool designed to search and identify leaked credentials at public repositories such as Github. Git Wild Hunt searches for footprints and patterns of over 38 of the most used secrets/credentials on the internet, especially those used in Devops and IT Operations. This tool helps developers and security operation departments discover leaked credentials in public repositories. This tool is also a recon tool for red teamers and pentesters, as it also provides metadata from leaks such as usernames, company names, secret types, and dates.
 
 
-Advantage:
-Cross-platform support (Windows, Mac OS, Linux)
-Bypass Firewall/IDS/IPS
-No signature, more difficult to detect
-Used in isolate network environment attack
-Does not affect the victim's existing connection status and communication
+### [GoGoGadget - Post Exploitation Utilities for Embedded Systems](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--AppSec](https://img.shields.io/badge/Category-Red--Teaming--/--AppSec-gray)  
+GoGoGadget is a toolkit that provides useful command line utilities for embedded systems using a broad variety of processor architectures and operating systems. GoGoGadget is written in Go and cross-compiles to a static binary that runs on any of thirteen operating systems and supports thirteen processor architectures with all required libraries included.
 
 
-### [The Grinder Framework - Bringing Light to the Shodan](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Network--&--Recon](https://img.shields.io/badge/Category-Network--&--Recon-gray)  
-The security-related search engines like Shodan, Censys or ZoomEye are daily cybersecurity research tools. They can be used to gather information within threat Intelligence, discover vulnerable hosts, craft fingerprints for vulnerability scanners. At the same time, such search engines have some fundamental limitations and constraints leading to blind spots, false negatives and wrong results. It is very disappointing, especially when new research has been started and the cost of a mistake could be days or even weeks spent in the wrong direction.
+### [GyoiThon: Penetration Testing Using Machine Learning](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--AppSec](https://img.shields.io/badge/Category-Red--Teaming--/--AppSec-gray)  
+In GyioThon released at Black Hat Asia 2018 Arsenal, we used Deep Learning to enable us to identify products that traditional penetration test tools could not identify. In the original GyoiThon, as well as in other tools, it has always been necessary for someone to investigate product-specific features and signature generation with continuous updates, which we've been working to update to make easier. GyoiThon is the growing penetration test tool using Deep Learning. Deep Learning improves classification accuracy in proportion to the amount of learning data. Therefore GyoiThon will be taking in new learning data every scanning. Since GyoiThon uses various features of software included in HTTP response as learning data, you scan more, the accuracy of software detection improves. For this reason, GyoiThon is the growing penetration test tool.
 
-The Grinder Framework is an open-source security research toolkit adopted to Internet-wide surveys and allows you to use the full power of tools like Nmap, Shodan, Censys, Vulners, TLS-attacker and bringing the light through tailored scanning and threat intelligence approach. The Grinder was born in the SD-WAN New Hope project when we explored SD-WAN security on the Internet.
+GyoiThon identifies the software installed on web server (OS, Middleware, Framework, CMS, etc...) based on the learning data. After that, GyoiThon executes valid exploits for the identified software. GyoiThon automatically generates reports of scan results. GyoiThon executes the above processing fully automatically.
 
-In this talk, we will describe the essence of the Grinder framework and show how you can employ it in your security researches. We will consider the blind spots of the modern search engines, describe non-trivial use cases we worked out during our Internet-scale surveys and illustrate new features by examples from the SD-WAN New Hope, AIsec and DICOMSec projects.
+GyoiThon's major updates:
+- Automatically generates the signature to identify various products.
+- Can generate signatures necessary for product identification by even users without Deep Learning knowledge using Deep Learning. You no longer have to investigate product-specific features. You no longer need to create a signature, because GyoiThon itself can generate signatures fully automatically.
 
+GyoiThon is the first penetration test tool that made it possible to generate signatures automatically. GyoiThon is evolving as the growing penetration test tool. For further details: https://github.com/gyoisamurai/GyoiThon/blob/master/handout/BHA2018_handout.pdf
 
-### [WIG: Wi-Fi Information Gathering](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Network--&--Recon](https://img.shields.io/badge/Category-Network--&--Recon-gray)  
-WIG (Wi-Fi Information Gathering) is a free and open source (GPLv3) utility for IEEE 802.11 device fingerprinting. WIG uses Wi-Fi network interfaces that supports monitor mode to obtain information on nearby devices with Wi-Fi support. The tool supports vendors proprietary protocols such as Apple AirDrop/AirPlay, Cisco Client eXtensions, Wi-Fi Protected Setup (WPS) and Wi-Fi Direct. Using these protocols the tool is able to find and fingerprint potential Wi-Fi targets that other tools are not able to find. The tool output it's useful on the threat modeling phase during wi-fi penetration testing or to find potential targets during a network assessment.
+GitHub: https://github.com/gyoisamurai/GyoiThon﻿
+Presentation Slides: https://github.com/gyoisamurai/GyoiThon/blob/master/handout/BHASIA2019_slide.pdf
 
 
-### [WMIHacker: A New Way to Use 135 Port Lateral Movement Bypass AV and Transfer File](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Network--&--Recon](https://img.shields.io/badge/Category-Network--&--Recon-gray)  
-After the eternal blue virus flood, most intranets no longer open port 445, so the 135-port DCOM service becomes another exploitable point. We need a tool or method that can use 135 ports to execute commands and the Ability to transfer files. WMIHacker is such a tool and can bypass av.
+### [HACK/400 AND IBMISCANNER TOOLING FOR CHECKING YOUR IBM I (AKA AS/400) MACHINES!](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--AppSec](https://img.shields.io/badge/Category-Red--Teaming--/--AppSec-gray)  
+In many industries the back-end systems still rely on "heavy" machines such as IBM i (aka AS/400) for core transactional systems. However, this area remained rather uncovered by security researchers. Back in 2015 I presented certain weaknesses of IBM i security at DefCon 23, providing a demo tool for assessment of IBM i systems and exploitation of some weaknesses, like privilege escalation. Since 2015, we improved the tool making it more useful for security personnel and auditors to assess certain important aspects of IBM i system security. These developments led to also adding new functionality in famous cracking tool, John the Ripper, for AS/400 password hashes. Based on users' feedback we try to make it best of class tooling for security assessments, keeping it open source (GPL) for the community.
 
-Remote command execution tools such as psexec (sysinternals) and wmiexec (impacket) are frequently used during lateral movement. However, these tools will be killed by anti-virus software and the command executed will fail. Psexec will create services and leaves a lot of logs, including a lot of operations such as service creation. The way win32_process.create used by wmiexec.py will no doubt be blocked by AV. I found a new way to execute commands on a machine with an AV and can overwrite window2003 to the latest version of windows. Because I use VBScript to run it. There is no doubt that someone is studying the same content as I did. I found that there are many ways to execute on the internet, including deriving win32_process, registering COM and making it as a malicious provider, msi abuse, etc., but these known ways of using Being intercepted by av.
 
+### [Halcyon IDE: For Nmap Script Developers](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--AppSec](https://img.shields.io/badge/Category-Red--Teaming--/--AppSec-gray)  
+Halcyon IDE lets you quickly and easily develop Nmap scripts for performing advanced scans on applications and infrastructures with a wide range capabilities from recon to exploitation. It is the first IDE released exclusively for Nmap script development. Halcyon IDE is free and open source project (always will be) released under MIT license to provide an easier development interface for rapidly growing information security community around the world. The project was initially started as an evening free time "coffee shop" project and has taken a serious step for its developer/contributors to spend dedicated time for its improvements very actively.
 
-### [WMImplant: An Offensive Use Case of WMI](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Network--&--Recon](https://img.shields.io/badge/Category-Network--&--Recon-gray)  
-When looking forward to the latest defenses that are being seen in environments all over the world today, we're consistently seeing EDR, "Next-Gen AV", and application whitelisting. Of the available defenses, application whitelisting seemed like the most interesting challenge to undertake. We wanted to build something that would work against one of the best application whitelisting solutions from a detection/prevention perspective, Windows Defender Application Control (WDAC), previously known as Device Guard.
+Source Code: https://halcyon-ide.org﻿
 
-WDAC aims to lock down Windows workstations via multiple methods, one example is digital signature based rule enforcement when determining if an application is allowed to execute. Another, is that WDAC automatically enforces PowerShell into Constrained Language Mode (CLM), a severely restricted version of PowerShell. So how can you operate in a restricted WDAC environment?
 
-WMImplant is one possible answer. Why not leverage a service that is built in to Windows and enabled by default since the days of Windows Server 2000? Windows Management Instrumentation (WMI) enables us to execute commands on systems, remotely and locally. WIth the enforcement of PowerShell Constrained Langauge Mode (CLM), our PowerShell based code had to adhere to the restrictions of the language mode. WMImplant is fully PowerShell CLM compliant and is designed to provide a Meterpreter-esque menu for users to easily perform post-exploitation tasks against the targeted system.
+### [Halcyon IDE: Nmap Script Development IDE](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--AppSec](https://img.shields.io/badge/Category-Red--Teaming--/--AppSec-gray)  
+Halcyon IDE lets you quickly and easily develop Nmap scripts for performing advanced scans on applications and infrastructures with a wide range capabilities from recon to exploitation. It is the first IDE released exclusively for Nmap script development. Halcyon IDE is a free and open-sourced project (always will be) released under MIT license to provide an easier development interface for rapidly growing information security community around the world. The project was initially started as an evening free-time "coffee shop" project and has taken a serious step for its developer/contributors to spend dedicated time for its improvements very actively.
 
-Come learn how a CLM compliant code-base designed to operate exclusively over WMI can allow you to survive and thrive in a heavily restricted application whitelisting environment.
 
+### [HazProne : Cloud Hacking](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--AppSec](https://img.shields.io/badge/Category-Red--Teaming--/--AppSec-gray)  
+HazProne is a Cloud Pentesting Framework that emulates close to Real-World Scenarios by deploying Vulnerable-By-Demand aws resources enabling you to pentest Vulnerabilities within, and hence, gain a better understanding of what could go wrong and why!!
 
-### [WTS: Scenario-Based WiFi Network Threat Simulation](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Network--&--Recon](https://img.shields.io/badge/Category-Network--&--Recon-gray)  
-The WiFi Network Threat Simulation project is designed to perform scenario-based wifi network security tests. Thanks to the modules inside, you can test both the user and AP devices as well as the wireless IDS and IPS devices.
 
+### [HazProne: Cloud Security Ed](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--AppSec](https://img.shields.io/badge/Category-Red--Teaming--/--AppSec-gray)  
+HazProne is a Cloud Pentesting Framework that emulates close to Real-World Scenarios by deploying Vulnerable-By-Demand AWS resources enabling you to pentest Vulnerabilities within, and hence, gain a better understanding of what could go wrong and why!!
 
-### [WarBerryPi - ARSENAL THEATER DEMO](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Network--&--Recon](https://img.shields.io/badge/Category-Network--&--Recon-gray)  
-WarBerryPi was built to be used as a hardware implant during red teaming scenarios where we want to obtain as much information as possible in a short period of time while being as stealthy as possible. The WarBerryPi also includes an intuitive interactive reporting module for viewing the results of each red teaming engagement.
 
+### [HazProne: Cloud Vulnerability Simulator](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--AppSec](https://img.shields.io/badge/Category-Red--Teaming--/--AppSec-gray)  
+HazProne is a Cloud Vulnerability Simulator Framework that emulates close to Real-World Scenarios by deploying Vulnerable-By-Demand AWS resources enabling you to pentest Vulnerabilities within, and hence, gain a better understanding of what could go wrong and why!!
 
-### [When World War II meets CDNs: A New Class of Pulsing DDoS Attack](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Network--&--Recon](https://img.shields.io/badge/Category-Network--&--Recon-gray)  
-Content Delivery Networks (CDNs) are commonly believed to offer their customers protection against denial of service (DoS) attacks. However, our research reveals a novel architecture vulnerability in CDNs, enabling attackers to turn globally distributed CDN Infrastructure into powerful DDoS amplifiers.
 
-In this talk, we draw the analogy to a military tactic used in World War II and introduce a new class of pulsing denial-of-service attacks. We demonstrate how CDNs can be exploited to concentrate low-rate attacking requests into short, high-bandwidth pulse waves, resulting in a pulsing DDoS attack to saturate targeted TCP services periodically.
+### [Introducing RAVEN: Discovering and Analyzing CI/CD Vulnerabilities in Scale](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--AppSec](https://img.shields.io/badge/Category-Red--Teaming--/--AppSec-gray)  
+As the adoption of CI/CD practices continues to grow, securing these pipelines has become increasingly important. However, identifying vulnerabilities in CI/CD pipelines can be daunting, especially at scale. In this talk, we present our tooling, which we intend to release as open-source software to the public that helped us uncover hundreds of vulnerabilities in popular open-source projects' CI/CD pipelines.
 
-We tested five leading CDN vendors and found all of them are susceptible to this attack. By mounting an attack against our own Web site, we show that attackers can use it to achieve peak bandwidths over 1000 times greater than their upload bandwidth, seriously degrading the performance and availability of target services. We have reported our findings to all tested CDNs and received positive feedback.
+RAVEN (Risk Analysis and Vulnerability Enumeration for CI/CD) is a powerful security tool designed to perform massive scans for GitHub Actions CI workflows and digest the discovered data into a Neo4j database. With RAVEN, we were able to identify and address potential security vulnerabilities in some of the most popular repositories hosted on GitHub, including FreeCodeCamp (the most popular project on GitHub), Storybook (One of the most popular frontend frameworks), Fluent UI by Microsoft, and much more.
+This tool provides a reliable and scalable solution for security analysis, enabling users to query the database and gain valuable insights into their codebase's security posture.
 
-As this problem is rooted in the inherent nature of CDN forwarding networks, it is difficult to eliminate entirely. We discuss possible mitigation strategies for this emerging threat. We believe it is important that CDN operators and their customers be aware of this attack so that they can protect themselves accordingly.
 
+### [Ipa-medit: Memory modification tool for iOS apps without Jailbreaking](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--AppSec](https://img.shields.io/badge/Category-Red--Teaming--/--AppSec-gray)  
+Ipa-medit is a memory search and patch tool for resigned ipa without jailbreaking. It supports iOS apps running on iPhone and Apple Silicon Mac. It was created for mobile game security testing. Many mobile games have jailbreak detection, but ipa-medit does not require jailbreaking, so memory modification can be done without bypassing the jailbreak detection.
 
-### [Wiretapping Tool to Sniff Packets Directly from LAN Cables](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Network--&--Recon](https://img.shields.io/badge/Category-Network--&--Recon-gray)  
-Wiretapping tool to sniff packets directly from LAN cables
+Memory modification is the easiest way to cheat in games, it is one of the items to be checked in the security test. There are also cheat tools that can be used casually like GameGem and iGameGuardian. However, there were no tools available for un-jailbroken device and CUI, Apple Silicon Mac. So I made it as a security testing tool.
 
+I presented a memory modification tool ipa-medit which I presented at Black Hat USA 2021 Arsenal. At that time, it could only target iOS apps running on iPhone, but now it supports iOS apps running on the Apple Silicon Mac. The Apple Silicon Mac was recently released and allows you to run iOS apps on macOS. For memory modification, I'll explain how the implementation and mechanisms are different for iOS apps running on iPhone or Apple Silicon Mac.
 
-### [on the fly](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Network--&--Recon](https://img.shields.io/badge/Category-Network--&--Recon-gray)  
-The 'on-the-fly' tool intends to give the pentester an 'all-in-one' tool by deploying different functionalities applicable across the three domains of work: IoT, ICS & IT. The present work introduces a new framework in which enough functionalities will be provided to discover, evaluate, and audit technologies from the three mentioned domains.
+GitHub: https://github.com/aktsk/ipa-medit
 
 
-### [peetch - an eBPF based networking tool](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Network--&--Recon](https://img.shields.io/badge/Category-Network--&--Recon-gray)  
-peetch is a collection of tools aimed at experimenting with different aspects of eBPF to bypass TLS protocol protections.
+### [Jackhammer: One Security Vulnerability Assessment/Management Tool](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--AppSec](https://img.shields.io/badge/Category-Red--Teaming--/--AppSec-gray)  
+Jackhammer is an integrated tool suite which comes with out-of-the-box industry standard integrations. It is a first of its kind tool that combines static analysis, dynamic web app analysis, mobile security, API security, network security, CMS security, AWS/Azure security tools, docker/container security, and vulnerability manager that gives a complete glimpse into security posture of the organization. Using this suite, even senior leadership can have a comprehensive view of their organization's security.
+
+Why was it needed?
+Security, while being imperative for any organization, it is hard to comprehend by most of the developers. Security engineers need to scrutinize every service or app turning security analysis a time intensive and repetitive. What if there exists a tool that can empower everyone to test their code for vulnerabilities, automate security analysis, and show the overall security hygiene of the company?
+
+How does it work?
+Jackhammer intiates various types of scans using existing proven tools and the results are consumed by onboard vulnerability manager. Unique dashboard presents intuitive interface giving the user a holistic view of the code base. The normalized reports are instantly accessible to Developers, QAs, TPMs, and security personnel.
+
+It can be plugged/integrated with:
+
+CI systems and Git via hooks giving complete control over code commits
+AWS/Azure account and can keep on scanning complete IP space in realtime
+Additional commercial/open source tools within few minutes and manage those tools from jackhammer
+Ticketing systems (like Jira)
+slack/pagerduty for real time alerting in addition to SMS and emails
+
+It creates a sandbox using dockers for every tool and scales the systems when the scan needs it and descale on completion of the scans. The spin-up and tear down is a completely automated process so no person needs to look at the resources making it inexpensive and cost-effective.
+
+
+### [Joern: An Interactive Shell for Code Analysis](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--AppSec](https://img.shields.io/badge/Category-Red--Teaming--/--AppSec-gray)  
+Joern is an award-winning open-source platform for robust query-based analysis of C/C++. It enables mining large code bases for vulnerabilities using a Scala-based domain-specific query language and provides the reference implementation for code property graphs. With its fuzzy parsing approach, it is specifically suited for machine learning applications. Joern serves as the fundament for the commercial SAST and code exploration products at ShiftLeft.
+
+The Code Property Graph (CPG) is an intermediate code representation designed for code querying. The core idea it promotes is to merge multiple different program representations into a joint graph data structure and allowing queries to be formulated as graph traversals. In its initial form as presented in 2014, the CPG makes available syntactical information, control flow information and data flow for C/C++ programs. It was later further generalized to host multiple different programming languages, and higher-level code representations.
+
+
+
+Important Links
+Joern Documentation: https://docs.joern.io
+Joern query database: https://queries.joern.io
+Joern Community: https://discord.gg/AUzy45EHdf
+
+Demo preparation:
+
+Download VLC v3.0.12 source and extract in a convenient directory
+> wget http://get.videolan.org/vlc/3.0.12/vlc-3.0.12.tar.xz
+> tar -xvf vlc-3.0.12.tar.xz
+
+Download Joern and install
+> wget https://github.com/joernio/joern/releases/latest/download/joern-install.sh
+> chmod +x ./joern-install.sh
+> sudo ./joern-install.sh
+
+
+### [KICS - Your IaC Secure Now!](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--AppSec](https://img.shields.io/badge/Category-Red--Teaming--/--AppSec-gray)  
+KICS stands for Keeping Infrastructure as Code Secure. It is open source and is a must-have for any cloud native project to find security vulnerabilities, compliance issues, and infrastructure misconfigurations early in the development cycle of the underlying infrastructure-as-code (IaC).
+
+KICS supports about 20 different technologies including Terraform, Cloudformation, Kubernetes, Docker, over several cloud providers like AWS, Microsoft Azure or Google Cloud. It is the only open-source project that has achieved any Center for Internet Security (CIS) certification.
+
+KICS is fully customizable and extensible by the addition of rules for new vulnerabilities. It is available as a Docker image, and is paired in multiple platforms to leverage its integration on the development life-cycle and the DevSecOps mentality of its users. Gitlab has chosen KICS as its default IaC scanner; it is also available in ArgoHub, as a hook in TerraformCloud or as a Github Action for Github workflows.
+
+One of the most recent features of KICS is auto remediation. With this feature KICS goes full cycle in preventing vulnerable code from going into production by scanning the code, exposing the issues, and automatically remediating them. Such a feature is both available from the CLI interface, or via a plugin for the Visual Studio Code editor, where we bring together auto-remediation and real-time scanning. As the developer writes IaC scripts, KICS automatically looks for vulnerabilities, proposes fixes and remediates them. By the time the IaC scripts are finished, developers are rest assured that it is safe to go into production. This is shift-left security brought to its splendor.
+
+
+### [KUBEBOT - SCALEABLE AND AUTOMATED TESTING SLACKBOT WITH THE BACKEND RUNNING ON KUBERNETES](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--AppSec](https://img.shields.io/badge/Category-Red--Teaming--/--AppSec-gray)  
+Security Testing, or for that matter any sort of testing, is still being done in ways that are not really scalable and extensible. Testers like to write their own tools/scripts and run them locally on their system. There are many problems that plague this kind of approach for testing.
+
+We will be discussing some of these problems and releasing a new tool - KubeBot - that was primarily built for automating and scaling bug bounties i.e. something that would run multiple tools on a schedule against multiple targets and only returns back the output from these tools if the output changes.
+
+However, over time, it has proven out to be a more generic framework that can be leveraged as a harness to run any security testing tool and is easily scaleable (because of Kubernetes in the backend). It is extensible and provides a nice front end in the form of a Slackbot so that you can look at the results on a real-time basis.
+
+Tool URL: ﻿https://github.com/anshumanbh/kubebot
+
+
+### [Kinstrument: Binary-Only Instrumentation Framework for Linux Kernel Based on Breakpoint](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--AppSec](https://img.shields.io/badge/Category-Red--Teaming--/--AppSec-gray)  
+For regular Linux kernels, we can use qemu or vmware, and then use gdb to debug the kernel, but for some special embedded devices, such as Android phones, it is difficult to debug and instrument the kernel. In order to debug the kernel, it often needs to recompile the kernel and use additional hardware.
+
+The characteristics of kinstrument are as follows:
+
+1. The kernel only needs to support the insertion of the ko module, the kernel does not need to be recompiled, and no additional hardware is required.
+2. Support instrumentation basic blocks, and get basic block coverage of kernel code
+3. Use the breakpoint mechanism to hook and debug arbitrary instructions.
+
+
+Kinstrument can be used for kernel debugging and Fuzz.
+
+
+### [Kubernetes Goat: Interactive Kubernetes Security Learning Playground](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--AppSec](https://img.shields.io/badge/Category-Red--Teaming--/--AppSec-gray)  
+Kubernetes Goat is a "vulnerable by design" Kubernetes Cluster environment to practice and learn about Kubernetes Security. It has step by step detailed guide and digital book on how to get started with Kubernetes Goat by exploring different vulnerabilities in Kubernetes Cluster and Containerized environments. Also, it has scenarios taken from the real-world vulnerabilities and maps the Kubernetes Goat scenarios. The complete documentation and instruction to practice Kubernetes Security for performing security assessments, pentesting, and in general Kubernetes Security. As a defender you will see how we can learn these attacks, misconfigurations to understand and improve your cloud-native infrastructure security posture.
+
+Some of the high-level scenarios include, but are not limited to
+
+1. Sensitive keys in code-bases
+2. DIND (docker-in-docker) exploitation
+3. SSRF in K8S world
+4. Container escape to access host system
+5. Docker CIS Benchmarks analysis
+6. Kubernetes CIS Benchmarks analysis
+7. Attacking private registry
+8. NodePort exposed services
+9. Helm v2 tiller to PwN the cluster
+10. Analysing crypto miner container
+11. Kubernetes Namespaces bypass
+12. Gaining environment information
+13. DoS the memory/CPU resources
+14. Hacker Container preview
+15. Hidden in layers
+16. RBAC Least Privileges Misconfiguration
+17. KubeAudit - Audit Kubernetes Clusters
+18. Sysdig Falco - Runtime Security Monitoring & Detection
+19. Popeye - A Kubernetes Cluster Sanitizer
+20. Secure network boundaries using NSP
+
+
+### [LaiFu: A Modern Protocol Fuzzing Framework Based on Scapy](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--AppSec](https://img.shields.io/badge/Category-Red--Teaming--/--AppSec-gray)  
+As a protocol tester, we often use scapy to interact with the protocol because it is able to craft or decode packets easily and it implements a wide number of protocols. However, the fuzz function supported by scapy can not fuzz protocols sufficiently and effectively. Testers often need to write additional fuzzing code based on other fuzzing frameworks such as Peach and Boofuzz.
+
+According to the current situation, we design a protocol fuzzing tool named "LaiFu". LaiFu framework allows testers to use scapy to specify protocol formats directly. We designed the corresponding mutation algorithm according to the various field types of scapy's packet. Meanwhile, we also provide a tool to show the coverage of fuzzing target in real time. Testers only need to put each data packet as a node into the graph and then start the fuzzing test. Another advantage is that LaiFu makes many protocols already implemented by scapy to be fuzzable.
+
+We are going to open source this tool to assist testers or developers to test their code and make protocol fuzzing easy and effective.
+
+
+### [Lucky CAT: A Distributed Fuzzing Management Framework](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--AppSec](https://img.shields.io/badge/Category-Red--Teaming--/--AppSec-gray)  
+Lucky CAT (Crash All the Things!) is a distributed fuzzing framework with an easy to use web interface. It allows management of fuzzing jobs on several remote machines concurrently. Lucky CAT aims to be easily usable, scaleable, extensible, and fun. To achieve this, it is built using several micro services and it relies on many open source projects. Furthermore, it offers a RESTful API to automate it or to integrate it with other tools.
+
+Lucky CAT comes with several plugins for mutation engines (e.g. /dev/urandom, radamsa), fuzzers (afl, qemu_fuzzer, a minimalistic file fuzzer) and verifiers (local gdb exploitable, remote gdb exploitable). There are templates (in Python and C) that allow to quickly integrate, for example, new fuzzers and verifiers. Fuzzers can rely on their own mutation engine (e.g. afl) but Lucky CAT can also generate test cases for a fuzzer. This is handy when writing a fuzzer for an embedded device with limited computational resources or a small one-shot fuzzer for a custom protocol.
+
+Its origin is the Nightmare Fuzzing Project. However, Lucky CAT goes beyond its ancestor. It is more 2018-ish using latest technologies such as RabbitMQ, Flask, MongoDB, and Python3. Lucky CAT's main objective is to automate the fuzzing process as far as possible so as to security researchers can focus on what they can best: identifying attack surfaces or writing custom fuzzers.
+Therefore, future releases will focus on, amongst others, automatic deployment of fuzzers, crash notification and job summaries via email and instant messaging, and kernel core dump analysis.
+
+Presentation: https://net.cs.uni-bonn.de/fileadmin/ag/martini/Staff/thomas_barabosch/blackhat-eu18-arsenal.pdf
+Source Code: https://github.com/fkie-cad/LuckyCAT
+
+
+### [MI-X (Am I Exploitable?).](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--AppSec](https://img.shields.io/badge/Category-Red--Teaming--/--AppSec-gray)  
+‘Am I Exploitable?’, is an open source tool aimed at effectively determining whether a local host or a running container image is truly vulnerable to a specific vulnerability by accounting for all factors which affect *actual* exploitability. The tool prints the logical steps it takes in order to reach a decision and can generate a flow chart depicting the complete logical flow.
+
+The first critical step to address any security vulnerability is to verify whether or not your environment is affected. Even if a vulnerable package is installed on your system, this condition alone does not determine exploitability as several conditions must be in place in order for the vulnerability to be applicable (exploitable). For example, can the vulnerability only be exploited under a specific configuration or in a specific OS?.
+
+Most conventional vulnerability scanners rely on package manager metadata in order to determine the installed components (and in which versions) and then cross reference this data with vulnerability advisories in order to determine what vulnerabilities affect the system. The problem with that is that often software may be deployed without a package manager. For example, software might be built from source and then added to an image or unzipped from a tarball to a specific location on the file system. In these cases, no package manager data is associated with the application, which can result in false negatives (a scanner will “miss” these vulnerabilities) and offer a false sense of security.
+
+We aim to build a community of researchers that can improve the validation process of historically dangerous vulnerabilities, as well as newly discovered ones, so users and organizations will understand whether they are vulnerable or not, as well as which validation flow is used to reach that verdict, and what steps are necessary for remediation or mitigation.
+
+
+### [MI-X - Am I Exploitable?](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--AppSec](https://img.shields.io/badge/Category-Red--Teaming--/--AppSec-gray)  
+None
+
+
+### [Magpie: An Open Source CSPM Built to Scale](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--AppSec](https://img.shields.io/badge/Category-Red--Teaming--/--AppSec-gray)  
+None
+
+
+### [MetaHub: Automating Ownership, Context and Impact Assessments in Security Findings](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--AppSec](https://img.shields.io/badge/Category-Red--Teaming--/--AppSec-gray)  
+Security findings from automated sources such as CSPMs, software vulnerability scanners, or compliance scanners often overwhelm security teams with excessive, generic, context-less information. You may have heard countless times that context in security is key, so why don't these tools provide you with more of it? Simply put, they were not designed to do so.
+
+This shortcoming means that determining ownership and impact can be time-consuming, leading to critical vulnerabilities going unnoticed, and causing unnecessary noise or friction between security teams and other departments.
+
+My proposed demo introduces MetaHub, a tool designed to address these issues by automating the three essential stages of security finding assessment: owner determination, contextualization, and impact definition. Leveraging metadata through MetaChecks, MetaTags, MetaTrails, and MetaAccount, MetaHub provides a detailed, context-aware assessment of each finding.
+
+By integrating MetaHub, teams can significantly reduce false positives, streamline the detection and resolution of security findings, and strategically tailor their scanner selection to minimize unnecessary noise. The ability to concentrate on meaningful, high-impact issues will be the primary focus of the demo.
+
+MetaHub relies on the ASFF format for ingesting security findings and can consume data from AWS Security Hub or any ASFF-supported scanner like Prowler, ElectricEye, or Inspector. This compatibility means you can continue using the scanners you already rely on but add what's missing to those findings: Ownership, Context, and Impact.
+
+MetaHub also generates powerful visual reports and is designed for use as a CLI tool or within automated workflows, such as AWS Security Hub custom actions or AWS Lambda functions.
+
+The automation of context, ownership, and impact is not commonly addressed by open-source tools; MetaHub introduces a solution to this problem that aims to be agnostic to the source scanner.
+
+
+### [Nightingale: Docker for Pentesters](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--AppSec](https://img.shields.io/badge/Category-Red--Teaming--/--AppSec-gray)  
+Have you ever been encounter where you configured the security virtual envieonment in the virtualbox and after someday the VM got crashed. All your configuration, tool setup, important information about the taget, POC's and what not, all will be gone and you can't recover the same.
+
+With the same problem, I created the Nightingale based on the docker technology which provides you the exact security environment where you can expreicne the tools which a pentesters required at the time of pentesting. Adding to this, you no need to worry about your data, configuration and all other important. Nightingale will automatically restore the configuration once the new container will be up.
+
+
+### [OpenSecDevOps (OSDO)](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--AppSec](https://img.shields.io/badge/Category-Red--Teaming--/--AppSec-gray)  
+Join us to easily build a fortified software development lifecycle (SDLC) using open source tools. Find out how these powerful resources can improve the security of your software applications and improve your development process. We'll explore popular open source tools like Gitlab, Harbor, defectdojo... Seamlessly integrating them into your workflow to enforce strong security policies, detect vulnerabilities, and ensure compliance with industry best practices. Through hands-on exercises and real-world examples, you'll learn how to mitigate security risks, harden your code, and adopt security best practices, resulting in secure, scalable, and resilient software applications. Don't miss this transformative opportunity to unlock the potential of open source tools in your SDLC and strengthen your organization's overall security posture. All the information will be published on opensecdevops.com for the community to use and improve on the day of the presentation, in addition to integrating the different tools, an app will be shown to facilitate said integration according to your needs.
+
+
+### [POWERSAP: POWERSHELL TOOL TO ASSESS SAP SECURITY](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--AppSec](https://img.shields.io/badge/Category-Red--Teaming--/--AppSec-gray)  
+Most companies, small or big, use SAP technologies to work. Many of them provide access to their SAP environments through Citrix. Indeed, supplier or subcontractors need to reach SAP environment, from back office to boardroom, warehouse to storefront, desktop to mobile device; users can quickly and 'securely' access SAP enterprise application software with Citrix virtualization without exposing their SAP landscape to Internet.
+
+To pentest SAP system required some knowledge of this technologies and some hacking tool. Unfortunately, lots of SAP hacking tools are not maintained anymore and dependencies are required like RFC SDK to work. When it comes to assess/pentest the security of SAP landscape from Citrix, no tool is freely available and it is not allow or possible to install third softwares or dependencies.
+
+We present a compilation of powershell script to assess SAP, which try to answer to this problematic of dependencies and use from Citrix environment. The presentation will start by describing the issues around SAP hacking tools, then we will continue by explaining the restrictions meet to pentest from Citrix system. And then we will present in detail the tool developed to solve the issues meet and of course with some demos.
+
+
+### [Patronus: Swiss Army Knife SAST Toolkit](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--AppSec](https://img.shields.io/badge/Category-Red--Teaming--/--AppSec-gray)  
+Patronus is a fully dockerised and comprehensive config driven Security Framework which helps to detect security vulnerabilities in the Software Development Life Cycle of any application. The framework inculcates a highly automated approach for vulnerability identification and management. With Patronus's fully whitebox approach, the framework currently covers four major verticals; Secrets Scanning, Software Composition Analysis, Static Application Security Testing and Asset Inventory. Finding all these four verticals together is a very strenuous task in the industry as no other framework currently solves this like Patronus which provides a fully comprehensive dashboard containing all the four verticals in a single central platform, and this is something very unique to Patronus. Patronus automatically identifies the latest code commits and focuses on the major aspects of the application source code to identify and detect key and high severity vulnerabilities within the application and aims for minimal false positives in the reports.
+
+The framework focuses on the needs of the security engineers and the developers alike with a dedicated web dashboard to abstract all the nitty gritty technicalities of the security vulnerabilities detected and also empowers the user with higher level of vulnerability tracking for better patch management. The dashboard is built completely with analytics, functionality and maintaining ease in mind to demonstrate and display various metrics for the scans and vulnerabilities. It also helps to search, analyse and resolve vulnerabilities on-the-go and provides a completely consolidated vulnerability report.
+
+Patronus is very powerful and hugely reduces the time and efforts of the security team in thoroughly reviewing any application from a security lens. The framework comes with an on-demand scanning feature apart from the scheduled daily automated scans, using which developers and security engineers can scan particular branches and repositories at any point of time in the SDLC, directly from the dashboard or integrations like Slack. The framework is completely adaptable and various softwares like Slack and Jira can be easily integrated directly with Patronus for better accessibility and tracking since most organisations today use these extensively.
+
+
+### [PingCastle: An Active Directory Auditing Tool](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--AppSec](https://img.shields.io/badge/Category-Red--Teaming--/--AppSec-gray)  
+So many tools that exist to assess Active Directory security, and yet, it is impossible to have an overview of all. PingCastle has been designed to tackle these difficulties and get results fast and without any requirements. Healthcheck mode is the most well-known mode that gives vulnerability reports in minutes regarding major AD vulnerabilities. But what if the most important point was to convince the management that AD security is not that simple? PingCastle is more than a vulnerability scanner. This demo will include scanners, cartography and secret tricks.
+
+
+### [PingCastle: An Active Directory Security Tool](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--AppSec](https://img.shields.io/badge/Category-Red--Teaming--/--AppSec-gray)  
+So many tools that exist to assess Active Directory security, and yet, it is impossible to have an overview of all. PingCastle has been designed to tackle these difficulties and get results fast and without any requirements. Healthcheck mode is the most well-known mode that gives vulnerability reports in minutes regarding major AD vulnerabilities. But what if the most important point was to convince the management that AD security is not that simple? PingCastle is more than a vulnerability scanner. This demo will include scanners, cartography and secret tricks.
+
+
+### [Principal Mapper (PMapper): A Tool for Identifying Unique AWS Account/Organization Permissions Risks](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--AppSec](https://img.shields.io/badge/Category-Red--Teaming--/--AppSec-gray)  
+None
+
+
+### [Prowler v3 the handy multi-cloud security tool](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--AppSec](https://img.shields.io/badge/Category-Red--Teaming--/--AppSec-gray)  
+None
+
+
+### [Prowler, Open Source for Multi-Cloud Security Assessments and Pentesting](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--AppSec](https://img.shields.io/badge/Category-Red--Teaming--/--AppSec-gray)  
+Whether you use AWS, Azure or Google Cloud, Prowler helps to assess, audit, pentest and harden your cloud infrastructure configuration and resources.
+
+
+### [Prowler: Cloud Security Assessment, Auditing, Hardening, Compliance and Forensics Readiness Tool](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--AppSec](https://img.shields.io/badge/Category-Red--Teaming--/--AppSec-gray)  
+Prowler helps to assess, audit and harden your AWS account configuration and resources. It also helps to check your configuration with CIS recommendations, and check if your cloud infrastructure is GDPR compliance or if you are ready for a proper forensic investigation. It is a command line tool that provides direct and clear information about configuration status related to security of a given AWS account, it performs more than 80 checks.
+
+
+### [Responding to Microsoft 365 Security Reviews Faster with Monkey365](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--AppSec](https://img.shields.io/badge/Category-Red--Teaming--/--AppSec-gray)  
+Monkey 365 is a multi-threaded plugin-based tool to help assess the security posture of not only Microsoft 365, but also Azure subscriptions and Azure Active Directory. It contains multiple controls and currently supports CIS 1.4/1.5, HIPAA, GDPR, as well as custom security rules.
+
+
+### [Scout Suite: A Multi-Cloud Security Auditing Tool](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--AppSec](https://img.shields.io/badge/Category-Red--Teaming--/--AppSec-gray)  
+Scout Suite (https://github.com/nccgroup/ScoutSuite) is an open source multi-cloud security-auditing tool, which enables security posture assessment of cloud environments. Using the APIs exposed by cloud providers, Scout Suite gathers configuration data for manual inspection and highlights risk areas. Rather than going through dozens of pages on the web consoles, Scout Suite presents a clear view of the attack surface automatically.
+
+The following cloud providers are currently supported:
+
+Amazon Web Services
+Microsoft Azure
+Google Cloud Platform
+
+During the presentation, we will run Scout Suite against a number of cloud environments preconfigured with typical flaws. We will display how Scout Suite can be used to identify and help with remediation of security misconfigurations.
+
+We will also release support for a number of new cloud providers (Oracle Cloud Infrastructure, Alibaba Cloud & IBM Cloud), and demonstrate how Scout Suite's cloud-agnostic architecture allows for great extensibility.
+
+Presentation Slides: https://github.com/nccgroup/ScoutSuite/files/3502099/BH.Arsenal.2019.Scout.Suite.pdf
+
+
+### [SERPICO](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--AppSec](https://img.shields.io/badge/Category-Red--Teaming--/--AppSec-gray)  
+SERPICO is a simple and intuitive report generation and collaboration tool; the primary function is to cut down on the amount of time it takes to write a penetration testing report. Serpico was built by penetration testers with a pen-testers methodology in mind. Our goal is to save you time and improve your reporting process.
+
+We are excited to be back at Arsenal!! We have a large release of Serpico planned with some exciting features to show off including plug-ins to simplify your life, more reports to choose from, shiny UI improvements, and better scoring. It might make you hate report writing just a little bit less.
+
+
+### [SimpleRisk GRC](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--AppSec](https://img.shields.io/badge/Category-Red--Teaming--/--AppSec-gray)  
+As security professionals, almost every action we take comes down to making a risk-based decision. Web application vulnerabilities, malware infections, physical vulnerabilities, and much more all boils down to some combination of the likelihood of an event happening and the impact it will have. Risk management is a relatively simple concept to grasp, but the place where many practitioners fall down is in the tool set. The lucky security professionals work for companies who can afford expensive GRC tools to aide in managing risk. The unlucky majority out there usually end up spending countless hours managing risk, via spreadsheets. It's cumbersome, time consuming, and just plain sucks. After starting a Risk Management program from scratch at a $1B/year company, Josh Sokol ran into these same barriers and where budget wouldn't let him go down the GRC route, he finally decided to do something about it. SimpleRisk is a simple and free tool to perform risk management activities. Based entirely on open source technologies and sporting a Mozilla Public License 2.0, a SimpleRisk instance can be stood up in minutes and instantly provides the security professional with the ability to submit risks, plan mitigations, facilitate management reviews, prioritize for project planning, and track regular reviews. It is highly configurable and includes dynamic reporting and the ability to tweak risk formulas on the fly. It is under active development with new features being added all the time. SimpleRisk is Enterprise Risk Management simplified.
+
+
+### [SimpleRisk](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--AppSec](https://img.shields.io/badge/Category-Red--Teaming--/--AppSec-gray)  
+As security professionals, almost every action we take comes down to making a risk-based decision. Web application vulnerabilities, malware infections, physical vulnerabilities, and much more all boils down to some combination of the likelihood of an event happening and the impact it will have. Risk management is a relatively simple concept to grasp, but the place where many practitioners fall down is in the tool set. The lucky security professionals work for companies who can afford expensive GRC tools to aide in managing risk. The unlucky majority out there usually end up spending countless hours managing risk via spreadsheets. It's cumbersome, time consuming, and just plain sucks. After starting a Risk Management program from scratch at a $1B/year company, Josh Sokol ran into these same barriers and where budget wouldn't let him go down the GRC route, he finally decided to do something about it. SimpleRisk is a simple and free tool to perform organizational Governance, Risk Management, and Compliance activities. Based entirely on open source technologies and sporting a Mozilla Public License 2.0, a SimpleRisk instance can be stood up in minutes and instantly provides the security professional with the ability to manage control frameworks, policies, and exceptions, facilitate audits, and perform risk prioritization and mitigation activities. It is highly configurable and includes dynamic reporting and the ability to tweak risk formulas on the fly. It is under active development with new features being added all the time. SimpleRisk is Enterprise Risk Management simplified.
+
+
+### [SimpleRisk: ARSENAL THEATER DEMO](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--AppSec](https://img.shields.io/badge/Category-Red--Teaming--/--AppSec-gray)  
+As security professionals, almost every action we take comes down to making a risk-based decision. Web application vulnerabilities, malware infections, physical vulnerabilities, and much more all boils down to some combination of the likelihood of an event happening and the impact it will have. Risk management is a relatively simple concept to grasp, but the place where many practitioners fall down is in the tool set. The lucky security professionals work for companies who can afford expensive GRC tools to aide in managing risk. The unlucky majority out there usually end up spending countless hours managing risk, via spreadsheets. It's cumbersome, time consuming, and just plain sucks. After starting a Risk Management program from scratch at a $1B/year company, Josh Sokol ran into these same barriers and where budget wouldn't let him go down the GRC route, he finally decided to do something about it. SimpleRisk is a simple and free tool to perform risk management activities. Based entirely on open source technologies and sporting a Mozilla Public License 2.0, a SimpleRisk instance can be stood up in minutes and instantly provides the security professional with the ability to submit risks, plan mitigations, facilitate management reviews, prioritize for project planning, and track regular reviews. It is highly configurable and includes dynamic reporting and the ability to tweak risk formulas on the fly. It is under active development with new features being added all the time. SimpleRisk is Enterprise Risk Management simplified.
+
+Source Code: https://github.com/simplerisk
+
+
+### [SimpleRisk: Governance, Risk Management & Compliance](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--AppSec](https://img.shields.io/badge/Category-Red--Teaming--/--AppSec-gray)  
+As security professionals, almost every action we take comes down to making a risk-based decision. Web application vulnerabilities, malware infections, physical vulnerabilities, and much more all boils down to some combination of the likelihood of an event happening and the impact it will have. Risk management is a relatively simple concept to grasp, but the place where many practitioners fall down is in the tool set. The lucky security professionals work for companies who can afford expensive GRC tools to aide in managing risk. The unlucky majority out there usually end up spending countless hours managing risk via spreadsheets. It's cumbersome, time consuming, and just plain sucks. After starting a Risk Management program from scratch at a $1B/year company, Josh Sokol ran into these same barriers and where budget wouldn't let him go down the GRC route, he finally decided to do something about it. SimpleRisk is a simple and free tool to perform organizational Governance, Risk Management, and Compliance activities. Based entirely on open source technologies and sporting a Mozilla Public License 2.0, a SimpleRisk instance can be stood up in minutes and instantly provides the security professional with the ability to manage control frameworks, policies, and exceptions, facilitate audits, and perform risk prioritization and mitigation activities. It is highly configurable and includes dynamic reporting and the ability to tweak risk formulas on the fly. It is under active development with new features being added all the time. SimpleRisk is Enterprise Risk Management simplified.
+
+
+### [SupplyShield: Protecting your software supply chain](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--AppSec](https://img.shields.io/badge/Category-Red--Teaming--/--AppSec-gray)  
+SupplyShield is a comprehensive supply chain security framework aimed at defending against the increasingly sophisticated attacks posed by software supply chain vulnerabilities. With numerous organizations hosting hundreds of micro-services and thousands of builds occurring daily, effectively monitoring the software supply chain to construct the final application becomes a complex challenge. This is where SupplyShield can assist any organization in seamlessly integrating this framework into their Software Development Lifecycle (SDLC) to ensure software supply chain security.
+
+The current framework version is predominantly designed for the AWS environment. Any organization utilizing AWS infrastructure can seamlessly implement this framework with minimal effort via AWS CloudFormation templates to enhance the security of their supply chain. The framework mainly focuses on generating and maintaining a Software Bill of Materials (SBOM) and performing Software Composition Analysis (SCA) for all the micro-services within an organization. The scans are event-driven, targeting the final micro-service image pushed into AWS ECR. As a result, it generates an SBOM of base image binaries and 3rd-party packages introduced by developers, and performs SCA on top of that. This approach provides a comprehensive view of the software components involved in the overall development of a micro service.
+
+Built with scalability in mind, SupplyShield is capable of generating an SBOM and performing SCA in a CI/CD environment where thousands of builds take place daily. SupplyShield enables the rapid detection of zero-day vulnerabilities, such as the log4j exploit, even for organizations with over 100 micro-services, significantly reducing the Mean Time To Detect (MTTD) to mere minutes. This significantly simplifies the tasks of both security engineers and developers in identifying and managing patches for events like the log4j vulnerability. The framework also offers a dashboard for developers and security engineers, presenting relevant metrics and actionable insights.
+
+
+### [TMoC: Threat Modeler on Chain](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--AppSec](https://img.shields.io/badge/Category-Red--Teaming--/--AppSec-gray)  
+None
+
+
+### [TROMMEL - ARSENAL THEATER DEMO](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--AppSec](https://img.shields.io/badge/Category-Red--Teaming--/--AppSec-gray)  
+TROMMEL is a custom, open-source tool using Python to assist researchers during embedded device vulnerability analysis. TROMMEL sifts through embedded device files to identify potential vulnerable indicators. TROMMEL has also integrated vFeed Community Database which allows for further in-depth vulnerability analysis of identified indicators.
+
+Source Code: https://github.com/CERTCC/trommel
+
+
+### [TROMMEL: Sift Through Embedded Device Files to Identify Potential Vulnerable Indicators](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--AppSec](https://img.shields.io/badge/Category-Red--Teaming--/--AppSec-gray)  
+TROMMEL sifts through embedded device files to identify potential vulnerable indicators. Specifically, TROMMEL identifies the following indicators:
+
+Secure Shell (SSH) key files
+Secure Socket Layer (SSL) key files
+Internet Protocol (IP) addresses
+Uniform Resource Locators (URLs)
+Email addresses
+Shell scripts
+Web server binaries
+Configuration files
+Database files
+Specific binaries files (for example, Dropbear, BusyBox, and others)
+Shared object library files
+Web application scripting variables
+
+Android application package (APK) file permissions
+
+TROMMEL integrates vFeed, to provide a custom intersection with Exploit-DB, Metasploit, Snort, and Nmap. This integration allows for further in-depth vulnerability analysis of identified indicators. All in all, TROMMEL significantly lessens the manual analysis time of the researcher by automating much of the vulnerability discovery and analysis process.
+
+
+### [TaintedLove: Dynamic Security Analysis Tool for Ruby](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--AppSec](https://img.shields.io/badge/Category-Red--Teaming--/--AppSec-gray)  
+TaintedLove is a dynamic security analysis tool for Ruby. It leverages Ruby's object tainting and monkey patching features to identify potentially vulnerable code paths at runtime. TaintedLove is library agnostic and provides a simple framework to extend the detection of unsafe method usage and user input tracking.
+
+
+### [The Vulnerability Complete Definition Library](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--AppSec](https://img.shields.io/badge/Category-Red--Teaming--/--AppSec-gray)  
+More and more security researchers treat source code as a database and use code patterns to search or query potential vulnerabilities. At the Black Hat 2021 USA conference, the 360 ​​Alpha Lab team disclosed how to use code patterns to find 11 CVEs on Chrome, and developed a 0day exploit based on this. The code pattern is essentially a set of conditions for the code, and the code that satisfies certain conditions is very likely to have vulnerabilities. However, the industry does not seem to have a publicly available tool that can accurately describe or define the necessary and sufficient conditions for a specific vulnerability. Although CodeQL (https://securitylab.github.com/tools/codeql/) is already trying to convert the vulnerability described in natural language in Common Weakness Enumeration (https://cwe.mitre.org/) into query sentences , But most of its query conditions are sufficient and non-essential conditions to form a specific vulnerability, that is, it does not include all the circumstances that form this vulnerability. These query sentences avoid the conditions that CodeQL is difficult to process or describe to improve the success rate of the query. And I personally think that the grammatical rules of SQL often cannot intuitively describe the constraints of the code and the code running process, and a large number of built-in query processes also make the learning cost higher.
+
+Therefore, I have developed a complete definition library for vulnerabilities and believe that this library has two main advantages. First, this library can describe constraints with syntax, design ideas, and keywords similar to the code used by developers, which makes this tool have a lower learning cost. Second, this library is designed to describe the necessary and sufficient conditions for the formation of vulnerabilities. The necessary and sufficient conditions here is used to describe all possible situations that form the vulnerabilities. We should not artificially modify the search conditions to make it easier for the algorithm of the search program to search for results, but should let the search algorithm determine by itself how to search can speed up the display of results.
+
+This library is developed based on LLVM's AST (Abstract Syntax Tree) and the constraint solver STP (Simple Theorem Prover), and supports the description of constraints on objects such as control flow, data flow, value size, variable relations, variable types, variable names, etc. The library will also contain a batch of vulnerability definitions I wrote and a simple search algorithm. I will use a simple example to demonstrate how the algorithm finds a vulnerability in a specific situation based on the vulnerability definition. All source code will be hosted on github, you can download and study by yourself.
+
+
+### [The WiFi Kraken Lite](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--AppSec](https://img.shields.io/badge/Category-Red--Teaming--/--AppSec-gray)  
+None
+
+
+### [USB Controlled Stress Test Tool](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--AppSec](https://img.shields.io/badge/Category-Red--Teaming--/--AppSec-gray)  
+Windows anti-forensics USB monitoring tool for stress test.
+
+
+### [Unleash Purple Knight: Fend Off Invaders Lurking in Your Active Directory](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--AppSec](https://img.shields.io/badge/Category-Red--Teaming--/--AppSec-gray)  
+Purple Knight is a free Active Directory (AD) and Azure AD security assessment tool developed by Semperis identity security experts that has been downloaded by 5,000+ users since its first release in spring 2021. Purple Knight runs as a standalone utility that queries the AD environment and performs a set of tests against many aspects of AD's security posture, including AD Delegation, account security, AD Infrastructure security, Group Policy security, and Kerberos security. The tool scans for indicators of exposure (IOEs) and indicators of compromise (IOCs). Each security indicator is mapped to security frameworks such as MITRE ATT&CK and the French National Agency for the Security of Information Systems (ANSII).
+
+Purple Knight produces a report that includes an overall score, scores in individual categories, and prioritized guidance from identity security experts that serves as a roadmap for improving overall security posture. The report includes an explanation of what aspects of the indicator were evaluated and the likelihood that the exposure will compromise AD.
+
+Purple Knight is continuously updated to address new security indicators based on original research and in response to emerging threats. As an example, the Purple Knight team released indicators for the Windows Print Spooler service and PetitPotam flaws within days after their discovery. New updates to be demonstrated at Arsenal include:
+• Newest in the 100+ indicators of exposure (IOEs) and indicators of compromise (IOCs)
+• New Azure Active Directory security indicators
+• Post-breach forensics capabilities that enable incident response teams to specify an attack window to accelerate remediation
+
+Purple Knight continuously evolves through feedback from an engaged community of users on the Purple Knight Slack channel and through individual outreach to users who communicate directly with the product teams.
+
+
+### [V2X Validation Tool](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--AppSec](https://img.shields.io/badge/Category-Red--Teaming--/--AppSec-gray)  
+The V2X Validation Tool (called dsrcvt because focused on DSRC technology) facilitates penetration testing on automotive On-Board Units (OBUs) used for Vehicle-to-X communication. Currently, dsrcvt is capable of sending unsigned or signed Basic Safety Messages (BSMs) by re-signing a recorded BSM sent for automotive onboard units. Using these BSMs it tries to cause a surge in an OBU's processing power. It also attempts to bypass the security checks posed by the IEEE 1609.2 security layer. An enhanced version of dsrcvt (dsrcvt-crafter) facilitates crafting entirely custom BSMs from scratch, conforming to the IEEE 1609 standards family. dsrcvt also comes as an OBU fuzzer that can fuzz user-selected fields of a BSM to pen-test OBU implementations.
+
+
+### [Vulmap: Online Local Vulnerability Scanners Project](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--AppSec](https://img.shields.io/badge/Category-Red--Teaming--/--AppSec-gray)  
+Vulmap is an open source online local vulnerability scanner project. It consists of online local vulnerability scanning scripts for Windows and Linux. These scripts can be used for defensive and offensive purposes. It is possible to conduct vulnerability assessments by using these scripts. Also they can be used for privilege escalation by pentesters/red teamers. Vulmap scans vulnerabilities on localhost, shows related exploits and downloads them. It basically, scan localhost to gather installed software information and ask Vulmon API if there are any vulnerabilities and exploits related with installed software. If any vulnerability exists, Vulmap shows CVE ID, risk score, vulnerability's detail link, exploit ids and exploit titles. Exploits can be downloaded with Vulmap also. Main idea of Vulmap is getting real-time vulnerability data from Vulmon instead of relying of a local vulnerability database. Even the most recent vulnerabilities can be detected with this approach. Also its exploit download feature helps privilege escalation process. Since most Linux installations have Python, Vulmap Linux is developed with Python while Vulmap Windows is developed with PowerShell to make it easy to run it on most Windows versions without any installation.
+
+
+### [Vuls: Agent-less Vulnerability Scanner for Linux, FreeBSD, Container Image, Running Container, WordPress, Application Libraries, and Network Devices](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--AppSec](https://img.shields.io/badge/Category-Red--Teaming--/--AppSec-gray)  
+Over 10,000 new vulnerabilities are registered on the NVD each year. Constantly monitoring new vulnerabilities and keeping a manual inventory of installed software to determine which devices are affected is necessary. Without automation, vulnerability lifecycle managed imposes huge burdens and challenges.
+
+Having personally experienced these challenges, Kota Kanbe created Vuls, an open source vulnerability scanner for Linux and FreeBSD [https://github.com/future-architect/vuls].
+
+With users worldwide, Vuls has over 7,000 GitHub stars and is the highest-ranked security-tool https://github.com/topics/security-tools
+
+Vuls lets you know which servers and software are affected by newly disclosed vulnerabilities. Using multiple detection methods and data sources including changelog, Package Manager, NVD and OVAL, Vuls is more accurate than other open source scanners.
+
+Additionally, using CPE offers a wide detection range. Vuls not only detects vulnerabilities in OS packages but also in non-OS packages such as libraries for programming languages and network devices. https://vuls.io/docs/en/usage-scan-non-os-packages.html Wordpress vulnerability scanning(core, plugins, themes) is also supported. Scan WordPress ... https://vuls.io/docs/en/usage-scan-wordpress.html
+
+Another important feature is the speed; by using parallel processing, numerous servers can be scanned at high speeds with most scans completed within 10 seconds.
+
+Vuls supports major distributions of Linux and FreeBSD as well as containers such as Docker, LXC and LXD.
+
+Vuls is extremely easy to set up since it connects to other servers via SSH for the scans. Of course, it can also be used to scan servers locally without SSH.
+
+Vuls is a Dynamic Scanner which logs in running servers. This means that it's possible to acquire the useful state of the server for system administrators. For instance, Vuls will let you know if there are processes affected by an update and when daemons forgot to perform a restart after the update.
+
+With non-intrusive scans, Vuls works well with Continuous Integration and can help find vulnerabilities very quickly by conducting scans every day.
+
+How can a system administrator automate vulnerability lifecycle management?
+
+
+### [Wabhawk/Catch - Unsupervised Machine Learning Detection](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--AppSec](https://img.shields.io/badge/Category-Red--Teaming--/--AppSec-gray)  
+Webhawk/Catch helps automatically finding web attack traces in HTTP logs without using any preset rules. Based on the usage of Unsupervised Machine Learning, Catch groups log lines into clusters, and detects the outliers that it considers as potentially attack traces. The tool takes as input a raw HTTP log file (Apache, Nginx..) and returns a report with a list of findings.
+
+Catch uses PCA (Principal Component Analysis) technique to select the most relevant features (Example: user-agent, IP address, number of transmitted parameters, etc.. ). Then, it runs DBSCAN (Density-Based Spatial Clustering of Applications with Noise) algorithm to get all the possible log line clusters and anomalous points (potential attack traces).
+
+Advanced users can fine tune Catch based on a set of options that help optimising the clustering algorithm (Example: minimum number of points by cluster, or the maximum distance between two points within the same cluster).
+
+The current version of Webhawk/Catch generates an easy-to-read HTML report which includes all the findings, and the severity of each one.
+
+
+### [Zelos: Applying Emulation to Cross Architecture Root Cause Analysis](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--AppSec](https://img.shields.io/badge/Category-Red--Teaming--/--AppSec-gray)  
+Zelos (Zeropoint Emulated Lightweight Operating System) is a python-based binary emulation platform that omits the cumbersome setup of virtual machines, yet provides instrumentation capabilities missing in user-space emulation. While it is built on top of the QEMU powered Unicorn CPU emulator, Zelos provides the operating system details required to fully emulate binary execution from loading, down to system calls. We quickly found use for Zelos as a dynamic instrumentation tool that could unpack malware, categorize and report malicious behavior, as well as extract domains from Domain Generation Algorithms (DGA). The myriad of uses we uncovered drove us to develop a plugin system to encourage extensions.
+
+In this demo, in addition to highlighting Zelos's core dynamic analysis features, we'll showcase a new plugin released at BlackHat which provides automated root cause analysis (RCA), a method of identifying causes of crashes, through data flow analysis. Applications of automated RCA range from helping developers locate and fix bugs to triaging crashes generated through fuzzing. Existing techniques for identifying root cause through data flow analysis may require recompilation of binaries to insert instrumentation, integration of multiple tools, or collecting execution traces. Using Zelos, identifying the root cause can be as simple as providing the binary with the crashing input. We will highlight how we perform architecture agnostic dataflow analysis by utilizing QEMU's internal assembly code representation and show how easy RCA can be, even without source code.
+
+
+### [boofuzz](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--AppSec](https://img.shields.io/badge/Category-Red--Teaming--/--AppSec-gray)  
+boofuzz is an open-source network protocol fuzzing framework, competing with closed source commercial products like Defensics and Peach. Inheriting from the open source tools Spike and Sulley, boofuzz improves on a long line of block-based fuzzing frameworks.
+
+The fuzzing framework allows hackers to specify protocol formats, and boofuzz does the heavy lifting of generating mutations specific to the format. boofuzz makes developing protocol-specific "smart" fuzzers relatively easy. Make no mistake, designing a smart network protocol fuzzer is no trivial task, but boofuzz provides a solid foundation for producing quality fuzzers.
+
+Written in Python, boofuzz builds on its predecessor, Sulley, with key features including:
+
+Online documentation
+More extensibility including support for arbitrary communications mediums
+Built-in support for serial fuzzing, ethernet- and IP-layer, UDP broadcast
+Much easier install experience!
+Far fewer bugs
+
+Source Code: https://github.com/jtpereyda/boofuzz
+
+
+### [cwe_checker: Hunting Binary Code Vulnerabilities Across CPU Architectures](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--AppSec](https://img.shields.io/badge/Category-Red--Teaming--/--AppSec-gray)  
+cwe_checker is an open source suite of tools to detect common bug classes like Use After Free (CWE-416) or Null Pointer Dereference (CWE-476). These bug classes are formally known as Common Weakness Enumerations (CWEs). Its main goal is to quickly point analysts to vulnerable code paths in binaries (e.g. firmware) without access to the source code.
+
+cwe_checker is built on top of the Binary Analysis Platform (BAP). By using an intermediate representation for the binary code it can analyze ELF binaries of different CPU architectures, including x86/64, ARM, MIPS, and PPC. It has a modular and extensible architecture implementing static and dynamic analysis techniques. So far cwe_checker implements checks for more than 15 CWE classes including CWE-190 (Integer Overflow), CWE-415 (Double Free), and CWE- 676 (Use of Potentially Dangerous Function).
+
+In addition, cwe_checker has been adopted as a core plugin for the Firmware Analysis & Comparison Tool (FACT). This enables analysts to hunt for vulnerabilities in large firmware data sets. Furthermore, the results of cwe_checker are exportable and there is an IDA Pro plugin that highlights any findings in the binary.
+
+
+### [kdigger: A Context Discovery Tool for Kubernetes Penetration Testing](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--AppSec](https://img.shields.io/badge/Category-Red--Teaming--/--AppSec-gray)  
+None
+
+
+### [macOS Bluetooth Analysis Suite (mBAS)](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--AppSec](https://img.shields.io/badge/Category-Red--Teaming--/--AppSec-gray)  
+mBAS is a set of Bluetooth tools for macOS platforms, including Bluetooth HCI request sniffer, fuzzer and Broadcom firmware SoC tools, etc. Among them, the HCI fuzzer helped me discover many Bluetooth kernel vulnerabilities, such as CVE-2020-3892, CVE-2020-3893, CVE-2020-3905, CVE-2020-3907, CVE-2020-3908 and CVE-2020-3912. With these tools, we can better understand the design and implementation of Bluetooth subsystem of macOS and other platforms.
+
+
+### [remote-method-guesser: A Java RMI Vulnerability Scanner](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--AppSec](https://img.shields.io/badge/Category-Red--Teaming--/--AppSec-gray)  
+remote-method-guesser (rmg) is a Java RMI vulnerability scanner that checks for common misconfigurations on Java RMI endpoints.
+It combines well known techniques for RMI enumeration with detection capabilities for lesser known attack vectors that are often missed.
+Apart from detecting RMI vulnerabilities, remote-method-guesser can perform attack operations for each supported vulnerability type.
+The following list shows some of it's currently supported operations:
+
+* List available bound names and their interface class names
+* List codebase locations (if exposed by the remote server)
+* Check for known vulnerabilities (enabled class loader, missing JEP290, JEP290 bypasses, localhost bypass (CVE-2019-2684))
+* Identify existing remote methods by using a bruteforce (wordlist) approach
+* Call remote methods with user specified arguments (no manual coding required)
+* Call remote methods with ysoserial gadgets within the arguments
+* Call remote methods with a client specified codebase (remote class loading attack)
+* Perform DGC, registry and activator calls with ysoserial gadgets or a client specified codebase
+* Perform bind, rebind and unbind operations against an RMI registry
+* Bypass registry deserialization filters by using An Trinhs registry bypass
+* Enumerate the unmarshalling behavior of java.lang.String
+* Create Java code dynamically to invoke remote methods manually
+
+
+### [trapfuzzer](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--AppSec](https://img.shields.io/badge/Category-Red--Teaming--/--AppSec-gray)  
+Breakpoint mechanism based coverage-guided binary fuzzing tools for Windows and Linux platforms.
+
+Binary instrument by breakpoint, in specific scenarios, this method is faster than dynamorio.
+
+At present, more than 200 vulnerabilities have been found in WPS office, foxitpdf and other software
+
+
+---
+
+## Miscellaneous / Lab Tools
+
+
+### [AI Risky Business: Hands-on AI Payload Analysis](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Miscellaneous--/--Lab--Tools](https://img.shields.io/badge/Category-Miscellaneous--/--Lab--Tools-gray)  
+None
+
+
+### [ARSENAL LAB - Applied Hardware Attacks: Prototyping Malicious Hardware on the Cheap](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Miscellaneous--/--Lab--Tools](https://img.shields.io/badge/Category-Miscellaneous--/--Lab--Tools-gray)  
+None
+
+
+### [ARSENAL LAB - ICU-ICS: An ICS Assessment Framework Tool](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Miscellaneous--/--Lab--Tools](https://img.shields.io/badge/Category-Miscellaneous--/--Lab--Tools-gray)  
+None
+
+
+### [ARSENAL LAB - JTAGulator: Assisted Discovery of On-Chip Debug Interfaces](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Miscellaneous--/--Lab--Tools](https://img.shields.io/badge/Category-Miscellaneous--/--Lab--Tools-gray)  
+For over five years, the JTAGulator has been the de facto open source tool for identifying interfaces commonly used for hardware hacking, such as JTAG and UART, from a target product's test points, vias, component pads, or connectors. The tool bridges the gap between gaining physical access to circuitry and exploiting it, and can save a significant amount of effort compared to traditional reverse engineering processes. For the first time at Black Hat Arsenal, attendees will have the opportunity to play with the JTAGulator and a variety of real-world embedded devices in an informal, hands-on environment.
+
+
+### [ARSENAL LAB - ZigBee Hacking: Smarter Home Invasion with ZigDiggity](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Miscellaneous--/--Lab--Tools](https://img.shields.io/badge/Category-Miscellaneous--/--Lab--Tools-gray)  
+None
+
+
+### [Cluster Fuzz, Introduction to Car Hacking With Real Car Hardware](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Miscellaneous--/--Lab--Tools](https://img.shields.io/badge/Category-Miscellaneous--/--Lab--Tools-gray)  
+None
+
+
+### [Deepfake Detection with Faceless](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Miscellaneous--/--Lab--Tools](https://img.shields.io/badge/Category-Miscellaneous--/--Lab--Tools-gray)  
+None
+
+
+### [Dialing Home: ATM Protocol Reversing](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Miscellaneous--/--Lab--Tools](https://img.shields.io/badge/Category-Miscellaneous--/--Lab--Tools-gray)  
+None
+
+
+### [Disrupting OT and IoT by Exploiting TCP/IP Stacks](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Miscellaneous--/--Lab--Tools](https://img.shields.io/badge/Category-Miscellaneous--/--Lab--Tools-gray)  
+None
+
+
+### [Drone Remote ID Spoofer and Low Cost Receiver Application](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Miscellaneous--/--Lab--Tools](https://img.shields.io/badge/Category-Miscellaneous--/--Lab--Tools-gray)  
+None
+
+
+### [Drone Threats and Countermeasures](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Miscellaneous--/--Lab--Tools](https://img.shields.io/badge/Category-Miscellaneous--/--Lab--Tools-gray)  
+None
+
+
+### [Exploiting & Securing Trains](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Miscellaneous--/--Lab--Tools](https://img.shields.io/badge/Category-Miscellaneous--/--Lab--Tools-gray)  
+None
+
+
+### [Hacking the Digital Drone License Plate](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Miscellaneous--/--Lab--Tools](https://img.shields.io/badge/Category-Miscellaneous--/--Lab--Tools-gray)  
+None
+
+
+### [Hands-on Firmware Extraction, Exploiration, and Emulation](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Miscellaneous--/--Lab--Tools](https://img.shields.io/badge/Category-Miscellaneous--/--Lab--Tools-gray)  
+None
+
+
+### [Hands-on RF Hacking 101: From Waveforms to System Takeover](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Miscellaneous--/--Lab--Tools](https://img.shields.io/badge/Category-Miscellaneous--/--Lab--Tools-gray)  
+None
+
+
+### [Hands-on RF Hacking: Your Table is (always) Ready](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Miscellaneous--/--Lab--Tools](https://img.shields.io/badge/Category-Miscellaneous--/--Lab--Tools-gray)  
+None
+
+
+### [Hands-on RFID: Sniff it, crack it, clone it](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Miscellaneous--/--Lab--Tools](https://img.shields.io/badge/Category-Miscellaneous--/--Lab--Tools-gray)  
+None
+
+
+### [Hands-on Security Analysis of Selected Avionics Systems Using the Triton Testbed](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Miscellaneous--/--Lab--Tools](https://img.shields.io/badge/Category-Miscellaneous--/--Lab--Tools-gray)  
+None
+
+
+### [Industrial Control Systems: Capture the Train!](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Miscellaneous--/--Lab--Tools](https://img.shields.io/badge/Category-Miscellaneous--/--Lab--Tools-gray)  
+None
+
+
+### [JTAGulator: Assisted Discovery of On-Chip Debug Interfaces](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Miscellaneous--/--Lab--Tools](https://img.shields.io/badge/Category-Miscellaneous--/--Lab--Tools-gray)  
+None
+
+
+### [Mining for Secrets: Repos, firmware, and more](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Miscellaneous--/--Lab--Tools](https://img.shields.io/badge/Category-Miscellaneous--/--Lab--Tools-gray)  
+None
+
+
+### [Packet Carving for SATCOMs Hackers](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Miscellaneous--/--Lab--Tools](https://img.shields.io/badge/Category-Miscellaneous--/--Lab--Tools-gray)  
+None
+
+
+### [Practical IoT Hacking: Introduction to Multi-Band Hacking with the CatSniffer](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Miscellaneous--/--Lab--Tools](https://img.shields.io/badge/Category-Miscellaneous--/--Lab--Tools-gray)  
+None
+
+
+### [Rapid Fire: Flipper vs. All the Things](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Miscellaneous--/--Lab--Tools](https://img.shields.io/badge/Category-Miscellaneous--/--Lab--Tools-gray)  
+None
+
+
+### [Vehicle Control System](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Miscellaneous--/--Lab--Tools](https://img.shields.io/badge/Category-Miscellaneous--/--Lab--Tools-gray)  
+None
+
+
+---
+
+## Web/AppSec or Red Teaming
+
+
+### [APKHunt | OWASP MASVS Static Analyzer](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Web/AppSec--or--Red--Teaming](https://img.shields.io/badge/Category-Web/AppSec--or--Red--Teaming-gray)  
+APKHunt is a comprehensive static code analysis tool for Android apps that is based on the OWASP MASVAS framework. The OWASP MASVS (Mobile Application Security Verification Standard) is the industry standard for mobile app security. APKHunt is intended primarily for mobile app developers and security testers, but it can be used by anyone to identify and address potential security vulnerabilities in their code.
+
+With APKHunt, mobile software architects or developers can conduct thorough code reviews to ensure the security and integrity of their mobile applications, while security testers can use the tool to confirm the completeness and consistency of their test results. Whether you're a developer looking to build secure apps or an infosec tester charged with ensuring their security, APKHunt can be an invaluable resource for your work.
+
+Key features of APKHunt:
+- Scan coverage: Covers most of the SAST (Static Application Security Testing) related test cases of the OWASP MASVS framework.
+- Optimised scanning: Specific rules are designed to check for particular security sinks, resulting in an almost accurate scanning process.
+- Low false-positive rate: Designed to pinpoint and highlight the exact location of potential vulnerabilities in the source code.
+- Output format: Results are provided in a TXT file format for easy readability for end-users.
+
+Current Limitation:
+- Supporting OS/Language: Capable of scanning the source code of an android APK file and is only supported on Linux environments.
+
+Upcoming Features:
+- Scanning of multiple APK files at the same time
+- More output format such as HTML
+- Integration with third-party tools
+
+
+### [Analyzing SAP Communication Security: Introducing sncscan](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Web/AppSec--or--Red--Teaming](https://img.shields.io/badge/Category-Web/AppSec--or--Red--Teaming-gray)  
+SAP systems are used around the world to handle crucial business processes and highly confidential data such as financial details or information regarding a company's staff. To ensure confidentiality and integrity, sensitive data, and especially access credentials, must only be transmitted over encrypted communication channels. Transport layer encryption for SAP systems is provided by the Secure Network Communications (SNC) protocol. Currently, the configuration of the SAP SNC protocol (such as the Quality of Protection parameter or the installed CryptoLib) can only be audited with authenticated access to the SAP system or by manually connecting to the system through the SAP GUI. These approaches have additional requirements and are impractical for assessing the security of a larger number of systems.
+
+To address the beforementioned issues, we developed 'sncscan', an SNC scanner, that works without authentication and similar to the various tools that are available to analyze the security of services that use SSL/TLS. To achieve this, 'sncscan' starts SNC handshakes with varying encryption parameters to the tested service and analyzes the returned error messages and responses. This is especially useful in context of professional penetration tests and enables us to identify configuration weaknesses and provide actionable recommendations on improving the transport security in SAP environments.
+
+'sncscan' benefits from the tools and research of the `pysap` project and will be released as Open-Source tool in the OWASP CBAS-SAP project. It aims to enable security researchers, professional penetration testers and SAP basis administrators to verify the correct use of the SNC protocol.
+
+Currently 'sncscan' can analyze the SNC configuration of the SAP Router protocol. The next steps are to implement similar functionality for the protocols DIAG and RFC to increase the coverage of SAP services.
+
+
+### [AppsecStudy - open-source elearning management system for information security](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Web/AppSec--or--Red--Teaming](https://img.shields.io/badge/Category-Web/AppSec--or--Red--Teaming-gray)  
+AppsecStudy is an open-source platform for seminars, training, and organizing courses for practical information security for developers and IT specialists. This tool has all the built-in basic requirements needed for organizing normal and productive training.
+
+
+### [Bugsy - Automated Vulnerability Remediation CLI](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Web/AppSec--or--Red--Teaming](https://img.shields.io/badge/Category-Web/AppSec--or--Red--Teaming-gray)  
+Bugsy is a command-line interface (CLI) tool that provides automatic security vulnerability remediation for your code. It is a community edition version of Mobb, the first vendor-agnostic automatic security vulnerability remediation tool. Bugsy is designed to help developers easily identify and fix security vulnerabilities in their code.
+
+When pointed at an open-source repo, Bugsy will automatically scan the repo using Snyk Code and produce fixes the developer can easily review and commit.
+
+
+### [Build Inspector Open Source](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Web/AppSec--or--Red--Teaming](https://img.shields.io/badge/Category-Web/AppSec--or--Red--Teaming-gray)  
+Build Inspector provides processing of plain-text CI/CD build and deployment logs with an eye towards identifying consumed and produced dependencies, along with identifying actions that introduce additional risk into the process. Quickly identify changes from one pipeline run to the next, and home in on spots where developers have added unnecessary risk or are performing actions that could be opportunities for a supply chain compromise.
+
+
+### [CodeTotal: Shift Left Just Became Easier](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Web/AppSec--or--Red--Teaming](https://img.shields.io/badge/Category-Web/AppSec--or--Red--Teaming-gray)  
+Looking for a powerful and easy-to-use open-source scanning tool? CodeTotal is your solution! CodeTotal is an online scanning tool aggregates multiple open-source scanning tools, providing free and lightning-fast code scanning.
+
+But CodeTotal offers much more than just speed and convenience. Our unique tool also aggregates the data from these scans, enabling users to identify any security issues that their current scanning software may have missed. With CodeTotal, you can even verify alerts suspected to be possible false positives, getting a valuable second opinion that can help you stay ahead of any potential threats.
+
+Tired of maintaining multiple tool environments for each repository? CodeTotal offers a simple and streamlined solution. No more wasting time setting up and maintaining 10 to 20 tool environments - CodeTotal takes care of everything for you. Our revolutionary tool allows developers to independently scan their code for security issues in minutes, freeing up valuable resources and avoiding the need for involvement or approval from R&D and DevOps.
+
+But that's not all. CodeTotal also produces an SBOM, giving developers a detailed view of their code dependencies and ensuring that any licensing issues are immediately flagged. With CodeTotal, you can use open-source libraries confidently and with peace of mind.
+
+
+### [Daksh SCRA (Source Code Review Assist Tool)](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Web/AppSec--or--Red--Teaming](https://img.shields.io/badge/Category-Web/AppSec--or--Red--Teaming-gray)  
+Daksh SCRA is an open source tool that assists with manual source code review by providing helpful information to the code reviewer. This tool differs from traditional code review tools because it aims to help reviewers collect various details about the code base and identify areas of interest to review and confirm potential vulnerabilities. Even if code reviewers use automated code review tools, there are still many manual tasks they must perform to confirm findings and ensure precision in the code review process.
+
+Although there are numerous automated code review tools available, none of them can perform a reconnaissance of the code base and provide code reviewers with useful insights. Typically, code reviewers must search for relevant information to confirm findings or ensure precision. Daksh SCRA offers valuable information such as technology and platform usage, functionalities, use cases, vulnerable patterns, and libraries used, among other data.
+
+While most code review tools search for vulnerable patterns, they often report a high percentage of false positives. Daksh SCRA, on the other hand, is designed to be a reconnaissance tool that provides code reviewers with maximum insights about the target code base to assist with precise code review. Although Daksh SCRA is in its infancy stage, it is still a usable tool that supports a wide range of languages and platforms, and new features will be added in future releases.
+
+
+### [Defending GitHub Actions: Unmasking Attack Vectors and Verifying Integrity with eBPF](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Web/AppSec--or--Red--Teaming](https://img.shields.io/badge/Category-Web/AppSec--or--Red--Teaming-gray)  
+GitHub Actions has gained immense popularity as a powerful tool for software development and release. However, this popularity has also attracted bad actors, In this session, we will delve into the active risks that attackers leverage to abuse and attack GitHub Actions, shedding light on their techniques and exploits.
+In response, we will show an OSS Runtime Security solution, which introduces the concept of profiling with eBPF the CI\CD runtime environment, we will demonstrated how it can prevent and alert on malicious behaviour, and create a build profile of the environment
+
+
+### [Dependency Combobulator](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Web/AppSec--or--Red--Teaming](https://img.shields.io/badge/Category-Web/AppSec--or--Red--Teaming-gray)  
+None
+
+
+### [DumpTheGit](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Web/AppSec--or--Red--Teaming](https://img.shields.io/badge/Category-Web/AppSec--or--Red--Teaming-gray)  
+DumpTheGit searches through public repositories to find sensitive information uploaded to the Github repositories.
+
+
+### [Electronegativity: Identify Misconfigurations and Security Anti-Patterns in Electron Applications](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Web/AppSec--or--Red--Teaming](https://img.shields.io/badge/Category-Web/AppSec--or--Red--Teaming-gray)  
+Electronegativity is a tool to identify misconfigurations and security anti-patterns in Electron-based applications (electronjs.org).
+
+This is the first and only tool capable of detecting potential weaknesses and implementation bugs when developing applications using Electron, as recommended in the official security guidelines of the Electron project. Software developers and security auditors can use this tool to create secure desktop applications using web technologies.
+
+After being first introduced at Black Hat US 2017 (Electronegativity - A Study of Electron Security) and featured in Black Hat Asia 2019 (Preloading Insecurity In Your Electron), the tool will be showcased for the first time ever at the Black Hat USA 2019 Arsenal where we will demonstrate its potential by scanning well-known applications.
+
+Come see live demonstrations of Electronegativity hunting Electron applications for vulnerabilities and walk away with an open-source (Apache 2.0) static analysis engine to help secure your Electron applications!
+
+
+### [Find Security Bugs](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Web/AppSec--or--Red--Teaming](https://img.shields.io/badge/Category-Web/AppSec--or--Red--Teaming-gray)  
+Find Security Bugs is a plugin for the Java static analysis tool SpotBugs. This plugin consists of set rules that focus only on security weaknesses. It can be used by developers or security professionals to find vulnerabilities in their code.
+
+The plugin can identify weaknesses in Java web applications from 138 different bug patterns including XSS, SQL injection, XXE, template injection and many more. It can scan any JVM languages such as Kotlin, Scala and Groovy. The assessment can be done in an IDE, such as Eclipse, or IntelliJ. It can also be configured in a continuous integration environment.
+
+The most recent additions to the project include features to the IDE integration and Continuous Integration (CI). The IDE IntelliJ integration was greatly improved to have better support for alternative languages such as Kotlin. This makes it easier to scan Android applications. IDE integration is a great perspective for code audit. For developers, continuous integration is a highly sought-after configuration. A new Github Action will be presented. It provides an easy feedback for developers when integrating code to the master branch with a pull request.
+
+The Black Hat Arsenal's demonstrations will include a live code review where samples of vulnerability and practical methods will be showcased in the new IDE and CI environment.
+
+
+### [KICS](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Web/AppSec--or--Red--Teaming](https://img.shields.io/badge/Category-Web/AppSec--or--Red--Teaming-gray)  
+KICS is an open-source solution for static code analysis of Infrastructure as Code. It finds security vulnerabilities, compliance issues, and infrastructure misconfigurations in the following Infrastructure as Code solutions: Terraform, Kubernetes, Docker, AWS CloudFormation, Ansible. And more to come. Over 1000 rules are already available.
+
+
+### [KICS: Keeping Infrastructure-as-Code Secure](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Web/AppSec--or--Red--Teaming](https://img.shields.io/badge/Category-Web/AppSec--or--Red--Teaming-gray)  
+Infrastructure as Code (IaC) makes deploying cloud or container configurations scalable and faster. If you are launching a microservice into a Kubernetes cluster, or even building an entire AWS virtual infrastructure, IaC can automate the deployment. By building repeatable templates you can also ensure that deployments happen exactly as you design, every time.
+
+However, errors in infrastructure configuration are now regarded as the second biggest cause of data breaches. There are many ways to give adversaries an advantage through security misconfigurations. Overly permissive storage volumes, unauthenticated database access, or ports left open to the internet have all been a cause of compromise. The solution? Treat your infrastructure code the same as your application code. During your build process, use tools to scan for infrastructure misconfigurations. When you find them raise alerts or even break the build. 
+
+In this session, we will discuss common types of IaC misconfigurations, and demonstrate a free, open source security tool that developers can build into their pipelines to help protect infrastructure from compromise.
+
+
+### [Kubescape: Open-Source Kubernetes Security Single-Pane-of-Glass](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Web/AppSec--or--Red--Teaming](https://img.shields.io/badge/Category-Web/AppSec--or--Red--Teaming-gray)  
+Kubescape (https://github.com/armosec/kubescape) is a K8s open-source tool that provides a multi-cloud K8s single pane of glass, including risk analysis, security compliance, RBAC visualizer, and image vulnerabilities scanning.
+Kubescape scans K8s clusters, YAML files, and HELM charts, detecting misconfigurations according to multiple frameworks (such as the NSA-CISA, MITRE ATT&CK, and more), software vulnerabilities, and RBAC (role-based-access-control) violations at early stages of the CI/CD pipeline, calculates risk score instantly and shows risk trends over time.
+It became one of the fastest-growing Kubernetes tools among developers due to its easy-to-use CLI interface, flexible output formats, and automated scanning capabilities, saving Kubernetes users and admins precious time, effort, and resources.
+Kubescape integrates natively with other DevOps tools, including Jenkins, CircleCI, Github workflows, Prometheus, and Slack, and supports multi-cloud K8s deployments like EKS, GKE, and AKS.
+
+in this session, we will reveal new capabilities and features for the first time
+
+
+### [Kurukshetra: Playground for Interactive Security Learning](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Web/AppSec--or--Red--Teaming](https://img.shields.io/badge/Category-Web/AppSec--or--Red--Teaming-gray)  
+Kurukshetra is a web framework that's developed with the aim of being the first open source framework which provides a solid foundation to host reasonably complex secure coding challenges where developers can learn secure coding practices in a hands-on manner. It is composed of two components, the backend framework written in PHP, which manages and leverages the underlying docker system to provide the secure sandbox for the challenge execution, and the frontend, which is a user facing web app providing all the necessary controls, for the admin to host and modify the challenges, and the user to execute and view the result of each of his input.
+
+The Framework currently supports challenges written in 4 major languages including PHP, Python, NodeJS and Ruby.
+
+
+### [OWASP Dependency-Check](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Web/AppSec--or--Red--Teaming](https://img.shields.io/badge/Category-Web/AppSec--or--Red--Teaming-gray)  
+With the number of critical vulnerabilities in FOSS libraries that have affected so many applications over the last few years - Software Composition Analysis is a critical component to maintaining the security of your custom application. From Struts to Spring to jackson-databind, etc. the list of libraries that have had vulnerabilities that lead to remote code execution in the applications using the libraries goes on and on. As does the list of sites that have been compromised by these vulnerabilities. OWASP dependency-check is an open source Software Composition Analysis tool that provides a solution the `OWASP Top 10 2017: A9 - Using Components with Known Vulnerabilities`.
+
+
+### [Puma Scan](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Web/AppSec--or--Red--Teaming](https://img.shields.io/badge/Category-Web/AppSec--or--Red--Teaming-gray)  
+Puma Scan provides real-time, continuous source code analysis for .NET applications with over 50 security-focused rules targeting insecure deserialization, injection, weak cryptography, cross-site request forgery, misconfiguration, and many more insecure coding patterns. Puma Scan displays vulnerabilities in Visual Studio as spell check errors and compiler warnings to prevent engineers from committing vulnerabilities into code repositories.
+
+DevSecOps teams can use Puma Scan's command line interface to enable security scanning in continuous integration pipelines (e.g. Jenkins, TFS), monitor code for security issues, and verify security thresholds are met during each build.
+Come see live demonstrations of the Puma hunting source code for vulnerabilities and walk away with an open-source (MPL v2.0) static analysis engine to help secure your .NET applications.
+
+
+### [RIDE: Efficient Highly-Precise Systematic Automatic Bug Hunting in Android Systems](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Web/AppSec--or--Red--Teaming](https://img.shields.io/badge/Category-Web/AppSec--or--Red--Teaming-gray)  
+Vulnerabilities in various android systems such as the AOSP and vendor-specific components directly impact user security & privacy and should be eliminated. Do we have a way to efficiently identify bugs in ready-to-ship phones conveniently and precisely? From a researcher perspective, vendor codes are mainly closed-source which means they cannot use open-source auditing tools and usually the only obtainable resource is phone firmware. From vendor QA and security team's perspective, the ability to perform a systematic vulnerability assessment directly on ready-to-ship phone images would also be much more useful and easier than maintaining complex dependency and version information on each model.
+
+We come up with a framework named RIDE (Rom Intelligent Defect assEsment) that directly operates on factory images of major android systems such as AOSP, Samsung, Huawei, Xiaomi, Oppo etc, which discovered 40+ CVEs including critical and high severity level bugs in the vendors in less than one year. RIDE combines highly precise whole-program static taint analysis and dynamic blackbox binary fuzzing to pinpoint vulnerabilities in user-space code such as system apps, system services and bundled closed-source libraries. In this talk, we will share in detail about the system's design and architecture, including the whole-program static analysis algorithm and implementation with high precision and acceptable performance, and the blackbox fuzzing component which is fed by the information collected from previous static analysis. Also, we will share the detail and exploitation of several bugs found, which range from system-level arbitrary file read/write/code execution to RCE ones in AOSP and other major vendors etc.
+
+
+### [Route Sixty-Sink: Connecting Application Inputs to Sinks Using Static Analysis](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Web/AppSec--or--Red--Teaming](https://img.shields.io/badge/Category-Web/AppSec--or--Red--Teaming-gray)  
+Route Sixty-Sink is an open source static analysis tool that traces the flow of user input through any .NET binary and determines whether it is passed as an argument to a dangerous function call (a "sink"). Route Sixty-Sink does this using two main modules:
+
+1. RouteFinder, which enumerates API routes in MVC-based and classic ASP page web applications.
+2. SinkFinder, which takes an entry point and creates a call graph of all classes and method calls. Then, it queries strings, method calls, and class names for "sinks".
+
+By tying these two pieces of functionality together, Route Sixty-Sink is able to quickly identify high fidelity vulnerabilities that would be difficult to discover using black box or manual static analysis approaches.
+
+We have used Route Sixty-Sink to reveal and successfully exploit vulnerabilities including unsafe object deserialization, SQL injection, command injection, arbitrary file uploads and access, authorization bypasses, and more in both open-source and proprietary .NET applications.
+
+
+### [SASTRI: Plug and Play VM for SAST/*Static Application Security Testing Realtime Integration*/](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Web/AppSec--or--Red--Teaming](https://img.shields.io/badge/Category-Web/AppSec--or--Red--Teaming-gray)  
+Abiding by the new hot concept of "Secure By Design," SASTRI is project carved out of the experiences/struggles/conflicts of product security engineers. It is an in-house SAST capability (plug and play VM) we are proposing, to make security engineers' inputs more receivable and reachable to the product developers and the decision-makers - while making our products more and more secure. This will save a lot of security engineers' and DevOps experts' time when it coms to setting up and fine tuning the SAST tools.
+
+Highlights of SASTRI are:
+
+Open source (hence free to edit and reconfigure)
+Presently capable of scanning Python, C, C++ programs
+Almost zero understanding of security principles is required to "run" SASTRI. (For bug resolution, yes definitely a deep understanding is required)
+Automated bug reporting
+Email alert for the issues reported
+Same email contains attachment of report where buggy code snippet is mentioned along with the exact position of bug
+Easy to integrate approach
+
+SASTRI is an effort towards making SAST tools available right at the time of unit testing of code, in an automated way. The reason being, in most of Agile flavors of development, security testing is done in the end of the sprint, leaving very little to no time for bug fixes. Also, the smaller time window for security testing results in "not so in depth security testing" and "superficial fixes."
+However, on the other hand, introducing security testing right at the programming phase in SDLC, can help in:
+
+Finding vulnerabilities which are easy to exploit but difficult to mitigate
+Finding vulnerabilities which are present due to complicated execution paths
+Finding vulnerabilities specific to insecure configuration
+Setting up basic secure code development principles amongst developers (Trust me this is the trickiest task, as most of the Devs are super possessive about their code and coding styles.
+
+Also, this effort can help reduce apprehensions of security engineers when uploading source code on some vendors server which they do not trust. The list of advantages is huge; we have tried generalize them to the least count possible.
+
+
+### [SCoDA: Smart COntract Defender and Analyzer](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Web/AppSec--or--Red--Teaming](https://img.shields.io/badge/Category-Web/AppSec--or--Red--Teaming-gray)  
+SCoDA (Smart Contract Defender and Analyzer) module in LAMMA tool, written in python for solidity based smart contract scanning. The tools is a unified and python ported version of various other scanners and vulnerabilities reported on Ethereum Platform.
+
+
+### [SCodeScanner (SourceCodeScanner)](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Web/AppSec--or--Red--Teaming](https://img.shields.io/badge/Category-Web/AppSec--or--Red--Teaming-gray)  
+None
+
+
+### [SCodeScanner - An Open-Source Source-Code Scanner](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Web/AppSec--or--Red--Teaming](https://img.shields.io/badge/Category-Web/AppSec--or--Red--Teaming-gray)  
+SCodeScanner is a powerful tool for identifying vulnerabilities in source-code. It is designed to be easy to use and provides a range of features to help users quickly and accurately identify vulnerabilities with fewer false positives.
+
+Some key features of SCodeScanner include:
+
+- Support multiple languages: SCodeScanner is capable of scanning source code written in multiple languages such as JAVA, PHP and YAML. The most commonly used languages in web development.
+
+- Relatively Less false positives: SCodeScanner includes flags that help to eliminate false positives and only report on vulnerabilities that are mostly confirmed to exist.
+
+- Custom rules: SCodeScanner works with semgrep and allows users to create their own rules to scan for advanced patterns.
+
+- Ability to track user input variables: SCodeScanner can identify instances where user input variables are defined in one file but used insecurely in another file for better coverage.
+
+- Fast scanning: SCodeScanner's rules are designed to check for multiple vulnerabilities at once, which results in a faster scanning process.
+
+- Integration: SCodeScanner can integrate with CI/CD pipelines and also pass results to bug-tracking services such as Jira and Slack, allowing users to easily share the results of their scans with their team.
+
+- Scan mutltiple ways: It automatically download all git repo mentioned inside a txt file and start scan. Not only this but also support git, folder, file scans aswell.
+
+Proof of results, SCodeScanner has already found 5 vulnerabilities in multiple Wordpress plugins and has been awarded following CVEs:
+
+CVE-2022-1604
+CVE-2022-1465
+CVE-2022-1474
+CVE-2022-1527
+CVE-2022-1532
+
+Overall, SCodeScanner is a valuable tool for any developer or security professional looking to identify vulnerabilities in their source-code before it is published in production. Its fast scanning, less false positives, and CI/CD pipeline integrations as well as bug-tracking services, make it a powerful tool for ensuring the security of your code.
+
+
+### [SGXRay: Automated Vulnerability Finding in SGX Enclave Application](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Web/AppSec--or--Red--Teaming](https://img.shields.io/badge/Category-Web/AppSec--or--Red--Teaming-gray)  
+None
+
+
+### [Scanning DNA to Detect Malicious Packages in Your Code](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Web/AppSec--or--Red--Teaming](https://img.shields.io/badge/Category-Web/AppSec--or--Red--Teaming-gray)  
+PackageDNA is an open-source tool, free and modular tool developed in Python3, that offers developers and researchers the ability to analyze code packages from different programming languages, in search of vulnerabilities in the code, the possible manipulations or spoofing of the package ('typosquatting'), identifying suspicious files, searching for strings in the code, among other data for analysis.
+
+PackageDNA, enables threat intelligence analysis or code audits, which allow to detect attacks to the software supply chain, the vast majority of companies integrate third-party code in their developments, thus the need to have a suite such as PackageDNA that performs the analysis of all these external codes and delivers the results of the analysis in a standardized way.
+
+
+### [Security Code Scan: Vulnerability Patterns Detector](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Web/AppSec--or--Red--Teaming](https://img.shields.io/badge/Category-Web/AppSec--or--Red--Teaming-gray)  
+Security Code Scan is static code analysis tool for C# and VB.NET. It detects various security vulnerability patterns: SQL and XPath injections, Cross-Site Request Forgery (CSRF), XML eXternal Entity Injection (XXE), unsafe deserialization and many more...
+
+It is available as Visual Studio extension (2015 and higher), but can be integrated into other editors, that support Roslyn analyzers. It is also available as NuGet package and can be integrated into continuous integration builds.
+
+
+### [Semgrep: a code-aware grep for finding vulnerabilities and enforcing secure defaults](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Web/AppSec--or--Red--Teaming](https://img.shields.io/badge/Category-Web/AppSec--or--Red--Teaming-gray)  
+Semgrep is a tool for easily detecting and preventing bugs and anti-patterns in your codebase. It combines the convenience of grep with the correctness of syntactical and semantic search.
+
+Semgrep is fast (scans 100Ks LOC in seconds), supports multiple languages (JavaScript, Python, Golang, Java, C), and is easy to customize, so that users can create high value org-specific or project-specific checks without spending weeks learning a complicated DSL.
+
+Semgrep works by parsing source code into an abstract syntax tree (AST), then allows users to supply patterns that fuzzily match the interesting code patterns. Because it's source code aware, its checks are higher signal than regexes (i.e., it's easy to match function calls, and not match text in comments, multi-line calls, or strings), but because it isn't doing interprocedural dataflow analysis, it doesn't take hours to run and won't make assumptions that result in hundreds of false positives requiring triage.
+
+https://github.com/returntocorp/semgrep
+
+
+### [The OWASP RAF: Static Application Security Testing Tool](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Web/AppSec--or--Red--Teaming](https://img.shields.io/badge/Category-Web/AppSec--or--Red--Teaming-gray)  
+The OWASP Risk Assessment Framework consist of Static Application Security Testing and Risk Assessment tools. Even though there are many SAST tools available for testers, the compatibility and the environment setup process is complex. By using OWASP Risk Assessment Framework's Static Application Security Testing tool, testers will be able to analyze and review their code quality and vulnerabilities without any additional setup. OWASP Risk Assessment Framework can be integrated in the DevSecOps toolchain to help developers to write and produce secure code.
+
+User Guide https://github.com/OWASP/RiskAssessmentFramework/blob/master/user-guide.md
+
+
+### [TINTORERA: SOURCE CODE INTELLIGENCE](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Web/AppSec--or--Red--Teaming](https://img.shields.io/badge/Category-Web/AppSec--or--Red--Teaming-gray)  
+Tintorera is a static analysis tool developed in Python that uses the GCC compiler to build C projects aiming to obtain intelligence from them. GCC offers a powerful plugin architecture that allows tapping into its internals, and static analysis tools can benefit from it to gather information of the source code while compiling.
+
+Some Tintorera features that a code auditor can benefit from:
+
+Obtain many code metrics: Cyclomatic Complexity (CC), comment density, physical lines of codes, design complexity, code averages and etc.
+Attack Surface analysis of the entire project, identifies all entry and exit of data.
+Can identify Linux API and well-known libraries such as OpenSSL
+Perform different visualization maps of the source code such as function structure, logic and function calls relationship
+Context and code analysis of: comments, inline assembly, global variables, function parameters and more
+The entire source code is converted to a JSON representation allowing performing queries
+Creates HTML reports while the project gets compiled by GCC
+Extend Tintorera to fit your needs easily using Python
+Tap into GCC internals and passes
+
+By using static analysis techniques, Tintorera can gather intelligence of a C source code allowing a code auditor to learn about the project faster. Tintorera is a tactical response as projects grow in complexity and code reviews are usually performed under limited time.
+
+
+### [npm-scan: An Extensible, Heuristic-Based Vulnerability Scanning Tool for Installed NPM Packages](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Web/AppSec--or--Red--Teaming](https://img.shields.io/badge/Category-Web/AppSec--or--Red--Teaming-gray)  
+An extensible, heuristic-based vulnerability scanning tool for installed npm packages.
+
+Active heuristics-based scanning: quick and easy for anyone to use
+
+Improves/enforces quality of open source coding
+
+
+### [promptmap](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Web/AppSec--or--Red--Teaming](https://img.shields.io/badge/Category-Web/AppSec--or--Red--Teaming-gray)  
+Prompt injection is a type of security vulnerability that can be exploited to control the behavior of a ChatGPT instance. By injecting malicious prompts into the system, an attacker can force the ChatGPT instance to do unintended actions.
+
+promptmap is a tool that automatically tests prompt injection attacks on ChatGPT instances. It analyzes your ChatGPT rules to understand its context and purpose. This understanding is used to generate creative attack prompts tailored for the target. promptmap then run a ChatGPT instance with the system prompts provided by you and sends attack prompts to it. It can determine whether the prompt injection attack was successful by checking the answer coming from your ChatGPT instance.
+
+
+### [pytm: A Pythonic Framework for Threat Modeling](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Web/AppSec--or--Red--Teaming](https://img.shields.io/badge/Category-Web/AppSec--or--Red--Teaming-gray)  
+pytm is a Pythonic framework for threat modeling. Developers can define their system in Python code as a collection of objects and annotate them with properties. Security practitioners can add threats to the "Threats" object (see https://github.com/izar/pytm/blob/master/pytm/threats.py). The logic lives in the "condition" of the "Threats" object, where members of target can be logically evaluated. If the "condition" returns a "True", that means the rule found a potential threat. More details at https://github.com/izar/pytm
+
+Usage:
+tm.py [-h] [--debug] [--resolve] [--dfd] [--report] [--all]
+[--exclude EXCLUDE] [--seq]
+
+optional arguments:
+-h, --help show this help message and exit
+--debug print debug messages
+--resolve identify threats
+--dfd output DFD (default)
+--report output report
+--all output everything
+--exclude EXCLUDE specify threat IDs to be ignored
+--seq output sequential diagram
 
 
 ---
@@ -10583,15 +10085,6 @@ peetch is a collection of tools aimed at experimenting with different aspects of
 APKiD is like "PEiD" for Android applications. It gives information on how an APK was built by fingerprinting compilers, packers, obfuscators, and protectors. The main idea behind the tool is to help provide context on how the APK was potentially built or changed after it was built. This is all context useful for attributing authorship and finding patterns.
 
 Extracting information about how the APK was made, it can provide a lot of information to assess the healthiness of an Android application (e.g. malware or pirated). The framework is the combination of a bunch of Yara rules and Python wrappers that scan files within APKs. Mainly, APKiD unpacks files and explores AndroidManifest.xml, DEX and ELF files to match rules and offers results based on them.
-
-
-### [Automating Fuzzable Target Discovery with Static Analysis](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Reverse--Engineering](https://img.shields.io/badge/Category-Reverse--Engineering-gray)  
-Vulnerability researchers conducting security assessments on software will often harness the capabilities of coverage-guided fuzzing through powerful tools like AFL++ and libFuzzer. This is important as it automates the bughunting process and reveals exploitable conditions in targets quickly. However, when encountering large and complex codebases or closed-source binaries, researchers have to painstakingly dedicate time to manually audit and reverse engineer them to identify functions where fuzzing-based exploration can be useful.
-
-Fuzzable is a framework that integrates both with C/C++ source code and binaries to assist vulnerability researchers in identifying function targets that are viable for fuzzing. This is done by applying several static analysis-based heuristics to pinpoint risky behaviors in the software and the functions that executes them. Researchers can then utilize the framework to generate basic harness templates, which can then be used to hunt for vulnerabilities, or to be integrated as part of a continuous fuzzing pipeline, such as Google's oss-fuzz.
-
-In addition to running as a standalone tool, Fuzzable is also integrated as a plugin for Binary Ninja, with support for other disassembly backends being developed.
 
 
 ### [BINGREP](#)  
@@ -10739,17 +10232,6 @@ It is designed mainly for SBI (Static Binary Instrumenation), to collect code co
 ### [Lupo: Malware IOC Extractor](#)  
 ![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Reverse--Engineering](https://img.shields.io/badge/Category-Reverse--Engineering-gray)  
 None
-
-
-### [Ox4Shell - Deobfuscate Log4Shell payloads with ease](#)  
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Reverse--Engineering](https://img.shields.io/badge/Category-Reverse--Engineering-gray)  
-Since the release of the Log4Shell vulnerability (CVE-2021-44228), many tools were created to obfuscate Log4Shell payloads, making the lives of security engineers a nightmare.
-
-Threat actors tend to apply obfuscation techniques to their payloads for several reasons. Most security protection tools, such as web application firewalls (WAFs), rely on rules to match malicious patterns. By using obfuscated payloads, threat actors are able to circumvent the rules logic and bypass security measures. Moreover, obfuscated payloads increase analysis complexity and, depending upon the degree of obfuscation, can also prevent them from being reverse-engineered.
-
-Decoding and analyzing obfuscated payloads is time-consuming and often results in inaccurate data. However, doing so is crucial for understanding attackers' intentions.
-
-We believe that security teams around the world can benefit from using Ox4Shell to dramatically reduce their analysis time. To help the security community, we have decided to release Ox4Shell - a payload deobfuscation tool that would make your life much easier.
 
 
 ### [Packet Sender](#)  
@@ -11044,6 +10526,552 @@ unblob has been developed with the following objectives in mind:
 * Security - unblob does not require elevated privileges to run. It's heavily tested and has been fuzz tested against a large corpus of files and firmware images. We rely on up-to-date third party dependencies that are locked to limit potential supply chain issues. We use safe extractors that we audited and fixed where required (e.g., path traversal in ubi_reader, path traversal in jefferson, integer overflow in Yara).
 * Extensibility - unblob exposes an API that can be used to write custom format handlers and extractors in no time.
 * Speed - we want unblob to be blazing fast, that's why we use multi-processing by default, make sure to write efficient code, use memory-mapped files, and use Hyperscan as high-performance matching library. Computation intensive functions are written in Rust and called from Python using specific bindings.
+
+
+---
+
+## Red Teaming / Embedded
+
+
+### [ARP covert channel attacks by 8bit microcomputer](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--Embedded](https://img.shields.io/badge/Category-Red--Teaming--/--Embedded-gray)  
+Introduces a method of embedding information in the padding part of ARP and performing secret communication with only one small 8-bit microcomputer. The transmitter uses an 8-bit microcomputer called Atmega328P. A 10BASE-T Ethernet frame is generated using only the GPIO of the microcomputer without using a dedicated chip such as an Ethernet controller. By using this method, it is possible to perform a covert channel attack with a smaller and cheaper method than the conventional method.
+
+Since this attack can be performed with a single inexpensive and small microcomputer, it can be hidden and operated inside devices that can be connected to various networks. This lecture introduces some attack scenarios, discusses various attack methods that use this attack method, and discusses their defense methods.
+
+
+### [Alexa HackerMode 2.0: Voice Auto Pwn Using Kali Linux and Alexa Skill Combo](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--Embedded](https://img.shields.io/badge/Category-Red--Teaming--/--Embedded-gray)  
+HackerMode 2.0 code-named: "Death Star" is an Alexa driven auto-sploit tool designed for the cloud. Not only will it help with syntax and encodings, but it will go full hacker mode and exploit systems automatically for you.
+
+"Alexa, ask HackerMode to hack IP address 192.168.1.135" will instruct Alexa to begin and manage the process of port scanning, fingerprinting, exploit selection, and smart brute forcing exploits through Metasploit 4 or 5.
+
+Alexa will entertain you with mood music or various other activities while it roots and dumps users and passwords from your target. If the exploit is taking a while you can check in on the progress by asking "How's the hack going?"
+
+
+### [An Extensible Dynamic Analysis Framework for IoT Devices](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--Embedded](https://img.shields.io/badge/Category-Red--Teaming--/--Embedded-gray)  
+As IoT devices are more than ever present in our society, their security is becoming an increasingly important issue. Dynamic analysis has been proved the arsenal to many security applications (e.g., malware analysis, vulnerability discovery, backdoor analysis, etc.). While several dynamic analysis systems(Avatar, FEMU, Firmadyne, etc. ) have been proposed for IoT devices, they either rely on IoT hardware(Avatar), or lack user friendly interfaces for further extension. In this talk, we will present an extensible whole-system dynamic analysis framework for IoT devices. Specifically, on top of QEMU, we build a Pintool-like framework FirmPin, which provides Just-In-Time Virtual Machine Introspection and a plugin architecture with a simple-to-use event-driven programming interface. FirmPin provides the instrumentation at basic block level, system call level and memory access level for both user level and kernel level programs. Currently, FirmPin supports ARM and MIPS and can run customized kernel from Firmadyne project.
+
+To demonstrate the power of FirmPin, we have created two plugins - MalScalpel and FirmFuzzer. MalScalpel is able to collect the instruction trace, system call trace, and unpacked code of the monitored program(e.g., Mirai). FirmFuzzer utilizes FirmPin to collect the execution information of fuzzed IoT applications, and integrates with AFL to conduct efficient fuzzing for IoT applications. In the future, we plan to add tainting, a powerful technique for many security applications, to the system. The ultimate goal of FirmPin is to be a general analysis framework for IoT devices.
+
+Source Code: https://github.com/DeepBitsTechnology/FirmPin﻿
+
+
+### [Attack Demonstration Tool Kits for Industry 4.0 Using AI and Cloud](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--Embedded](https://img.shields.io/badge/Category-Red--Teaming--/--Embedded-gray)  
+Industry 4.0 is a new concept of automation data exchange in manufacturing, and technologies and structures are significantly different from the current general ICS. Autonomous judgment and execution are required, and it is based on information exchange using AI and cloud technologies. Devices are supposed to connect interactively that can create new attack surfaces and risks of cyber-attacks.
+
+For instance, if AI on the cloud is used for controlling the ICS, attackers could change parameters for controlling ICS by contaminating the judgment of AI. In such a situation, attackers could compromise ICS without accessing the ICS network. Detecting such attacks is quite challenging if operators rely on AI to judge the desirable parameters of ICS. Therefore, it is important to instruct cyber risks of ICS in Industry 4.0.
+
+We introduce attack demonstration took kits for Industry 4.0 using actual machines (water supply pump system).
+
+This tool kit is portable, and easy to prepare, so is useful for instructing the cyber-risks of ICS whenever and whenever we want. In aspects of Industry 4.0, we especially focus on the security risks of ICS in the following aspects:
+- When computers and devices are connected interactively
+- When AI on the cloud is used for controlling the ICS
+
+We will show you a demonstration of attacks: the attacker can change the physical status of ICS without accessing the ICS network through an attack against AI.
+
+
+### [AutoSuite: An Open-Source Multi-Protocol Low-Cost Vehicle Bus Testing Framework](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--Embedded](https://img.shields.io/badge/Category-Red--Teaming--/--Embedded-gray)  
+Vehicle buses such as FlexRay, LIN, CAN (FD) and Ethernet are the cornerstones of ECUs communication. At present, the security research of vehicle buses mainly focuses on CAN Bus. Due to the characteristics of the protocol itself, CAN data is usually transmitted within the domain. while Flexray is often used as a backbone network connecting powertrain control, autonomous driving, and body control domains for cross-domain communication and transmission of critical data.
+It is commonly used in high-end brands such as Audi, Lotus, and BMW. However, security research on Flexray is still in its infancy.
+
+We will present AutoSuite, an open-source, multi-protocol, low-cost vehicle bus testing framework, consisting of the AutoBox(hardware) and AutoFunc (software). AutoSuite can be used to access the FlexRay bus and simulate malicious ECUs to send forged data to realize cross-domain ECU attacks and discover potential security vulnerabilities.
+
+AutoBox is probably the first open-source, multi-protocol, low-cost vehicle bus testing hardware that support FlexRay. It can automatically analyze FlexRay bus configuration parameters, join the cluster, and send malicious data on the FlexRay bus. The hardware cost is about $200, which is much lower than the commercial FlexRay bus testing tool Vector VN8910 ($50k). AutoBox also supports remote control, multiple device collaboration, and Ethernet, LIN, and CAN (FD) protocols. AutoBox will provide a friendly, open-source, and low-cost testing tool for vehicle bus researchers, much like HACKRF has become a low-cost alternative to USRP.
+
+AutoFunc may be the first open-source software for functional-level communication testing and functional-level fuzzing that supports condition monitoring. Current open-source vehicle bus testing methods mainly rely on random fuzzing of the CAN protocol by using random data frame IDs, payloads, and DLC. However, a vehicle function typically involves multiple data frames, and a single data frame may not have any impact on the bus. With opendbc and other open-source projects, the .dbc file is no longer a commercial secret. AutoFunc can organize the frames defined in the .dbc file into specific functions, and monitor the function where the crash occurs to achieve a multi-protocol fuzzing test.
+
+In addition, we will show 2 demos,
+(1) Demonstrate all functions supported by AutoBox, such as FlexRay, CAN, LIN, Ethernet, WiFi, etc.
+(2) Functional-level fuzzing using AutoBox and AutoFunc.
+
+
+### [BLE CTF Project](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--Embedded](https://img.shields.io/badge/Category-Red--Teaming--/--Embedded-gray)  
+The purpose of BLE CTF is to teach the core concepts of Bluetooth low energy client and server interactions. While it has also been built to be fun, it was built with the intent to teach and reinforce core concepts that are needed to plunge into the world of Bluetooth hacking. After completing this CTF, you should have everything you need to start fiddling with any BLE GATT device you can find. Built to run on the esp32 microcontroller, the BLE CTF is a fully functional BLE GATT server which challenges users to utilize fundamental bluetooth communication methods. Focusing on fun and education, the CTF is the first of its kind to help teach hackers how to dive into the world of Bluetooth.
+
+Source Code: https://github.com/hackgnar/ble_ctf
+
+
+### [BLE hardware-less hackme](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--Embedded](https://img.shields.io/badge/Category-Red--Teaming--/--Embedded-gray)  
+The new, free tool aims to help getting familiar with the very basics of ubiquitous Bluetooth Low Energy technology and its (in)security - without the need of any dedicated hardware. It is based on a specially designed software (running on a typical Windows 10 laptop) - which simulates a BLE device, on the radio layer working exactly the same as a real one. The simulated device contains several "hackme" challenges of increasing level: starting with simple communication protocol introduction up to unlocking smart locks. Most of these challenges can be solved using nothing more than just a free mobile application, which connects via Bluetooth to the laptop running simulated device. This unique approach makes the fun available for everyone who would like to start the journey into fascinating vulnerabilities of BLE devices, but is afraid of gearing up with special hardware or steep learning curve for advanced tools. The basics possible to grasp using the introduced hackme can however be easily applicable to take control of surprisingly lot of real devices surrounding us.
+
+
+### [BLEMystique: Affordable Custom BLE Target](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--Embedded](https://img.shields.io/badge/Category-Red--Teaming--/--Embedded-gray)  
+BLEMystique is an ESP32 based custom BLE target which can be configured by the user to behave like one of the multiple BLE devices i.e. Heart rate monitor, Smart Lock, Smart Bottle, Smart band, Smartwatch etc. BLEMystique allows a pentester to play with BLE side of different Smart devices with a single piece of affordable ESP32 chip.
+
+
+### [CANalyse (2.0): A vehicle network analysis and attack tool.](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--Embedded](https://img.shields.io/badge/Category-Red--Teaming--/--Embedded-gray)  
+A prerequisite to using telegram option of this tool is that the Hardware implant is already installed in the car and capable of communicating with the Network inside the vehicle. Also, the library requiremnt are satisfied.
+
+Let's assume we have a car in which we have connected with USBtin(or user choice) which is connected to Raspberry pi (or any linux machine of userchoice) and the pi can communicate on the internet.
+LInk to USBtin - https://www.fischl.de/usbtin/
+
+What is CANalyse?
+
+Canalyse uses python-can library to sniff vehicle network packets and analyze the gathered information and uses the analyzed information to command & control certain functions of the car.
+
+CANalyse is a software tool built to analyze the log files in a creative powerful way to find out unique data sets automatically and able to connect to simple interfaces such as Telegram. Basically, while using this tool you can provide your bot-ID and be able to use the tool over the internet through telegram.
+
+canalyse can be installed inside a raspberry-PI, it is made to analyse log files in a creative way and also made to exploit the vehicle through a telegram bot by recording and analyzing the data logs.
+
+
+### [CANalyse 2.0 : A Vehicle Network Analysis and Attack Tool](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--Embedded](https://img.shields.io/badge/Category-Red--Teaming--/--Embedded-gray)  
+CANalyse is a software tool built to analyse the log files in a creative powerful way to find out unique data sets automatically and inject the refined payload back into vehicle network. It can also connect to simple interfaces such as Telegram for remote control. Basically, while using this tool you can provide your bot-ID and be able to use the tool's inbuilt IDE over the internet through telegram.
+
+CANalyse uses python-can library to sniff vehicle network packets and analyse the gathered information and uses the analysed information to command & control certain functions of the vehicle. CANalyse can be installed inside a raspberry-PI, to exploit the vehicle through a telegram bot by recording and analysing the vehicle network.
+
+
+### [CLExtract: An End-to-End Tool Decoding Highly Corrupted Satellite Stream from Eavesdropping](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--Embedded](https://img.shields.io/badge/Category-Red--Teaming--/--Embedded-gray)  
+While satellite communication with ground stations can be eavesdropped on using consumer-grade products, the received signals are oftentimes highly corrupted and cannot be effectively decoded using the traditional finite-state machine (FSM) based approach.
+
+To this end, we develop a tool named CLExtract which utilizes contrastive learning techniques to decode and recover corrupted satellite streams. Unlike the traditional FSM-based approach which relies on critical fields that become unreliable after corruption, CLExtract directly learns the features of packet headers at different layers and identifies them in a stream sequence. By filtering out these headers, CLExtract extracts the innermost payload which contains sensitive and private data. Further, CLExtract incorporates data augmentation techniques to entitle the trained contrastive learning models with robustness against unseen forms of corruption.
+
+To evaluate CLExtract, we performed eavesdropping on the spectrum range from 11 GHZ to 12.75 GHZ in a suburban area of a metropolis with more than 10 million of population in Asia, covering radio signals from seven commercial satellites. CLExtract can successfully decode and recover 71-99% of the total 23.6GB eavesdropped data, a significant improvement over the traditional FSM-based approach implemented by GSExtract which only recovers 2%.
+
+During the arsenal presentation, we will make CLExtract open source and demonstrate its usage to the security community using real-world satellite streams. This way, we hope to foster future research on satellite offense and defense techniques.
+
+
+### [ChangWei: A Modern Fuzzing Framework for VxWorks System](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--Embedded](https://img.shields.io/badge/Category-Red--Teaming--/--Embedded-gray)  
+VxWorks is the industry's leading real-time operating system. It has been widely used in various industry scenarios, which require real-time, deterministic performance and, in many cases, safety and security certification. Since VxWorks has so much importance in industry, more and more people are working on security problems around it.
+
+Fuzzing is an effective technique to discovery vulnerabilities. Feedback-guided fuzzing, such as AFL(American Fuzzy Lop), has proven its excellent ability in finding vulnerabilities of complex programs. Fuzzing tools using this technique have been widely applied to Linux, MacOS and even Windows, but never to VxWorks. According to the current situation, we design a feedback-guided fuzzing tool named "ChangWei" especially for VxWorks. We take advantage of the instrumentation API of Bochs emulator to measure and extract target coverage in a persistent fuzzing mode, and then generate input samples with the help of AFL mutation engine.
+
+We are going to utilize this tool to assist developers to test their code and find hidden vulnerabilities before they are discovered by malicious attackers. Apart from that, we'd like anyone who has interest in this to help us optimize it and build a powerful tool for the security industry.
+
+
+### [Cotopaxi: IoT Protocols Security Testing Toolkit](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--Embedded](https://img.shields.io/badge/Category-Red--Teaming--/--Embedded-gray)  
+Cotopaxi is a set of tools for security testing of Internet of Things devices using specific network IoT/IIoT/M2M protocols (e.g. AMQP, CoAP, DTLS, HTCPCP, mDNS, MQTT, MQTT-SN, QUIC, SSDP).
+
+
+### [Drone Hacking with DroneSploit](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--Embedded](https://img.shields.io/badge/Category-Red--Teaming--/--Embedded-gray)  
+This project is aimed to provide a Metasploit-like CLI framework tailored to drone hacking.
+
+It currently supports modules for the C-me and Flitt drones (Hobbico) but should be extended in a near future with new modules for other brands and models (i.e. Parrot and DJI).
+
+
+### [EMBA – From firmware to exploit](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--Embedded](https://img.shields.io/badge/Category-Red--Teaming--/--Embedded-gray)  
+IoT (Internet of Things) and OT (Operational Technology) are the current buzzwords for networked devices on which our modern society is based on. In this area, the used operating systems are summarized with the term firmware. The devices themselves, also called embedded devices, are essential in the private and industrial environments as well as in the so-called critical infrastructure.
+
+Penetration testing of these systems is quite complex as we have to deal with different architectures, optimized operating systems, and special protocols. EMBA is an open-source firmware analyzer with the goal to simplify and optimize the complex task of firmware security analysis. EMBA supports the penetration tester with the automated detection of 1-day vulnerabilities on a binary level. This goes far beyond the plain CVE detection: With EMBA you always know which public exploits are available for the target firmware. Besides the detection of already known vulnerabilities, EMBA also supports the tester on the next 0-day. For this, EMBA identifies critical binary functions, protection mechanisms, and services with network behavior on a binary level. There are many other features built into EMBA, such as fully automated firmware extraction, finding file system vulnerabilities, hard-coded credentials, and more.
+
+EMBA is the open-source firmware scanner, created by penetration testers for penetration testers.
+
+
+### [EMBA – Open-Source Firmware Security Testing](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--Embedded](https://img.shields.io/badge/Category-Red--Teaming--/--Embedded-gray)  
+IoT (Internet of Things) and OT (Operational Technology) are the current buzzwords for networked devices on which our modern society is based on. In this area, the used operating systems are summarized with the term firmware. The devices themselves, also called embedded devices, are essential in the private and industrial environments as well as in the so-called critical infrastructure.
+Penetration testing of these systems is quite complex as we have to deal with different architectures, optimized operating systems and special protocols. EMBA is an open-source firmware analyzer with the goal to simplify and optimize the complex task of firmware security analysis. EMBA supports the penetration tester with the automated detection of 1-day vulnerabilities on binary level. This goes far beyond the plain CVE detection: With EMBA you always know which public exploits are available for the target firmware. Besides the detection of already known vulnerabilities, EMBA also supports the tester on the next 0-day. For this, EMBA identifies critical binary functions, protection mechanisms and services with network behavior on a binary level. There are many other features built into EMBA, such as fully automated firmware extraction, finding file system vulnerabilities, hard-coded credentials, and more.
+
+EMBA is the open-source firmware scanner, created by penetration testers for penetration testers.
+
+
+### [EXPLIoT: IoT Security Testing and Exploitation Framework](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--Embedded](https://img.shields.io/badge/Category-Red--Teaming--/--Embedded-gray)  
+EXPLIoT
+
+noun
+/ɛkˈsplʌɪəti:/
+
+A Framework for security testing and exploiting IoT products and IoT infrastructure. It provides a set of plugins (test cases) which are used to perform the assessment and can be extended easily with new ones. The name EXPLIoT (pronounced expl-aa-yo-tee) is a pun on the word exploit and explains the purpose of the framework i.e. IoT exploitation. It is developed in python3.
+
+It can be used as a standalone tool for IoT security testing and more interestingly, it provides building blocks for writing new plugins/exploits and other IoT security assessment test cases with ease. EXPLIoT supports most IoT communication protocols, hardware interfacing functionality and test cases that can be used from within the framework to quickly map and exploit an IoT product or IoT Infrastructure.
+It will help the security community in writing quick IoT test cases and exploits. The objectives of the framework are:
+1. Easy of use
+2. Extendable
+3. Support for hardware, radio and IoT protocol analysis
+
+Currently, the framework has support for analyzing and exploiting various IoT, radio and hardware protocols. The current suite includes:
+- BLE
+- CAN
+- DICOM (Will be fully implemented before the conference)
+- MQTT
+- Modbus
+- I2C
+- SPI
+- UART
+
+We are also very happy to announce that we have released a comprehensive documentation including User and Developer guide to help the security community kick start quickly and easily with the framework. Source code and documentation is available here - https://gitlab.com/expliot_framework/expliot
+
+We are currently working on plugins for medical, radio and hardware analysis and will release it at Blackhat.
+
+
+### [Expl-iot: IoT Security Testing and Exploitation Framework](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--Embedded](https://img.shields.io/badge/Category-Red--Teaming--/--Embedded-gray)  
+Expl-iot is an open source flexible and extendable framework for IoT Security Testing and exploitation. It will provide the building blocks for writing exploits and other IoT security assessment test cases with ease. Expliot will support most IoT communication protocols, firmware analysis, hardware interfacing functionality and test cases that can be used from within the framework to quickly map and exploit an IoT product or IoT Infrastructure. It will help the security community in writing quick IoT test cases and exploits. The objectives of the framework are:
+
+Easy of use
+Extendable
+Support for hardware, radio and IoT protocol analysis
+
+We are currently working on the python3 version and will release it in a month. The new Alpha release is envisioned to have support for UART(serial), ZigBee, BLE, MQTT, CoAP (next version will have support for JTAG, I2C and SPI) and few miscellaneous test cases.
+
+Source Code: https://gitlab.com/expliot_framework/expliot
+
+
+### [FACT 4.0](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--Embedded](https://img.shields.io/badge/Category-Red--Teaming--/--Embedded-gray)  
+Analyzing Firmware specifically to identify potential vulnerabilities is a common activity for security analysts, pentesters, researchers or engineers concerned with embedded devices such as in IoT. FACT offers an automated and usable platform to gain an immediate overview of potential vulnerabilities based on the firmware of a device and supercharges the process of finding deep vulnerabilities.
+
+For this FACT automatically breaks down a firmware into its components, analyzes all components and summarizes the results. The analysis can then be perused in the desired amount of detail using either the responsive web application or a REST API.
+
+The offered analyses include a list of included software and libraries, a matching of said software to CVE databases, identification of hard-coded credentials, private key material and weak configuration among others. FACT also applies source and binary code analysis to identify (possibly exploitable) bugs in the components and offers a large amount of meta data for further manual analysis.
+
+A focus of recent development has been to offer more information regarding interdependencies between firmware components to ease the identification of data flow inside a firmware. This allows quickly grading the risk involved with uncovered vulnerabilities or configuration flaws by finding possible attack vectors concerning given component.
+
+Finally, FACT offers multiple ways to collect and fuse analysis results, such as firmware comparison, advanced search options including regular expression on binary components and an integrated statistics module.
+
+
+### [GRFICS: A Graphical Realism Framework for Industrial Control Simulations - ARSENAL THEATER DEMO](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--Embedded](https://img.shields.io/badge/Category-Red--Teaming--/--Embedded-gray)  
+GRFICS is a graphical realism framework for industrial control simulations designed to lower the barrier to entry for learning about ICS security. This initial version of GRFICS provides a virtual chemical process control network including everything from the plant operator's human machine interface, to a vulnerable programmable logic controller, down to a realistic chemical process simulation being visualized in the Unity 3D game engine. With GRFICS, beginners in ICS security can practice exploiting common ICS vulnerabilities and vividly see the impact of their attacks on the virtual chemical reactor.
+
+
+### [HIDE & SEEK: An Open Source Implant for Red Teams](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--Embedded](https://img.shields.io/badge/Category-Red--Teaming--/--Embedded-gray)  
+Many Enterprises are shifting away from dedicated workstations and cubes, and moving to a more flexible workspace with thin client and desk hoteling. This creates the ideal landscape for hardware implant attacks. The current implant market, as it exists today, has not kept up with this shift. While closed source for-profit solutions exist, by their nature they lack the flexibility and customization to adapt to large scale targeted deployments. Open source projects similarly exist but focus more on individual workstations (dumb keyboards and remote terminals) relying on corporate networks for remote control and are easily detectable. Neither solution today is able to meet the needs of a modern Red Team.
+This presentation introduces an open source, freely available hardware implant which adopts modern IoT technologies, leveraging non-standard communication channels to create a remotely managed mesh network of hardware implants. Attendees will learn about the new techniques and tactics that we used to create a new breed of open-source hardware implant. Topics covered in this presentation will include the scaling of implants for a stealthy enterprise takeover, creating and utilizing a flexible command and control mesh network, creating a new class of remote access shells that survive idle screen lock, and more. Attendees will leave the talk with new tactics and a new platform from which to innovate their own custom implants from. Live demos will be used to demonstrate these new tactics against real world infrastructure.
+Previous hardware implant talks have covered: basic implants, their benefits, injecting keystrokes, Wi-Fi connectivity, and attack scripts. This presentation builds off of those but shows attendees how to leverage new techniques and technologies to push the innovation of hardware implants forward evolutionarily for use in today's modern Red Team operations.
+
+
+### [ICS Forensics Tool](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--Embedded](https://img.shields.io/badge/Category-Red--Teaming--/--Embedded-gray)  
+ICS Forensics Tools is an open source forensic toolkit for analyzing Industrial PLC metadata and project files. Microsoft ICS Forensics Tools enables investigators to identify suspicious artifacts on ICS environment for detection of compromised devices during incident response or manual check. ICS Forensics Tools is open source, which allows investigators to verify the actions of the tool or customize it to specific needs, currently support Siemens S7.
+
+
+### [ICS Forensics Tools](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--Embedded](https://img.shields.io/badge/Category-Red--Teaming--/--Embedded-gray)  
+Open Source ICS Forensics Toolkit This cutting-edge toolkit is designed for in-depth analysis of Industrial PLC metadata and project files, providing an essential resource for cybersecurity experts in the industrial control systems (ICS) sector. Our ICS Forensics Tools stand out by enabling thorough investigation of ICS environments, aiding in the detection of anomalies and compromised devices during critical incident responses or routine checks. This exciting arsenal presentation will not only introduce the new protocols but also feature live demonstrations that showcase its capabilities in real-time scenarios. Attendees will receive a concise, user-friendly forensics guide to leverage the full potential of the tool effectively. And there's more – attendees will have exclusive, immediate access to this groundbreaking tool right as the session begins. Don't miss out on this opportunity to enhance your ICS forensics capabilities with our latest open-source solution! https://github.com/microsoft/ics-forensics-tools
+
+
+### [IR(Inreared) BadUSB attack](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--Embedded](https://img.shields.io/badge/Category-Red--Teaming--/--Embedded-gray)  
+Conventional BadUSB executes a pre-programmed key sequence upon insertion.
+This lecture reports a new vulnerability that arises from the addition of an IR receiver element to the traditional BadUSB, such as the IR Infrared Receiver TL1838 VS1838B 1838 38Khz.
+The addition of this element allows an external operator to execute key sequences at arbitrary times. Multiple pre-programmed key sequences can be selected at will by external operation.
+
+
+### [IoT Hunter: A Framework Tool for Building IoT Threat Intelligence System](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--Embedded](https://img.shields.io/badge/Category-Red--Teaming--/--Embedded-gray)  
+Tencent IoT Hunter is a framework tool created to quickly build the IoT threat intelligence platform, which is more specifically designed to analyze IOT threats. The tool contains all important modules for IOT threat analysis, including information collection, data extraction, threat data analysis, and intelligence visualization. Intelligence data includes, but is not limited to, static information extraction, dynamic operation information extraction, and third-party network platform information. The goal of this tool is to help security researchers quickly and easily build their own IOT intelligence platform for IOT malware research and threat tracking.
+
+Using this framework tool, you can get the malicious information (CNC, Domain, function, etc.) in the IoT sample file very precisely and fine-grained. Compared with the traditional simple string extraction, this extraction method is more accurate and supports the extraction of encrypted information. This malicious information can be directly used to integrate into the IoT malicious information base and threat cloud search services, without the need for analysts to re-confirm, greatly improving the efficiency of malicious information processing.
+
+Traditional intelligence information extraction tools are often used to extract predefined information. The framework provides a good extension interface, where users can write personalized plugins to expand the scope of information extraction. For the emerging threats, security analysts can quickly integrate analysis experience such as decryption algorithm into the framework, accurately extract malicious intelligence, and reduce invalid redundant information.
+
+In the tool demonstration phase, we will demonstrate how to use the entire tool. Including the static information of IOT samples. Take popular IOT threats as examples to show how to precisely extract CNC, weak passwords, and configuration files. We will also show how to develop and integrate the platform plug-ins to extract any specific intelligence information of concern. All of the above data information is imported to the platform, security personnel can be free to carry out data analysis, malware track, threat visualization.
+
+
+### [IoT-Home-Guard: A Tool for Malicious Behavior Detection in IoT Devices](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--Embedded](https://img.shields.io/badge/Category-Red--Teaming--/--Embedded-gray)  
+IoT devices, especially secondhand devices and rental devices, are under threat of malware implant attack with physical access. Once IoT devices are compromised, hackers can turn them into snooping devices. From a defensive perspective, there are no solutions to detect Trojans in IoT devices.
+
+We present IoT-Home-Guard, a hardware device to detect malicious behaviors of Trojans in IoT devices, such as audios/videos snoop and remote control. It consists of four parts: data flow catcher, traffic analyzing engine, device fingerprint database and a web server. Features of network traffic are extracted by traffic analyzing engine and compared with pre-built device fingerprint database to detect malicious behaviors.
+
+In another research, we were able to implant Trojans in eight devices including smart speakers, ip cameras, routers, driving recorders and mobile translators. We collected characteristics of those devices and ran IoT-Home-Guard. All devices implanted Trojans have been detected. We believe that malicious behaviors of more devices can be identified with high accuracy after supplement of fingerprint database.
+
+The first generation IoT-Home-Guard tool is a hardware device based on Raspberry Pi with wireless network interface controllers. We will customize new hardware in the second generation. Software part is available in our Github (https://github.com/arthastang/IoT-Home-Guard). The system can be set up with software part in laptops after essential environment configuration.
+
+
+### [IoT-Implant-Toolkit: Framework for Trojans Implantation Research of IoT Devices](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--Embedded](https://img.shields.io/badge/Category-Red--Teaming--/--Embedded-gray)  
+During our Trojans implantation research for IoT devices, we found many tools outdated and not compatible with high versions. We present IoT-Implant-Toolkit, a framework for Trojans implantation research of IoT devices. It is a toolkit consisting of essential software tools on firmware modification, serial port debugging, software analysis and stable spy clients. We wrapped tools we proved useable in the framework and provided a universal call interface. Additionally, we packed useful open-source tools we developed into the framework. Each software tool acts as a plugin which can be easily added into the framework. With an easy-to-use and extensible shell-like environment, IoT-Implant-Toolkit is a one-stop-shop toolkit simplifying complex procedure of IoT malware implantation.
+
+With IoT-Implant-Toolkit, we were able to implant Trojans in eight devices with physical access, including smart speakers, cameras, driving recorders and mobile translators. We turned them into snooping devices, which send audios or videos in real time. Our presentation will also include live demos of those implanted devices.
+
+IoT-Implant-Toolkit is open-source at https://github.com/arthastang/IoT-Implant-Toolkit.
+
+
+### [IoXT Hunter: A Remote Discover & Pentest Tool for IoT Devices](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--Embedded](https://img.shields.io/badge/Category-Red--Teaming--/--Embedded-gray)  
+IoXT Hunter is an open source, extendable, large-scale IoT device remote discovery and pentest tool. It is designed to discover all known IoT devices for a specified range of network addresses and to perform security testing on related IoT devices using generic or targeted payloads.
+
+If you are a security administrator for a complex or large-scale IoT network (such as an industrial IoT network or a medical IoT network), IoXT Hunter will be your powerful tool. It can help you discover and record all your IoT device assets and perform full remote security testing of your IoT devices.
+
+IoXT Hunter also supports writing and loading your own plugins extensions. If you are an IoT security researcher and have discovered the security vulnerabilities of a kind of IoT device. You can write the appropriate discovery and pentest scripts to scan and evaluate the status of the IoT device on the public network through the IoXT Hunter.
+
+
+### [IotSecFuzz: Security Framework](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--Embedded](https://img.shields.io/badge/Category-Red--Teaming--/--Embedded-gray)  
+IoTSecFuzz is Open Source framework which was created with the aim of combining the maximum number of utilities for comprehensive testing of IoT device security at all levels of implementation. It has a convenient console in order to use it as a stand-alone application, as well as the ability to import it as a library.
+
+
+### [KNX Bus Dump](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--Embedded](https://img.shields.io/badge/Category-Red--Teaming--/--Embedded-gray)  
+None
+
+
+### [Kouba: Industrial Pentesting](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--Embedded](https://img.shields.io/badge/Category-Red--Teaming--/--Embedded-gray)  
+Introduction to Industrial security: brief introduction to industrial cyber-attacks and why it's important to protect OT infrastructures. In this part I'll introduce the importance of industrial security, speak about Stuxnet and other dangerous attacks that had impact in industrial sector, and some prevention tips.
+
+Introduction to Kouba: proposing a simple methodology that includes enumeration, footprinting and automatic exploitation with open tools. Presenting the advantages of using Debian with these specific tools* instead of Kali, and how to apply public key/password encryption and magic-wormhole using the scripts for securely exporting encrypted logs out of the virtual machine.
+
+Choosing open hardware for attacks: Once we have footprinted the devices and machines in the OT, in case we have physical access to the infrastructure, there are some things to look for regarding to physical security, such as USB ports, RTU (remote terminal units) details or DNP3 protocol serial communication. Using Arduino nano, pro mini, leonardo and attiny85 for designing either badusb or specific tools; RPI4/3/ZERO; ATMega2560 customizable PLC (PLDuino); S232 shield (for UNO), multi-protocols shield; Radio modules and others.
+
+* The system includes Redpoint and other nmap scripts, Kamerka, Aztarma, PLCinject, S7Scan, ISF, etc as well as Python 2.7 and 3, git, xfce4 terminal, Docker and Vagrant for needed virtualization, Celery and Redis for Kamerka, openssl, clang and other few compiling tools.
+
+
+### [LoRaWAN Auditing Framework](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--Embedded](https://img.shields.io/badge/Category-Red--Teaming--/--Embedded-gray)  
+IoT deployments continue to grow, and one part of that significant growth is composed of millions of LPWAN (low-power wide-area network) sensors deployed in hundreds of cities (Smart Cities) around the world, also in industries and homes. One of the most used LPWAN technologies is LoRa for which LoRaWAN is the network standard (MAC layer). LoRaWAN is a secure protocol with built in encryption, but implementation issues and weaknesses affect the security of most current deployments.
+
+This project intends to provide a series of tools to craft, parse, send, analyze and crack a set of LoRaWAN packets in order to audit or pentest the security of a LoraWAN infrastructure.
+
+
+### [MQTT-PWN: Your IoT Swiss-Army Knife](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--Embedded](https://img.shields.io/badge/Category-Red--Teaming--/--Embedded-gray)  
+MQTT is a machine-to-machine connectivity protocol designed as an extremely lightweight publish/subscribe messaging transport and widely used by millions of IoT devices worldwide.
+
+MQTT-PWN intends to be a one-stop-shop for IoT Broker penetration-testing and security assessment operations, as it combines enumeration, supportive functions and exploitation modules while packing it all within command-line-interface with an easy-to-use and extensible shell-like environment.
+
+Built-in abilities/modules:
+
+Credential Brute-Forcer - configurable brute force password cracking to bypass authentication controls
+Topic enumerator - establishing comprehensive topic list via continuous and accumulated sampling.
+Broker information grabber - obtaining and labeling data from an extensible predefined list containing known topics of interest, broker type and version and more
+GPS tracker - plotting routes from devices using OwnTracks app and collecting published coordinates, battery usage, connection method etc.
+Sonoff exploiter – design to extract passwords and other sensitive information off smart switches
+
+A full circle of scenarios of attack using the tool will be demonstrated.
+
+
+### [MUD-Visualizer](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--Embedded](https://img.shields.io/badge/Category-Red--Teaming--/--Embedded-gray)  
+Manufacturer Usage Description (MUD) is a recently introduced IETF standard designed to protect IoT devices and networks by isolating IoT device based on the information that define the behavior of that device. The standard defines a straight-forward method to implement a defensive mechanism based on the rules that are introduced by manufacturer of the device. MUD-Files are the core component of the MUD standard and contain the access control information of IoT devices. However, MUD-Files may contain possibly hundreds of access control rules. As a result, reading and validating these files is a challenge; and determining how multiple IoT devices interact is difficult for the developer and infeasible for the consumer. MUD-Visualizer is a tool that provides a visualization of any number of MUD-Files and is designed to enable developers to produce correct MUD-Files by providing format corrections, integrating them with other MUD-Files, and identifying conflicts through visualization. MUD-Visualizer is scalable and its core task is to merge and illustrate ACEs for multiple devices; both within and beyond the local area network.
+
+
+### [Medaudit: Auditing Medical Devices and Healthcare Infrastructure](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--Embedded](https://img.shields.io/badge/Category-Red--Teaming--/--Embedded-gray)  
+Medaudit is a healthcare/ medical device auditing tool that would help anyone auditing a healthcare networks and medical devices. At the time of writing, there are no tools - commercial or free - that can help security pentest healthcare infrastructure. This tool aims to close that gap and help security analysts use their web app skill set to analyze medical devices. The tool support HL7 protocol right now and will have support for FHIR and DICOM in near future.
+
+The tool does the following things:
+
+Create a visual map of HL7 traffic flow on a network (Passive analysis), extract HL7 traffic on the network.
+Scan and verify for open HL7 ports on a host
+Perform DOS attacks against HL7 streams on HL7 reciever
+Send HL7 messages (malformed attacks)
+Fuzzer
+Malicious HL7 Server
+
+The tool also acts a proxy using web API so you can reuse web application tests on medical devices.
+
+
+### [Out-Of-Band Anti Virus Dock (OOBAVD) - A Hardware & Artificial Intelligence Based Anti Virus Solution](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--Embedded](https://img.shields.io/badge/Category-Red--Teaming--/--Embedded-gray)  
+USB-based attacks account for more than 52% of all cybersecurity attacks on operational technology (OT) systems in the industrial control systems (ICS) industry. The discovery of Stuxnet in 2015 served as a stark reminder that even air-gapped computers, previously thought to be impervious to cyberattacks, are vulnerable. These systems are found in secure military organizations or Supervisory Control and Data Acquisition (SCADA) systems. The societal impact of such attacks can be enormous. Stuxnet, for example, caused significant damage to Iran's nuclear programs and facilities.
+
+While air-gapped systems are considered "secure," they are inconvenient for computer operators, particularly when performing updates and transferring data, which require the use of mobile storage devices, such as USB sticks. Unfortunately, this introduces a flaw into the air-gapped systems, exposing them to computer viruses and malware. Furthermore, adding new peripherals to these systems, such as keyboards and mice, allows BadUSB attacks to be carried out.
+
+OOBAVD is a solution to close this gap. OOBAVD acts as a intermediary between the air-gapped system and USB devices, scanning and blocking detected malicious files from the air-gapped system. Furthermore, malware can attack commercial software-based antivirus software on the host machine by blocking, corrupting, and replacing core antivirus engine files, rendering them inoperable and defenseless. OOBAVD being out of band in the transfer process, is mitigated from this risk.
+
+OOBAVD is designed to have minimum software pre-installed, which reduces the attack surface area to be infected by malware. OOBAVD can also be wiped clean and flashed before connecting to new air-gapped computers, removing persistent malware that manages to infect OOBAVD.
+
+
+### [PTIOT: AN AUTOMATED SECURITY TESTING FRAMEWORK FOR THE INTERNET OF THINGS - ARSENAL THEATER DEMO](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--Embedded](https://img.shields.io/badge/Category-Red--Teaming--/--Embedded-gray)  
+With the Internet of Everything era coming and millions of IoT devices becoming interconnected via the Internet, security issues caused by the IoT devices are increasingly serious more than any time before. Different from traditional security problems, there are no specific cognitions or orientations on the technology of security defense. Only if we knew our evil enemy and understood the means they used to attack, would we be able to build an efficient defense system.
+
+PtIoT is an automated security testing framework for the Internet of Things, and it has already been used on 360 IoT devices' productive process. It is combined with 360GearTeam's daily security practice and understanding of the attack pattern the malicious frequently used. It contains grey box-based security tests on external ports, compilation options, communication encryption, OS check runtime program check, web application check, etc. It is used to test ROMs on the products' version iteration process. At present, the security test covers products like 360 Smart Camera, 360Safe Wifi Router, 360 Driver Recoder and so on.
+
+
+### [Puppet Fuzz: Discovering Critical Kernel Vulnerabilities with Innovative Approach](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--Embedded](https://img.shields.io/badge/Category-Red--Teaming--/--Embedded-gray)  
+Internet of Things (IoT) devices have become an integral part of our lives, but their security vulnerabilities pose a significant risk to our privacy and security. While previous research has focused on user space components of embedded firmware, we have discovered that kernel vulnerabilities in these complex devices are particularly high-risk, potentially leading to full system compromise.
+Kernel modules are typically tightly bound to the kernel, but because different IoT devices use different kernel versions and compile options, it is difficult to load them correctly in other simulated environments. However, true device-based fuzz testing is very time-consuming and resource-intensive. Additionally, unlike user-level programs, kernel-level programs require a device reboot after every crash, which further limits the development of IoT kernel fuzz testing.
+To address these challenges, we propose a novel approach that abstracts closed-source kernel modules code to execute on a stable Linux kernel environment that we have constructed by using our aspect oriented system. This platform allows us to transfer library function calls and stack management, enabling us to detect kernel-level vulnerabilities that were previously difficult to identify. In addition, due to our front-end and back-end separation design, the platform can easily support IoT drivers of multiple architectures. Our approach has enabled us to discover a multitude of issues across devices from top manufacturers such as Netgear, Cisco, Asus, HP,TPLink,DLink and Western Digital etc.
+In this talk, we will show our method and present one such universal kernel hardware module vulnerability, demonstrating how we were able to exploit a kernel driver vulnerability to achieve remote command execution on the device. Our platform provides a replicable and stable environment that forms the basis for efficient and effective kernel fuzz testing, ultimately improving the security of IoT devices and protecting the privacy of their users.
+
+
+### [RF( Radio Frequency ) Offensive and Defense Exercise Server](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--Embedded](https://img.shields.io/badge/Category-Red--Teaming--/--Embedded-gray)  
+We believe that cyber security should not only cover the Internet space but also the RF (radio frequency) space.
+In the radio space, interception, decryption, tampering, jamming, and spoofing are actively practiced against hostile countries.　For example, the Russian Красуха-4 is a well-known electronic warfare weapon.
+In fact, it has a longer history than the Internet, and there is much to learn from it.
+However, there are not so many RF training environments that can be easily used.
+
+
+### [RFQuack: A Versatile, Modular, RF Security Toolkit](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--Embedded](https://img.shields.io/badge/Category-Red--Teaming--/--Embedded-gray)  
+Software-defined radios (SDRs) are indispensable for signal reconnaissance and physical-layer dissection, but despite we have advanced tools like Universal Radio Hacker, SDR-based approaches require substantial effort. Contrarily, RF dongles such as the popular Yard Stick One are easy to use and guarantee a deterministic physical-layer implementation. However, they're not very flexible, as each dongle is a static hardware system with a monolithic firmware. We present RFquack, an open-source tool and library firmware that combines the flexibility of a software-based approach with the determinism and performance of embedded RF frontends. RFquack is based on a multi-radio hardware system with swappable RF frontends, and a firmware that exposes a uniform, hardware-agnostic API. RFquack focuses on a structured firmware architecture that allows high- and low-level interaction with the RF frontends. It facilitates the development of host-side scripts and firmware plug-ins, to implement efficient data-processing pipelines or interactive protocols, thanks to the multi-radio support. RFquack has an IPython shell and 9 firmware modules for: spectrum scanning, automatic carrier detection and bitrate estimation, headless operation with remote management, in-flight packet filtering and manipulation, MouseJack, and RollJam (as examples). We used RFquack in high-schools to teach digital RF protocols, to setup RF hacking contests, and to analyze industrial-grade devices and key fobs, on which we found and reported 11 vulnerabilities in their RF protocols.
+
+
+### [RPL Attacks Framework: Attacking RPL in WSNs](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--Embedded](https://img.shields.io/badge/Category-Red--Teaming--/--Embedded-gray)  
+This tool is a framework for attacking the Routing Protocol for Low power and lossy networks (RPL) implementation of Contiki for Wireless Sensor Networks (WSN).
+
+Presentation: https://github.com/dhondta/rpl-attacks/raw/master/doc/bheu18-arsenal-presentation.pdf
+
+
+### [RadioT Shield: A Radio Way to Protect Most of Your IoT Devices](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--Embedded](https://img.shields.io/badge/Category-Red--Teaming--/--Embedded-gray)  
+RadioT Shield is an open source platform dedicated to detecting the attack of various IoT devices in a given space by radio communication data. RadioT Shield can detect a lot of radio-based IoT-related attacks, such as WIFI attacks, BLE attacks, GSM attacks, ZigBee attacks, etc. Unlike other IoT hardware and software security solutions, this system does not require any modification of the protected IoT device and does not affect the existing functionality of the device.
+
+RadioT Shield is suitable for all IoT devices that use radio communications, even devices that are more than a decade old. It is therefore particularly suitable for scenarios with complex IoT device types and IoT networks consisting of old, non-secure IoT devices, especially industrial control IoT devices, medical IoT devices, smart home IoT devices, and more.
+
+
+### [Remote Assessment and Proctoring using Intelligent Devices (RAPID)](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--Embedded](https://img.shields.io/badge/Category-Red--Teaming--/--Embedded-gray)  
+Many educational institutions have adopted online proctoring as a mean to conduct and ensure academic integrity during online assessments, spurred by the pandemic. Most of such remote assessment solutions are closed-source, and requires the installation of various libraries or dependencies; this introduces potential risk for students who would not be able to scrutinize, or have a say as to what is installed on their computers. Being closed source, such solutions can also be slow to react to mala fide actions to tamper and bypass measures put in place to deter cheating. In fact, one only needs to perform cursory searches online to find various ways to defeat some well-known closed-source remote assessment solutions.
+
+To tackle the issue at hand, we introduce a proof of concept, open-source system for remote proctoring that does not require prior installation of any software or libraries. It leverages the Raspberry Pi Zero hardware that is programmed to inject fileless scripts into a Windows system to monitor surface level and internal activities during remote assessments. To deter mala fide attempts to tamper with our solution, we incorporate techniques typically used by malware and C2 infrastructure in the development of our solution, with the ultimate goal of using such techniques for good. Hence at the end of each proctoring session, our solution leaves no trace of its presence or any residue within the proctored environment.
+
+Being a proof-of-concept, we envision extending our solution to support other popular operating systems, as well as capture and analyze more data with greater efficiency.
+
+
+### [Safe Scan&C2 Tool](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--Embedded](https://img.shields.io/badge/Category-Red--Teaming--/--Embedded-gray)  
+In the process of security attack and defense, as well as penetration testing, there are two prominent issues. First, the attack scanning is often detected by the security systems of the defense side, resulting in the scanning IP being blocked. Second, when the defense side is controlled and assets are connected back to the command and control (C2) server, it may be detected by security devices, leading to countermeasures against the penetration testers. In order to safely and conveniently conduct asset detection during the attack and defense process, as well as secure connection back to the controlled assets on the defense side, we have improved the Kademlia protocol and developed a distributed hash table (DHT) technology. We have also developed a networking tool that consists of a large number of Internet nodes, which dynamically updates IDs and node tree structures at regular intervals. This allows each session to initiate requests from a different node during the scanning process, preventing IP blocking due to high-frequency scanning. Additionally, during the controlled asset's connection back to the C2 server, nodes are randomly selected based on user-selected hop count, effectively preventing penetration testers from being traced, thus improving the penetration testing process.
+
+
+### [ShodanSeeker: Command-Line Tool Using Shodan API](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--Embedded](https://img.shields.io/badge/Category-Red--Teaming--/--Embedded-gray)  
+The large number of assets published on the Internet - some of which organizations are not even aware of their existence - increase the probability of services being exposed that could put them at risk. As a first step towards resolving this problem, we introduce ShodanSeeker.
+
+Taking advantage of Shodan's crawlers, ShodanSeeker analyzes historical records on-the-fly to discover differences between previously performed scans in order to identify new published services.
+
+Enhancing the capabilities of Shodan's real-time stream of data, our fully customizable solution monitors and generates notification messages once a new risk service is discovered.
+
+Presentation slides: https://drive.google.com/open?id=1Fi5XJ5-1QyXSawHKXVm_emF3NUR2Nx7X
+
+
+### [Thunderstorm: Turning Off the Lights in Your Data Center](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--Embedded](https://img.shields.io/badge/Category-Red--Teaming--/--Embedded-gray)  
+One of the main premises of any IT installation, is to protect the entire infrastructure against possible failures. In addition to firewalls and other network elements, one of the vital points is the electrical system.
+
+Thanks to uninterruptible power supplies (UPS), it is possible to cover and manage these issues economically. The main problem, is that many of these systems inherit the same bugs as other IoT devices, which makes them vulnerable to all kinds of attacks.
+
+In this presentation, we will explain how it has been possible to develop different zero-day vulnerabilities thanks to social engineering, some investment, and a bit of common sense. Among other things, these flaws would make it possible to compromise the electrical system of an office or even that of a Data Center.
+
+Since these devices share common components, it would be possible to obtain remote code execution (with the highest possible privileges) and/or denial of service on more than 100 different manufacturers. Moreover, all of this has been automated in a single framework, making it possible to detect and exploit these vulnerabilities easily, simply and fully automatically.
+
+
+### [UFO: A Security Verification Tool for IoT Device Firmware](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--Embedded](https://img.shields.io/badge/Category-Red--Teaming--/--Embedded-gray)  
+UFO is an IoT firmware security assessment tool that helps firmware developers or security researchers assess the security level of IoT device firmware.
+
+UFO profiles the IoT firmware in many surfaces, like known vulnerabilities, sensitive data, cracked passwords, and hidden backdoors. It saves penetration testers time to gather information and help create attack vectors. Meanwhile, as a handy tool, UFO exposes vulnerabilities as early as possible to mitigate attacks from IoT malware like the notorious Mirai, which also collected default passwords of IoT devices from firmware. We did leverage UFO to pwn two COTS network cameras by discovering their backdoors and default passwords.
+
+Main features of UFO are:
+- Known 3rd Party Suite CVE Risk Report: Post-scan report based on the Common Vulnerability Scoring System (CVSS) which is an open industry standard for assessing the severity of computer system security vulnerabilities.
+- Sensitive Data Statistics: Assessment of the email, IP, URL, private or password vulnerabilities.
+- Cracked Passwords and Certificates Review: Check if your passwords or certificates are vulnerable.
+- Shell Dependency Backdoor Paths: Produces a visual guide of backdoor paths.
+
+A full circle of scenarios of using UFO to analysis IoT firmware will be demonstrated.
+
+Among the above features, the source code used to trace shell dependency has been released on Github: https://github.com/dayanuyim/shdep.
+
+The promotional video: https://youtu.be/0XupD3PAbuo
+
+
+### [UNIVERSAL RADIO HACKER: INVESTIGATE WIRELESS PROTOCOLS LIKE A BOSS - ARSENAL THEATER DEMO](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--Embedded](https://img.shields.io/badge/Category-Red--Teaming--/--Embedded-gray)  
+The spectrum of IoT products expands and with it the number of proprietary wireless protocols raises. Such protocols are designed under size and energy constraints so they tend to have a secondary focus on security. Security researchers can examine arbitrary IoT protocols with Software Defined Radios (SDR) but SDRs present the possibly encoded data in a complex IQ format. Therefore, data has to be to demodulated and decoded before researchers can investigate the actual protocol. After revealing the protocol logic with a differential analysis, vulnerabilities can be found e.g. using fuzzing. Present tools require expertise in Digital Signal Processing (DSP) and/or cover only parts of the process e.g. they only offer support for demodulation but do not help to analyze the protocol logic so researchers need to combine various tools and self-made scripts.
+
+We address this problem with the Universal Radio Hacker (URH) - an open source, cross platform application that integrates the complete hacking process. First, URH performs demodulation with minimal user interaction so no deep DSP knowledge is required. Second, URH helps to reverse engineer the protocol logic by organizing with fields and message types. This can either be done manually or automatically by URH to boostrap a protocol. Third, URH includes a fuzzing component for logical protocol fields whereby the selected encoding and modulation is automatically applied to the crafted messages. URH aims to be both self-contained and expandable: Users find all required steps bundled into one application but at the same time URH provides several interfaces for external tools like GNU Radio so also DSP experts can benefit from it.
+
+The source code of URH can be found at GitHub under https://github.com/jopohl/urh.
+
+
+### [Universal Radio Hacker v2: Simulate Wireless Devices with Software Defined Radio](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--Embedded](https://img.shields.io/badge/Category-Red--Teaming--/--Embedded-gray)  
+Wireless communication between Internet of Things (IoT) devices is, in many cases, built upon proprietary protocols designed under size and energy constraints. Vulnerabilties in such protocols are critical, e.g. an attacker breaks into a house by hacking a wireless door lock. Software Defined Radios (SDR) offer a generic way to investigate such protocols, but require software support when it comes to demodulating and decoding messages. The Universal Radio Hacker (URH) is an open source tool to support researchers when operating with SDRs by abstracting most of the required HF basics needed for demodulation. Furthermore, it assists reverse engineering the protocol format. While this works well for stateless and undirectional protocols, there are more sophisticated protocols on the market that can not be handled without state machine.
+
+Version 2.0 of the Universal Radio Hacker introduces a Simulation tab that allows to specify a complete HF protocol with several states and participants. It is called Simulation because URH has the ability to play the protocol from the perspective of one or more participants, i.e. URH evaluates all messages towards the simulated participant and dynamically crafts responses depending on the state and previous information. The simulation advancement complies to the easy-to-use philosophy that we also use for the basic URH. Users can see all messages of the analyzed protocol in a graphical flow graph and add new messages, edit or move them around at convenience. Message field values are dynamically derived with access to all previously sent and received information or even by using external programs, e.g. for AES encryption. Conditions, jump and pause elements in the graphical user interface allow generating complex state machines. In our presentation, we demonstrate a practical attack that shows how the simulation component of URH opens a sophisticated wireless door lock (AES encryption) with SDRs.
+
+
+### [VT AUTO-X VEHICLE AUTOMATED SECURITY TESTING TOOL - ARSENAL THEATER DEMO](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--Embedded](https://img.shields.io/badge/Category-Red--Teaming--/--Embedded-gray)  
+Currently, there are some research works on vehicle cybersecurity testing. Many of them are open-source projects, such as CANTact and GoodThopter. CANTact is a popular open-source toolkit available for purchase online that uses SocketCAN to communicate with a CAN bus. Since SocketCAN extends the Berkeley sockets API in Linux by introducing a new protocol family, it is easy to write script languages for CAN message injections. Python is one of the most widely-used script languages for SocketCAN programming. GoodThopter is another recent device targeted at hackers and hobbyists, but is not ready for use as a turn-key solution.
+
+The drawbacks of these open-source tools are that they are not stable and do not work well under heavy-traffic testing scenarios. Also, open-source contributions may not meet the rigorous control and validation requirements of auto industry software practices. We found that it was possible to crash or lock up such tools when injecting them with bursty CAN traffic. For example, CANTact has limited buffer size which may cause buffer overflows. GoodThopter's timeout parameters and configuration file make it hard to work. In our case, we used the serial port for communications and Java as the programming language. Java is preferred over Python as it is faster, more stable, requires strict coding rules, and is better suited to remote control applications.
+
+Cybersecurity testing focuses on finding and identifying unwanted weaknesses or vulnerabilities hiding inside vehicle software. Our goal is to develop an automated and black-box testing tool for OEMs and tier providers to test their vehicles or ECUs with consistent results, which requires no prior detailed knowledge of the testing workflow.
+
+Automation means the tester only needs to follow pre-defined test scenarios one-by-one to finish the whole testing process. Even if the tester does not have prior security testing knowledge or background, he or she can still operate the test device and detect security vulnerabilities by following the automated steps.
+
+Black-box testing strategies should have no prior knowledge of system commands, CAN bus command databases, or the specific manufacturer's practices within the vehicle or system under testing protocols. In this way, OEMs may feel more comfortable with black-box testing since they don't need to release too much of what they may consider to be proprietary system information to internal, outside, or third-party testers.
+
+We have developed the automated automotive cybersecurity testing tool (named VT Auto-X) which has successfully detected serious security vulnerabilities in a number of production vehicles, and has helped several OEMs identify and correct these issues before they became expensive and embarrassing recall programs. It is a black-box test with no prior knowledge of vehicle CAN bus information. Live demonstrations of Auto-X have proven its ability to quickly find software and security vulnerabilities in most of the cars tested.
+
+Auto-X is portable, and can easily connect to a vehicle's CAN bus. The device has a panel which has various types of connection interfaces, including OBD (SAE J1979/J1962) ports and multiple CAN High and CAN Low ports. It incorporates standard banana sockets to facilitate connecting to various vehicle CAN bus accessible points, as well as several power supply options for testing flexibility (bench, garage, mobile). Other connection arrangements are also possible for use when testing individual systems, ECUs, or bench testing components.
+
+A USB 2.0 port is provided to connect to laptops or other computers. Power can also be provided directly via the OBD II connection, by direct 12V DC connection, or via an AC mains adapter power supply. Auto-X also contains several communication modules, such as WIFI, Bluetooth, and 3G, for both short-range and long-range communications making it easy to communicate with remote cloud or smart mobile phones.
+
+Auto-X performs an automated sequence of test scenarios using either the local or cloud-based testing portal. Each scenario test time can range from minutes to hours, which varies depending on the vehicle configuration and equipment. The tool injects CAN traffic into the vehicle CAN bus. By monitoring and recording CAN traffic and responses, the testing portal then analyzes the logs and responses aiming to detect unexpected, unwanted, or potentially harmful security issues.
+
+Auto-X acts as an interface between the entity being tested (an entire vehicle, a single CAN bus, multiple CAN buses, or a component, such as a specific Electronic Control Unit or ECU) and the secure cloud test portal (where the testing scripts reside). It also connects to the user's laptop to control and monitor activity during testing. Once connected to the vehicle, Auto-X can run a series of test scripts or protocols from the cloud portal.
+
+
+### [VxHunter: A Tool Set for VxWorks Based Embedded Device Analyses](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--Embedded](https://img.shields.io/badge/Category-Red--Teaming--/--Embedded-gray)  
+VxWorks is the industry's leading real-time operating system. It has been widely used in various industry scenarios, which require real-time, deterministic performance and, in many cases, safety and security certifications such as the NASA's Insight Spacecraft. There was lot's of research on Linux based Router and camera, rarely seen research of VxWorks based device.
+
+Most of VxWorks based IoT devices on the market didn't contain any built-in debugger like WDB(VxWorks WDB Debug Agent) or command line debugger. Without debugger it's almost impossible to analyze the root cause of vulnerability or exploit vulnerabilities.
+
+VxHunter contains an firmware analyze tool and an serial debugger tool. The firmware analysis tool is an IDA plugin which can automatically analyze and rebase firmware to correct loading address, fix function name from symbol table, etc. The serial debugger tool is designed for the target which didn't have built-in debugger like WDB. With VxHunter's help, we successfully analyzed and exploited the CVE-2018-19528 vulnerability.
+
+
+### [WHID Elite: The Hacking Device for Pwning Computers, Moving Cranes, Exploding Things and Electrocuting Nuts](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--Embedded](https://img.shields.io/badge/Category-Red--Teaming--/--Embedded-gray)  
+During the last few years, Red Teaming engagements have become more and more popular. This trend pushed some hackers to R&D and release new opensource devices with the intent to make PhySec operations even more interesting. Smoothing the path to new TTPs and improving some old ones. During this talk, I will present two new hacking devices developed from Offensive Ninjas, for Offensive Ninjas:
+- WHID Elite (a 2G-enabled offensive device that allows a threat actor to remotely inject keystrokes, bypass air-gapped systems, conduct mousejacking attacks, do acoustic surveillance, RF replay attacks and much more).
+- USBsamurai (a Remotely Controlled Malicious USB HID Injecting Cable DIY for less than 10$ that can be used to compromise targets remotely in the most stealthiest way ever seen).
+
+
+### [WHID Injector and WHID Elite: A New Generation of HID Offensive Devices](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--Embedded](https://img.shields.io/badge/Category-Red--Teaming--/--Embedded-gray)  
+WHID Injector was born from the need for cheap and dedicated hardware that could be remotely controlled in order to conduct HID attacks. WHID stands for WiFi HID injector. It is a cheap but reliable piece of hardware designed to fulfill pentesters' needs related to HID Attacks, during their engagements. The core of WHID Injector is mainly an Atmega 32u4 (commonly used in many Arduino boards) and an ESP-12s (which provides the WiFi capabilities and is commonly used in IoT projects).
+
+However, during the last months, a new hardware was under R&D (i.e. WHID Elite). It replaces the Wi-Fi capabilities with a 2G baseband. Which extends its wireless capabilities to (potentially) an unlimited working range. This cute piece of hardware is perfect to be concealed into USB gadgets and used during engagements to get remote shell over an air-gapped environment. In practice, is the "wet dream" of any Red Teamer out there. During the Arsenal presentation, we will see in depth how WHID Injector and WHID Elite were designed and their functionalities. We will also look which tools and techniques Blue Teams can use to detect and mitigate this kind of attacks.
+
+
+### [Wi-Fi Access Point Rootkits](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--Embedded](https://img.shields.io/badge/Category-Red--Teaming--/--Embedded-gray)  
+Wi-Fi access point (AP) security is one of the most important aspects when it comes to securing networks. The compromise of a Wi-FI AP (which mostly also double-up as a router in SOHO environments) can lead to several secondary attacks. There are multiple vectors that are used to compromise the WiFi AP ranging from default passwords to sophisticated 0-days. But, after compromising the device, avoiding detection and maintaining access are the most important areas which eventually dictate the impact of the compromise.
+
+We are going to release a set of code snippets along with the documentation making it easy for people who want to understand the working of Kernel rootkits for IoT devices like Wi-Fi APs. The code will cover hiding a process, renaming a process, blocking kill command on certain processes, network stack based RAT and much more. The code will be released under GPL v2.
+
+
+### [Wiretapping Tool to Sniff Packets Directly from LAN Cables](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--Embedded](https://img.shields.io/badge/Category-Red--Teaming--/--Embedded-gray)  
+Wiretapping tool to sniff packets directly from LAN cables
+
+
+### [ZigDiggity: ZigBee Pentest Toolkit](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--Embedded](https://img.shields.io/badge/Category-Red--Teaming--/--Embedded-gray)  
+Introducing ZigDiggity, an entire suite of new ZigBee penetration testing tools to be released by Francis Brown and Matthew Gleason exclusively at Black Hat USA – Arsenal 2018. We'll be publicly releasing a FREE set of ZigBee hacking tools designed specifically for use by security professionals. We will showcase the best-of-breed in both hacking hardware and software (ZigDiggity) that you'll need to build a complete ZigBee penetration toolkit. Each of the key concepts/tools will be accompanied with live hacking demonstrations that will be both exciting as well as educational, including:
+
+ZigBee – disabling home security system door/window alarms via ZigBee DoS attacks
+Scaling this same home ZigBee attack to an entire neighborhood by equipping Bishop Fox's DangerDrone with the ZigBee Hacking gear and new ZigDiggity toolset.
+
+We'll also be giving away a fully functional Danger Drone to one lucky audience member, fully equipped and loaded with ZigDiggity hacking capabilities – guaranteed to leave your friends feeling peanut butter and jealous!
+
+
+### ["HACKER MODE" FOR AMAZON ALEXA(TM)](#)  
+![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category-Red--Teaming--/--Embedded](https://img.shields.io/badge/Category-Red--Teaming--/--Embedded-gray)  
+Have you ever been stuck at a command line, not quite remembering the syntax for a NetCat relay? Ever wish that buddy that has a photographic memory for man-pages was with you? Hacker Mode makes Amazon's Alexa(TM) be that epic hacker buddy for you!
+
+The Hacker Mode skill designed for Alexa assists hackers and developers with:
+
+HTML, Hex, URL, ASCII encodings
+NetCat, NMap, and Metasploit command line interfaces
+Well-known TCP and UDP ports, HTTP headers, HTTP response codes and HTTP verbs
+
+Simply ask Alexa to enter "Hacker Mode" and then ask a question like: "How can I send a file with NetCat?" The app provides both voice feedback and Alexa App feedback to ensure you get the syntax just right.
 
 
 ---
