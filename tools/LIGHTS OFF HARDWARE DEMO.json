@@ -1,0 +1,10 @@
+{
+  "Tool Name": "LIGHTS OFF HARDWARE DEMO",
+  "Speakers": [
+    "Javier Vazquez Vidal"
+  ],
+  "Tracks": null,
+  "Event": "BH-EU-14",
+  "Github URL": null,
+  "Description": "Are you interested in the \"Lights Off! The Darkness of the Smart Meters\" talk that will be presented at Black Hat Europe? Then you should check this out! Since Arsenal brings the invaluable opportunity of allowing the attendees to get a closer look at researchers work, we want to show you the real stuff. We want you to be able to see, feel and touch the process of reversing we experienced, and show you the tools we used.\n\nThere will be IDA, Logic Analysers, GDB, Arduino, blown hardware (literally!) and a lot of wires!"
+}

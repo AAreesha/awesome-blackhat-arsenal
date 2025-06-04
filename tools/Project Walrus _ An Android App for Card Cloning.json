@@ -1,0 +1,11 @@
+{
+  "Tool Name": "Project Walrus : An Android App for Card Cloning",
+  "Speakers": [
+    "Daniel Underhay",
+    "Matthew Daley"
+  ],
+  "Tracks": null,
+  "Event": "BH-ASIA-18",
+  "Github URL": null,
+  "Description": "Project Walrus is an Android app we're developing to let pentesters make better use of their contactless card devices, like the Proxmark and the Chameleon Mini. Come and see how Walrus can help you on your next red team, or just come so I can clone your access cards."
+}

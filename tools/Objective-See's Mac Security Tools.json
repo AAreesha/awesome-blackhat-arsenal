@@ -1,0 +1,10 @@
+{
+  "Tool Name": "OBJECTIVE-SEE'S MAC SECURITY TOOLS",
+  "Speakers": [
+    "Patrick Wardle"
+  ],
+  "Tracks": null,
+  "Event": "BH-EU-17",
+  "Github URL": null,
+  "Description": "Patrick drank the Apple juice; to say he loves his Mac is an understatement. However, he is bothered by the increasing prevalence of macOS malware and how both Apple & 3rd-party 'security tools' after fail to block it . Instead of just complaining about this fact, he decided to do something about it - so started Objective-See.\n\nThe goal of Objective-See is straightforward: provide simple, yet effective Mac security tools. Always free of charge - no strings attached!\n\nSo come watch as OverSight detects malware that spies on users (via the webcam/mic), Ransomwhere? generically detects macOS ransomware, and LuLu, an open-source macOS firewall are demo'd. Other open-source utilities such as a process info library and mouse/keyboard sniffer will be demo'd as well.\n\nOur Macs will remain secure!"
+}

@@ -1,0 +1,11 @@
+{
+  "Tool Name": "INTELMQ",
+  "Speakers": [
+    "Tomas Lima",
+    "L. Aaron Kaplan"
+  ],
+  "Tracks": null,
+  "Event": "BH-EU-15",
+  "Github URL": null,
+  "Description": "IntelMQ is a solution for collecting and processing security feeds, pastebins, and tweets using a message queue protocol. It's a community driven initiative called IHAP (Incident Handling Automation Project) which was conceptually designed by European CERTs during several InfoSec events. Its main goal is to give to incident responders an easy way to collect & process threat intelligence thus improving the incident handling processes of CERTs."
+}

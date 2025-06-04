@@ -1,0 +1,11 @@
+{
+  "Tool Name": "WSSAT - WEB SERVICE SECURITY ASSESSMENT TOOL",
+  "Speakers": [
+    "Mehmet Yalcin YOLALAN",
+    "Salih TALAY"
+  ],
+  "Tracks": null,
+  "Event": "BH-EU-16",
+  "Github URL": null,
+  "Description": "WSSAT is an open source web service security scanning tool which provides a dynamic environment to add, update or delete vulnerabilities by just editing its configuration files. This tool accepts WSDL address list as input file and performs both static and dynamic tests against the security vulnerabilities. It also makes information disclosure controls.\n\nObjectives of WSSAT are to allow organizations:"
+}

@@ -1,0 +1,13 @@
+{
+  "Tool Name": "CHIRON: Home-Based Network Analytics & Machine Learning Threat Detection Framework",
+  "Speakers": [
+    "Rod Soto",
+    "Joseph Zadeh"
+  ],
+  "Tracks": [
+    "Track: Network Defense"
+  ],
+  "Event": "BH-ARSENAL",
+  "Github URL": null,
+  "Description": "CHIRON is an open-source ELK based analytics and Machine Learning framework that applies security analytics to home network traffic and for dynamic learning of indicators of external threats and other potential malicious activity. The tool continuously monitors network traffic and applies machine learning techniques for adaptive discovery and baselining of a small user population.\n\nUse cases include:\n\nIdentification of assets in home network (IoTs, workstations, laptops, servers, routers)\nFingerprints users, services, and protocols\nApplies analytics to users and devices (average session length, traffic, visited sites) to determine standard usage behavior and service profiles"
+}

@@ -1,0 +1,10 @@
+{
+  "Tool Name": "PyExfil",
+  "Speakers": [
+    "Yuval Nativ"
+  ],
+  "Tracks": null,
+  "Event": "BH-ASIA-18",
+  "Github URL": null,
+  "Description": "PyExfil is a data exfiltration package with various data exfiltration techniques for various scenarios."
+}

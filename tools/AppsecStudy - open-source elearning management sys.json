@@ -1,0 +1,13 @@
+{
+  "Tool Name": "AppsecStudy - open-source elearning management system for information security",
+  "Speakers": [
+    "Ivan Iushkevich"
+  ],
+  "Tracks": [
+    "Code Assessment",
+    "Human Factors"
+  ],
+  "Event": "BH-ARSENAL",
+  "Github URL": null,
+  "Description": "AppsecStudy is an open-source platform for seminars, training, and organizing courses for practical information security for developers and IT specialists. This tool has all the built-in basic requirements needed for organizing normal and productive training."
+}

@@ -1,0 +1,11 @@
+{
+  "Tool Name": "Trape: The Phishing Evolution",
+  "Speakers": [
+    "Jose Pino",
+    "Jhonathan Espinosa"
+  ],
+  "Tracks": null,
+  "Event": "BH-ASIA-18",
+  "Github URL": null,
+  "Description": "Trape is a recognition tool that allows you to track people and make phishing attacks in real time; the information you can get is very detailed. The objective is to teach the world the possible outcomes through this strategy -- the big Internet companies could be monitoring you, getting information beyond your IP, such as the sessions of your sites or Internet services."
+}

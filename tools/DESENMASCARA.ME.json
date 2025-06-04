@@ -1,0 +1,10 @@
+{
+  "Tool Name": "DESENMASCARA.ME",
+  "Speakers": [
+    "Emilio Casbas"
+  ],
+  "Tracks": null,
+  "Event": "BH-EU-14",
+  "Github URL": null,
+  "Description": "Desenmascara.me is a public resource which will extract metadata from any website (either domain name or IP address, no resource) and will explain it in a brief summary. The extraction will be totally passive, just like browsing the website, otherwise the tool couldn't be online for public use. It's based mainly on HTTP headers and metadata. Some features of the tool are:\n-Easy to use, only enter a website address to see what's behind the scenes\n-Available in English and Spanish (based on the browser language)\n-Testing for web application fingerprinting\n-Brief summary about the website configuration\n-Different report colors to highlight web security awareness\n-Some special websites will show a message showing whether they are official or fake (keep counterfeit products from circulation)\n-Detection of CMSs and versions (whatweb core)\n-Warnings about old software being exploited in the wild like joomla-1.5, RoR CVE-2013-0156...\n-Detection of properties file leak in Ruby on Rails. Ref: Fugas de informacion en aplicaciones ruby on rails\n-Warnings about OpenSSL version affected by heartbleed\n-Detection of hardening signs such as WAF, CDN, reverse proxy...\n-In case of CloudFlare protected websites, it will show the real server IP\n-Detection of blacklisted websites by GoogleSafeBrowsing\n-Detection of suspicious iframes or hidden spam\n-Detection of misconfiguration on robots.txt files (i.e: exposing confidential information)\n-Detection of defacements, directory listings, private IP address in comments...\n-In the case of very known websites (Forbes, EA, .gov...) will inform about known security incidents which they were victim of\n-Stats about general web security awareness and some details of compromised websites (i.e: Forbes compromised)"
+}

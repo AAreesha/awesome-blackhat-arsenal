@@ -1,0 +1,12 @@
+{
+  "Tool Name": "CLOUD SECURITY SUITE - ONE STOP TOOL FOR AWS SECURITY AUDIT",
+  "Speakers": [
+    "Jayesh Chauhan",
+    "Shivankar Madaan",
+    "Prajal Kulkarni"
+  ],
+  "Tracks": null,
+  "Event": "BH-EU-17",
+  "Github URL": null,
+  "Description": "Nowadays, cloud infrastructure is pretty much the de-facto service used by large/small companies. Most of the major organizations have entirely moved to cloud. With more and more companies moving to cloud, the security of cloud becomes a major concern.\n\nWhile AWS provides you protection with traditional security methodologies and has a neat structure for authorization/configuration, its security is as robust as the person in charge of creating/assigning these configuration policies. As we all know, human error is inevitable and any such human mistake could lead to catastrophic damage to the environment.\n\nFew vulnerable scenarios:"
+}

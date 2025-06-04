@@ -1,0 +1,12 @@
+{
+  "Tool Name": "PyExfil: A Python Data Exfiltration Package",
+  "Speakers": [
+    "Yuval Nativ"
+  ],
+  "Tracks": [
+    "Track: Exploitation and Ethical Hacking"
+  ],
+  "Event": "BH-ARSENAL",
+  "Github URL": null,
+  "Description": "PyExfil is a python data exfiltration package for python containing servers and clients for enabling covert channels communication. The package started as a self exploratory code project and developed into a library that helps analyze various detection mechanisms."
+}

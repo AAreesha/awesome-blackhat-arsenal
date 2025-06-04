@@ -1,0 +1,10 @@
+{
+  "Tool Name": "SensePost Toolset",
+  "Speakers": [
+    "Daniel Cuthbert"
+  ],
+  "Tracks": null,
+  "Event": "BH-ASIA-16",
+  "Github URL": null,
+  "Description": "The SensePost Toolset consists of numerous transforms and mini-sets of transforms. This includes OSINT, language translation, twitter monitoring, Spotify, Skype stalking and detailed in-depth foot-printing capabilities.Sense Post Toolkit:https://www.sensepost.com/discover/tools/maltego/osint/SPToolset/"
+}

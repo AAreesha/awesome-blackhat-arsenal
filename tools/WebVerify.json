@@ -1,0 +1,10 @@
+{
+  "Tool Name": "WebVerify",
+  "Speakers": [
+    "Luis Antonio Rosales Marco"
+  ],
+  "Tracks": null,
+  "Event": "BH-US-13",
+  "Github URL": null,
+  "Description": "WebVerify is a tool that aims to help in the recognition, vulnerability scanning and search patterns based on its own database. Unlike other tools, WebVerify first recognizes whether the target is a CMS to run other exploits... among its other advantages, WebVerify also provides command scripts to perform common WAF bypass techniques."
+}

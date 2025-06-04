@@ -1,0 +1,12 @@
+{
+  "Tool Name": "ASSIMILATOR",
+  "Speakers": [
+    "Nicolas Videla"
+  ],
+  "Tracks": [
+    "Track: Network Defense"
+  ],
+  "Event": "BH-ARSENAL",
+  "Github URL": null,
+  "Description": "Network Firewall configuration is difficult to automatize, vendor Firewalls have their own ways to configure Firewalls. Assimilator wraps all vendor Firewalls into one JSON REST api; from here we can easily automatize ( i.e: Python with Requests) policy configuration and route/rule lookup."
+}

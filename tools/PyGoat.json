@@ -1,0 +1,13 @@
+{
+  "Tool Name": "PyGoat",
+  "Speakers": [
+    "Shaik Ajmal R",
+    "Ade Yoseman Putra"
+  ],
+  "Tracks": [
+    "Track: Web AppSec"
+  ],
+  "Event": "BH-ARSENAL",
+  "Github URL": null,
+  "Description": "PyGoat -\nIntentionally vuln web Application Security in django. our roadmap build intentionally vuln web Application in django. The Vulnerability can based on OWASP top ten\n• A1:2017-Injection\n• A2:2017-Broken Authentication\n• A3:2017-Sensitive Data Exposure\n• A4:2017-XML External Entities (XXE)\n• A5:2017-Broken Access Control\n• A6:2017-Security Misconfiguration\n• A7:2017-Cross-Site Scripting (XSS)\n• A8:2017-Insecure Deserialization\n• A9:2017-Using Components with Known Vulnerabilities\n• A10:2017-Insufficient Logging & Monitoring"
+}

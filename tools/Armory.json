@@ -1,0 +1,12 @@
+{
+  "Tool Name": "Armory",
+  "Speakers": [
+    "Daniel Lawson"
+  ],
+  "Tracks": [
+    "Track: Network Attacks"
+  ],
+  "Event": "BH-ARSENAL",
+  "Github URL": null,
+  "Description": "Armory is a tool designed to run various existing tools, collating all of the output into a local database, and using that information for further attacks. It is extremely modular, and it is pretty easy to create custom modules and reports. Armory's purpose is to streamline client discovery and external penetration tests."
+}

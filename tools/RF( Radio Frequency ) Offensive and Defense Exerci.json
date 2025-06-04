@@ -1,0 +1,13 @@
+{
+  "Tool Name": "RF( Radio Frequency ) Offensive and Defense Exercise Server",
+  "Speakers": [
+    "Michihiro Imaoka"
+  ],
+  "Tracks": [
+    "Hardware / Embedded",
+    "Internet of Things"
+  ],
+  "Event": "BH-ARSENAL",
+  "Github URL": null,
+  "Description": "We believe that cyber security should not only cover the Internet space but also the RF (radio frequency) space.\nIn the radio space, interception, decryption, tampering, jamming, and spoofing are actively practiced against hostile countries.　For example, the Russian Красуха-4 is a well-known electronic warfare weapon.\nIn fact, it has a longer history than the Internet, and there is much to learn from it.\nHowever, there are not so many RF training environments that can be easily used."
+}

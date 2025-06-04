@@ -1,0 +1,13 @@
+{
+  "Tool Name": "Git Wild Hunt: A Tool for Hunting Leaked Credentials",
+  "Speakers": [
+    "Rod Soto",
+    "Jose Hernandez"
+  ],
+  "Tracks": [
+    "Track: Vulnerability Assessment"
+  ],
+  "Event": "BH-ARSENAL",
+  "Github URL": null,
+  "Description": "Git Wild Hunt is a tool designed to search and identify leaked credentials at public repositories such as Github. Git Wild Hunt searches for footprints and patterns of over 38 of the most used secrets/credentials on the internet, especially those used in Devops and IT Operations. This tool helps developers and security operation departments discover leaked credentials in public repositories. This tool is also a recon tool for red teamers and pentesters, as it also provides metadata from leaks such as usernames, company names, secret types, and dates."
+}

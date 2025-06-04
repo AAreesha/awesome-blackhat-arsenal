@@ -1,0 +1,10 @@
+{
+  "Tool Name": "NAFT ONLINE",
+  "Speakers": [
+    "Didier Stevens"
+  ],
+  "Tracks": null,
+  "Event": "BH-EU-14",
+  "Github URL": null,
+  "Description": "Memory forensics is the next step the forensic community has taken. With NAFT Online, you can learn memory forensics for Cisco IOS. Learn how to use the Network Appliance Forensic Toolkit with a real Cisco IOS router."
+}

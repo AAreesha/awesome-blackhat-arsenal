@@ -1,0 +1,10 @@
+{
+  "Tool Name": "YAPS",
+  "Speakers": [
+    "Fabio Nigi"
+  ],
+  "Tracks": null,
+  "Event": "BH-EU-16",
+  "Github URL": null,
+  "Description": "The number one security hole is a weak password. Companies are growing without a complete control over exposed services; most of the servers are deployed with default password. Most of the tools today are single host-based, without competing on a cloud/global environment. Configuration and deployment are getting faster -all the services are going in pipeline with automation and scalability focus.\n\nInfosec tools need to evolve. The project goal of Yaps *yet another password scanner:*"
+}
