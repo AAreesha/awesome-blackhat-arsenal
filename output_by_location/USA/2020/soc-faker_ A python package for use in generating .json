@@ -7,7 +7,7 @@
     "Track: Data Forensics/Incident Response"
   ],
   "Event": "BH-ARSENAL",
-  "Github URL": null,
+  "Github URL": "https://github.com/swimlane/soc-faker",
   "Description": "soc-faker is used to generate fake data for use by Security Operation Centers, Information security professionals, product teams, and many more.",
   "Year": "2020",
   "Location": "USA"

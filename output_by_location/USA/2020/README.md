@@ -7,7 +7,7 @@
 
 ![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category: Social Engineering / General](https://img.shields.io/badge/Category:%20Social%20Engineering%20/%20General-pink) ![Joe Gray](https://img.shields.io/badge/Joe%20Gray-informational)
 
-🔗 **Link:** [A DECEPTICON and AUTOBOT walk into a bar: A NEW Python tool for enhanced OPSEC](#)  
+🔗 **Link:** [A DECEPTICON and AUTOBOT walk into a bar: A NEW Python tool for enhanced OPSEC](https://github.com/rmusser01/Infosec_Reference/blob/master/Draft/AnonOpSecPrivacy.md)  
 📝 **Description:** When we see the terms Natural Language Processing (NLP) or Machine Learning (ML), often, our guts are correct, and it is vendor marketing material, frequently containing FUD. After tinkering with various libraries in Python and R with the use of some OSINT and SOCMINT techniques, I have found a use for NLP and ML that is 100% FUD free in the form of a brand new, Python-based tool.
 
 In this presentation, which goes further than the previous DECEPTICON presentation, we address topics that I have frequently spoken about in past years is disinformation, deception, OSINT, and OPSEC. When working through learning NLP and ML in Python, it dawned on me: marry these technologies with DECEPTICON for good. Enter the DECEPTICON bot. The DECEPTICON bot is a python* based tool that connects to social media via APIs to read posts/tweets to determine patterns of posting intervals and content then takes over to autonomously post for the user. What is the application you ask: people who are trying to enhance their OPSEC and abandon social media accounts that have been targeted without setting off alarms to their adversaries. Use case scenarios include public figures, executives, and, most importantly – domestic violence and trafficking victims.
@@ -56,7 +56,7 @@ Choosing open hardware for attacks: Once we have footprinted the devices and mac
 
 ![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category: Red Teaming / Embedded](https://img.shields.io/badge/Category:%20Red%20Teaming%20/%20Embedded-purple) ![Vafa Andalibi](https://img.shields.io/badge/Vafa%20Andalibi-informational)
 
-🔗 **Link:** [MUD-Visualizer](#)  
+🔗 **Link:** [MUD-Visualizer](https://github.com/iot-onboarding/mud-visualizer)  
 📝 **Description:** Manufacturer Usage Description (MUD) is a recently introduced IETF standard designed to protect IoT devices and networks by isolating IoT device based on the information that define the behavior of that device. The standard defines a straight-forward method to implement a defensive mechanism based on the rules that are introduced by manufacturer of the device. MUD-Files are the core component of the MUD standard and contain the access control information of IoT devices. However, MUD-Files may contain possibly hundreds of access control rules. As a result, reading and validating these files is a challenge; and determining how multiple IoT devices interact is difficult for the developer and infeasible for the consumer. MUD-Visualizer is a tool that provides a visualization of any number of MUD-Files and is designed to enable developers to produce correct MUD-Files by providing format corrections, integrating them with other MUD-Files, and identifying conflicts through visualization. MUD-Visualizer is scalable and its core task is to merge and illustrate ACEs for multiple devices; both within and beyond the local area network.
 
 </details>
@@ -121,7 +121,7 @@ Moreover, BSF provides an interactive visualization module to further study the 
 
 ![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category: Blue Team & Detection](https://img.shields.io/badge/Category:%20Blue%20Team%20&%20Detection-cyan) ![Moritz Raabe](https://img.shields.io/badge/Moritz%20Raabe-informational) ![William Ballenthin](https://img.shields.io/badge/William%20Ballenthin-informational)
 
-🔗 **Link:** [capa: Automatically Identify Malware Capabilities](#)  
+🔗 **Link:** [capa: Automatically Identify Malware Capabilities](https://github.com/mandiant/capa/releases/)  
 📝 **Description:** capa is an open-source tool that detects capabilities in programs to reduce the time-to-triage and make malware analysis more accessible. Anyone dealing with potentially malicious programs and especially forensic, intelligence, and malware analysts can use capa to understand a sample's capabilities, role (downloader, backdoor, etc.), and any suspicious or unique functionality.
 capa takes automated malware triage to the next level going from simply saying "this is probably bad" to providing a concise description of what a program actually does. This report provides critical, decision-making information to anyone dealing with malware.
 
@@ -178,7 +178,7 @@ Gargamel supports 5 connection methods, naming PowerShell remoting, WMI, PsExec,
 
 ![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category: Blue Team & Detection](https://img.shields.io/badge/Category:%20Blue%20Team%20&%20Detection-cyan) ![Vadim Pavlov](https://img.shields.io/badge/Vadim%20Pavlov-informational)
 
-🔗 **Link:** [ioc2rpz: Where Threat Intelligence Meets DNS](#)  
+🔗 **Link:** [ioc2rpz: Where Threat Intelligence Meets DNS](https://github.com/Homas/ioc2rpz)  
 📝 **Description:** DNS is the control plane of the Internet with unprecedented detailed views on applications, devices and even transferred data going in and out of a network. 80% of malware uses DNS to communicate with Command & Control for DNS data exfiltration/infiltration and phishing attacks using lookalike domains. Response Policy Zones or DNS Firewall is a feature which allows us to apply security policies on DNS. Commercial DNS Firewall feeds providers usually do not allow users to generate their own feeds. Cloud only DNS service providers do not provide feeds for on-prem DNS.
 
 ioc2rpz is a DNS server which automatically creates, maintains and distributes DNS Firewall feeds from various local (files, DB) and remote (http, ftp, rpz) sources. This enables easy integrations with Threat Intel providers and Threat Intelligence Platforms. The feeds can be distributed to any open source and commercial DNS servers which support RPZ, e.g. ISC BIND, PowerDNS, Infoblox, BlueCat, Efficient IP etc. With ioc2rpz you can create your own feeds, actions and prevent undesired communications before they happen.
@@ -193,7 +193,7 @@ RpiDNS is a new feature integrated into ioc2rpz.gui which includes an installati
 
 ![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category: Blue Team & Detection](https://img.shields.io/badge/Category:%20Blue%20Team%20&%20Detection-cyan) ![Milton Smith](https://img.shields.io/badge/Milton%20Smith-informational)
 
-🔗 **Link:** [JVMXRay](#)  
+🔗 **Link:** [JVMXRay](https://github.com/spoofzu/jvmxray)  
 📝 **Description:** JVMXRay is technology for monitoring access to system resources within the Java Virtual Machine at runtime. Since JVMXRay integrates with virtual machine, no code changes to the application are required for operation. An ancillary benefit of no code required is that the technology provides insight into 3rd party libraries used by your application and commercial software where no source code is available. JVMXRay is designed with application security emphasis but it's beneficial for other areas like software quality processes and diagnostics. JVMXRay may be extended to work with many technologies like OWASP Dependency Check and other tools.
 
 </details>
@@ -215,7 +215,7 @@ Rather than a single tool MSTICpy is a Swiss Army knife for security investigati
 
 ![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category: Blue Team & Detection](https://img.shields.io/badge/Category:%20Blue%20Team%20&%20Detection-cyan) ![Mauricio Velazco](https://img.shields.io/badge/Mauricio%20Velazco-informational)
 
-🔗 **Link:** [PurpleSharp: Adversary Simulation for the Blue Team](#)  
+🔗 **Link:** [PurpleSharp: Adversary Simulation for the Blue Team](https://github.com/mvelazc0/PurpleSharp)  
 📝 **Description:** Defending enterprise networks against attackers continues to present a difficult challenge for blue teams. Prevention has fallen short; improving detection & response capabilities has proven to be a step in the right direction. However, without the telemetry produced by adversary behavior, building and testing detection capabilities will be a challenging task. Executing adversary simulations in monitored environments produces the telemetry that allows security teams to identify gaps in visibility as well as build, test and enhance detection analytics
 
 PurpleSharp is an open source adversary simulation tool written in C# that executes adversary techniques against Windows Active Directory environments. The resulting telemetry can be leveraged to measure and improve the efficacy of a detection engineering program. PurpleSharp executes different behavior across the attack lifecycle following the MITRE ATT&CK Framework's tactics: execution, persistence, privilege escalation, credential access, lateral movement, etc.
@@ -237,7 +237,7 @@ PurpleSharp can assist blue teams in the following use cases:
 
 ![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category: Blue Team & Detection](https://img.shields.io/badge/Category:%20Blue%20Team%20&%20Detection-cyan) ![Dirk-jan Mollema](https://img.shields.io/badge/Dirk-jan%20Mollema-informational)
 
-🔗 **Link:** [ROADtools and ROADrecon](#)  
+🔗 **Link:** [ROADtools and ROADrecon](https://github.com/dirkjanm/ROADtools)  
 📝 **Description:** ROADtools is a framework to interact with Azure AD. It currently consists of a library (roadlib) and the ROADrecon Azure AD exploration tool.
 
 ROADlib is a library that can be used to authenticate with Azure AD or to build tools that integrate with a database containing ROADrecon data. The database model in ROADlib is automatically generated based on the metadata definition of the Azure AD internal API.
@@ -302,7 +302,7 @@ Key Takeaways:
 
 ![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category: Blue Team & Detection](https://img.shields.io/badge/Category:%20Blue%20Team%20&%20Detection-cyan) ![Josh Rickard](https://img.shields.io/badge/Josh%20Rickard-informational)
 
-🔗 **Link:** [soc-faker: A python package for use in generating fake data for SOC and security automation](#)  
+🔗 **Link:** [soc-faker: A python package for use in generating fake data for SOC and security automation](https://github.com/swimlane/soc-faker)  
 📝 **Description:** soc-faker is used to generate fake data for use by Security Operation Centers, Information security professionals, product teams, and many more.
 
 </details>
@@ -326,7 +326,7 @@ The device will became virtually unaccessible to anyone who don't have the prope
 
 ![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category: Blue Team & Detection](https://img.shields.io/badge/Category:%20Blue%20Team%20&%20Detection-cyan) ![Pramod Rana](https://img.shields.io/badge/Pramod%20Rana-informational)
 
-🔗 **Link:** [vPrioritizer: Learn to say NO to almost every vulnerability (art of risk prioritisation…)](#)  
+🔗 **Link:** [vPrioritizer: Learn to say NO to almost every vulnerability (art of risk prioritisation…)](https://github.com/varchashva)  
 📝 **Description:** As suggested by vulndb and cve, on a daily basis, approximately 50 new vulnerabilities become known to industry and even if an organization considers the impact rate of 10%, it’s still very challenging to manage it effectively and it’s safe to assume that count is going to increase furthermore. So with this amount organization is focusing (or should focus) on reducing the risk rather than eliminating it.
 
 In current era, vulnerability management is (almost) equal to risk prioritisation because
@@ -376,7 +376,7 @@ This framework enables us to understand the contextualized risk pertaining to ea
 
 ![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category: Red Teaming](https://img.shields.io/badge/Category:%20Red%20Teaming-red) ![Joel Gámez](https://img.shields.io/badge/Joel%20Gámez-informational)
 
-🔗 **Link:** [AutoRDPwn: The Shadow Attack Framework](#)  
+🔗 **Link:** [AutoRDPwn: The Shadow Attack Framework](https://github.com/JoelGMSec/AutoRDPwn)  
 📝 **Description:** AutoRDPwn is a post-exploitation framework created in Powershell, designed primarily to automate the Shadow attack on Microsoft Windows computers. This vulnerability (catalogued as a feature by Microsoft) allows a remote attacker to view the desktop of his victim without his consent, and even control it on demand, using native tools of the operating system itself.
 
 Thanks to the additional modules, it is possible to obtain a remote shell through Netcat, dump system hashes with Mimikatz, load a remote keylogger and much more. All this, through a totally intiutive menu in seven different languages.
@@ -396,7 +396,7 @@ In this talk, we will briefly review the most common remote desktop attacks and 
 
 ![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category: Red Teaming](https://img.shields.io/badge/Category:%20Red%20Teaming-red) ![Jorge Orchilles](https://img.shields.io/badge/Jorge%20Orchilles-informational) ![Bryson Bort](https://img.shields.io/badge/Bryson%20Bort-informational)
 
-🔗 **Link:** [C2 Matrix: Comparison of Command and Control Frameworks](#)  
+🔗 **Link:** [C2 Matrix: Comparison of Command and Control Frameworks](https://github.com/jesusgavancho/TryHackMe_and_HackTheBox/blob/master/Intro%20to%20C2.md)  
 📝 **Description:** Command and Control is one of the most important tactics in the MITRE ATT&CK matrix as it allows the attacker to interact with the target system and realize their objectives. Organizations leverage Cyber Threat Intelligence to understand their threat model and adversaries that have the intent, opportunity, and capability to attack. Red Team, Blue Team, and virtual Purple Teams work together to understand the adversary Tactics, Techniques, and Procedures to perform adversary emulations and improve detective and preventive controls.
 
 The C2 Matrix was created to aggregate all the Command and Control frameworks publicly available (open-source and commercial) in a single resource to assist teams in testing their own controls through adversary emulations (Red Team or Purple Team Exercises). Phase 1 lists all the Command and Control features such as the coding language used, channels (HTTP, TCP, DNS, SMB, etc.), agents, key exchange, and other operational security features and capabilities. This allows more efficient decisions making when called upon to emulate and adversary TTPs.
@@ -413,7 +413,7 @@ For Blackhat, C2 Matrix will release phase 2 of the project which involves mappi
 
 ![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category: Red Teaming](https://img.shields.io/badge/Category:%20Red%20Teaming-red) ![Ryan Cobb](https://img.shields.io/badge/Ryan%20Cobb-informational)
 
-🔗 **Link:** [Covenant: .NET Command and Control](#)  
+🔗 **Link:** [Covenant: .NET Command and Control](https://github.com/cobbr/Covenant)  
 📝 **Description:** Covenant is a .NET command and control platform and web application that aims to highlight the attack surface of the .NET Framework and .NET Core, make the use of offensive .NET tradecraft easier, and serve as a collaborative platform for red teamers.
 
 Covenant is multi-platform, multi-user, provides an intuitive web application interface, and is extendible through an API.
@@ -434,7 +434,7 @@ In the age of EDR and threat hunting, red teamers need flexible, robust, and int
 
 ![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category: Red Teaming](https://img.shields.io/badge/Category:%20Red%20Teaming-red) ![Dimitry Snezhkov](https://img.shields.io/badge/Dimitry%20Snezhkov-informational)
 
-🔗 **Link:** [DeepSea Phishing Gear](#)  
+🔗 **Link:** [DeepSea Phishing Gear](https://github.com/dsnezhkov)  
 📝 **Description:** Introducing DeepSea, the phishing gear you will want to take with you on your next offensive expedition. 
 
 It is designed to help Red Team operators and teams with the tactical delivery of opsec-tight, flexible email phishing campaigns carried out in a portable manner on the outside as well as on the inside 
@@ -552,7 +552,7 @@ Internally, Routopsy leverages a "virtual router" which has been around for a nu
 
 ![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category: Red Teaming](https://img.shields.io/badge/Category:%20Red%20Teaming-red) ![Anthony Rose](https://img.shields.io/badge/Anthony%20Rose-informational)
 
-🔗 **Link:** [Starkiller: Threat Emulation Platform for Red Teams and Penetration Testers](#)  
+🔗 **Link:** [Starkiller: Threat Emulation Platform for Red Teams and Penetration Testers](https://github.com/sponsors/BC-SECURITY)  
 📝 **Description:** The ultimate goal for any security team is to increase resiliency within an organization and adapt to the modern threat. Starkiller aims to provide red teams with a platform to emulate Advanced Persistent Threat (APT) tactics. Starkiller is a frontend for the post-exploitation framework, PowerShell Empire, which incorporates a multi-user GUI application that interfaces with a remote Command and Control (C2) server. Empire is powered by Python 3 and PowerShell and includes many widely used offensive security tools for Windows, Linux, and macOS exploitation. The framework's flexibility to easily incorporate new modules allows for a single solution for red team operations. Both red and blue teams can utilize Starkiller to emulate and defend against the most used APT attack vectors.
 
 </details>
@@ -564,7 +564,7 @@ Internally, Routopsy leverages a "virtual router" which has been around for a nu
 
 ![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category: Red Teaming / AppSec](https://img.shields.io/badge/Category:%20Red%20Teaming%20/%20AppSec-red) ![Chris Nevin](https://img.shields.io/badge/Chris%20Nevin-informational)
 
-🔗 **Link:** [Carnivore: Microsoft External Attack Tool](#)  
+🔗 **Link:** [Carnivore: Microsoft External Attack Tool](https://github.com/rmusser01/Infosec_Reference/blob/master/Draft/Active_Directory.md)  
 📝 **Description:** Carnivore is a username enumeration and password spraying tool for Microsoft services (Skype for Business, ADFS, RDWeb, Exchange and O365). It includes new post compromise functionality for Skype for Business (pulling the internal address list and user presence), and a new method for smart detection of the username format. Carnivore originally began as an on-premises Skype for Business enumeration/spray tool as, these days, organizations have often locked down their implementations of Exchange, however, Skype for Business has been left externally accessible, and does not seem to have received as much attention from penetration tests.
 
 </details>
@@ -573,7 +573,7 @@ Internally, Routopsy leverages a "virtual router" which has been around for a nu
 
 ![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category: Red Teaming / AppSec](https://img.shields.io/badge/Category:%20Red%20Teaming%20/%20AppSec-red) ![Anto Joseph](https://img.shields.io/badge/Anto%20Joseph-informational)
 
-🔗 **Link:** [FuzzCube](#)  
+🔗 **Link:** [FuzzCube](https://github.com/antojoseph/fc)  
 📝 **Description:** Fuzzing over the ages has improved in tooling, logic, and process, but is still a number-crunching problem! You are improving your odds by throwing more CPU power at it.
 
 How do we make it happen without hacking through custom solutions that cannot be reused? Enter FuzzCube - Batteries Included! FuzzCube comes with State Sharing Features, Mutation Engines and Crash Verification tools that you could leverage in your projects. It leverages Kubernetes for its infrastructure orchestration capabilities. Using Kubernetes operators, we abstract the complexity of deploying a fuzzing infrastructure with distributed high throughput workloads, fault tolerance, storage orchestration, and high scalability. We will practise distributed fuzzing in the era of Cloud Native Computing and use our new skills to find some 0days ;)
@@ -584,7 +584,7 @@ How do we make it happen without hacking through custom solutions that cannot be
 
 ![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category: Red Teaming / AppSec](https://img.shields.io/badge/Category:%20Red%20Teaming%20/%20AppSec-red) ![Yu Wang](https://img.shields.io/badge/Yu%20Wang-informational)
 
-🔗 **Link:** [macOS Bluetooth Analysis Suite (mBAS)](#)  
+🔗 **Link:** [macOS Bluetooth Analysis Suite (mBAS)](https://github.com/mathew-fleisch/def-con-schedule/blob/master/docs/conference.json)  
 📝 **Description:** mBAS is a set of Bluetooth tools for macOS platforms, including Bluetooth HCI request sniffer, fuzzer and Broadcom firmware SoC tools, etc. Among them, the HCI fuzzer helped me discover many Bluetooth kernel vulnerabilities, such as CVE-2020-3892, CVE-2020-3893, CVE-2020-3905, CVE-2020-3907, CVE-2020-3908 and CVE-2020-3912. With these tools, we can better understand the design and implementation of Bluetooth subsystem of macOS and other platforms.
 
 </details>
@@ -648,7 +648,7 @@ These enhancements to the otherwise common obfuscations are what make them uniqu
 
 ![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category: OSINT](https://img.shields.io/badge/Category:%20OSINT-lightgrey) ![Eviatar Gerzi](https://img.shields.io/badge/Eviatar%20Gerzi-informational)
 
-🔗 **Link:** [KubiScan: Searching for Risky Pods and Permissions in Kubernetes Cluster](#)  
+🔗 **Link:** [KubiScan: Searching for Risky Pods and Permissions in Kubernetes Cluster](https://github.com/cyberark/KubiScan)  
 📝 **Description:** KubiScan is a tool that was created to search for risky Pods which contain a privileged service account tokens that can be used for privilege escalation or even compromising the cluster. It can also show you all the risky roles, rolebindings, users and privileged pods in the Kubernetes Cluster and other cool stuff.
 
 </details>
