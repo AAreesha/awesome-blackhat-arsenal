@@ -2,7 +2,7 @@ import os
 import json
 from collections import defaultdict
 
-ROOT_DIR = "output_by_location"
+ROOT_DIR = "tools"
 MAIN_README = "README.md"
 
 CATEGORY_MAP = {
