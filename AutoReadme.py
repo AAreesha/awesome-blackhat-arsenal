@@ -205,13 +205,24 @@ for location in sorted(os.listdir(ROOT_DIR)):
                 tools_by_category[category].append(entry)
 
         # Sub README creation
-        subreadme = [f"# {location} {year}", "---", "## 📚 Table of Contents"]
+        # Sub README creation
+        subreadme = [
+            f"# {location} {year}",
+            "---",
+            f"📍 This document lists cybersecurity tools demonstrated during the **Black Hat Arsenal {year}** event held in **{location}**.",
+            "Tools are categorized based on their **track theme**, such as Red Teaming, OSINT, Reverse Engineering, etc.",
+            "",
+            "## 📚 Table of Contents"
+        ]
         for cat in sorted(tools_by_category): subreadme.append(f"- [{cat}](#{sanitize_anchor(cat)})")
         subreadme.append("---")
 
         for cat, tools in tools_by_category.items():
             subreadme.append(f"## {cat}")
-            subreadme.extend(tools)
+            # updated: exclude event_tag
+            for tool_block in tools:
+                tool_block = tool_block.replace(f"{event_tag} ", "")
+                subreadme.append(tool_block)
             subreadme.append("---")
 
         with open(os.path.join(year_path, "README.md"), "w", encoding="utf-8") as f:
