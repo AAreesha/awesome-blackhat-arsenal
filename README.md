@@ -6,7 +6,7 @@ Whether you're in red teaming, blue teaming, appsec, or OSINT — this list help
 📌 **How This List is Organized**
 - The tools are grouped by the **location** of the Black Hat event (e.g., USA, Europe, Asia).
 - Under each location, tools are further organized by **year**.
-- Inside each year’s section, you’ll find the tools organized **by track category**, each with descriptions, authors, event badges, and GitHub links (where available).
+- Inside each year’s section, you’ll find the tools organized **by track category**, each with descriptions, authors, and GitHub links (where available).
 ---
 ## 🌍 Locations
 ### Asia
