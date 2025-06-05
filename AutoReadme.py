@@ -228,5 +228,24 @@ for location in sorted(os.listdir(ROOT_DIR)):
         with open(os.path.join(year_path, "README.md"), "w", encoding="utf-8") as f:
             f.write("\n".join(subreadme))
 
+# with open(MAIN_README, "w", encoding="utf-8") as f:
+#     f.write("\n\n".join(main_readme))
+# Write main README
+main_readme.append("---")
+main_readme.extend([
+    "## 🧩 Contributing",
+    "Contributions are welcome! Please:",
+    "- Add tools under the right category",
+    "- Use Markdown formatting like shown above",
+    "- Include at least: name, description, GitHub/project link, and relevant badges",
+    "- Optional: Create a `tools/tool-name.json` file with structured metadata",
+    "> See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines",
+    "---",
+    "## 📄 License",
+    "[MIT](LICENSE)",
+    "---",
+    "> Inspired by [Awesome Lists](https://awesome.re) and powered by the Black Hat Arsenal community."
+])
+
 with open(MAIN_README, "w", encoding="utf-8") as f:
-    f.write("\n\n".join(main_readme))
+    f.write("\n".join(main_readme))
