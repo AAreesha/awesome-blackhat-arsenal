@@ -1,8 +1,0 @@
-{
-  "Tool Name": "ShinoBOT Suite",
-  "Speakers": null,
-  "Tracks": null,
-  "Event": "BH-US-14",
-  "Github URL": null,
-  "Description": "ShinoBOT is a RAT (backdoor malware) simulator, released at the previous Black Hat Arsenal. The new tool, ShinoBOT Suite, is a total malware package which contains the RAT simulator, downloader, dropper, encryptor, CandC server, decoy files, etc. All of them are customizable."
-}

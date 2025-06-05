@@ -1,8 +1,0 @@
-{
-  "Tool Name": "CHIPSEC",
-  "Speakers": null,
-  "Tracks": null,
-  "Event": "BH-US-14",
-  "Github URL": null,
-  "Description": "We will present CHIPSEC, an open source framework for platform security assessment. We will briefly describe some publications related to platform security (Secure Boot bypasses, badbios, etc.) and explain related tests in CHIPSEC. Then we will demonstrate how to use CHIPSEC to detect insecure platform configuration and perform forensics of SPI flash images."
-}

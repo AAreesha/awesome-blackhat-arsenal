@@ -1,8 +1,0 @@
-{
-  "Tool Name": "idb - Simplified Blackbox iOS App Pen-Testing",
-  "Speakers": null,
-  "Tracks": null,
-  "Event": "BH-US-14",
-  "Github URL": null,
-  "Description": "More than ever, mobile apps are used to manage and store sensitive data by both corporations and individuals. During this Arsenal demonstration, we show how our new tool called 'idb' can be used to efficiently test iOS apps for a range of common flaws."
-}
