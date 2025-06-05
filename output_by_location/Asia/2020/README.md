@@ -1,5 +1,8 @@
 # Asia 2020
 ---
+📍 This document lists cybersecurity tools demonstrated during the **Black Hat Arsenal 2020** event held in **Asia**.
+Tools are categorized based on their **track theme**, such as Red Teaming, OSINT, Reverse Engineering, etc.
+
 ## 📚 Table of Contents
 - [Uncategorized](#uncategorized)
 - [🌐 Web/AppSec](#🌐-webappsec)
@@ -15,7 +18,7 @@
 ## Uncategorized
 <details><summary><strong>Android Application Vulnerability Hunting System</strong></summary>
 
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category: Uncategorized](https://img.shields.io/badge/Category:%20Uncategorized-lightgrey) ![Lance Jiang](https://img.shields.io/badge/Lance%20Jiang-informational) ![Todd Han](https://img.shields.io/badge/Todd%20Han-informational) ![Lilang Wu](https://img.shields.io/badge/Lilang%20Wu-informational)
+![Category: Uncategorized](https://img.shields.io/badge/Category:%20Uncategorized-lightgrey) ![Lance Jiang](https://img.shields.io/badge/Lance%20Jiang-informational) ![Todd Han](https://img.shields.io/badge/Todd%20Han-informational) ![Lilang Wu](https://img.shields.io/badge/Lilang%20Wu-informational)
 
 🔗 **Link:** Not Available  
 📝 **Description:** So far, there are many tools for vulnerability scanning, such as Mobsf, Yaazhini, 360 microscope, Tencent King Kong system. These tools have been able to cover a large part of the app vulnerability and many have supported dynamic and static vulnerability scanning, but there are a lot of false alert. The purpose of dynamic and static combination is also to improve the accuracy of vulnerability scanning, thereby reducing the rate of false alert, and also can make up for the shortcomings each other, so as to find out the vulnerabilities as much as possible, but the system is too large, the maintenance cost is high, and the scanning result is not ideally, it would be better that there is a simple and efficient tool.
@@ -26,7 +29,7 @@ SAST is a static android application vulnerability scanning tool. The architectu
 
 <details><summary><strong>Mobexler: An All-in-One Mobile Pentest VM</strong></summary>
 
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category: Uncategorized](https://img.shields.io/badge/Category:%20Uncategorized-lightgrey) ![Abhinav Mishra](https://img.shields.io/badge/Abhinav%20Mishra-informational)
+![Category: Uncategorized](https://img.shields.io/badge/Category:%20Uncategorized-lightgrey) ![Abhinav Mishra](https://img.shields.io/badge/Abhinav%20Mishra-informational)
 
 🔗 **Link:** Not Available  
 📝 **Description:** Mobexler is a mobile pentest VM that include a wide variety of tools to help in Android and iOS pentesting. It includes tools for both static and dynamic analysis of applications. It allows pentesters to use a single VM to pentest both Android and iOS applications. With the host OS as elementary it also provides an awesome UI experience and allow for intuitive usage of tools just like you would on a host install. External devices can be connected via USB and can be used to install and test application.
@@ -45,7 +48,7 @@ Future work includes:
 
 <details><summary><strong>Runtime Memory Analysis Tool for Mobile Applications (MemoEB - MEMOry Extraction Binding)</strong></summary>
 
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category: Uncategorized](https://img.shields.io/badge/Category:%20Uncategorized-lightgrey) ![Igor Lyrchikov](https://img.shields.io/badge/Igor%20Lyrchikov-informational) ![Egor Saltykov](https://img.shields.io/badge/Egor%20Saltykov-informational)
+![Category: Uncategorized](https://img.shields.io/badge/Category:%20Uncategorized-lightgrey) ![Igor Lyrchikov](https://img.shields.io/badge/Igor%20Lyrchikov-informational) ![Egor Saltykov](https://img.shields.io/badge/Egor%20Saltykov-informational)
 
 🔗 **Link:** Not Available  
 📝 **Description:** We are going to release a tool for automated runtime memory analysis for mobile apps (IOS & Android). All the existing tools are not working with runtime memory analysis processes preferring to dump and analyze memory after app finish it's execution. Our our idea is to gather information during runtime to be able to track changes of the state and application behavior with the final goal being to simplify reverse engineering of obfuscated code and to build call graphs based on catched traces during execution. We also made a single interface to manage this process and automated some most common checks that should be done during penetration test.
@@ -54,7 +57,7 @@ Future work includes:
 
 <details><summary><strong>Sample Analysing Forensics Examiner (SAFE)</strong></summary>
 
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category: Uncategorized](https://img.shields.io/badge/Category:%20Uncategorized-lightgrey) ![George Chen](https://img.shields.io/badge/George%20Chen-informational) ![Suranga Premakumara](https://img.shields.io/badge/Suranga%20Premakumara-informational)
+![Category: Uncategorized](https://img.shields.io/badge/Category:%20Uncategorized-lightgrey) ![George Chen](https://img.shields.io/badge/George%20Chen-informational) ![Suranga Premakumara](https://img.shields.io/badge/Suranga%20Premakumara-informational)
 
 🔗 **Link:** Not Available  
 📝 **Description:** Security incidents are usually created by alerts or events, which are based on a small set of forwarded logs. When a server is suspected to be compromised, we go back to the host machine to perform forensics on the rest of the logs to investigate the network traffic and endpoint.
@@ -67,7 +70,7 @@ Sample Analysing Forensics Examiner (SAFE) enables security administrators/engin
 ## 🟣 Red Teaming / Embedded
 <details><summary><strong>Attack Demonstration Tool Kits for Industry 4.0 Using AI and Cloud</strong></summary>
 
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category: 🟣 Red Teaming / Embedded](https://img.shields.io/badge/Category:%20🟣%20Red%20Teaming%20/%20Embedded-purple) ![Wataru Matsuda](https://img.shields.io/badge/Wataru%20Matsuda-informational) ![Mariko Fujimoto](https://img.shields.io/badge/Mariko%20Fujimoto-informational) ![Takuho MItsunaga](https://img.shields.io/badge/Takuho%20MItsunaga-informational)
+![Category: 🟣 Red Teaming / Embedded](https://img.shields.io/badge/Category:%20🟣%20Red%20Teaming%20/%20Embedded-purple) ![Wataru Matsuda](https://img.shields.io/badge/Wataru%20Matsuda-informational) ![Mariko Fujimoto](https://img.shields.io/badge/Mariko%20Fujimoto-informational) ![Takuho MItsunaga](https://img.shields.io/badge/Takuho%20MItsunaga-informational)
 
 🔗 **Link:** Not Available  
 📝 **Description:** Industry 4.0 is a new concept of automation data exchange in manufacturing, and technologies and structures are significantly different from the current general ICS. Autonomous judgment and execution are required, and it is based on information exchange using AI and cloud technologies. Devices are supposed to connect interactively that can create new attack surfaces and risks of cyber-attacks.
@@ -86,7 +89,7 @@ We will show you a demonstration of attacks: the attacker can change the physica
 
 <details><summary><strong>Wi-Fi Access Point Rootkits</strong></summary>
 
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category: 🟣 Red Teaming / Embedded](https://img.shields.io/badge/Category:%20🟣%20Red%20Teaming%20/%20Embedded-purple) ![Nishant Sharma](https://img.shields.io/badge/Nishant%20Sharma-informational) ![Jeswin Mathai](https://img.shields.io/badge/Jeswin%20Mathai-informational)
+![Category: 🟣 Red Teaming / Embedded](https://img.shields.io/badge/Category:%20🟣%20Red%20Teaming%20/%20Embedded-purple) ![Nishant Sharma](https://img.shields.io/badge/Nishant%20Sharma-informational) ![Jeswin Mathai](https://img.shields.io/badge/Jeswin%20Mathai-informational)
 
 🔗 **Link:** Not Available  
 📝 **Description:** Wi-Fi access point (AP) security is one of the most important aspects when it comes to securing networks. The compromise of a Wi-FI AP (which mostly also double-up as a router in SOHO environments) can lead to several secondary attacks. There are multiple vectors that are used to compromise the WiFi AP ranging from default passwords to sophisticated 0-days. But, after compromising the device, avoiding detection and maintaining access are the most important areas which eventually dictate the impact of the compromise.
@@ -99,7 +102,7 @@ We are going to release a set of code snippets along with the documentation maki
 ## 🔴 Red Teaming
 <details><summary><strong>DFEX</strong></summary>
 
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category: 🔴 Red Teaming](https://img.shields.io/badge/Category:%20🔴%20Red%20Teaming-red) ![Emilio Couto](https://img.shields.io/badge/Emilio%20Couto-informational)
+![Category: 🔴 Red Teaming](https://img.shields.io/badge/Category:%20🔴%20Red%20Teaming-red) ![Emilio Couto](https://img.shields.io/badge/Emilio%20Couto-informational)
 
 🔗 **Link:** [DFEX](https://gist.github.com/d-oliveros/3693a104a0dc82695324)  
 📝 **Description:** DFEX - [DNS File EXfiltration]
@@ -113,7 +116,7 @@ Existing tools have some limitations and NG Firewalls are getting a bit "smarter
 
 <details><summary><strong>Invoke-AntiVM: A Powershell Module for VM Evasion</strong></summary>
 
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category: 🔴 Red Teaming](https://img.shields.io/badge/Category:%20🔴%20Red%20Teaming-red) ![Paolo Di Prodi](https://img.shields.io/badge/Paolo%20Di%20Prodi-informational) ![Fred Gutierrez](https://img.shields.io/badge/Fred%20Gutierrez-informational)
+![Category: 🔴 Red Teaming](https://img.shields.io/badge/Category:%20🔴%20Red%20Teaming-red) ![Paolo Di Prodi](https://img.shields.io/badge/Paolo%20Di%20Prodi-informational) ![Fred Gutierrez](https://img.shields.io/badge/Fred%20Gutierrez-informational)
 
 🔗 **Link:** Not Available  
 📝 **Description:** Recently, attackers have been using living off the land tools such as Powershell and the community has developed a large arsenal based on it such as - just to mention a few - PowerSploit, Invoke-Mimikatz, Powerup, Nishang,Powershell Empire, Invoke-Obfuscation and recently Covenant.
@@ -134,7 +137,7 @@ We developed this tool to increase awareness of recent techniques for the revers
 
 <details><summary><strong>P.A.K.U.R.I Penetration Test Achieve Knowledge Unite Rapid Interface</strong></summary>
 
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category: 🔴 Red Teaming](https://img.shields.io/badge/Category:%20🔴%20Red%20Teaming-red) ![Makoto Sugita](https://img.shields.io/badge/Makoto%20Sugita-informational)
+![Category: 🔴 Red Teaming](https://img.shields.io/badge/Category:%20🔴%20Red%20Teaming-red) ![Makoto Sugita](https://img.shields.io/badge/Makoto%20Sugita-informational)
 
 🔗 **Link:** Not Available  
 📝 **Description:** PAKURI is a semi-automated, user-friendly framework for penetration testing tools. Using only the keypad, you can use the penetration test tool like a game.
@@ -147,7 +150,7 @@ https://github.com/01rabbit/PAKURI
 
 <details><summary><strong>PEASS: Privilege Escalation Awesome Scripts SUITE</strong></summary>
 
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category: 🔴 Red Teaming](https://img.shields.io/badge/Category:%20🔴%20Red%20Teaming-red) ![Carlos Polop](https://img.shields.io/badge/Carlos%20Polop-informational)
+![Category: 🔴 Red Teaming](https://img.shields.io/badge/Category:%20🔴%20Red%20Teaming-red) ![Carlos Polop](https://img.shields.io/badge/Carlos%20Polop-informational)
 
 🔗 **Link:** [PEASS: Privilege Escalation Awesome Scripts SUITE](https://github.com/peass-ng/PEASS-ng)  
 📝 **Description:** PEASS - Privilege Escalation Awesome Scripts SUITE is as the name suggests a collection of privilege escalation scripts. We have a script for Linux, Windows and a Windows .net4 executable. We are launching macOSx version at Black Hat Asia 2020. These tools search for possible local privilege escalation paths that you could exploit and print them with nice colours so you can recognise misconfigurations easily.
@@ -156,7 +159,7 @@ https://github.com/01rabbit/PAKURI
 
 <details><summary><strong>PEsidious: Creating Chaos with Evasive Mutative Malware</strong></summary>
 
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category: 🔴 Red Teaming](https://img.shields.io/badge/Category:%20🔴%20Red%20Teaming-red) ![Bedang Sen](https://img.shields.io/badge/Bedang%20Sen-informational) ![Chandni Vaya](https://img.shields.io/badge/Chandni%20Vaya-informational)
+![Category: 🔴 Red Teaming](https://img.shields.io/badge/Category:%20🔴%20Red%20Teaming-red) ![Bedang Sen](https://img.shields.io/badge/Bedang%20Sen-informational) ![Chandni Vaya](https://img.shields.io/badge/Chandni%20Vaya-informational)
 
 🔗 **Link:** Not Available  
 📝 **Description:** Over the past two decades, research has been conducted on using AI to detect malware by extracting features and then classifying them using machine learning algorithms.
@@ -174,7 +177,7 @@ The tool presented and views expressed are solely our own and do not express the
 
 <details><summary><strong>The Grinder Framework - Bringing Light to the Shodan</strong></summary>
 
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category: 🔴 Red Teaming](https://img.shields.io/badge/Category:%20🔴%20Red%20Teaming-red) ![Anton Nikolaev](https://img.shields.io/badge/Anton%20Nikolaev-informational) ![Denis Kolegov](https://img.shields.io/badge/Denis%20Kolegov-informational)
+![Category: 🔴 Red Teaming](https://img.shields.io/badge/Category:%20🔴%20Red%20Teaming-red) ![Anton Nikolaev](https://img.shields.io/badge/Anton%20Nikolaev-informational) ![Denis Kolegov](https://img.shields.io/badge/Denis%20Kolegov-informational)
 
 🔗 **Link:** Not Available  
 📝 **Description:** The security-related search engines like Shodan, Censys or ZoomEye are daily cybersecurity research tools. They can be used to gather information within threat Intelligence, discover vulnerable hosts, craft fingerprints for vulnerability scanners. At the same time, such search engines have some fundamental limitations and constraints leading to blind spots, false negatives and wrong results. It is very disappointing, especially when new research has been started and the cost of a mistake could be days or even weeks spent in the wrong direction.
@@ -187,7 +190,7 @@ In this talk, we will describe the essence of the Grinder framework and show how
 
 <details><summary><strong>WMIHacker: A New Way to Use 135 Port Lateral Movement Bypass AV and Transfer File</strong></summary>
 
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category: 🔴 Red Teaming](https://img.shields.io/badge/Category:%20🔴%20Red%20Teaming-red) ![Li Jiafeng](https://img.shields.io/badge/Li%20Jiafeng-informational)
+![Category: 🔴 Red Teaming](https://img.shields.io/badge/Category:%20🔴%20Red%20Teaming-red) ![Li Jiafeng](https://img.shields.io/badge/Li%20Jiafeng-informational)
 
 🔗 **Link:** Not Available  
 📝 **Description:** After the eternal blue virus flood, most intranets no longer open port 445, so the 135-port DCOM service becomes another exploitable point. We need a tool or method that can use 135 ports to execute commands and the Ability to transfer files. WMIHacker is such a tool and can bypass av.
@@ -200,7 +203,7 @@ Remote command execution tools such as psexec (sysinternals) and wmiexec (impack
 ## 🔍 OSINT
 <details><summary><strong>Maltego - Host.io</strong></summary>
 
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category: 🔍 OSINT](https://img.shields.io/badge/Category:%20🔍%20OSINT-lightgrey) ![Christian Heinrich](https://img.shields.io/badge/Christian%20Heinrich-informational)
+![Category: 🔍 OSINT](https://img.shields.io/badge/Category:%20🔍%20OSINT-lightgrey) ![Christian Heinrich](https://img.shields.io/badge/Christian%20Heinrich-informational)
 
 🔗 **Link:** [Maltego - Host.io](https://github.com/gitter-badger/Maltego-IPInfo/blob/master/Transform_Hub.xml)  
 📝 **Description:** Maltego is a link analysis application of technical infrastructure and social media and enriches disparate sources of Open Source INTelligence (OSINT). Maltego is listed on the Top 10 Security Tools for Kali Linux by Network World and Top 125 Network Security Tools by the Nmap Project. Host.io provides a list of outbound links, backlinks, etc for a given domain name. The integration of Host.io with Maltego displays technical infrastructure in an easy to understand graph format.
@@ -211,7 +214,7 @@ Remote command execution tools such as psexec (sysinternals) and wmiexec (impack
 ## 🔵 Blue Team & Detection
 <details><summary><strong>MalViz.ai</strong></summary>
 
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category: 🔵 Blue Team & Detection](https://img.shields.io/badge/Category:%20🔵%20Blue%20Team%20&%20Detection-cyan) ![Vasu Sethia](https://img.shields.io/badge/Vasu%20Sethia-informational) ![Shivam Kataria](https://img.shields.io/badge/Shivam%20Kataria-informational)
+![Category: 🔵 Blue Team & Detection](https://img.shields.io/badge/Category:%20🔵%20Blue%20Team%20&%20Detection-cyan) ![Vasu Sethia](https://img.shields.io/badge/Vasu%20Sethia-informational) ![Shivam Kataria](https://img.shields.io/badge/Shivam%20Kataria-informational)
 
 🔗 **Link:** Not Available  
 📝 **Description:** The growth of internet and users increases exponentially and drastically in this decade that provides services inheriting various benefits to users such as online banking,marketing, buying /selling and various facility management services etc. It attracts some people to develop programs that perform
@@ -223,7 +226,7 @@ important features of the malware are represented in graph based network.
 
 <details><summary><strong>Nethive Project</strong></summary>
 
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category: 🔵 Blue Team & Detection](https://img.shields.io/badge/Category:%20🔵%20Blue%20Team%20&%20Detection-cyan) ![Chrisando Ryan Pardomuan Siahaan](https://img.shields.io/badge/Chrisando%20Ryan%20Pardomuan%20Siahaan-informational) ![Vandevlin Alfonso Wibawa](https://img.shields.io/badge/Vandevlin%20Alfonso%20Wibawa-informational) ![Yohan Muliono](https://img.shields.io/badge/Yohan%20Muliono-informational) ![Aditya Kurniawan](https://img.shields.io/badge/Aditya%20Kurniawan-informational)
+![Category: 🔵 Blue Team & Detection](https://img.shields.io/badge/Category:%20🔵%20Blue%20Team%20&%20Detection-cyan) ![Chrisando Ryan Pardomuan Siahaan](https://img.shields.io/badge/Chrisando%20Ryan%20Pardomuan%20Siahaan-informational) ![Vandevlin Alfonso Wibawa](https://img.shields.io/badge/Vandevlin%20Alfonso%20Wibawa-informational) ![Yohan Muliono](https://img.shields.io/badge/Yohan%20Muliono-informational) ![Aditya Kurniawan](https://img.shields.io/badge/Aditya%20Kurniawan-informational)
 
 🔗 **Link:** Not Available  
 📝 **Description:** The Nethive Project provides a Security Information and Event Management (SIEM) infrastructure empowered by CVSS measurements.
@@ -242,7 +245,7 @@ Nethive Architecture consists of four main components:
 
 <details><summary><strong>OWASP Nettacker</strong></summary>
 
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category: 🔵 Blue Team & Detection](https://img.shields.io/badge/Category:%20🔵%20Blue%20Team%20&%20Detection-cyan) ![Sri Harsha Gajavalli](https://img.shields.io/badge/Sri%20Harsha%20Gajavalli-informational) ![Ali Razmjoo](https://img.shields.io/badge/Ali%20Razmjoo-informational) ![Sam Stepanyan](https://img.shields.io/badge/Sam%20Stepanyan-informational)
+![Category: 🔵 Blue Team & Detection](https://img.shields.io/badge/Category:%20🔵%20Blue%20Team%20&%20Detection-cyan) ![Sri Harsha Gajavalli](https://img.shields.io/badge/Sri%20Harsha%20Gajavalli-informational) ![Ali Razmjoo](https://img.shields.io/badge/Ali%20Razmjoo-informational) ![Sam Stepanyan](https://img.shields.io/badge/Sam%20Stepanyan-informational)
 
 🔗 **Link:** [OWASP Nettacker](https://github.com/OWASP/www-project-nettacker/blob/master/leaders.md)  
 📝 **Description:** Nettacker project was created to automated for information gathering, vulnerability scanning and eventually generating a report for networks, including services, bugs, vulnerabilities, misconfigurations, and information. This software is able to use SYN, ACK, TCP, ICMP and many other protocols to detect and bypass the Firewalls/IDS/IPS and devices. By using a unique solution in Nettacker to find protected services such as SCADA, we could make a point to be one of the bests of scanners.
@@ -251,7 +254,7 @@ Nethive Architecture consists of four main components:
 
 <details><summary><strong>OWASP Python Honeypot</strong></summary>
 
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category: 🔵 Blue Team & Detection](https://img.shields.io/badge/Category:%20🔵%20Blue%20Team%20&%20Detection-cyan) ![Sri Harsha Gajavalli](https://img.shields.io/badge/Sri%20Harsha%20Gajavalli-informational) ![Ali Razmjoo](https://img.shields.io/badge/Ali%20Razmjoo-informational)
+![Category: 🔵 Blue Team & Detection](https://img.shields.io/badge/Category:%20🔵%20Blue%20Team%20&%20Detection-cyan) ![Sri Harsha Gajavalli](https://img.shields.io/badge/Sri%20Harsha%20Gajavalli-informational) ![Ali Razmjoo](https://img.shields.io/badge/Ali%20Razmjoo-informational)
 
 🔗 **Link:** [OWASP Python Honeypot](https://github.com/OWASP/www-community/blob/master/pages/initiatives/gsoc/gsoc2020ideas.md)  
 📝 **Description:** OWASP Honeypot is an open-source software in Python language which is designed for creating honeypot and honeynet in an easy and secure way! This project is compatible with Python 2.x and 3.x and tested on Windows, Mac OS X, and Linux.
@@ -262,7 +265,7 @@ Nethive Architecture consists of four main components:
 ## 🌐 Web/AppSec
 <details><summary><strong>ModSecurity 3.0</strong></summary>
 
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category: 🌐 Web/AppSec](https://img.shields.io/badge/Category:%20🌐%20Web/AppSec-blue) ![Kevin Jones](https://img.shields.io/badge/Kevin%20Jones-informational)
+![Category: 🌐 Web/AppSec](https://img.shields.io/badge/Category:%20🌐%20Web/AppSec-blue) ![Kevin Jones](https://img.shields.io/badge/Kevin%20Jones-informational)
 
 🔗 **Link:** [ModSecurity 3.0](https://github.com/cranelab/webapp-tech)  
 📝 **Description:** ModSecurity is a toolkit for real-time web application monitoring, logging, and access control. I like to think about it as an enabler: there are no hard rules telling you what to do; instead, it is up to you to choose your own path through the available features.
@@ -273,7 +276,7 @@ Nethive Architecture consists of four main components:
 ## 🧠 Social Engineering / General
 <details><summary><strong>Phishing Simulation Assessment</strong></summary>
 
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category: 🧠 Social Engineering / General](https://img.shields.io/badge/Category:%20🧠%20Social%20Engineering%20/%20General-pink) ![Jyoti Raval](https://img.shields.io/badge/Jyoti%20Raval-informational)
+![Category: 🧠 Social Engineering / General](https://img.shields.io/badge/Category:%20🧠%20Social%20Engineering%20/%20General-pink) ![Jyoti Raval](https://img.shields.io/badge/Jyoti%20Raval-informational)
 
 🔗 **Link:** [Phishing Simulation Assessment](https://github.com/jenyraval/Phishing-Simulation)  
 📝 **Description:** People in IT eco-system are becoming 'favorite' targets because, 1. they remain weakest link and 2. organisation are becoming mature in securing technology. For a security tester, it is a daunting task to set up a phishing campaign, which includes, decide a look-alike domain, buy it, setup a phishing website with infrastructure, design an email and choose target audience, track the open/click/download and build the analytics. All of these activities are time-consuming and demands a certain skill-set.
@@ -294,7 +297,7 @@ Client Module: This module will be used by target user to complete the assessmen
 
 <details><summary><strong>Sharkcop: A Phishing Detector Using Machine Learning</strong></summary>
 
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category: 🧠 Social Engineering / General](https://img.shields.io/badge/Category:%20🧠%20Social%20Engineering%20/%20General-pink) ![Anh Ngoc](https://img.shields.io/badge/Anh%20Ngoc-informational) ![Tung Cao](https://img.shields.io/badge/Tung%20Cao-informational) ![Aiden Pearce](https://img.shields.io/badge/Aiden%20Pearce-informational)
+![Category: 🧠 Social Engineering / General](https://img.shields.io/badge/Category:%20🧠%20Social%20Engineering%20/%20General-pink) ![Anh Ngoc](https://img.shields.io/badge/Anh%20Ngoc-informational) ![Tung Cao](https://img.shields.io/badge/Tung%20Cao-informational) ![Aiden Pearce](https://img.shields.io/badge/Aiden%20Pearce-informational)
 
 🔗 **Link:** Not Available  
 📝 **Description:** Sharkcop use criterias such as ssl certifucate, domain length, domain age,... with SVM classification algorithm to determine if a url is phishing or not. Sharkcop includes a restful web server and a chrome extension to highlight malicious links on Facebook and Messenger.
@@ -305,7 +308,7 @@ Client Module: This module will be used by target user to complete the assessmen
 ## 🧠 Reverse Engineering
 <details><summary><strong>QiLing: Lightweight Advanced Binary Analyzer</strong></summary>
 
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category: 🧠 Reverse Engineering](https://img.shields.io/badge/Category:%20🧠%20Reverse%20Engineering-orange) ![KaiJern Lau](https://img.shields.io/badge/KaiJern%20Lau-informational) ![Wu Chen Xu](https://img.shields.io/badge/Wu%20Chen%20Xu-informational) ![Kong Zi Qiao](https://img.shields.io/badge/Kong%20Zi%20Qiao-informational)
+![Category: 🧠 Reverse Engineering](https://img.shields.io/badge/Category:%20🧠%20Reverse%20Engineering-orange) ![KaiJern Lau](https://img.shields.io/badge/KaiJern%20Lau-informational) ![Wu Chen Xu](https://img.shields.io/badge/Wu%20Chen%20Xu-informational) ![Kong Zi Qiao](https://img.shields.io/badge/Kong%20Zi%20Qiao-informational)
 
 🔗 **Link:** Not Available  
 📝 **Description:** Analyzing binaries mostly rely on high level user tools. At the same time, you need to run the binary on the same target architecture & platform. These restrictions limit advanced automatic analysis, require special hardware resources (such as for IoT analysis), and also expose against malicious binaries.
@@ -325,7 +328,7 @@ Emulate, debug and instrument MBR from Qiling Framework
 ## 🌐 Web/AppSec or Red Teaming
 <details><summary><strong>The OWASP RAF: Static Application Security Testing Tool</strong></summary>
 
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category: 🌐 Web/AppSec or Red Teaming](https://img.shields.io/badge/Category:%20🌐%20Web/AppSec%20or%20Red%20Teaming-blue) ![Ade Yoseman](https://img.shields.io/badge/Ade%20Yoseman-informational)
+![Category: 🌐 Web/AppSec or Red Teaming](https://img.shields.io/badge/Category:%20🌐%20Web/AppSec%20or%20Red%20Teaming-blue) ![Ade Yoseman](https://img.shields.io/badge/Ade%20Yoseman-informational)
 
 🔗 **Link:** [The OWASP RAF: Static Application Security Testing Tool](https://github.com/OWASP/RiskAssessmentFramework)  
 📝 **Description:** The OWASP Risk Assessment Framework consist of Static Application Security Testing and Risk Assessment tools. Even though there are many SAST tools available for testers, the compatibility and the environment setup process is complex. By using OWASP Risk Assessment Framework's Static Application Security Testing tool, testers will be able to analyze and review their code quality and vulnerabilities without any additional setup. OWASP Risk Assessment Framework can be integrated in the DevSecOps toolchain to help developers to write and produce secure code.
@@ -338,7 +341,7 @@ User Guide https://github.com/OWASP/RiskAssessmentFramework/blob/master/user-gui
 ## 🔴 Red Teaming / AppSec
 <details><summary><strong>USB Controlled Stress Test Tool</strong></summary>
 
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category: 🔴 Red Teaming / AppSec](https://img.shields.io/badge/Category:%20🔴%20Red%20Teaming%20/%20AppSec-red) ![William Yang](https://img.shields.io/badge/William%20Yang-informational) ![Qian Wenhao](https://img.shields.io/badge/Qian%20Wenhao-informational)
+![Category: 🔴 Red Teaming / AppSec](https://img.shields.io/badge/Category:%20🔴%20Red%20Teaming%20/%20AppSec-red) ![William Yang](https://img.shields.io/badge/William%20Yang-informational) ![Qian Wenhao](https://img.shields.io/badge/Qian%20Wenhao-informational)
 
 🔗 **Link:** Not Available  
 📝 **Description:** Windows anti-forensics USB monitoring tool for stress test.
@@ -347,7 +350,7 @@ User Guide https://github.com/OWASP/RiskAssessmentFramework/blob/master/user-gui
 
 <details><summary><strong>Vulmap: Online Local Vulnerability Scanners Project</strong></summary>
 
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category: 🔴 Red Teaming / AppSec](https://img.shields.io/badge/Category:%20🔴%20Red%20Teaming%20/%20AppSec-red) ![Yavuz Atlas](https://img.shields.io/badge/Yavuz%20Atlas-informational) ![Hakan Bayir](https://img.shields.io/badge/Hakan%20Bayir-informational)
+![Category: 🔴 Red Teaming / AppSec](https://img.shields.io/badge/Category:%20🔴%20Red%20Teaming%20/%20AppSec-red) ![Yavuz Atlas](https://img.shields.io/badge/Yavuz%20Atlas-informational) ![Hakan Bayir](https://img.shields.io/badge/Hakan%20Bayir-informational)
 
 🔗 **Link:** [Vulmap: Online Local Vulnerability Scanners Project](https://github.com/vulmon/Vulmap)  
 📝 **Description:** Vulmap is an open source online local vulnerability scanner project. It consists of online local vulnerability scanning scripts for Windows and Linux. These scripts can be used for defensive and offensive purposes. It is possible to conduct vulnerability assessments by using these scripts. Also they can be used for privilege escalation by pentesters/red teamers. Vulmap scans vulnerabilities on localhost, shows related exploits and downloads them. It basically, scan localhost to gather installed software information and ask Vulmon API if there are any vulnerabilities and exploits related with installed software. If any vulnerability exists, Vulmap shows CVE ID, risk score, vulnerability's detail link, exploit ids and exploit titles. Exploits can be downloaded with Vulmap also. Main idea of Vulmap is getting real-time vulnerability data from Vulmon instead of relying of a local vulnerability database. Even the most recent vulnerabilities can be detected with this approach. Also its exploit download feature helps privilege escalation process. Since most Linux installations have Python, Vulmap Linux is developed with Python while Vulmap Windows is developed with PowerShell to make it easy to run it on most Windows versions without any installation.
@@ -356,7 +359,7 @@ User Guide https://github.com/OWASP/RiskAssessmentFramework/blob/master/user-gui
 
 <details><summary><strong>Vuls: Agent-less Vulnerability Scanner for Linux, FreeBSD, Container Image, Running Container, WordPress, Application Libraries, and Network Devices</strong></summary>
 
-![BH-ARSENAL](https://img.shields.io/badge/BH-ARSENAL-blue) ![Category: 🔴 Red Teaming / AppSec](https://img.shields.io/badge/Category:%20🔴%20Red%20Teaming%20/%20AppSec-red) ![Kota Kanbe](https://img.shields.io/badge/Kota%20Kanbe-informational)
+![Category: 🔴 Red Teaming / AppSec](https://img.shields.io/badge/Category:%20🔴%20Red%20Teaming%20/%20AppSec-red) ![Kota Kanbe](https://img.shields.io/badge/Kota%20Kanbe-informational)
 
 🔗 **Link:** [Vuls: Agent-less Vulnerability Scanner for Linux, FreeBSD, Container Image, Running Container, WordPress, Application Libraries, and Network Devices](https://github.com/future-architect/vuls)  
 📝 **Description:** Over 10,000 new vulnerabilities are registered on the NVD each year. Constantly monitoring new vulnerabilities and keeping a manual inventory of installed software to determine which devices are affected is necessary. Without automation, vulnerability lifecycle managed imposes huge burdens and challenges.
