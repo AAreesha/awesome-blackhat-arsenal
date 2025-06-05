@@ -4,7 +4,7 @@
 Tools are categorized based on their **track theme**, such as Red Teaming, OSINT, Reverse Engineering, etc.
 
 ## 📚 Table of Contents
-- [Uncategorized](#uncategorized)
+- [Others](#others)
 - [🌐 Web/AppSec or Red Teaming](#🌐-webappsec-or-red-teaming)
 - [🔍 OSINT](#🔍-osint)
 - [🔴 Red Teaming](#🔴-red-teaming)
@@ -27,10 +27,10 @@ In this presentation, which goes further than the previous DECEPTICON presentati
 </details>
 
 ---
-## Uncategorized
+## Others
 <details><summary><strong>Apk-medit: memory search and patch tool for APK without root & android NDK</strong></summary>
 
-![Category: Uncategorized](https://img.shields.io/badge/Category:%20Uncategorized-lightgrey) ![Taichi Kotake](https://img.shields.io/badge/Taichi%20Kotake-informational)
+![Category: Others](https://img.shields.io/badge/Category:%20Others-lightgrey) ![Taichi Kotake](https://img.shields.io/badge/Taichi%20Kotake-informational)
 
 🔗 **Link:** Not Available  
 📝 **Description:** Apk-medit is a memory search and patch tool for debuggable APK without root & android NDK. It was created for mobile game security testing.
@@ -48,7 +48,7 @@ GitHub: https://github.com/aktsk/apk-medit
 
 <details><summary><strong>AutoGadgetFS: USB testing made easy</strong></summary>
 
-![Category: Uncategorized](https://img.shields.io/badge/Category:%20Uncategorized-lightgrey) ![Ehab Hussein](https://img.shields.io/badge/Ehab%20Hussein-informational)
+![Category: Others](https://img.shields.io/badge/Category:%20Others-lightgrey) ![Ehab Hussein](https://img.shields.io/badge/Ehab%20Hussein-informational)
 
 🔗 **Link:** [AutoGadgetFS: USB testing made easy](https://github.com/ehabhussein/AutoGadgetFS)  
 📝 **Description:** AutoGadgetFS is an open source framework that allows users to assess USB devices and their associated hosts/drivers/software without an in-depth knowledge of the USB protocol.
@@ -59,7 +59,7 @@ The tool is written in Python 3 and uses RabbitMQ and WiFi access to enable rese
 
 <details><summary><strong>BlueRepli Plus</strong></summary>
 
-![Category: Uncategorized](https://img.shields.io/badge/Category:%20Uncategorized-lightgrey) ![Sourcell Xu](https://img.shields.io/badge/Sourcell%20Xu-informational) ![Xin Xin](https://img.shields.io/badge/Xin%20Xin-informational)
+![Category: Others](https://img.shields.io/badge/Category:%20Others-lightgrey) ![Sourcell Xu](https://img.shields.io/badge/Sourcell%20Xu-informational) ![Xin Xin](https://img.shields.io/badge/Xin%20Xin-informational)
 
 🔗 **Link:** Not Available  
 📝 **Description:** Every Android phone loves Bluetooth, a short-range wireless communication technology. We can find a large number of Bluetooth devices in any public place. Many of their security issues have been exposed before, such as BlueBorne, KNOB, and BadBluetooth. Today, due to the security risks in AOSP (Android Open Source Project) and the negligence of some well-known mobile phone manufacturers, we designed a new attack idea and dug a new 0day BlueRepli (Bluetooth Replicant). At the same time, we have implemented the relevant utility tool on the customized universal hardware platform and called it BlueRepli Plus.
@@ -70,7 +70,7 @@ With BlueRepli Plus users can scan the surrounding Android phones via Bluetooth 
 
 <details><summary><strong>Cylons: An automated IoT security assessment platform based on OpenWRT</strong></summary>
 
-![Category: Uncategorized](https://img.shields.io/badge/Category:%20Uncategorized-lightgrey) ![Wei Wang](https://img.shields.io/badge/Wei%20Wang-informational) ![Jianqiang Wu](https://img.shields.io/badge/Jianqiang%20Wu-informational) ![Qianwei Hu](https://img.shields.io/badge/Qianwei%20Hu-informational)
+![Category: Others](https://img.shields.io/badge/Category:%20Others-lightgrey) ![Wei Wang](https://img.shields.io/badge/Wei%20Wang-informational) ![Jianqiang Wu](https://img.shields.io/badge/Jianqiang%20Wu-informational) ![Qianwei Hu](https://img.shields.io/badge/Qianwei%20Hu-informational)
 
 🔗 **Link:** Not Available  
 📝 **Description:** Smart/IoT devices these days are all about network, Internet in particular. When a box gets itself connected to the cloud, it exposes lots of attack surface as well. Hence, network assessment plays a fundamental role in IoT SDL (Security Development Lifecycle) practices. We have built a platform which aims to help security engineers to automate some common assessment workloads, black-box testing specifically.
@@ -96,7 +96,7 @@ Cylons is still in heavy development, we are trying to bring more features and m
 
 <details><summary><strong>Mobile Security Framework - MobSF</strong></summary>
 
-![Category: Uncategorized](https://img.shields.io/badge/Category:%20Uncategorized-lightgrey) ![Ajin Abraham](https://img.shields.io/badge/Ajin%20Abraham-informational)
+![Category: Others](https://img.shields.io/badge/Category:%20Others-lightgrey) ![Ajin Abraham](https://img.shields.io/badge/Ajin%20Abraham-informational)
 
 🔗 **Link:** [Mobile Security Framework - MobSF](https://github.com/MobSF/Mobile-Security-Framework-MobSF)  
 📝 **Description:** Mobile Security Framework (MobSF) is an automated, all-in-one mobile application (Android/iOS/Windows) pen-testing, malware analysis and security assessment framework capable of performing static and dynamic analysis of mobile applications. MobSF support mobile app binaries (APK, IPA & APPX) along with zipped source code and provides REST APIs for seamless integration with your CI/CD or DevSecOps pipeline.The Dynamic Analyzer helps you to perform runtime security assessment and interactive instrumented tests.
@@ -105,7 +105,7 @@ Cylons is still in heavy development, we are trying to bring more features and m
 
 <details><summary><strong>Mole: Out-of-Band Exploitation Framework</strong></summary>
 
-![Category: Uncategorized](https://img.shields.io/badge/Category:%20Uncategorized-lightgrey) ![Zach Grace](https://img.shields.io/badge/Zach%20Grace-informational)
+![Category: Others](https://img.shields.io/badge/Category:%20Others-lightgrey) ![Zach Grace](https://img.shields.io/badge/Zach%20Grace-informational)
 
 🔗 **Link:** [Mole: Out-of-Band Exploitation Framework](https://github.com/ztgrace)  
 📝 **Description:** Mole is a new open source framework for identifying and exploiting out-of-band (OOB) application vulnerabilities in applications. Mole provides an all-in-one payload generation framework and callback/payload server that streamlines the OOB payload creation and exploitation process
@@ -120,7 +120,7 @@ Mole's plugin framework allows it to be easily extended by creating custom paylo
 
 <details><summary><strong>Qiling Framework: From dark to dawn -- Enlightening the analysis of the most mysterious IoT Firmware</strong></summary>
 
-![Category: Uncategorized](https://img.shields.io/badge/Category:%20Uncategorized-lightgrey) ![KaiJern Lau](https://img.shields.io/badge/KaiJern%20Lau-informational) ![Bo Wen Sun](https://img.shields.io/badge/Bo%20Wen%20Sun-informational) ![Yu Tong](https://img.shields.io/badge/Yu%20Tong-informational) ![Tian Zhe Ding](https://img.shields.io/badge/Tian%20Zhe%20Ding-informational)
+![Category: Others](https://img.shields.io/badge/Category:%20Others-lightgrey) ![KaiJern Lau](https://img.shields.io/badge/KaiJern%20Lau-informational) ![Bo Wen Sun](https://img.shields.io/badge/Bo%20Wen%20Sun-informational) ![Yu Tong](https://img.shields.io/badge/Yu%20Tong-informational) ![Tian Zhe Ding](https://img.shields.io/badge/Tian%20Zhe%20Ding-informational)
 
 🔗 **Link:** Not Available  
 📝 **Description:** With household appliances and wearable gadgets integrated with network capabilities, we are surrounded by an increasing number of IoT devices. Coming together with the popularity of IoT devices are two critical questions.
@@ -150,7 +150,7 @@ Along with this talk, we will share all the firmware that we have tested and wil
 
 <details><summary><strong>Threagile: Agile Threat Modeling with Open-Source Tools from within Your IDE</strong></summary>
 
-![Category: Uncategorized](https://img.shields.io/badge/Category:%20Uncategorized-lightgrey) ![Christian Schneider](https://img.shields.io/badge/Christian%20Schneider-informational)
+![Category: Others](https://img.shields.io/badge/Category:%20Others-lightgrey) ![Christian Schneider](https://img.shields.io/badge/Christian%20Schneider-informational)
 
 🔗 **Link:** Not Available  
 📝 **Description:** If we can build software in a reliable, reproducible and quick way at any time using Pipeline-as-Code and have also automated security scans as part of it, how can we quickly capture the risk landscape of agile projects to ensure we didn't miss an important thing? Traditionally, this happens in workshops with lots of discussion and model work on the whiteboard with boxes, lines and clouds. It's just a pity that it often stops then: Instead of a living model, a slowly but surely eroding artifact is created, while the agile project evolves at a faster pace.
@@ -165,7 +165,7 @@ Agile development teams can easily integrate threat modeling into their process 
 
 <details><summary><strong>xGitGuard: Detecting Publicly Exposed Secrets on GitHub at Scale</strong></summary>
 
-![Category: Uncategorized](https://img.shields.io/badge/Category:%20Uncategorized-lightgrey) ![Bahman Rashidi](https://img.shields.io/badge/Bahman%20Rashidi-informational)
+![Category: Others](https://img.shields.io/badge/Category:%20Others-lightgrey) ![Bahman Rashidi](https://img.shields.io/badge/Bahman%20Rashidi-informational)
 
 🔗 **Link:** [xGitGuard: Detecting Publicly Exposed Secrets on GitHub at Scale](https://gist.github.com/AhnMo/dbe81133c98a75beba6227a8a57c74dc)  
 📝 **Description:** Public GitHub is the most common place where developers share their code and tools that they develop (i.e., developed for an organization or themselves). Most developers and repository contributors do their best to remove sensitive information before they push their code into the GitHub. However, there are developers who often unknowingly/inadvertently neglect to remove sensitive information such as API tokens and user credentials (username & passwords) from their code prior to posting it. As a result, an organization's internal secrets and token are exposed publicly. Therefore, an unauthorized access to the secrets GitHub by bad actors can have significant consequences for organizations. In order to address the issue, we offer xGitGuard, a full-fledge AI-based tool that detects organizations' secrets and user credentials posted on the public GitHub in a scalable and timely-manner fashion. xGitGuard, takes advantage of a new text processing algorithm that can find secrets within files with a high level of accuracy. This can significantly help operations to take proper actions in timely manner.

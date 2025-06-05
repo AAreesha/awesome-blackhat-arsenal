@@ -4,7 +4,7 @@
 Tools are categorized based on their **track theme**, such as Red Teaming, OSINT, Reverse Engineering, etc.
 
 ## 📚 Table of Contents
-- [Uncategorized](#uncategorized)
+- [Others](#others)
 - [🌐 Web/AppSec](#🌐-webappsec)
 - [🌐 Web/AppSec or Red Teaming](#🌐-webappsec-or-red-teaming)
 - [🔍 OSINT](#🔍-osint)
@@ -978,10 +978,10 @@ Presentation: https://alex.stanev.org/presentations/en/BlackHatUSA2018_DEFCON26-
 </details>
 
 ---
-## Uncategorized
+## Others
 <details><summary><strong>ChipWhisperer</strong></summary>
 
-![Category: Uncategorized](https://img.shields.io/badge/Category:%20Uncategorized-lightgrey) ![Colin O'Flynn](https://img.shields.io/badge/Colin%20O'Flynn-informational)
+![Category: Others](https://img.shields.io/badge/Category:%20Others-lightgrey) ![Colin O'Flynn](https://img.shields.io/badge/Colin%20O'Flynn-informational)
 
 🔗 **Link:** [ChipWhisperer](https://github.com/colinoflynn)  
 📝 **Description:** ChipWhisperer - the favorite open-source toolchain for including both hardware & software. Now upgraded to include a major API shift with Python-centric scripting, plus many new targets with hardware AES accelerators. The scripting capability means you are able to automatically build firmware images for different targets or with different compiler settings, and perform attacks on them. This opens up the potential for continuous-integration (C.I.) usage of ChipWhisperer, which will be pushed further with the release of ChipWhisperer-Lint.
@@ -990,7 +990,7 @@ Presentation: https://alex.stanev.org/presentations/en/BlackHatUSA2018_DEFCON26-
 
 <details><summary><strong>Damn Vulnerable iOS App: Swift Edition</strong></summary>
 
-![Category: Uncategorized](https://img.shields.io/badge/Category:%20Uncategorized-lightgrey) ![Prateek Gianchandani](https://img.shields.io/badge/Prateek%20Gianchandani-informational)
+![Category: Others](https://img.shields.io/badge/Category:%20Others-lightgrey) ![Prateek Gianchandani](https://img.shields.io/badge/Prateek%20Gianchandani-informational)
 
 🔗 **Link:** [Damn Vulnerable iOS App: Swift Edition](https://github.com/prateek147)  
 📝 **Description:** Damn Vulnerable iOS App (DVIA) is an iOS application that is damn vulnerable. Its main goal is to provide a platform to mobile security enthusiasts/professionals or students to test their iOS penetration testing skills in a legal environment. This project is developed and maintained by @prateekg147. The vulnerabilities and solutions covered in this app are tested up to iOS 11. DVIA is free and open source and it has both a Swift and Objective-C version. This is a completely new version of Damn Vulnerable iOS App - completely rewritten in Swift 4.0.
@@ -1018,7 +1018,7 @@ Data Leakage to Third parties
 
 <details><summary><strong>JTAGulator: Uncovering the Achilles Heel of Hardware Security - ARSENAL THEATER DEMO</strong></summary>
 
-![Category: Uncategorized](https://img.shields.io/badge/Category:%20Uncategorized-lightgrey) ![Joe Grand](https://img.shields.io/badge/Joe%20Grand-informational)
+![Category: Others](https://img.shields.io/badge/Category:%20Others-lightgrey) ![Joe Grand](https://img.shields.io/badge/Joe%20Grand-informational)
 
 🔗 **Link:** Not Available  
 📝 **Description:** Five years after its original release, JTAGulator continues to be the de facto open source tool for identifying interfaces commonly used for hardware hacking, such as JTAG and UART, from test points, vias, component pads, or connectors on a target product. The tool can save a significant amount of time, particularly for those who don't have the resources required for traditional reverse engineering processes, and bridges the gap between gaining physical access to circuitry and exploiting it. Black Hat Arsenal USA 2018 will mark the release of a new firmware version and and Joe will provide demonstrations of the tool's updated features.
@@ -1027,7 +1027,7 @@ Data Leakage to Third parties
 
 <details><summary><strong>Mafia: Mobile Security Automation Framework for Intelligent Auditing</strong></summary>
 
-![Category: Uncategorized](https://img.shields.io/badge/Category:%20Uncategorized-lightgrey) ![Ankur Bhargava](https://img.shields.io/badge/Ankur%20Bhargava-informational) ![Mohan Kallepalli](https://img.shields.io/badge/Mohan%20Kallepalli-informational) ![Sagar Popat](https://img.shields.io/badge/Sagar%20Popat-informational)
+![Category: Others](https://img.shields.io/badge/Category:%20Others-lightgrey) ![Ankur Bhargava](https://img.shields.io/badge/Ankur%20Bhargava-informational) ![Mohan Kallepalli](https://img.shields.io/badge/Mohan%20Kallepalli-informational) ![Sagar Popat](https://img.shields.io/badge/Sagar%20Popat-informational)
 
 🔗 **Link:** Not Available  
 📝 **Description:** Mobile applications are critical when it comes to vulnerabilities in production environment. The only option to remove a product issue is to force update the app, which isn't a good user experience, especially when the app download size is high. With this project, we aim to automate the manual security testing and leverage developers with a tool which helps them identify bugs well in advance. The goal of MAFIA is to perform end to end security testing for a given mobile app and create a self serve tool for developers and security engineers.
@@ -1036,7 +1036,7 @@ Data Leakage to Third parties
 
 <details><summary><strong>Micro-Renovator: Bringing Processor Firmware up to Code</strong></summary>
 
-![Category: Uncategorized](https://img.shields.io/badge/Category:%20Uncategorized-lightgrey) ![Matt King](https://img.shields.io/badge/Matt%20King-informational)
+![Category: Others](https://img.shields.io/badge/Category:%20Others-lightgrey) ![Matt King](https://img.shields.io/badge/Matt%20King-informational)
 
 🔗 **Link:** [Micro-Renovator: Bringing Processor Firmware up to Code](https://github.com/mathew-fleisch/def-con-schedule/blob/master/docs/conference.json)  
 📝 **Description:** The mitigations for Spectre highlighted a weak link in the patching process for many users: firmware (un)availability. While updated microcode was made publicly available for many processors, end-users are unable to directly consume it. Instead, platform and operating system vendors need to distribute firmware and kernel patches which include the new microcode. Inconsistent support from those vendors has left millions of users without a way to consume these critical security updates, until now. Micro-Renovator provides the ability to apply microcode updates without modifying either platform firmware or the operating system, through simple (and reversible) modifications to the EFI boot partition.
@@ -1047,7 +1047,7 @@ Source Code: https://github.com/syncsrc/MicroRenovator
 
 <details><summary><strong>OpticSpy: Finding Data in Light Waves</strong></summary>
 
-![Category: Uncategorized](https://img.shields.io/badge/Category:%20Uncategorized-lightgrey) ![Joe Grand](https://img.shields.io/badge/Joe%20Grand-informational)
+![Category: Others](https://img.shields.io/badge/Category:%20Others-lightgrey) ![Joe Grand](https://img.shields.io/badge/Joe%20Grand-informational)
 
 🔗 **Link:** Not Available  
 📝 **Description:** OpticSpy is an open source hardware module for experimenting with optical data transmissions. It captures, amplifies, and converts an optical signal from a visible or infrared light source into a digital form that can be analyzed or decoded with a computer.
@@ -1058,7 +1058,7 @@ With OpticSpy, hardware hackers can search for optical covert channels, which in
 
 <details><summary><strong>Project Interceptor: Owning Anti-Drone Systems with Nanodrones - ARSENAL THEATER DEMO</strong></summary>
 
-![Category: Uncategorized](https://img.shields.io/badge/Category:%20Uncategorized-lightgrey) ![David Melendez](https://img.shields.io/badge/David%20Melendez-informational)
+![Category: Others](https://img.shields.io/badge/Category:%20Others-lightgrey) ![David Melendez](https://img.shields.io/badge/David%20Melendez-informational)
 
 🔗 **Link:** Not Available  
 📝 **Description:** This tool provides a new vision about drone protection against anti-drone systems, using WiFi side/hidden channel communication, fallback control by variable modulation radio with SDR, and hacking capabilities. All embedded into a hand-sized aircraft to make detection and mitigation a pain, called "Project Interceptor". This drone is based on Vocore2, the smallest Linux board available.
@@ -1069,7 +1069,7 @@ Taking into account all the anti-drone process stages, this small aircraft, is d
 
 <details><summary><strong>TumbleRF: RF Fuzzing Made Easy</strong></summary>
 
-![Category: Uncategorized](https://img.shields.io/badge/Category:%20Uncategorized-lightgrey) ![Matt Knight](https://img.shields.io/badge/Matt%20Knight-informational) ![Ryan Speers](https://img.shields.io/badge/Ryan%20Speers-informational)
+![Category: Others](https://img.shields.io/badge/Category:%20Others-lightgrey) ![Matt Knight](https://img.shields.io/badge/Matt%20Knight-informational) ![Ryan Speers](https://img.shields.io/badge/Ryan%20Speers-informational)
 
 🔗 **Link:** [TumbleRF: RF Fuzzing Made Easy](https://github.com/rmusser01/Infosec_Reference/blob/master/Draft/Wireless.md)  
 📝 **Description:** We are pleased to introduce TumbleRF, an open source Python framework for fuzzing arbitrary RF technologies down to the PHY. While fuzzing has long been relied on by security researchers to identify software bugs, applying fuzzing methodologies to RF and hardware systems has historically been challenging due to siloed tools and the limited capabilities of commodity RF chipsets.
@@ -1082,7 +1082,7 @@ Attendees can expect to leave this presentation with an understanding of how RF 
 
 <details><summary><strong>Walrus: Make the Most of Your Card Cloning Devices</strong></summary>
 
-![Category: Uncategorized](https://img.shields.io/badge/Category:%20Uncategorized-lightgrey) ![Daniel Underhay](https://img.shields.io/badge/Daniel%20Underhay-informational) ![Matthew Daley](https://img.shields.io/badge/Matthew%20Daley-informational)
+![Category: Others](https://img.shields.io/badge/Category:%20Others-lightgrey) ![Daniel Underhay](https://img.shields.io/badge/Daniel%20Underhay-informational) ![Matthew Daley](https://img.shields.io/badge/Matthew%20Daley-informational)
 
 🔗 **Link:** [Walrus: Make the Most of Your Card Cloning Devices](https://github.com/TeamWalrus/Walrus)  
 📝 **Description:** Walrus enables you to use your existing contactless card cloning devices with your Android device. Using a simple interface, cards can be read into a wallet to be written or emulated later.

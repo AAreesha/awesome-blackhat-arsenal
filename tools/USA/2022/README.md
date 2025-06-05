@@ -4,7 +4,7 @@
 Tools are categorized based on their **track theme**, such as Red Teaming, OSINT, Reverse Engineering, etc.
 
 ## 📚 Table of Contents
-- [Uncategorized](#uncategorized)
+- [Others](#others)
 - [⚙️ Miscellaneous / Lab Tools](#⚙️-miscellaneous-lab-tools)
 - [🌐 Web/AppSec](#🌐-webappsec)
 - [🌐 Web/AppSec or Red Teaming](#🌐-webappsec-or-red-teaming)
@@ -349,10 +349,10 @@ After we first presented Zuthakas' MVP at Black Hat USA 2021, we are now present
 </details>
 
 ---
-## Uncategorized
+## Others
 <details><summary><strong>Adhrit: Android Security Suite</strong></summary>
 
-![Category: Uncategorized](https://img.shields.io/badge/Category:%20Uncategorized-lightgrey) ![Abhishek JM](https://img.shields.io/badge/Abhishek%20JM-informational) ![Rahul Sani](https://img.shields.io/badge/Rahul%20Sani-informational) ![Amrudesh Balakrishnan](https://img.shields.io/badge/Amrudesh%20Balakrishnan-informational)
+![Category: Others](https://img.shields.io/badge/Category:%20Others-lightgrey) ![Abhishek JM](https://img.shields.io/badge/Abhishek%20JM-informational) ![Rahul Sani](https://img.shields.io/badge/Rahul%20Sani-informational) ![Amrudesh Balakrishnan](https://img.shields.io/badge/Amrudesh%20Balakrishnan-informational)
 
 🔗 **Link:** Not Available  
 📝 **Description:** Adhrit is an open-source Android application security analysis suite. The tool is an effort to find an efficient solution to all the needs of mobile security testing and automation. Adhrit has been built with a focus on flexibility and modularization. It currently uses the Ghera benchmarks to identify vulnerable code patterns in the bytecode. Apart from bytecode scanning, Adhrit can also identify hardcoded secrets within Android applications. The tool also comes with a built-in integration to popular software like Jira and Slack which can be configured to automate and streamline.
@@ -361,7 +361,7 @@ After we first presented Zuthakas' MVP at Black Hat USA 2021, we are now present
 
 <details><summary><strong>Hooke: A Sandbox Tool for both Android and iOS Apps</strong></summary>
 
-![Category: Uncategorized](https://img.shields.io/badge/Category:%20Uncategorized-lightgrey) ![Miao Liu](https://img.shields.io/badge/Miao%20Liu-informational) ![Xiangxing Qian](https://img.shields.io/badge/Xiangxing%20Qian-informational) ![Bo Zhang](https://img.shields.io/badge/Bo%20Zhang-informational) ![Fan Yao](https://img.shields.io/badge/Fan%20Yao-informational) ![Zhenyu Zhu](https://img.shields.io/badge/Zhenyu%20Zhu-informational) ![Yijie Zhao](https://img.shields.io/badge/Yijie%20Zhao-informational) ![Yi Zeng](https://img.shields.io/badge/Yi%20Zeng-informational)
+![Category: Others](https://img.shields.io/badge/Category:%20Others-lightgrey) ![Miao Liu](https://img.shields.io/badge/Miao%20Liu-informational) ![Xiangxing Qian](https://img.shields.io/badge/Xiangxing%20Qian-informational) ![Bo Zhang](https://img.shields.io/badge/Bo%20Zhang-informational) ![Fan Yao](https://img.shields.io/badge/Fan%20Yao-informational) ![Zhenyu Zhu](https://img.shields.io/badge/Zhenyu%20Zhu-informational) ![Yijie Zhao](https://img.shields.io/badge/Yijie%20Zhao-informational) ![Yi Zeng](https://img.shields.io/badge/Yi%20Zeng-informational)
 
 🔗 **Link:** Not Available  
 📝 **Description:** Mainstream mobile phone systems have implemented privacy features that allow users to keep an eye on how apps access their data, such as Privacy Dashboard for Android and App Privacy Report for iOS. However, while we delved into the implementation of these systems, we found that it was not as accurate and credible as expected. We developed our offline App privacy leak detection platform - Hooke, to identify privacy-sensitive behaviors much more clearly and directly.
@@ -374,7 +374,7 @@ Our tool, Hooke, shows App behaviors in the aspect of privacy data access, netwo
 
 <details><summary><strong>The Dependency Combobulator</strong></summary>
 
-![Category: Uncategorized](https://img.shields.io/badge/Category:%20Uncategorized-lightgrey) ![Moshe Zioni](https://img.shields.io/badge/Moshe%20Zioni-informational)
+![Category: Others](https://img.shields.io/badge/Category:%20Others-lightgrey) ![Moshe Zioni](https://img.shields.io/badge/Moshe%20Zioni-informational)
 
 🔗 **Link:** [The Dependency Combobulator](https://github.com/moshe-apiiro)  
 📝 **Description:** The Dependency Combobulator is a modular and extensible framework to detect and prevent dependency confusion leakage and potential attacks. This facilitates a holistic approach for ensuring secure application releases that can be evaluated against different sources (e.g., GitHub, Artifactory) and many package management schemes (e.g., ndm, pip, maven).

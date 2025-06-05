@@ -4,7 +4,7 @@
 Tools are categorized based on their **track theme**, such as Red Teaming, OSINT, Reverse Engineering, etc.
 
 ## 📚 Table of Contents
-- [Uncategorized](#uncategorized)
+- [Others](#others)
 - [⚙️ Miscellaneous / Lab Tools](#⚙️-miscellaneous-lab-tools)
 - [🌐 Web/AppSec](#🌐-webappsec)
 - [📱 Mobile Security](#📱-mobile-security)
@@ -249,10 +249,10 @@ Tools are categorized based on their **track theme**, such as Red Teaming, OSINT
 </details>
 
 ---
-## Uncategorized
+## Others
 <details><summary><strong>DirtyTooth for Raspberry Pi (DirtyPi)</strong></summary>
 
-![Category: Uncategorized](https://img.shields.io/badge/Category:%20Uncategorized-lightgrey) ![Ãlvaro NuÃ±ez-Romero](https://img.shields.io/badge/Ãlvaro%20NuÃ±ez-Romero-informational)
+![Category: Others](https://img.shields.io/badge/Category:%20Others-lightgrey) ![Ãlvaro NuÃ±ez-Romero](https://img.shields.io/badge/Ãlvaro%20NuÃ±ez-Romero-informational)
 
 🔗 **Link:** Not Available  
 📝 **Description:** Bluetooth communications are on the rise. Millions of users use the technology to connect to peripherals that simplify and provide greater comfort and experience. There is a trick or hack for iOS 10.3.3 and earlier that takes advantage of the management of the profiles impacting the privacy of users who use Bluetooth technology daily. From the iOS device information leak caused by the incorrect management of profiles, a lot of information about the user and their background may be obtained.

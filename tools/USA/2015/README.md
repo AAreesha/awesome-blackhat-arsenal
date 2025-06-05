@@ -4,7 +4,7 @@
 Tools are categorized based on their **track theme**, such as Red Teaming, OSINT, Reverse Engineering, etc.
 
 ## 📚 Table of Contents
-- [Uncategorized](#uncategorized)
+- [Others](#others)
 - [⚙️ Miscellaneous / Lab Tools](#⚙️-miscellaneous-lab-tools)
 - [🌐 Web/AppSec](#🌐-webappsec)
 - [🌐 Web/AppSec or Red Teaming](#🌐-webappsec-or-red-teaming)
@@ -424,10 +424,10 @@ Tools are categorized based on their **track theme**, such as Red Teaming, OSINT
 </details>
 
 ---
-## Uncategorized
+## Others
 <details><summary><strong>Damn Vulnerable iOS App (DVIA)</strong></summary>
 
-![Category: Uncategorized](https://img.shields.io/badge/Category:%20Uncategorized-lightgrey) ![Prateek Gianchandani](https://img.shields.io/badge/Prateek%20Gianchandani-informational)
+![Category: Others](https://img.shields.io/badge/Category:%20Others-lightgrey) ![Prateek Gianchandani](https://img.shields.io/badge/Prateek%20Gianchandani-informational)
 
 🔗 **Link:** [Damn Vulnerable iOS App (DVIA)](https://github.com/prateek147)  
 📝 **Description:** Damn Vulnerable iOS App (DVIA) is an iOS application that is damn vulnerable. The main goal is to provide a platform to mobile security enthusiasts/professionals or students to test their iOS penetration testing skills in a legal environment. This application covers all the common vulnerabilities found in iOS applications (following OWASP top 10 mobile risks) and contains several challenges that the user can try. This application also contains a section where a user can read various articles on iOS application security.Vulnerabilities and Challenges Include:- Insecure Data Storage- Jailbreak Detection- Runtime Manipulation- Piracy Detection- Sensitive information in memory- Transport Layer Security (http, https, cert pinning)- Client Side Injection- Information Disclosure- Broken Cryptography- Security Decisions via Untrusted input- Side channel data leakage- Application PatchingThe new version of DVIA will include vulnerabilities, like Brute forcing login screens, touch id bypass, insecure apple watch sync, insecure data storage, and vulnerabilities in extensions, etc.

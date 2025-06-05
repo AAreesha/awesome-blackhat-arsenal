@@ -4,7 +4,7 @@
 Tools are categorized based on their **track theme**, such as Red Teaming, OSINT, Reverse Engineering, etc.
 
 ## 📚 Table of Contents
-- [Uncategorized](#uncategorized)
+- [Others](#others)
 - [⚙️ Miscellaneous / Lab Tools](#⚙️-miscellaneous-lab-tools)
 - [🌐 Web/AppSec](#🌐-webappsec)
 - [🌐 Web/AppSec or Red Teaming](#🌐-webappsec-or-red-teaming)
@@ -249,10 +249,10 @@ Zuthaka presents a simplified API for fast and clear integration of C2s and prov
 </details>
 
 ---
-## Uncategorized
+## Others
 <details><summary><strong>ARP Covert Channel Attacks by 8bit Microcomputer #2</strong></summary>
 
-![Category: Uncategorized](https://img.shields.io/badge/Category:%20Uncategorized-lightgrey) ![Michihiro Imaoka](https://img.shields.io/badge/Michihiro%20Imaoka-informational)
+![Category: Others](https://img.shields.io/badge/Category:%20Others-lightgrey) ![Michihiro Imaoka](https://img.shields.io/badge/Michihiro%20Imaoka-informational)
 
 🔗 **Link:** Not Available  
 📝 **Description:** Introduces a method of embedding information in the padding part of ARP and performing secret communication with only one small 8-bit microcomputer. The transmitter uses an 8-bit microcomputer called Atmega328P. A 10BASE-T Ethernet frame is generated using only the GPIO of the microcomputer without using a dedicated chip such as an Ethernet controller. By using this method, it is possible to perform a covert channel attack with a smaller and cheaper method than the conventional method.
@@ -261,7 +261,7 @@ Zuthaka presents a simplified API for fast and clear integration of C2s and prov
 
 <details><summary><strong>Arsenal Reception</strong></summary>
 
-![Category: Uncategorized](https://img.shields.io/badge/Category:%20Uncategorized-lightgrey) ![None](https://img.shields.io/badge/None-informational)
+![Category: Others](https://img.shields.io/badge/Category:%20Others-lightgrey) ![None](https://img.shields.io/badge/None-informational)
 
 🔗 **Link:** [Arsenal Reception](https://github.com/0x90/wifi-arsenal)  
 📝 **Description:** Join us on Thursday, November 11, from 2:50 PM – 4:00 PM for drinks and networking as we thank our Arsenal presenters for their contributions to the open-source community.
@@ -270,7 +270,7 @@ Zuthaka presents a simplified API for fast and clear integration of C2s and prov
 
 <details><summary><strong>Capture the Signal: Running Wireless IoT CTFs, Remotely!</strong></summary>
 
-![Category: Uncategorized](https://img.shields.io/badge/Category:%20Uncategorized-lightgrey) ![Federico Maggi](https://img.shields.io/badge/Federico%20Maggi-informational) ![Marco Balduzzi](https://img.shields.io/badge/Marco%20Balduzzi-informational) ![Jonathan Andersson](https://img.shields.io/badge/Jonathan%20Andersson-informational)
+![Category: Others](https://img.shields.io/badge/Category:%20Others-lightgrey) ![Federico Maggi](https://img.shields.io/badge/Federico%20Maggi-informational) ![Marco Balduzzi](https://img.shields.io/badge/Marco%20Balduzzi-informational) ![Jonathan Andersson](https://img.shields.io/badge/Jonathan%20Andersson-informational)
 
 🔗 **Link:** Not Available  
 📝 **Description:** The famous DEFCON CTF is one of the thousands Capture the Flag (CTFs) contests that, since many years, have become the "lifeblood" of the cybersecurity community. CTF players reverse-engineer vulnerable services in traditional IT applications (like web and binary) to score points.
@@ -283,7 +283,7 @@ In normal circumstances, we've hosted the game on site at conferences world-wide
 
 <details><summary><strong>Falco + Falcosidekick = A Kubernetes Response Engine</strong></summary>
 
-![Category: Uncategorized](https://img.shields.io/badge/Category:%20Uncategorized-lightgrey) ![Stefano Chierici](https://img.shields.io/badge/Stefano%20Chierici-informational)
+![Category: Others](https://img.shields.io/badge/Category:%20Others-lightgrey) ![Stefano Chierici](https://img.shields.io/badge/Stefano%20Chierici-informational)
 
 🔗 **Link:** [Falco + Falcosidekick = A Kubernetes Response Engine](https://github.com/developer-guy/awesome-falco)  
 📝 **Description:** Falco is the CNCF open-source project for runtime threat detection for containers and Kubernetes. It was created by Sysdig in 2016 and is the first runtime security project to join CNCF as an incubation-level project.
@@ -298,7 +298,7 @@ The Falco community is strong and active, contributing largely to not only the p
 
 <details><summary><strong>HOOKA: Deep Dive Into ART(Android Runtime) For Dynamic Binary Analysis</strong></summary>
 
-![Category: Uncategorized](https://img.shields.io/badge/Category:%20Uncategorized-lightgrey) ![Seong Hyun Song](https://img.shields.io/badge/Seong%20Hyun%20Song-informational)
+![Category: Others](https://img.shields.io/badge/Category:%20Others-lightgrey) ![Seong Hyun Song](https://img.shields.io/badge/Seong%20Hyun%20Song-informational)
 
 🔗 **Link:** [HOOKA: Deep Dive Into ART(Android Runtime) For Dynamic Binary Analysis](https://gist.github.com/standardgalactic/7f03809c56f4b098b95a50ada32cd02c)  
 📝 **Description:** Google has changed Android runtime drastically each time a new version of Android is released to optimize the performance, storage usage, and system updates of apps. The profiling data has started to be generated in the recent version of Android 10, based on the user's behavior in ART (Android Runtime). Based on the profiling data, the byte code is optimized (Profile-Guided optimization and Cloud Profile optimization) by the compiler (AOT/JIT). ART also interprets and executes different types of code (byte code, oat code, and jit code) generated by the compiler. Such complexity in the structure and the operation method makes ART difficult to understand correctly. However, since all the code of the app is interpreted and executed through ART, if the attacker understands how ART works, it is possible to steal all the information necessary to analyze the app. Therefore, in this paper, we analyze the flow and structure of how the app code is interpreted and executed by objects existing in Android 10 ART. Then, by modifying the ART based on the analysis results, we develop a framework that can steal the information in real-time, such as smali code, interface, parameters, return value, fields, and stack trace of a method that is executed dynamically. In addition, we present an easy technique to effectively analyze the app without accessing the execution code by using tools such as decompiler or disassembler.
@@ -314,7 +314,7 @@ However, the method proposed in this presentation bypasses AVB (Android Verified
 
 <details><summary><strong>Ipa-medit: Memory Search and Patch Tool for IPA Without Jailbreaking</strong></summary>
 
-![Category: Uncategorized](https://img.shields.io/badge/Category:%20Uncategorized-lightgrey) ![Taichi Kotake](https://img.shields.io/badge/Taichi%20Kotake-informational)
+![Category: Others](https://img.shields.io/badge/Category:%20Others-lightgrey) ![Taichi Kotake](https://img.shields.io/badge/Taichi%20Kotake-informational)
 
 🔗 **Link:** Not Available  
 📝 **Description:** Ipa-medit is a memory search and patch tool for resigned ipa without jailbreaking. It was created for mobile game security testing.
@@ -331,7 +331,7 @@ GitHub: https://github.com/aktsk/ipa-medit
 
 <details><summary><strong>Solitude: A Privacy Analysis Tool</strong></summary>
 
-![Category: Uncategorized](https://img.shields.io/badge/Category:%20Uncategorized-lightgrey) ![Dan Hastings](https://img.shields.io/badge/Dan%20Hastings-informational)
+![Category: Others](https://img.shields.io/badge/Category:%20Others-lightgrey) ![Dan Hastings](https://img.shields.io/badge/Dan%20Hastings-informational)
 
 🔗 **Link:** [Solitude: A Privacy Analysis Tool](https://github.com/earthspecies/audio-embeddings/blob/main/02_simple_rnn.ipynb)  
 📝 **Description:** Solitude is an open-source privacy analysis tool that aims to help people inspect where their private data goes once it leaves their favorite mobile or web applications. Whether a curious novice or a more advanced researcher, Solitude makes the process of evaluating an app's privacy accessible for everyone.
@@ -343,7 +343,7 @@ goes. Solitude makes the process of proxying HTTP traffic and searching through 
 
 <details><summary><strong>USBsamurai: One Cable To Pwn'em All</strong></summary>
 
-![Category: Uncategorized](https://img.shields.io/badge/Category:%20Uncategorized-lightgrey) ![Luca Bongiorni](https://img.shields.io/badge/Luca%20Bongiorni-informational)
+![Category: Others](https://img.shields.io/badge/Category:%20Others-lightgrey) ![Luca Bongiorni](https://img.shields.io/badge/Luca%20Bongiorni-informational)
 
 🔗 **Link:** [USBsamurai: One Cable To Pwn'em All](https://github.com/rmusser01/Infosec_Reference/blob/master/Draft/RT.md)  
 📝 **Description:** During the last years, hardware implants have become a popular attack vector in air-gapped environments such as industrial networks: Stuxnet (2010), Operation Copperfield (2017), and the recent ransomware attack that has led to a shutdown in a US natural gas facility are only some notable cases. In parallel, in an effort to raise the bar of red-teaming operations, security researchers have been designing and releasing powerful open-source devices with the intent to make Red-Teaming operations even more interesting and disruptive. Smoothing the path to new TTPs and improving old ones. As a result, hardware implants should always be included in the threat modeling of an industrial facility.

@@ -4,7 +4,7 @@
 Tools are categorized based on their **track theme**, such as Red Teaming, OSINT, Reverse Engineering, etc.
 
 ## 📚 Table of Contents
-- [Uncategorized](#uncategorized)
+- [Others](#others)
 - [🌐 Web/AppSec](#🌐-webappsec)
 - [🔴 Red Teaming](#🔴-red-teaming)
 - [🔴 Red Teaming / AppSec](#🔴-red-teaming-appsec)
@@ -182,10 +182,10 @@ After more than a year since the last release, a Tsurugi Linux special BLACK HAT
 </details>
 
 ---
-## Uncategorized
+## Others
 <details><summary><strong>EMBA: Open-Source Firmware Security Testing</strong></summary>
 
-![Category: Uncategorized](https://img.shields.io/badge/Category:%20Uncategorized-lightgrey) ![Michael Messner](https://img.shields.io/badge/Michael%20Messner-informational) ![Pascal Eckmann](https://img.shields.io/badge/Pascal%20Eckmann-informational)
+![Category: Others](https://img.shields.io/badge/Category:%20Others-lightgrey) ![Michael Messner](https://img.shields.io/badge/Michael%20Messner-informational) ![Pascal Eckmann](https://img.shields.io/badge/Pascal%20Eckmann-informational)
 
 🔗 **Link:** [EMBA: Open-Source Firmware Security Testing](https://github.com/e-m-b-a/emba/blob/master/emba)  
 📝 **Description:** IoT (Internet of Things) and OT (Operational Technology) are the current buzzwords for networked devices on which our modern society is based on. In this area, the used operating systems are summarized with the term firmware. The devices themselves, also called embedded devices, are essential in the private and industrial environments as well as in the so-called critical infrastructure.
@@ -198,7 +198,7 @@ EMBA is the open-source firmware scanner, created by penetration testers for pen
 
 <details><summary><strong>Flopz: Patch, Debug and Instrument Firmware When All You Have Is a Binary</strong></summary>
 
-![Category: Uncategorized](https://img.shields.io/badge/Category:%20Uncategorized-lightgrey) ![Henrik Ferdinand Nölscher](https://img.shields.io/badge/Henrik%20Ferdinand%20Nölscher-informational) ![Luca Dubies](https://img.shields.io/badge/Luca%20Dubies-informational)
+![Category: Others](https://img.shields.io/badge/Category:%20Others-lightgrey) ![Henrik Ferdinand Nölscher](https://img.shields.io/badge/Henrik%20Ferdinand%20Nölscher-informational) ![Luca Dubies](https://img.shields.io/badge/Luca%20Dubies-informational)
 
 🔗 **Link:** Not Available  
 📝 **Description:** None
@@ -207,7 +207,7 @@ EMBA is the open-source firmware scanner, created by penetration testers for pen
 
 <details><summary><strong>Mobile App API Penetration Platform</strong></summary>
 
-![Category: Uncategorized](https://img.shields.io/badge/Category:%20Uncategorized-lightgrey) ![Yifeng Zhang](https://img.shields.io/badge/Yifeng%20Zhang-informational)
+![Category: Others](https://img.shields.io/badge/Category:%20Others-lightgrey) ![Yifeng Zhang](https://img.shields.io/badge/Yifeng%20Zhang-informational)
 
 🔗 **Link:** [Mobile App API Penetration Platform](https://github.com/Trustworthy-AI-Group/Adversarial_Examples_Papers)  
 📝 **Description:** There are many protections being applied to mobile applications nowadays, and most penetration testing engineer use primitive methods to crack them. Therefore, if we can modify the data or insert the payload of the vulnerability before the protection is processed, all the protections will be transparent to the penetration testers and there will be no concern about their implementation, making app API testing purer.

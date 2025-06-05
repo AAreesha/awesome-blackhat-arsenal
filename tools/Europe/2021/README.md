@@ -4,7 +4,7 @@
 Tools are categorized based on their **track theme**, such as Red Teaming, OSINT, Reverse Engineering, etc.
 
 ## 📚 Table of Contents
-- [Uncategorized](#uncategorized)
+- [Others](#others)
 - [⚙️ Miscellaneous / Lab Tools](#⚙️-miscellaneous-lab-tools)
 - [🌐 Web/AppSec](#🌐-webappsec)
 - [🌐 Web/AppSec or Red Teaming](#🌐-webappsec-or-red-teaming)
@@ -15,10 +15,10 @@ Tools are categorized based on their **track theme**, such as Red Teaming, OSINT
 - [🧠 Reverse Engineering](#🧠-reverse-engineering)
 - [🧠 Social Engineering / General](#🧠-social-engineering-general)
 ---
-## Uncategorized
+## Others
 <details><summary><strong>A Privilege Rules-Based Vulnerabilities Scan Tool for Android Apps</strong></summary>
 
-![Category: Uncategorized](https://img.shields.io/badge/Category:%20Uncategorized-lightgrey) ![Li Jiang](https://img.shields.io/badge/Li%20Jiang-informational)
+![Category: Others](https://img.shields.io/badge/Category:%20Others-lightgrey) ![Li Jiang](https://img.shields.io/badge/Li%20Jiang-informational)
 
 🔗 **Link:** [A Privilege Rules-Based Vulnerabilities Scan Tool for Android Apps](https://github.com/LyleMi/papers)  
 📝 **Description:** In the development of software, the system is often designed on a good architecture to ensure the security of the system, which reduces the risk of being attacked. However, due to business requirements, some "privilege rules" often exist in some key security protection processes, such as some privilege userid lists, privilege url lists, or special paths, etc. These privilege configurations disrupt the original security process, and pull down the security level, become a new attack surface (intrusion into the original secure system through attack privilege rules). It is more difficult for us to attack the system directly, but it will be easier to attack the system through the vulnerabilities in the privilege rules, and even the vulnerabilities in these privilege rules already exist widely.
@@ -31,7 +31,7 @@ In this talk, we found the risk of privilege rules in a software , which broke t
 
 <details><summary><strong>RPC-FireWall</strong></summary>
 
-![Category: Uncategorized](https://img.shields.io/badge/Category:%20Uncategorized-lightgrey) ![Sagie Dulce](https://img.shields.io/badge/Sagie%20Dulce-informational)
+![Category: Others](https://img.shields.io/badge/Category:%20Others-lightgrey) ![Sagie Dulce](https://img.shields.io/badge/Sagie%20Dulce-informational)
 
 🔗 **Link:** Not Available  
 📝 **Description:** None
@@ -40,7 +40,7 @@ In this talk, we found the risk of privilege rules in a software , which broke t
 
 <details><summary><strong>UART Brute Forcing</strong></summary>
 
-![Category: Uncategorized](https://img.shields.io/badge/Category:%20Uncategorized-lightgrey) ![Andrew Blyth](https://img.shields.io/badge/Andrew%20Blyth-informational)
+![Category: Others](https://img.shields.io/badge/Category:%20Others-lightgrey) ![Andrew Blyth](https://img.shields.io/badge/Andrew%20Blyth-informational)
 
 🔗 **Link:** Not Available  
 📝 **Description:** None
@@ -49,7 +49,7 @@ In this talk, we found the risk of privilege rules in a software , which broke t
 
 <details><summary><strong>Xsstools: The XSS Exploitation Framework</strong></summary>
 
-![Category: Uncategorized](https://img.shields.io/badge/Category:%20Uncategorized-lightgrey) ![Lucas Philippe](https://img.shields.io/badge/Lucas%20Philippe-informational)
+![Category: Others](https://img.shields.io/badge/Category:%20Others-lightgrey) ![Lucas Philippe](https://img.shields.io/badge/Lucas%20Philippe-informational)
 
 🔗 **Link:** Not Available  
 📝 **Description:** None

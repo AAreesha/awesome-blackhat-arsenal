@@ -4,7 +4,7 @@
 Tools are categorized based on their **track theme**, such as Red Teaming, OSINT, Reverse Engineering, etc.
 
 ## 📚 Table of Contents
-- [Uncategorized](#uncategorized)
+- [Others](#others)
 - [⚙️ Miscellaneous / Lab Tools](#⚙️-miscellaneous-lab-tools)
 - [🌐 Web/AppSec](#🌐-webappsec)
 - [🌐 Web/AppSec or Red Teaming](#🌐-webappsec-or-red-teaming)
@@ -15,10 +15,10 @@ Tools are categorized based on their **track theme**, such as Red Teaming, OSINT
 - [🟣 Red Teaming / Embedded](#🟣-red-teaming-embedded)
 - [🧠 Reverse Engineering](#🧠-reverse-engineering)
 ---
-## Uncategorized
+## Others
 <details><summary><strong>a bridge to laser beam from IR remote controller</strong></summary>
 
-![Category: Uncategorized](https://img.shields.io/badge/Category:%20Uncategorized-lightgrey) ![michihiro imaoka](https://img.shields.io/badge/michihiro%20imaoka-informational)
+![Category: Others](https://img.shields.io/badge/Category:%20Others-lightgrey) ![michihiro imaoka](https://img.shields.io/badge/michihiro%20imaoka-informational)
 
 🔗 **Link:** Not Available  
 📝 **Description:** This summer, Michihiro Imaoka presented IR-BadUSB at the Black Hat USA 2022 Arsenal. This IR-BadUSB allows an attacker to control a BadUSB plugged into a target's PC with an infrared remote control. Since this IR-BadUSB uses a household infrared remote control, the attacker and the IR-BadUSB must be within the infrared range of this remote control. Basically, the target and the attacker must be in the same room. Therefore, various improvements have been made to extend the reach of this IR-BadUSB.
@@ -34,7 +34,7 @@ Operating the IR-BadUSB with an infrared laser beam does not require a PC or oth
 
 <details><summary><strong>hacking tools</strong></summary>
 
-![Category: Uncategorized](https://img.shields.io/badge/Category:%20Uncategorized-lightgrey) ![ade saputra](https://img.shields.io/badge/ade%20saputra-informational)
+![Category: Others](https://img.shields.io/badge/Category:%20Others-lightgrey) ![ade saputra](https://img.shields.io/badge/ade%20saputra-informational)
 
 🔗 **Link:** [hacking tools](https://github.com/orgs/openswoole/followers)  
 📝 **Description:** 1. COUNTABLE NOUN

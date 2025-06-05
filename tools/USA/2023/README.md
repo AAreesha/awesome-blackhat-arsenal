@@ -4,7 +4,7 @@
 Tools are categorized based on their **track theme**, such as Red Teaming, OSINT, Reverse Engineering, etc.
 
 ## 📚 Table of Contents
-- [Uncategorized](#uncategorized)
+- [Others](#others)
 - [⚙️ Miscellaneous / Lab Tools](#⚙️-miscellaneous-lab-tools)
 - [🌐 Web/AppSec](#🌐-webappsec)
 - [🌐 Web/AppSec or Red Teaming](#🌐-webappsec-or-red-teaming)
@@ -987,10 +987,10 @@ Since these devices share common components, it would be possible to obtain remo
 </details>
 
 ---
-## Uncategorized
+## Others
 <details><summary><strong>BLE CTF - A Bluetooth Low Energy Security Research Platform</strong></summary>
 
-![Category: Uncategorized](https://img.shields.io/badge/Category:%20Uncategorized-lightgrey) ![Ryan Holeman](https://img.shields.io/badge/Ryan%20Holeman-informational)
+![Category: Others](https://img.shields.io/badge/Category:%20Others-lightgrey) ![Ryan Holeman](https://img.shields.io/badge/Ryan%20Holeman-informational)
 
 🔗 **Link:** [BLE CTF - A Bluetooth Low Energy Security Research Platform](https://github.com/Charmve/BLE-Security-Attack-Defence)  
 📝 **Description:** BLE CTF is a series of Bluetooth Low Energy challenges in a capture the flag format. It was created to teach the fundamentals of interacting with and hacking Bluetooth Low Energy services. Each exercise, or flag, aims to interactively introduce a new concept to the user.
@@ -1003,7 +1003,7 @@ This demo will showcase the BLE CTF platform and its new variants. This will be 
 
 <details><summary><strong>BucketLoot - An Automated S3 Bucket Inspector</strong></summary>
 
-![Category: Uncategorized](https://img.shields.io/badge/Category:%20Uncategorized-lightgrey) ![Umair Nehri](https://img.shields.io/badge/Umair%20Nehri-informational) ![Owais Shaikh](https://img.shields.io/badge/Owais%20Shaikh-informational)
+![Category: Others](https://img.shields.io/badge/Category:%20Others-lightgrey) ![Umair Nehri](https://img.shields.io/badge/Umair%20Nehri-informational) ![Owais Shaikh](https://img.shields.io/badge/Owais%20Shaikh-informational)
 
 🔗 **Link:** Not Available  
 📝 **Description:** Thousands of S3 buckets are left exposed over the internet, making it a prime target for malicious actors who may extract sensitive information from the files in these buckets that can be associated with an individual or an organisation. There is a limited research or tooling available that leverages such S3 buckets for looking up secret exposures and searching specific keywords or regular expression patterns within textual files.
@@ -1018,7 +1018,7 @@ The tool allows users to save the output in a JSON format which makes it easier 
 
 <details><summary><strong>Damn Vulnerable Bank</strong></summary>
 
-![Category: Uncategorized](https://img.shields.io/badge/Category:%20Uncategorized-lightgrey) ![Rewanth Tammana](https://img.shields.io/badge/Rewanth%20Tammana-informational) ![Hrushikesh Kakade](https://img.shields.io/badge/Hrushikesh%20Kakade-informational) ![Akshansh Jaiswal](https://img.shields.io/badge/Akshansh%20Jaiswal-informational)
+![Category: Others](https://img.shields.io/badge/Category:%20Others-lightgrey) ![Rewanth Tammana](https://img.shields.io/badge/Rewanth%20Tammana-informational) ![Hrushikesh Kakade](https://img.shields.io/badge/Hrushikesh%20Kakade-informational) ![Akshansh Jaiswal](https://img.shields.io/badge/Akshansh%20Jaiswal-informational)
 
 🔗 **Link:** [Damn Vulnerable Bank](https://github.com/rewanthtammana/Damn-Vulnerable-Bank)  
 📝 **Description:** With over 2.5 billion devices and millions of apps, Android is ruling the market. Developers had additional responsibility to protect the information and integrity of their users. Considering these high numbers, preventive measures should be taken to secure Android applications used by people across the globe.
@@ -1029,7 +1029,7 @@ We built an open-source vulnerable Banking application, a clone close to real-wo
 
 <details><summary><strong>DIAL - Did I Alert Lambda? Centralised Security Misconfiguration Detection Framework</strong></summary>
 
-![Category: Uncategorized](https://img.shields.io/badge/Category:%20Uncategorized-lightgrey) ![Saransh Rana](https://img.shields.io/badge/Saransh%20Rana-informational) ![Rashid Feroze](https://img.shields.io/badge/Rashid%20Feroze-informational) ![Harsh Varagiya](https://img.shields.io/badge/Harsh%20Varagiya-informational)
+![Category: Others](https://img.shields.io/badge/Category:%20Others-lightgrey) ![Saransh Rana](https://img.shields.io/badge/Saransh%20Rana-informational) ![Rashid Feroze](https://img.shields.io/badge/Rashid%20Feroze-informational) ![Harsh Varagiya](https://img.shields.io/badge/Harsh%20Varagiya-informational)
 
 🔗 **Link:** Not Available  
 📝 **Description:** Workloads on the cloud provide equal opportunities for hackers as much as they do for internal teams. Cloud-native companies are open to attacks from both outside forces and from within. With the ever-growing risk of a security breach and cloud misconfiguration being one of the most common factors of the same, the mean time to detect is supposed to be reduced to seconds instead of minutes/hours.
@@ -1044,7 +1044,7 @@ With DIAL, you can deploy a central security monitoring solution on your AWS acc
 
 <details><summary><strong>Dracon, Security Engineering Automation, No Code, At Your Fingertips</strong></summary>
 
-![Category: Uncategorized](https://img.shields.io/badge/Category:%20Uncategorized-lightgrey) ![Spyros Gasteratos](https://img.shields.io/badge/Spyros%20Gasteratos-informational) ![Vijendra Patel](https://img.shields.io/badge/Vijendra%20Patel-informational)
+![Category: Others](https://img.shields.io/badge/Category:%20Others-lightgrey) ![Spyros Gasteratos](https://img.shields.io/badge/Spyros%20Gasteratos-informational) ![Vijendra Patel](https://img.shields.io/badge/Vijendra%20Patel-informational)
 
 🔗 **Link:** Not Available  
 📝 **Description:** Dracon is an open source, Application and Cloud Security Orchestration and Correlation (ASOC) platform, empowering organisations to establish and manage comprehensive application security programs. By creating customizable pipelines, Dracon enables the execution of a wide range of security tools against any target. During a pipeline execution Dracon runs user-configured tools in parallel. Concurrently, results from each tool are deduplicated, enriched with information based on organisational or regulatory policies, compliance requirements, and more, before being forwarded to any visualisation or data processing sink.
@@ -1056,7 +1056,7 @@ Finally, Dracon directs enriched results to a layer of user-configurable Consume
 
 <details><summary><strong>Easy EASM - The Zero Dollar Attack Surface Management Tool</strong></summary>
 
-![Category: Uncategorized](https://img.shields.io/badge/Category:%20Uncategorized-lightgrey) ![Jason Haddix](https://img.shields.io/badge/Jason%20Haddix-informational) ![Olivia Gallucci](https://img.shields.io/badge/Olivia%20Gallucci-informational) ![Gunnar Andrews](https://img.shields.io/badge/Gunnar%20Andrews-informational)
+![Category: Others](https://img.shields.io/badge/Category:%20Others-lightgrey) ![Jason Haddix](https://img.shields.io/badge/Jason%20Haddix-informational) ![Olivia Gallucci](https://img.shields.io/badge/Olivia%20Gallucci-informational) ![Gunnar Andrews](https://img.shields.io/badge/Gunnar%20Andrews-informational)
 
 🔗 **Link:** [Easy EASM - The Zero Dollar Attack Surface Management Tool](https://github.com/g0ldencybersec/EasyEASM)  
 📝 **Description:** Easy EASM is just that... the easiest to set-up tool to give your organization visibility into its external facing assets.
@@ -1069,7 +1069,7 @@ With ten lines of setup or less, using open source tools, and one button deploym
 
 <details><summary><strong>Introducing varc: Volatile Artifact Collector</strong></summary>
 
-![Category: Uncategorized](https://img.shields.io/badge/Category:%20Uncategorized-lightgrey) ![Chris Doman](https://img.shields.io/badge/Chris%20Doman-informational) ![Matt Muir](https://img.shields.io/badge/Matt%20Muir-informational)
+![Category: Others](https://img.shields.io/badge/Category:%20Others-lightgrey) ![Chris Doman](https://img.shields.io/badge/Chris%20Doman-informational) ![Matt Muir](https://img.shields.io/badge/Matt%20Muir-informational)
 
 🔗 **Link:** Not Available  
 📝 **Description:** Varc (https://github.com/cado-security/varc) is a recently-released
@@ -1143,7 +1143,7 @@ any questions about varc answered.
 
 <details><summary><strong>MORF - Mobile Reconnaissance Framework</strong></summary>
 
-![Category: Uncategorized](https://img.shields.io/badge/Category:%20Uncategorized-lightgrey) ![Amrudesh Balakrishnan](https://img.shields.io/badge/Amrudesh%20Balakrishnan-informational) ![Abhishek JM](https://img.shields.io/badge/Abhishek%20JM-informational) ![Himanshu Das](https://img.shields.io/badge/Himanshu%20Das-informational)
+![Category: Others](https://img.shields.io/badge/Category:%20Others-lightgrey) ![Amrudesh Balakrishnan](https://img.shields.io/badge/Amrudesh%20Balakrishnan-informational) ![Abhishek JM](https://img.shields.io/badge/Abhishek%20JM-informational) ![Himanshu Das](https://img.shields.io/badge/Himanshu%20Das-informational)
 
 🔗 **Link:** Not Available  
 📝 **Description:** MORF - Mobile Reconnaissance Framework is a powerful, lightweight, and platform-independent offensive mobile security tool designed to help hackers and developers identify and address sensitive information within mobile applications. It is like a Swiss army knife for mobile application security, as it uses heuristics-based techniques to search through the codebase, creating a comprehensive repository of sensitive information it finds. This makes it easy to identify and address any potentially sensitive data leak.
@@ -1158,7 +1158,7 @@ Overall, MORF is a Swiss army knife for offensive mobile application security, a
 
 <details><summary><strong>Pcapinator: Rise of the PCAP Machines</strong></summary>
 
-![Category: Uncategorized](https://img.shields.io/badge/Category:%20Uncategorized-lightgrey) ![Mike Spicer](https://img.shields.io/badge/Mike%20Spicer-informational)
+![Category: Others](https://img.shields.io/badge/Category:%20Others-lightgrey) ![Mike Spicer](https://img.shields.io/badge/Mike%20Spicer-informational)
 
 🔗 **Link:** Not Available  
 📝 **Description:** Pcapinator is a powerful and versatile network analysis tool that combines the strengths of TShark and Python to provide comprehensive and efficient packet deconstruction into a format usable for further analysis. Inspired by the Terminator, Pcapinator is designed to relentlessly analyze, decode, and filter network packets using all of the resources a system makes available to it, making it a formidable asset for diving deep into PCAPs.
@@ -1169,7 +1169,7 @@ Leveraging the robust capabilities of Wireshark's TShark tool, Pcapinator parses
 
 <details><summary><strong>PurpleOPS - A Simple Tool to Help Track and Share Purple Team Data</strong></summary>
 
-![Category: Uncategorized](https://img.shields.io/badge/Category:%20Uncategorized-lightgrey) ![Willem Mouton](https://img.shields.io/badge/Willem%20Mouton-informational) ![Harrison Mitchell](https://img.shields.io/badge/Harrison%20Mitchell-informational)
+![Category: Others](https://img.shields.io/badge/Category:%20Others-lightgrey) ![Willem Mouton](https://img.shields.io/badge/Willem%20Mouton-informational) ![Harrison Mitchell](https://img.shields.io/badge/Harrison%20Mitchell-informational)
 
 🔗 **Link:** Not Available  
 📝 **Description:** Purple team exercises are probably one of the most useful types of activities that organizations can engage in these days. Key to effective purple teaming is good communication, data collection and knowledge sharing. For us, this has been a bit of a pain point having to try and manually keep track of activities, actions and events. We did find some tools to aid with this, but none of them truly opensource or flexible enough to allow us to do what we wanted to do. So we built PurpleOPS, which is at its core a data collection tool aligned to MITRE ATT&CK and integrated into other fantastic open-source projects such as Atomic Redteam. It is easy to customize with your own internal knowledge base and test cases, plus it's also written in python3 using Flask, so it's super easy to adjust to your needs.

@@ -4,7 +4,7 @@
 Tools are categorized based on their **track theme**, such as Red Teaming, OSINT, Reverse Engineering, etc.
 
 ## 📚 Table of Contents
-- [Uncategorized](#uncategorized)
+- [Others](#others)
 - [⚙️ Miscellaneous / Lab Tools](#⚙️-miscellaneous-lab-tools)
 - [🌐 Web/AppSec](#🌐-webappsec)
 - [🔍 OSINT](#🔍-osint)
@@ -96,10 +96,10 @@ Note: This is the first release of the tool and we expect to add more modules in
 </details>
 
 ---
-## Uncategorized
+## Others
 <details><summary><strong>AndroGoat: Learn Android Application Security Testing</strong></summary>
 
-![Category: Uncategorized](https://img.shields.io/badge/Category:%20Uncategorized-lightgrey) ![Satish Patnayak](https://img.shields.io/badge/Satish%20Patnayak-informational)
+![Category: Others](https://img.shields.io/badge/Category:%20Others-lightgrey) ![Satish Patnayak](https://img.shields.io/badge/Satish%20Patnayak-informational)
 
 🔗 **Link:** [AndroGoat: Learn Android Application Security Testing](https://github.com/OWASP/www-chapter-hyderabad/blob/master/migrated_content.md)  
 📝 **Description:** AndroGoat is purposely developed open source vulnerable/insecure app using Kotlin. This app has a wide range of vulnerabilities related to certificate pinning, custom URL schemes, Android Network Security Configuration, WebViews, root detection and over 20 other vulnerabilities. Security Testers/Professionals/Enthusiasts, Developers...etc. can use this application to understand and defend the vulnerabilities in Android platform
@@ -108,7 +108,7 @@ Note: This is the first release of the tool and we expect to add more modules in
 
 <details><summary><strong>efi_fuzz: Groundwork to the Metaphysics of coverage-guided UEFI fuzzing</strong></summary>
 
-![Category: Uncategorized](https://img.shields.io/badge/Category:%20Uncategorized-lightgrey) ![Assaf Carlsbad](https://img.shields.io/badge/Assaf%20Carlsbad-informational) ![Itai Liba](https://img.shields.io/badge/Itai%20Liba-informational)
+![Category: Others](https://img.shields.io/badge/Category:%20Others-lightgrey) ![Assaf Carlsbad](https://img.shields.io/badge/Assaf%20Carlsbad-informational) ![Itai Liba](https://img.shields.io/badge/Itai%20Liba-informational)
 
 🔗 **Link:** Not Available  
 📝 **Description:** In recent years, firmware-level attacks against UEFI have grown in popularity and became more and more complex. Prominent examples for such attacks from this year alone include CVE-2020-12890 (SMM callout vulnerability in AMD's Mini PCs), CVE-2020-10713 (BootHole, an effective bypass for Secure Boot) as well as the discovery of a new UEFI implant, dubbed MosaicRegressor. As a growing area of concern, these UEFI vulnerabilities shouldn't be taken lightly. Given any of these vulnerabilities, an attacker can get extremely stealthy persistence on the machine, while bypassing many traditional kernel-based or even hypervisor-based mitigations.

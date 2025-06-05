@@ -4,7 +4,7 @@
 Tools are categorized based on their **track theme**, such as Red Teaming, OSINT, Reverse Engineering, etc.
 
 ## 📚 Table of Contents
-- [Uncategorized](#uncategorized)
+- [Others](#others)
 - [🌐 Web/AppSec](#🌐-webappsec)
 - [🌐 Web/AppSec or Red Teaming](#🌐-webappsec-or-red-teaming)
 - [🔍 OSINT](#🔍-osint)
@@ -14,10 +14,10 @@ Tools are categorized based on their **track theme**, such as Red Teaming, OSINT
 - [🟣 Red Teaming / Embedded](#🟣-red-teaming-embedded)
 - [🧠 Reverse Engineering](#🧠-reverse-engineering)
 ---
-## Uncategorized
+## Others
 <details><summary><strong>APKiD: "PEiD" for Android Applications</strong></summary>
 
-![Category: Uncategorized](https://img.shields.io/badge/Category:%20Uncategorized-lightgrey) ![Eduardo Novella Lorente](https://img.shields.io/badge/Eduardo%20Novella%20Lorente-informational)
+![Category: Others](https://img.shields.io/badge/Category:%20Others-lightgrey) ![Eduardo Novella Lorente](https://img.shields.io/badge/Eduardo%20Novella%20Lorente-informational)
 
 🔗 **Link:** Not Available  
 📝 **Description:** APKiD is like "PEiD" for Android applications. It gives information on how an APK was built by fingerprinting compilers, packers, obfuscators, and protectors. The main idea behind the tool is to help provide context on how the APK was potentially built or changed after it was built. This is all context useful for attributing authorship and finding patterns.
@@ -42,7 +42,7 @@ Detecting Pirated and Malicious Android Apps with APKiD -> https://rednaga.io/20
 
 <details><summary><strong>CyBot: Open-Source Threat Intelligence Chat Bot (Bring the Threats)</strong></summary>
 
-![Category: Uncategorized](https://img.shields.io/badge/Category:%20Uncategorized-lightgrey) ![Tony Lee](https://img.shields.io/badge/Tony%20Lee-informational)
+![Category: Others](https://img.shields.io/badge/Category:%20Others-lightgrey) ![Tony Lee](https://img.shields.io/badge/Tony%20Lee-informational)
 
 🔗 **Link:** Not Available  
 📝 **Description:** Threat intelligence chat bots are useful friends. They perform research for you and can even be note takers or central aggregators of information. However, it seems like most organizations want to design their own bot in isolation and keep it internal. To counter this trend, our goal was to create a repeatable process using a completely free open source framework, an inexpensive Raspberry Pi (or even virtual machine), and host a community-driven plugin framework to open up the world of threat intel chat bots to everyone from the average home user to the largest security operations center.
@@ -55,7 +55,7 @@ Best of all, if you know even a little bit of Python, you can help our collabora
 
 <details><summary><strong>Dexter: The Friendly Forensics Expert on the Coinbase Security Team</strong></summary>
 
-![Category: Uncategorized](https://img.shields.io/badge/Category:%20Uncategorized-lightgrey) ![Hayden Parker](https://img.shields.io/badge/Hayden%20Parker-informational)
+![Category: Others](https://img.shields.io/badge/Category:%20Others-lightgrey) ![Hayden Parker](https://img.shields.io/badge/Hayden%20Parker-informational)
 
 🔗 **Link:** [Dexter: The Friendly Forensics Expert on the Coinbase Security Team](https://github.com/coinbase/dexter/blob/master/doc/dexter.md)  
 📝 **Description:** Sometimes you want to be able to pull forensic images off your production hosts, but you want to make sure you set that up correctly. If you don't, people might steal customer financial data or cryptocurrency private keys for hot wallets (or something else), and that would be a very bad day for you and for the cryptocurrency community. This talk introduces Dexter, a forensics tool for high security environments. Dexter makes sure that no single person can do scary forensics things, and that the scary results of the scary forensic things can only be read by people who aren't scary. I'll give an overview of the Coinbase production environment, data pipeline, and detection tooling to set the stage for when we might use Dexter. We will then walk through how Dexter works and do a demo that will totally work and not have any technical issues whatsoever.
@@ -64,7 +64,7 @@ Best of all, if you know even a little bit of Python, you can help our collabora
 
 <details><summary><strong>FACT 2.5: Firmware Analysis and Comparison Tool</strong></summary>
 
-![Category: Uncategorized](https://img.shields.io/badge/Category:%20Uncategorized-lightgrey) ![Peter Weidenbach](https://img.shields.io/badge/Peter%20Weidenbach-informational)
+![Category: Others](https://img.shields.io/badge/Category:%20Others-lightgrey) ![Peter Weidenbach](https://img.shields.io/badge/Peter%20Weidenbach-informational)
 
 🔗 **Link:** Not Available  
 📝 **Description:** The Firmware Analysis and Comparison Tool (FACT) is intended to automate firmware security analysis. Thereby, it shall be easy to use (web GUI), extend (plug-in system) and integrate (REST API). When analyzing Firmware, you face several challenges: unpacking, initial analysis, identifying changes towards other versions, find other firmware images that might share vulnerabilities you just found. FACT is able to automate many aspects of these challenges leading to a massive speed-up in the firmware analysis process. This means you can focus on the fun part of finding new vulnerabilities, whereas FACT does all the boring stuff for you.
@@ -73,7 +73,7 @@ Best of all, if you know even a little bit of Python, you can help our collabora
 
 <details><summary><strong>PandaWar: Hardware Security Multidimensional Attack and Defense Toolset</strong></summary>
 
-![Category: Uncategorized](https://img.shields.io/badge/Category:%20Uncategorized-lightgrey) ![JIE FU](https://img.shields.io/badge/JIE%20FU-informational) ![Mingchuang Qin](https://img.shields.io/badge/Mingchuang%20Qin-informational) ![Kunzhe Chai](https://img.shields.io/badge/Kunzhe%20Chai-informational)
+![Category: Others](https://img.shields.io/badge/Category:%20Others-lightgrey) ![JIE FU](https://img.shields.io/badge/JIE%20FU-informational) ![Mingchuang Qin](https://img.shields.io/badge/Mingchuang%20Qin-informational) ![Kunzhe Chai](https://img.shields.io/badge/Kunzhe%20Chai-informational)
 
 🔗 **Link:** Not Available  
 📝 **Description:** This is a hardware attack and defense tool platform. It will help you quickly master and implement a variety of hardware attack methods.
@@ -86,7 +86,7 @@ All open source, design idea, design concept, design method, code, schematic, PC
 
 <details><summary><strong>Uitkyk: Identifying Malware via Runtime Memory Analysis</strong></summary>
 
-![Category: Uncategorized](https://img.shields.io/badge/Category:%20Uncategorized-lightgrey) ![Chris Le Roy](https://img.shields.io/badge/Chris%20Le%20Roy-informational)
+![Category: Others](https://img.shields.io/badge/Category:%20Others-lightgrey) ![Chris Le Roy](https://img.shields.io/badge/Chris%20Le%20Roy-informational)
 
 🔗 **Link:** [Uitkyk: Identifying Malware via Runtime Memory Analysis](https://github.com/brompwnie/uitkyk)  
 📝 **Description:** Uitkyk is the first Android framework that allows for its implementers to identify Android malware according to the instantiated objects on the heap for a particular process. Uitkyk does not require the APK of the application to be scanned to be present to identify malicious behaviour but instead makes use of runtime memory analysis to detect behaviour which normally cannot be identified by static analysis of Android applications. Static analysis of Android applications is the default approach utilised to identify malicious applications however static analysis has certain shortcomings which Uitkyk addresses by targeting the heap. Uitkyk can be implemented as a standalone library or standalone application on mobile devices.

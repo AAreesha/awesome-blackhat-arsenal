@@ -32,12 +32,12 @@ def extract_track_label(track_entry):
 
 def determine_category(track_list):
     if not track_list or not isinstance(track_list, list):
-        return ("Uncategorized", "lightgrey")
+        return ("Others", "lightgrey")
     for track in track_list:
         track_clean = extract_track_label(track)
         if track_clean in CATEGORY_MAP:
             return CATEGORY_MAP[track_clean]
-    return ("Uncategorized", "lightgrey")
+    return ("Others", "lightgrey")
 
 def badge(text, color):
     return f"![{text}](https://img.shields.io/badge/{text.replace(' ', '%20')}-{color})"

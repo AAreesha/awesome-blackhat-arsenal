@@ -4,7 +4,7 @@
 Tools are categorized based on their **track theme**, such as Red Teaming, OSINT, Reverse Engineering, etc.
 
 ## 📚 Table of Contents
-- [Uncategorized](#uncategorized)
+- [Others](#others)
 - [⚙️ Miscellaneous / Lab Tools](#⚙️-miscellaneous-lab-tools)
 - [🌐 Web/AppSec](#🌐-webappsec)
 - [🌐 Web/AppSec or Red Teaming](#🌐-webappsec-or-red-teaming)
@@ -919,10 +919,10 @@ Presentation slides: https://drive.google.com/open?id=1Fi5XJ5-1QyXSawHKXVm_emF3N
 </details>
 
 ---
-## Uncategorized
+## Others
 <details><summary><strong>Arsenal Intro to Open Source Meet-Up: Day 1</strong></summary>
 
-![Category: Uncategorized](https://img.shields.io/badge/Category:%20Uncategorized-lightgrey) ![Nabil Ouchn](https://img.shields.io/badge/Nabil%20Ouchn-informational) ![Rachid Harrando](https://img.shields.io/badge/Rachid%20Harrando-informational) ![Maximiliano Soler](https://img.shields.io/badge/Maximiliano%20Soler-informational)
+![Category: Others](https://img.shields.io/badge/Category:%20Others-lightgrey) ![Nabil Ouchn](https://img.shields.io/badge/Nabil%20Ouchn-informational) ![Rachid Harrando](https://img.shields.io/badge/Rachid%20Harrando-informational) ![Maximiliano Soler](https://img.shields.io/badge/Maximiliano%20Soler-informational)
 
 🔗 **Link:** Not Available  
 📝 **Description:** Visit the Arsenal Lounge for a meet-up with the Arsenal Review Board and other tool authors. This casual gathering will allow you to discuss your current projects, receive feedback from the ToolsWatch team, connect with other open source contributors, and learn about the Arsenal program and how to become a presenter!
@@ -931,7 +931,7 @@ Presentation slides: https://drive.google.com/open?id=1Fi5XJ5-1QyXSawHKXVm_emF3N
 
 <details><summary><strong>Arsenal Intro to Open Source Meet-Up: Day 2</strong></summary>
 
-![Category: Uncategorized](https://img.shields.io/badge/Category:%20Uncategorized-lightgrey) ![Maximiliano Soler](https://img.shields.io/badge/Maximiliano%20Soler-informational) ![Nabil Ouchn](https://img.shields.io/badge/Nabil%20Ouchn-informational) ![Rachid Harrando](https://img.shields.io/badge/Rachid%20Harrando-informational)
+![Category: Others](https://img.shields.io/badge/Category:%20Others-lightgrey) ![Maximiliano Soler](https://img.shields.io/badge/Maximiliano%20Soler-informational) ![Nabil Ouchn](https://img.shields.io/badge/Nabil%20Ouchn-informational) ![Rachid Harrando](https://img.shields.io/badge/Rachid%20Harrando-informational)
 
 🔗 **Link:** Not Available  
 📝 **Description:** Visit the Arsenal Lounge for a meet-up with the Arsenal Review Board and other tool authors. This casual gathering will allow you to discuss your current projects, receive feedback from the ToolsWatch team, connect with other open source contributors, and learn about the Arsenal program and how to become a presenter!
@@ -940,7 +940,7 @@ Presentation slides: https://drive.google.com/open?id=1Fi5XJ5-1QyXSawHKXVm_emF3N
 
 <details><summary><strong>Cylon-6: An EDID Fuzzer Based on Raspberry Pi Hardware</strong></summary>
 
-![Category: Uncategorized](https://img.shields.io/badge/Category:%20Uncategorized-lightgrey) ![Wei Wang](https://img.shields.io/badge/Wei%20Wang-informational)
+![Category: Others](https://img.shields.io/badge/Category:%20Others-lightgrey) ![Wei Wang](https://img.shields.io/badge/Wei%20Wang-informational)
 
 🔗 **Link:** Not Available  
 📝 **Description:** EDID stands for "Extended Display Identification Data", is a data format for monitors to describe thier capabilities, such as screen size or resolutions. EDID is transmitted to graphics card through DDC, a data channel based on I2C bus, which directly bridges the graphics card and EEPROM inside display devices.
@@ -957,7 +957,7 @@ Source code: https://github.com/kings-way/cylon-6
 
 <details><summary><strong>FACT 3.0: Firmware Analysis and Comparison Tool</strong></summary>
 
-![Category: Uncategorized](https://img.shields.io/badge/Category:%20Uncategorized-lightgrey) ![Johannes vom Dorp](https://img.shields.io/badge/Johannes%20vom%20Dorp-informational)
+![Category: Others](https://img.shields.io/badge/Category:%20Others-lightgrey) ![Johannes vom Dorp](https://img.shields.io/badge/Johannes%20vom%20Dorp-informational)
 
 🔗 **Link:** [FACT 3.0: Firmware Analysis and Comparison Tool](https://github.com/osmc/kernel-package-tool-osmc/blob/master/debian/changelog)  
 📝 **Description:** The Firmware Analysis and Comparison Tool (FACT) is intended to automate firmware security analysis. Thereby, it shall be easy to use (web GUI), extend (plug-in system) and integrate (REST API). When analyzing Firmware, you face several challenges: unpacking, initial analysis, identifying changes towards other versions, find other firmware images that might share vulnerabilities you just found. FACT is able to automate many aspects of these challenges leading to a massive speed-up in the firmware analysis process. This means you can focus on the fun part of finding new vulnerabilities, whereas FACT does all the boring stuff for you.
@@ -966,7 +966,7 @@ Source code: https://github.com/kings-way/cylon-6
 
 <details><summary><strong>Objection: Runtime Mobile Exploration</strong></summary>
 
-![Category: Uncategorized](https://img.shields.io/badge/Category:%20Uncategorized-lightgrey) ![Leon Jacobs](https://img.shields.io/badge/Leon%20Jacobs-informational)
+![Category: Others](https://img.shields.io/badge/Category:%20Others-lightgrey) ![Leon Jacobs](https://img.shields.io/badge/Leon%20Jacobs-informational)
 
 🔗 **Link:** [Objection: Runtime Mobile Exploration](https://github.com/leonjza)  
 📝 **Description:** Objection is a runtime mobile exploration toolkit, powered by Frida. It was built with the aim of helping assess mobile applications and their security posture without the need for a jailbroken or rooted mobile device. Objection allows for many common pentesting tasks to be performed such as disabling SSL inspection, interacting with the applicable platforms keystore/keychain as well as the ability to upload/download files from a device. Additionally, more advanced usage such as code path tracing and live Java object inspection, to name a few, is possible.
@@ -975,7 +975,7 @@ Source code: https://github.com/kings-way/cylon-6
 
 <details><summary><strong>Smalien</strong></summary>
 
-![Category: Uncategorized](https://img.shields.io/badge/Category:%20Uncategorized-lightgrey) ![Hiroki Inayoshi](https://img.shields.io/badge/Hiroki%20Inayoshi-informational) ![Kazuya Aoki](https://img.shields.io/badge/Kazuya%20Aoki-informational)
+![Category: Others](https://img.shields.io/badge/Category:%20Others-lightgrey) ![Hiroki Inayoshi](https://img.shields.io/badge/Hiroki%20Inayoshi-informational) ![Kazuya Aoki](https://img.shields.io/badge/Kazuya%20Aoki-informational)
 
 🔗 **Link:** Not Available  
 📝 **Description:** Investigating how an application handles sensitive information is essential for mobile security researchers to understand behavior of the application and determine whether it is harmless or malicious. Our information flow analysis and information leakage detection tool, called Smalien, should be a good buddy when you start a journey of Android application analysis. Once you give an application to Smalien, it understands the application thoroughly by executing static information flow analysis of Dalvik bytecode files extracted from the application. Smalien performs not only static analysis but also dynamic analysis, implicit information flow detection, and privacy policy enforcement at runtime by parasitizing the application. Smalien instruments additional bytecode to the application, and the bytecode executes dynamic analysis when the application has launched on an Android device.

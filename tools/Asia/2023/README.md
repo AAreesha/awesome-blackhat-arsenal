@@ -4,7 +4,7 @@
 Tools are categorized based on their **track theme**, such as Red Teaming, OSINT, Reverse Engineering, etc.
 
 ## 📚 Table of Contents
-- [Uncategorized](#uncategorized)
+- [Others](#others)
 - [⚙️ Miscellaneous / Lab Tools](#⚙️-miscellaneous-lab-tools)
 - [🌐 Web/AppSec](#🌐-webappsec)
 - [🌐 Web/AppSec or Red Teaming](#🌐-webappsec-or-red-teaming)
@@ -289,10 +289,10 @@ CANalyse uses python-can library to sniff vehicle network packets and analyse th
 </details>
 
 ---
-## Uncategorized
+## Others
 <details><summary><strong>canTot: A CAN Bus Hacking Framework for Car Hacking</strong></summary>
 
-![Category: Uncategorized](https://img.shields.io/badge/Category:%20Uncategorized-lightgrey) ![Jay Turla](https://img.shields.io/badge/Jay%20Turla-informational)
+![Category: Others](https://img.shields.io/badge/Category:%20Others-lightgrey) ![Jay Turla](https://img.shields.io/badge/Jay%20Turla-informational)
 
 🔗 **Link:** [canTot: A CAN Bus Hacking Framework for Car Hacking](https://github.com/shipcod3/canTot)  
 📝 **Description:** canTot is a CAN Bus hacking framework that focuses on known CAN Bus vulnerabilities or fun CAN Bus hacks. It is a Python-based CLI framework based on sploitkit and is easy to use because it is similar to working with Metasploit. It can also be used as a guide for pentesting vehicles and learning python for Car Hacking the easier way. This is not to reinvent the wheel of known CAN fuzzers, car exploration tools like caring caribou, or other great CAN analyzers out there. But to combine all the known vulnerabilities and fun CAN bus hacks in automotive security.
@@ -301,7 +301,7 @@ CANalyse uses python-can library to sniff vehicle network packets and analyse th
 
 <details><summary><strong>Elkeid -- Open-sourced Cloud Workload Protection Platform</strong></summary>
 
-![Category: Uncategorized](https://img.shields.io/badge/Category:%20Uncategorized-lightgrey) ![Enzhe Lu](https://img.shields.io/badge/Enzhe%20Lu-informational) ![Yue Chen](https://img.shields.io/badge/Yue%20Chen-informational) ![Alkene Pan](https://img.shields.io/badge/Alkene%20Pan-informational) ![Pengbo Yao](https://img.shields.io/badge/Pengbo%20Yao-informational)
+![Category: Others](https://img.shields.io/badge/Category:%20Others-lightgrey) ![Enzhe Lu](https://img.shields.io/badge/Enzhe%20Lu-informational) ![Yue Chen](https://img.shields.io/badge/Yue%20Chen-informational) ![Alkene Pan](https://img.shields.io/badge/Alkene%20Pan-informational) ![Pengbo Yao](https://img.shields.io/badge/Pengbo%20Yao-informational)
 
 🔗 **Link:** Not Available  
 📝 **Description:** Ekeid is an open-source solution that is derived from ByteDance's internal best practices, which can meet the security requirements of various workloads such as hosts, containers, container clusters, and Serverless. With the unified design and integration of HIDS, Container Security, RASP, and K8S auditions all into one platform to meet the complex security requirements of different workload capacities in the current industry. At the same time, it can also implement multi-component capability association. The most valuable part is that each component of Elkeid has passed ByteDance's massive data and years of practical testing.
@@ -310,7 +310,7 @@ CANalyse uses python-can library to sniff vehicle network packets and analyse th
 
 <details><summary><strong>Introducing the Operating System for Automotive Security Testing: A Hands-on Demonstration</strong></summary>
 
-![Category: Uncategorized](https://img.shields.io/badge/Category:%20Uncategorized-lightgrey) ![RAVI RAJPUT](https://img.shields.io/badge/RAVI%20RAJPUT-informational)
+![Category: Others](https://img.shields.io/badge/Category:%20Others-lightgrey) ![RAVI RAJPUT](https://img.shields.io/badge/RAVI%20RAJPUT-informational)
 
 🔗 **Link:** [Introducing the Operating System for Automotive Security Testing: A Hands-on Demonstration](https://github.com/MinghuiChen43/awesome-trustworthy-deep-learning/blob/master/FULL_LIST.md)  
 📝 **Description:** Automotive security is a critical concern as vehicles become more connected and autonomous. To ensure the security of these systems, specialized operating systems are needed for testing and evaluating their vulnerabilities.
@@ -327,7 +327,7 @@ Overall, our presentation provides a valuable resource for anyone interested in 
 
 <details><summary><strong>MemTracer: Hunting for Forensic Artifacts in Memory</strong></summary>
 
-![Category: Uncategorized](https://img.shields.io/badge/Category:%20Uncategorized-lightgrey) ![May Alsaif](https://img.shields.io/badge/May%20Alsaif-informational)
+![Category: Others](https://img.shields.io/badge/Category:%20Others-lightgrey) ![May Alsaif](https://img.shields.io/badge/May%20Alsaif-informational)
 
 🔗 **Link:** Not Available  
 📝 **Description:** MemTracer is a tool that offers live memory analysis capabilities, allowing digital forensic practitioners to discover and investigate stealthy attack traces hidden in memory.
@@ -339,7 +339,7 @@ Loading DLL reflectively produces an unusual memory region's characteristics tha
 
 <details><summary><strong>PoC Attack Against Flying Drone</strong></summary>
 
-![Category: Uncategorized](https://img.shields.io/badge/Category:%20Uncategorized-lightgrey) ![Kelvin Wong](https://img.shields.io/badge/Kelvin%20Wong-informational)
+![Category: Others](https://img.shields.io/badge/Category:%20Others-lightgrey) ![Kelvin Wong](https://img.shields.io/badge/Kelvin%20Wong-informational)
 
 🔗 **Link:** [PoC Attack Against Flying Drone](https://github.com/lidq92/arxiv-daily)  
 📝 **Description:** Advancements in UAV technology are opening new opportunities and applications in various fields of life. However, these advancements are also causing new challenges in terms of security, adaptability, and consistency. Especially the small drones are even suffering from architectural issues and the definition of security and safety issues.
@@ -351,7 +351,7 @@ Most of the UAS system are using 2.4 or 5.8Ghz for remote connection and video t
 
 <details><summary><strong>Prediction System for Lateral Movement Based on ATT&CK Using Sysmon</strong></summary>
 
-![Category: Uncategorized](https://img.shields.io/badge/Category:%20Uncategorized-lightgrey) ![Yukihiro Kozai](https://img.shields.io/badge/Yukihiro%20Kozai-informational) ![Koki Watarai](https://img.shields.io/badge/Koki%20Watarai-informational) ![Takuho Mitsunaga](https://img.shields.io/badge/Takuho%20Mitsunaga-informational)
+![Category: Others](https://img.shields.io/badge/Category:%20Others-lightgrey) ![Yukihiro Kozai](https://img.shields.io/badge/Yukihiro%20Kozai-informational) ![Koki Watarai](https://img.shields.io/badge/Koki%20Watarai-informational) ![Takuho Mitsunaga](https://img.shields.io/badge/Takuho%20Mitsunaga-informational)
 
 🔗 **Link:** [Prediction System for Lateral Movement Based on ATT&CK Using Sysmon](https://github.com/LeThiHongMinh/MITRE-review-papers)  
 📝 **Description:** This tool converts Windows logs collected by Sysmon into MITER ATT&CK Technique and allows us to refer to attack types and progress based on the ATT&CK structure.
@@ -364,7 +364,7 @@ We will provide this tool as a Web application and publish its source code on Gi
 
 <details><summary><strong>Purple Knight</strong></summary>
 
-![Category: Uncategorized](https://img.shields.io/badge/Category:%20Uncategorized-lightgrey) ![Jacqueline Young](https://img.shields.io/badge/Jacqueline%20Young-informational)
+![Category: Others](https://img.shields.io/badge/Category:%20Others-lightgrey) ![Jacqueline Young](https://img.shields.io/badge/Jacqueline%20Young-informational)
 
 🔗 **Link:** [Purple Knight](https://github.com/IBM/db2-jupyter/blob/master/Db2_11.1_Features/generate_json.ipynb)  
 📝 **Description:** Business applications on-premises and in the cloud rely on Active Directory (AD) and Azure Active Directory for authentication, making it a critical piece of IT infrastructure. But securing Active Directory is difficult given its constant flux, its sheer number of settings, and the increasingly sophisticated threat landscape. This creates potential exploitable Indicators of Exposure in AD, and if you have or had a bad actor in your AD you will want to understand the Indicators of Compromise (IOCs) which is the evidence an attacker is there. In this session, we will talk about the Purple Knight freeware tool by Semperis which helps organizations understand the security posture of their hybrid Active Directory as it pertains to IOEs and IOCs.
@@ -373,7 +373,7 @@ We will provide this tool as a Web application and publish its source code on Gi
 
 <details><summary><strong>RTHunter:the High-Accuracy Reverse Symbol Recovery and Vulnerability Scanning Tool</strong></summary>
 
-![Category: Uncategorized](https://img.shields.io/badge/Category:%20Uncategorized-lightgrey) ![Minghang Shen](https://img.shields.io/badge/Minghang%20Shen-informational) ![Chaoyang Lin](https://img.shields.io/badge/Chaoyang%20Lin-informational) ![Minghao Lin](https://img.shields.io/badge/Minghao%20Lin-informational) ![Qi Fan](https://img.shields.io/badge/Qi%20Fan-informational)
+![Category: Others](https://img.shields.io/badge/Category:%20Others-lightgrey) ![Minghang Shen](https://img.shields.io/badge/Minghang%20Shen-informational) ![Chaoyang Lin](https://img.shields.io/badge/Chaoyang%20Lin-informational) ![Minghao Lin](https://img.shields.io/badge/Minghao%20Lin-informational) ![Qi Fan](https://img.shields.io/badge/Qi%20Fan-informational)
 
 🔗 **Link:** [RTHunter:the High-Accuracy Reverse Symbol Recovery and Vulnerability Scanning Tool](https://github.com/MinghaoLin2000/MinghaoLin2000.github.io/blob/master/index.md)  
 📝 **Description:** RTOS (Real-Time Operating Systems) are widely used in critical fields such as aerospace, transportation, communication infrastructure, medical devices, oil industry, and industrial robots due to their reliability and stability. However, the real-time nature of RTOS makes the analysis threshold high, resulting in limited security research tools compared to time-sharing operating systems.
@@ -385,7 +385,7 @@ RTHunter is an efficient RTOS reverse symbol recovery and vulnerability scanning
 
 <details><summary><strong>ThreatSeeker - Threat Hunting via Windows Event Logs</strong></summary>
 
-![Category: Uncategorized](https://img.shields.io/badge/Category:%20Uncategorized-lightgrey) ![Ashish Bhangale](https://img.shields.io/badge/Ashish%20Bhangale-informational) ![G Khartheesvar](https://img.shields.io/badge/G%20Khartheesvar-informational) ![Arafat Ansari](https://img.shields.io/badge/Arafat%20Ansari-informational)
+![Category: Others](https://img.shields.io/badge/Category:%20Others-lightgrey) ![Ashish Bhangale](https://img.shields.io/badge/Ashish%20Bhangale-informational) ![G Khartheesvar](https://img.shields.io/badge/G%20Khartheesvar-informational) ![Arafat Ansari](https://img.shields.io/badge/Arafat%20Ansari-informational)
 
 🔗 **Link:** [ThreatSeeker - Threat Hunting via Windows Event Logs](https://github.com/ine-labs/ThreatSeeker)  
 📝 **Description:** Threat hunting using Windows logs is essential for identifying and mitigating potential security threats within an organization's network. It can be a time-consuming and painstaking process due to a large amount of data that needs to be collected and analyzed. The threat-hunting process could be repetitive. However, this process can be improved through custom scripts and tools.

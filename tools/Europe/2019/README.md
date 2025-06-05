@@ -4,7 +4,7 @@
 Tools are categorized based on their **track theme**, such as Red Teaming, OSINT, Reverse Engineering, etc.
 
 ## 📚 Table of Contents
-- [Uncategorized](#uncategorized)
+- [Others](#others)
 - [🌐 Web/AppSec](#🌐-webappsec)
 - [🌐 Web/AppSec or Red Teaming](#🌐-webappsec-or-red-teaming)
 - [🔍 OSINT](#🔍-osint)
@@ -340,10 +340,10 @@ It currently supports modules for the C-me and Flitt drones (Hobbico) but should
 </details>
 
 ---
-## Uncategorized
+## Others
 <details><summary><strong>DSIEM: Security Event Correlation Engine for ELK Stack</strong></summary>
 
-![Category: Uncategorized](https://img.shields.io/badge/Category:%20Uncategorized-lightgrey) ![Toto A Atmojo](https://img.shields.io/badge/Toto%20A%20Atmojo-informational) ![Memet Anwar](https://img.shields.io/badge/Memet%20Anwar-informational)
+![Category: Others](https://img.shields.io/badge/Category:%20Others-lightgrey) ![Toto A Atmojo](https://img.shields.io/badge/Toto%20A%20Atmojo-informational) ![Memet Anwar](https://img.shields.io/badge/Memet%20Anwar-informational)
 
 🔗 **Link:** Not Available  
 📝 **Description:** DSIEM is a security event correlation engine for ELK stack, allowing the platform to be used as a dedicated and full-featured SIEM system.
@@ -354,7 +354,7 @@ DSIEM provides OSSIM-style correlation for normalized logs/events, perform looku
 
 <details><summary><strong>EventList: What the log?! So Many Events, so Little Time...</strong></summary>
 
-![Category: Uncategorized](https://img.shields.io/badge/Category:%20Uncategorized-lightgrey) ![Miriam Wiesner](https://img.shields.io/badge/Miriam%20Wiesner-informational)
+![Category: Others](https://img.shields.io/badge/Category:%20Others-lightgrey) ![Miriam Wiesner](https://img.shields.io/badge/Miriam%20Wiesner-informational)
 
 🔗 **Link:** [EventList: What the log?! So Many Events, so Little Time...](https://github.com/OWASP/www-chapter-london/blob/master/tab_pastevents.md)  
 📝 **Description:** Detecting adversaries is not always easy - especially when it comes to correlating Windows Event Logs to real-world attack patterns and techniques. EventList helps to match Windows Event Log IDs with the MITRE ATT&CK framework (and vice-versa) and offers methods to simplify the detection in corporate environments worldwide.
@@ -363,7 +363,7 @@ DSIEM provides OSSIM-style correlation for normalized logs/events, perform looku
 
 <details><summary><strong>Mobile-ADSheild: Attack Automatic Analysis and Interception Engine in Mobile App</strong></summary>
 
-![Category: Uncategorized](https://img.shields.io/badge/Category:%20Uncategorized-lightgrey) ![Shijie Cao](https://img.shields.io/badge/Shijie%20Cao-informational) ![Hao Zhao](https://img.shields.io/badge/Hao%20Zhao-informational)
+![Category: Others](https://img.shields.io/badge/Category:%20Others-lightgrey) ![Shijie Cao](https://img.shields.io/badge/Shijie%20Cao-informational) ![Hao Zhao](https://img.shields.io/badge/Hao%20Zhao-informational)
 
 🔗 **Link:** Not Available  
 📝 **Description:** Mobile-ADSheild is a mobile app active defense engine that defends against most vulnerability exploits.
@@ -373,7 +373,7 @@ We will introduces the Mobile-ADSheild engine, which can be freely integrated in
 
 <details><summary><strong>MPFuzzer: Fuzzing for Mini Program Vulnerabilities</strong></summary>
 
-![Category: Uncategorized](https://img.shields.io/badge/Category:%20Uncategorized-lightgrey) ![Wenjie LI](https://img.shields.io/badge/Wenjie%20LI-informational) ![Guoyong YI](https://img.shields.io/badge/Guoyong%20YI-informational)
+![Category: Others](https://img.shields.io/badge/Category:%20Others-lightgrey) ![Wenjie LI](https://img.shields.io/badge/Wenjie%20LI-informational) ![Guoyong YI](https://img.shields.io/badge/Guoyong%20YI-informational)
 
 🔗 **Link:** Not Available  
 📝 **Description:** Mini programs are lightweight apps that run inside another app. They don't need to be downloaded or upgraded through app stores. They make it possible for one app to perform the service of many apps add up and have over one billion users in China, which brings new mobile security challenges. Hackers can bypass the security defenses of Mini programs in various ways(like string truncation, whitelist bypass, malformed label). A successful exploit of bypassing may lead to arbitrary code execution or leak of sensitive data.
@@ -390,7 +390,7 @@ As a practical impact, our tool has detected more than ten mini program critical
 
 <details><summary><strong>RansomCoin</strong></summary>
 
-![Category: Uncategorized](https://img.shields.io/badge/Category:%20Uncategorized-lightgrey) ![Éireann Leverett](https://img.shields.io/badge/Éireann%20Leverett-informational) ![Erin Burns](https://img.shields.io/badge/Erin%20Burns-informational)
+![Category: Others](https://img.shields.io/badge/Category:%20Others-lightgrey) ![Éireann Leverett](https://img.shields.io/badge/Éireann%20Leverett-informational) ![Erin Burns](https://img.shields.io/badge/Erin%20Burns-informational)
 
 🔗 **Link:** Not Available  
 📝 **Description:** Most ransomware analysis is focused on the malware, but what if you are *just* chasing the money? You want those cryptocurrency addresses and thos other IoCs fast, and you don't particularly care about what exploit is being used this time around.
@@ -401,7 +401,7 @@ This is the tool for you! RansomCoin is a suite of tools designed to scrape IoCs
 
 <details><summary><strong>SEC Xtractor: Assisted Hardware Analysis Tool</strong></summary>
 
-![Category: Uncategorized](https://img.shields.io/badge/Category:%20Uncategorized-lightgrey) ![Thomas Weber](https://img.shields.io/badge/Thomas%20Weber-informational)
+![Category: Others](https://img.shields.io/badge/Category:%20Others-lightgrey) ![Thomas Weber](https://img.shields.io/badge/Thomas%20Weber-informational)
 
 🔗 **Link:** [SEC Xtractor: Assisted Hardware Analysis Tool](https://github.com/Trustworthy-AI-Group/Adversarial_Examples_Papers)  
 📝 **Description:** The SEC Xtractor Assisted Hardware Analysis Tool was originally designed as internal hardware analysis tool. It was used as all-in-one solution to dump NAND / NOR / SPI and I²C flash memory chips. Because of different voltage levels of some chips, the SEC Xtractor provides the option to adjust the voltage from from 1.8V to 5.5V. Its program code is completely written in standard C which enables any programmer to modify the code without a lot of knowledge about hardware. Custom memory chips can also be added to the firmware in this way.
@@ -414,7 +414,7 @@ Another capability of the SEC Xtractor is the directly available FT2232H module 
 
 <details><summary><strong>spispy: Open source SPI flash emulation</strong></summary>
 
-![Category: Uncategorized](https://img.shields.io/badge/Category:%20Uncategorized-lightgrey) ![Trammell Hudson](https://img.shields.io/badge/Trammell%20Hudson-informational)
+![Category: Others](https://img.shields.io/badge/Category:%20Others-lightgrey) ![Trammell Hudson](https://img.shields.io/badge/Trammell%20Hudson-informational)
 
 🔗 **Link:** [spispy: Open source SPI flash emulation](https://github.com/osresearch)  
 📝 **Description:** spispy is an open source hardware tool for emulating SPI flash chips that makes firmware development and boot security research easier by avoiding the slow flash chip erase and programming cycles. It also logs flash accesses, providing insight into the early boot process and enables TOCTOU attacks against the running firmware.

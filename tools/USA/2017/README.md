@@ -4,7 +4,7 @@
 Tools are categorized based on their **track theme**, such as Red Teaming, OSINT, Reverse Engineering, etc.
 
 ## 📚 Table of Contents
-- [Uncategorized](#uncategorized)
+- [Others](#others)
 - [🌐 Web/AppSec](#🌐-webappsec)
 - [🌐 Web/AppSec or Red Teaming](#🌐-webappsec-or-red-teaming)
 - [🔍 OSINT](#🔍-osint)
@@ -493,10 +493,10 @@ All of these tools and methodologies run on inexpensive hardware, such as the Ra
 </details>
 
 ---
-## Uncategorized
+## Others
 <details><summary><strong>ANDROID TAMER</strong></summary>
 
-![Category: Uncategorized](https://img.shields.io/badge/Category:%20Uncategorized-lightgrey) ![Anant Shrivastava](https://img.shields.io/badge/Anant%20Shrivastava-informational)
+![Category: Others](https://img.shields.io/badge/Category:%20Others-lightgrey) ![Anant Shrivastava](https://img.shields.io/badge/Anant%20Shrivastava-informational)
 
 🔗 **Link:** [ANDROID TAMER](https://github.com/toolswatch/blackhat-arsenal-tools/blob/master/mobile_hacking/androidtamer.md)  
 📝 **Description:** Android Tamer is a project to provide various resources for Android mobile application and device security reviews. Be it pentesting, malware analysis, reverse engineering or device assessment. We strive to solve some of the major pain points in setting up the testing environments by providing various ways and means to perform the task in most effortless manner.
@@ -505,7 +505,7 @@ All of these tools and methodologies run on inexpensive hardware, such as the Ra
 
 <details><summary><strong>ANSWERING WHEN/WHERE/WHO IS MY INSIDER</strong></summary>
 
-![Category: Uncategorized](https://img.shields.io/badge/Category:%20Uncategorized-lightgrey) ![Chema Garcia](https://img.shields.io/badge/Chema%20Garcia-informational)
+![Category: Others](https://img.shields.io/badge/Category:%20Others-lightgrey) ![Chema Garcia](https://img.shields.io/badge/Chema%20Garcia-informational)
 
 🔗 **Link:** [ANSWERING WHEN/WHERE/WHO IS MY INSIDER](https://github.com/CrackerCat/GitHubLinks/blob/master/README.md)  
 📝 **Description:** This tool automates the process of creating logon relations from MS Windows Security Events by showing a graphical relation among users domains, source and destination logons, session duration, who was logged on the systems in a given datetime, etc. It is able to integrate and provides different output modes such as CSV output, Neo4j, SQLite, Gephi and Graphviz.
@@ -514,7 +514,7 @@ All of these tools and methodologies run on inexpensive hardware, such as the Ra
 
 <details><summary><strong>ATTACK PASSIVE KEYLESS ENTRY SYSTEM USING HACKKEY</strong></summary>
 
-![Category: Uncategorized](https://img.shields.io/badge/Category:%20Uncategorized-lightgrey) ![Chaoran Wang](https://img.shields.io/badge/Chaoran%20Wang-informational) ![Jun Li](https://img.shields.io/badge/Jun%20Li-informational) ![Qing Yang](https://img.shields.io/badge/Qing%20Yang-informational) ![Yingtao Zeng](https://img.shields.io/badge/Yingtao%20Zeng-informational) ![Yunding Jian](https://img.shields.io/badge/Yunding%20Jian-informational)
+![Category: Others](https://img.shields.io/badge/Category:%20Others-lightgrey) ![Chaoran Wang](https://img.shields.io/badge/Chaoran%20Wang-informational) ![Jun Li](https://img.shields.io/badge/Jun%20Li-informational) ![Qing Yang](https://img.shields.io/badge/Qing%20Yang-informational) ![Yingtao Zeng](https://img.shields.io/badge/Yingtao%20Zeng-informational) ![Yunding Jian](https://img.shields.io/badge/Yunding%20Jian-informational)
 
 🔗 **Link:** Not Available  
 📝 **Description:** PKE (passive keyless entry) system allows the driver to unlock cars without taking out their key fob - just by being in the proximity of the vehicle or by touching the door handle. PKE systems use both low frequency and high frequency radio links to perform two-way authentication. We have implemented a relay attack using two very low-cost radios and have extended the range further than any previous research. We have already extended the attack range to a few hundred meters and can unlock your car in the parking lot while your key fob is in your pocket - on the top floor of your office building - or drive your car away while you are shopping in the mall.
@@ -523,7 +523,7 @@ All of these tools and methodologies run on inexpensive hardware, such as the Ra
 
 <details><summary><strong>BADINTENT - INTEGRATING ANDROID WITH BURP</strong></summary>
 
-![Category: Uncategorized](https://img.shields.io/badge/Category:%20Uncategorized-lightgrey) ![Mateusz Khalil](https://img.shields.io/badge/Mateusz%20Khalil-informational)
+![Category: Others](https://img.shields.io/badge/Category:%20Others-lightgrey) ![Mateusz Khalil](https://img.shields.io/badge/Mateusz%20Khalil-informational)
 
 🔗 **Link:** [BADINTENT - INTEGRATING ANDROID WITH BURP](https://github.com/toolswatch/blackhat-arsenal-tools/blob/master/mobile_hacking/badintent.md)  
 📝 **Description:** BadIntent is the missing link between the Burp Suite and the core Android's IPC/Messaging-system. BadIntent consists of two parts, an Xposed-based module running on Android and a Burp-plugin. Based on this interplay, it is possible to use the Burp's common workflow and all involved tools and extensions, since the intercept and repeater functionality is provided. BadIntent hooks deeply into the Android system, performs various method redirections in Parcels and adds additional services to provide the described features. Most notably, BadIntent works system-wide and is not restricted to individual user apps.
@@ -534,7 +534,7 @@ In the demo, we will present various attacks against target apps; such as attack
 
 <details><summary><strong>CYBOT - OPEN SOURCE THREAT INTELLIGENCE CHAT BOT</strong></summary>
 
-![Category: Uncategorized](https://img.shields.io/badge/Category:%20Uncategorized-lightgrey) ![Tony Lee](https://img.shields.io/badge/Tony%20Lee-informational)
+![Category: Others](https://img.shields.io/badge/Category:%20Others-lightgrey) ![Tony Lee](https://img.shields.io/badge/Tony%20Lee-informational)
 
 🔗 **Link:** [CYBOT - OPEN SOURCE THREAT INTELLIGENCE CHAT BOT](https://github.com/rawalkhirodkar/chatbot/blob/master/aiml/standard/atomic.aiml)  
 📝 **Description:** Threat intelligence chat bots are useful friends. They perform research for you and can even be note takers or central aggregators of information. However, it seems like most organizations want to design their own bot in isolation and keep it internal. To counter this trend, our goal was to create a repeatable process using an completely free and open source framework, an inexpensive Raspberry Pi (or even virtual machine), and host a community-driven plugin framework to open up the world of threat intel chat bots to everyone from the home user to the largest security operations center.
@@ -545,7 +545,7 @@ We are excited to demo the end result of our research at Black Hat Arsenal - a c
 
 <details><summary><strong>DEFPLOREX: A MACHINE-LEARNING TOOLKIT FOR LARGE-SCALE ECRIME FORENSICS</strong></summary>
 
-![Category: Uncategorized](https://img.shields.io/badge/Category:%20Uncategorized-lightgrey) ![Federico Maggi](https://img.shields.io/badge/Federico%20Maggi-informational) ![Lion Gu](https://img.shields.io/badge/Lion%20Gu-informational) ![Marco Balduzzi](https://img.shields.io/badge/Marco%20Balduzzi-informational) ![Ryan Flores](https://img.shields.io/badge/Ryan%20Flores-informational) ![Vincenzo Ciancaglini](https://img.shields.io/badge/Vincenzo%20Ciancaglini-informational)
+![Category: Others](https://img.shields.io/badge/Category:%20Others-lightgrey) ![Federico Maggi](https://img.shields.io/badge/Federico%20Maggi-informational) ![Lion Gu](https://img.shields.io/badge/Lion%20Gu-informational) ![Marco Balduzzi](https://img.shields.io/badge/Marco%20Balduzzi-informational) ![Ryan Flores](https://img.shields.io/badge/Ryan%20Flores-informational) ![Vincenzo Ciancaglini](https://img.shields.io/badge/Vincenzo%20Ciancaglini-informational)
 
 🔗 **Link:** [DEFPLOREX: A MACHINE-LEARNING TOOLKIT FOR LARGE-SCALE ECRIME FORENSICS](https://github.com/CrackerCat/GitHubLinks)  
 📝 **Description:** ﻿The security industry as a whole -- including operation centers, providers and telcos -- loves collecting data. Researchers are not different! A sort of common feeling is that the more data someone collects, the more self-confident he becomes about, say, a threat or another phenomenon. However, large volumes of data imply more processing resources needed, especially in extracting meaningful and useful information if the data is highly unstructured. As a result, manual data analysis is often the only choice, with security professionals like pen-testers, reversers and analysts processing data through tedious repetitive operations.
@@ -558,7 +558,7 @@ DefPloreX ingests plain CSV inputs about web incidents to analyze, explores thei
 
 <details><summary><strong>DEVKNOX - AUTOCORRECT SECURITY ISSUES FROM ANDROID STUDIO</strong></summary>
 
-![Category: Uncategorized](https://img.shields.io/badge/Category:%20Uncategorized-lightgrey) ![Subho Halder](https://img.shields.io/badge/Subho%20Halder-informational)
+![Category: Others](https://img.shields.io/badge/Category:%20Others-lightgrey) ![Subho Halder](https://img.shields.io/badge/Subho%20Halder-informational)
 
 🔗 **Link:** Not Available  
 📝 **Description:** Devknox works like autocorrect by highlighting issues in the code and suggests quick one-click fixes to ensure security is taken care of on the go. To perform this autocorrect and suggestions, it does a multiple traversal over the AST - Abstract Syntax Tree and performs Taint Analysis over the source-code on the client-side inside the IDE in a matter of few seconds to come up with one click suggested fixes which fixes the root cause issue.
@@ -569,7 +569,7 @@ This tool is free and will be open sourced exclusively at Black Hat, so that the
 
 <details><summary><strong>DIFFDROID</strong></summary>
 
-![Category: Uncategorized](https://img.shields.io/badge/Category:%20Uncategorized-lightgrey) ![Anto Joseph](https://img.shields.io/badge/Anto%20Joseph-informational)
+![Category: Others](https://img.shields.io/badge/Category:%20Others-lightgrey) ![Anto Joseph](https://img.shields.io/badge/Anto%20Joseph-informational)
 
 🔗 **Link:** [DIFFDROID](https://github.com/antojoseph/diff-droid)  
 📝 **Description:** DiffDroid is a Framework which makes dynamic security assessments in android much easier with its modules for profiling, logging and modifying application logic. It's extremely user friendly, uses javascript, makes no changes to the Operating system and is ready to go. You can use it for malware analysis, security assessments or a few points in your favorite game.
@@ -578,7 +578,7 @@ This tool is free and will be open sourced exclusively at Black Hat, so that the
 
 <details><summary><strong>DPAPI AND DPAPI-NG: DECRYPTION TOOLKIT</strong></summary>
 
-![Category: Uncategorized](https://img.shields.io/badge/Category:%20Uncategorized-lightgrey) ![Paula Januszkiewicz](https://img.shields.io/badge/Paula%20Januszkiewicz-informational)
+![Category: Others](https://img.shields.io/badge/Category:%20Others-lightgrey) ![Paula Januszkiewicz](https://img.shields.io/badge/Paula%20Januszkiewicz-informational)
 
 🔗 **Link:** Not Available  
 📝 **Description:** CQMasterKeyAD (CQTools) allows decryption ofDPAPI protected data by leveraging usage of the private key stored as a LSA Secret on a domain controller (we have called it a 'backup key,' and it is a key corresponding to the backup public key stored in the domain user's profile). The backup key allows decrypting literally all of the domain user's secrets (passwords / private keys / information stored by the browser). In other words, someone who has the backup key is able to take over all of the identities and their secrets within the whole enterprise. Tool represents CQURE's breakthrough DPAPI discovery.
@@ -593,7 +593,7 @@ CQURE tool affects Windows 7, Windows 8, Windows 8.1, Windows 10 and related Win
 
 <details><summary><strong>DYODE, A DIY, LOW-COST DATA DIODE FOR ICS</strong></summary>
 
-![Category: Uncategorized](https://img.shields.io/badge/Category:%20Uncategorized-lightgrey) ![Arnaud Soullié](https://img.shields.io/badge/Arnaud%20Soullié-informational) ![Ary Kokos](https://img.shields.io/badge/Ary%20Kokos-informational)
+![Category: Others](https://img.shields.io/badge/Category:%20Others-lightgrey) ![Arnaud Soullié](https://img.shields.io/badge/Arnaud%20Soullié-informational) ![Ary Kokos](https://img.shields.io/badge/Ary%20Kokos-informational)
 
 🔗 **Link:** [DYODE, A DIY, LOW-COST DATA DIODE FOR ICS](https://github.com/CrackerCat/GitHubLinks)  
 📝 **Description:** DYODE (Do Your Own Dyode) is a low cost, DIY data diode aimed at securing Industrial Control Systems. While data diodes have been used for a long time on classified networks, the high cost and complexity of implementation have kept them away from a lot of valid use cases on industrial control systems. During our assignments, we encountered many situations in which time nor availability constraints were very high - but the security risk was - and a commercial data diode was much too costly.
@@ -602,7 +602,7 @@ CQURE tool affects Windows 7, Windows 8, Windows 8.1, Windows 10 and related Win
 
 <details><summary><strong>EVILSPLOIT – A UNIVERSAL HARDWARE HACKING TOOLKIT - ARSENAL THEATER DEMO</strong></summary>
 
-![Category: Uncategorized](https://img.shields.io/badge/Category:%20Uncategorized-lightgrey) ![Chui Yew Leong](https://img.shields.io/badge/Chui%20Yew%20Leong-informational) ![Mingming Wan](https://img.shields.io/badge/Mingming%20Wan-informational)
+![Category: Others](https://img.shields.io/badge/Category:%20Others-lightgrey) ![Chui Yew Leong](https://img.shields.io/badge/Chui%20Yew%20Leong-informational) ![Mingming Wan](https://img.shields.io/badge/Mingming%20Wan-informational)
 
 🔗 **Link:** Not Available  
 📝 **Description:** Hardware hacking is about to understand the inner working mechanism of hardware. Most of the time, the hardware hacking process starts from reversing. From the hardware point of view, reversing in static way includes uncovering the schematic and disassembling the binary. On the other hand, reversing in dynamic way includes finding a way to debug the hardware and to fuzz it accordingly. In practice, it is almost a standard operating procedure to obtain the binary of the hardware and reverse it consequently. As a supplementary technique for static binary reversing, debugging allows the real hardware operation process to be demystified in run time. In fact, the binary itself can be obtained by applying debugging technique- while it is not available from manufacturer. So, it is crucial to figure out the provisioning ports of the hardware in order to start performing hardware hacking. The conventional approach to identify provisioning ports is by using pin finder toolkits such as Jtagulator. However, it is impractical and inefficient once a provisioning port has been found; another toolkit such as Shikra has to be used to manipulate the provisioning port. It is not only prone to error, but not hacker-friendly. So, it is important to find a way to fill the gap between provisioning port identification and manipulation processes. With this, it allows the hardware hacking process to be automated by making it scriptable in high level. We will present a new method to allow provisioning port identification and manipulation by using connection matrix. With this, it is possible to construct arbitrary analog-alike connection in array form to implement all pattern of interconnect between bus interfacing chip and the target. Hence, once the appropriate provisioning port has been figured out, in the meantime, it is ready to be used for debugging or firmware dumping purposes. Besides, it is also an ideal assistive toolset for unknown signal analysis, side channel analysis (SCA), and fault injection (FI).
@@ -611,7 +611,7 @@ CQURE tool affects Windows 7, Windows 8, Windows 8.1, Windows 10 and related Win
 
 <details><summary><strong>GAME OF DRONES: PUTTING THE EMERGING 'DRONE DEFENSE' MARKET TO THE TEST - ARSENAL THEATER DEMO</strong></summary>
 
-![Category: Uncategorized](https://img.shields.io/badge/Category:%20Uncategorized-lightgrey) ![David Latimer](https://img.shields.io/badge/David%20Latimer-informational) ![Francis Brown](https://img.shields.io/badge/Francis%20Brown-informational)
+![Category: Others](https://img.shields.io/badge/Category:%20Others-lightgrey) ![David Latimer](https://img.shields.io/badge/David%20Latimer-informational) ![Francis Brown](https://img.shields.io/badge/Francis%20Brown-informational)
 
 🔗 **Link:** [GAME OF DRONES: PUTTING THE EMERGING 'DRONE DEFENSE' MARKET TO THE TEST - ARSENAL THEATER DEMO](https://gist.github.com/williballenthin/28c73da6cbf5e76e137a9100ab45697f)  
 📝 **Description:** When you learned that military and law enforcement agencies had trained screaming eagles to pluck drones from the sky, did you too find yourself asking: "I wonder if I could throw these eagles off my tail, maybe by deploying delicious bacon countermeasures?" Well, you'd be wise to question just how effective these emerging, first generation 'drone defense' solutions really are, and which amount to little more than 'snake oil.'
@@ -633,7 +633,7 @@ We'll also be releasing DangerDrone v2.0, an upgraded version of our free Raspbe
 
 <details><summary><strong>HONEYPI</strong></summary>
 
-![Category: Uncategorized](https://img.shields.io/badge/Category:%20Uncategorized-lightgrey) ![Matt South](https://img.shields.io/badge/Matt%20South-informational)
+![Category: Others](https://img.shields.io/badge/Category:%20Others-lightgrey) ![Matt South](https://img.shields.io/badge/Matt%20South-informational)
 
 🔗 **Link:** [HONEYPI](https://github.com/mattymcfatty)  
 📝 **Description:** It is astonishingly easy as an attacker to move around on most networks undetected. Let's face it, unless your organization is big enough to have full packet capture with some expensive IDS, you will likely have no idea if there is an attacker on your network. What are the options for home users and small businesses? What if there were a cheap Raspberry Pi device you could plug into your network that masquerades as a juicy target to hackers?
@@ -652,7 +652,7 @@ Wrap up this simplicity in a way that is designed to be deployed on a RaspberryP
 
 <details><summary><strong>INVTERO.NET - VOLATILE MEMORY ANALYSIS AT SCALE - THE HIGHEST PERFORMING AND FORENSIC PLATFORM FOR WINDOWS X64</strong></summary>
 
-![Category: Uncategorized](https://img.shields.io/badge/Category:%20Uncategorized-lightgrey) ![Shane Macaulay](https://img.shields.io/badge/Shane%20Macaulay-informational)
+![Category: Others](https://img.shields.io/badge/Category:%20Others-lightgrey) ![Shane Macaulay](https://img.shields.io/badge/Shane%20Macaulay-informational)
 
 🔗 **Link:** [INVTERO.NET - VOLATILE MEMORY ANALYSIS AT SCALE - THE HIGHEST PERFORMING AND FORENSIC PLATFORM FOR WINDOWS X64](https://github.com/CrackerCat/GitHubLinks)  
 📝 **Description:** inVtero.net delivers "at scale" throughput (i.e. 10+Gbps) analytical capabilities for Windows x64. Designed for performance and comprehensive results derived from AMD/Intel ABI requirements (not built atop Logical OS structure detection), inVtero.net has the world record for performance for memory analysis.
@@ -665,7 +665,7 @@ I will additionally demonstrate with any memory dumps from XEN, VMWARE or physic
 
 <details><summary><strong>KWETZA</strong></summary>
 
-![Category: Uncategorized](https://img.shields.io/badge/Category:%20Uncategorized-lightgrey) ![Chris Le Roy](https://img.shields.io/badge/Chris%20Le%20Roy-informational)
+![Category: Others](https://img.shields.io/badge/Category:%20Others-lightgrey) ![Chris Le Roy](https://img.shields.io/badge/Chris%20Le%20Roy-informational)
 
 🔗 **Link:** [KWETZA](https://github.com/sensepost/kwetza)  
 📝 **Description:** Kwetza infects an existing Android application with either custom or default payload templates (Smali). Backdooring APK's has often been a manual process involving multiple steps and procedures. Kwetza automates the entire process and allows the target application to be infected in such a way that the application will behave and function as it normally does. Kwetza also allows you to infect Android applications using the target application's default permissions or inject additional permissions to gain additional functionality.
@@ -674,7 +674,7 @@ I will additionally demonstrate with any memory dumps from XEN, VMWARE or physic
 
 <details><summary><strong>NEEDLE</strong></summary>
 
-![Category: Uncategorized](https://img.shields.io/badge/Category:%20Uncategorized-lightgrey) ![Marco Lancini](https://img.shields.io/badge/Marco%20Lancini-informational)
+![Category: Others](https://img.shields.io/badge/Category:%20Others-lightgrey) ![Marco Lancini](https://img.shields.io/badge/Marco%20Lancini-informational)
 
 🔗 **Link:** [NEEDLE](https://github.com/WithSecureLabs/needle)  
 📝 **Description:** Needle (github.com/mwrlabs/needle) is the MWR's iOS Security Testing Framework, released at Black Hat USA in August 2016. It is an open source modular framework which aims to streamline the entire process of conducting security assessments of iOS applications, and acts as a central point from which to do so. Given its modular approach, Needle is easily extensible and new modules can be added in the form of python scripts. Needle is intended to be useful not only for security professionals, but also for developers looking to secure their code. A few examples of testing areas covered by Needle include: data storage, inter-process communication, network communications, static code analysis, hooking and binary protections. The only requirement in order to run Needle effectively is a jailbroken device.
@@ -693,7 +693,7 @@ The tool's architecture, capabilities and road-map will be described. A demonstr
 
 <details><summary><strong>NOAH: UNCOVER THE EVIL WITHIN! RESPOND IMMEDIATELY BY COLLECTING ALL THE ARTIFACTS AGENTLESSLY</strong></summary>
 
-![Category: Uncategorized](https://img.shields.io/badge/Category:%20Uncategorized-lightgrey) ![Adam Podgorski](https://img.shields.io/badge/Adam%20Podgorski-informational) ![Pierre-Alexandre Braeken](https://img.shields.io/badge/Pierre-Alexandre%20Braeken-informational)
+![Category: Others](https://img.shields.io/badge/Category:%20Others-lightgrey) ![Adam Podgorski](https://img.shields.io/badge/Adam%20Podgorski-informational) ![Pierre-Alexandre Braeken](https://img.shields.io/badge/Pierre-Alexandre%20Braeken-informational)
 
 🔗 **Link:** Not Available  
 📝 **Description:** Imagine… You realize that a malicious threat actor has compromised your network and is currently going through your confidential information. Faced with this dreadful scenario, you initiate an Incident Response.
@@ -708,7 +708,7 @@ At a time when the malicious threat actors could have breached your network in m
 
 <details><summary><strong>NOPE PROXY (NON-HTTP PROXY EXTENSION)</strong></summary>
 
-![Category: Uncategorized](https://img.shields.io/badge/Category:%20Uncategorized-lightgrey) ![Ian Maxwell](https://img.shields.io/badge/Ian%20Maxwell-informational)
+![Category: Others](https://img.shields.io/badge/Category:%20Others-lightgrey) ![Ian Maxwell](https://img.shields.io/badge/Ian%20Maxwell-informational)
 
 🔗 **Link:** [NOPE PROXY (NON-HTTP PROXY EXTENSION)](https://github.com/rmusser01/Infosec_Reference/blob/master/Draft/Web.md?plain=1)  
 📝 **Description:** This burp extension adds two new features to BurpSuite.
@@ -722,7 +722,7 @@ A configurable DNS server - this will route all DNS requests to Burp or preconfi
 
 <details><summary><strong>PCAPDB: OPTIMIZED FULL NETWORK PACKET CAPTURE FOR FAST AND EFFICIENT RETRIEVAL</strong></summary>
 
-![Category: Uncategorized](https://img.shields.io/badge/Category:%20Uncategorized-lightgrey) ![Paul Ferrell](https://img.shields.io/badge/Paul%20Ferrell-informational) ![Shannon Steinfadt](https://img.shields.io/badge/Shannon%20Steinfadt-informational)
+![Category: Others](https://img.shields.io/badge/Category:%20Others-lightgrey) ![Paul Ferrell](https://img.shields.io/badge/Paul%20Ferrell-informational) ![Shannon Steinfadt](https://img.shields.io/badge/Shannon%20Steinfadt-informational)
 
 🔗 **Link:** [PCAPDB: OPTIMIZED FULL NETWORK PACKET CAPTURE FOR FAST AND EFFICIENT RETRIEVAL](https://github.com/CrackerCat/GitHubLinks)  
 📝 **Description:** PcapDB is a full network packet capture solution that is affordable, open-source, and comprehensive. This lowers the entry bar for a full packet capture solution with no licensing fees, no specific vendor hardware requirements, and scalability to meet individual needs. Built by incident responders, PcapDB allows for response and threat intelligence with a data source that provides a complete picture of your network traffic. PcapDB takes a new approach for collection, management, and searching. The integration of disk management, capture across multiple, geographically-distributed sites, and very fast search and pcap retrieval via a centralized search head make it unlike other commercial and open source tools. The multi-site capability provides a crucial new capability for monitoring distributed systems, such as geographically distributed control systems. User management, encrypted communications, and a reduced time to results increase its utility. It is available for download and code contributions at https://github.com/dirtbags/pcapdb.
@@ -731,7 +731,7 @@ A configurable DNS server - this will route all DNS requests to Burp or preconfi
 
 <details><summary><strong>SCOT (SANDIA CYBER OMNI TRACKER) THREAT INTELLIGENCE AND INCIDENT RESPONSE MANAGEMENT SYSTEM</strong></summary>
 
-![Category: Uncategorized](https://img.shields.io/badge/Category:%20Uncategorized-lightgrey) ![Nick Georgieff](https://img.shields.io/badge/Nick%20Georgieff-informational) ![Todd Bruner](https://img.shields.io/badge/Todd%20Bruner-informational)
+![Category: Others](https://img.shields.io/badge/Category:%20Others-lightgrey) ![Nick Georgieff](https://img.shields.io/badge/Nick%20Georgieff-informational) ![Todd Bruner](https://img.shields.io/badge/Todd%20Bruner-informational)
 
 🔗 **Link:** [SCOT (SANDIA CYBER OMNI TRACKER) THREAT INTELLIGENCE AND INCIDENT RESPONSE MANAGEMENT SYSTEM](https://github.com/CrackerCat/GitHubLinks)  
 📝 **Description:** SCOT is a threat intelligence and incident response management system built for incident responders by incident responders. Focused on removing the friction between analysts and their tools, SCOT encourages the analysts to document and share their research and response efforts. Real time updates of team's work keep the team in flow and effortless coordination happens as a result. SCOT's automatic identification of indicators helps the analyst discover and respond to advanced threats. Integrating the data from multiple detection systems into a single place reduces the contextual shifts necessary to access each detection system. The integration of detection data with the built up team knowledge allows team to immediate recognize that a new alert might be part of a larger campaign. In addition, automating and simplifying common analyst tasks increase the analyst's effectiveness by freeing them to concentrate on cyber security and not tool mastery.
@@ -740,7 +740,7 @@ A configurable DNS server - this will route all DNS requests to Burp or preconfi
 
 <details><summary><strong>SECURITY MONKEY</strong></summary>
 
-![Category: Uncategorized](https://img.shields.io/badge/Category:%20Uncategorized-lightgrey) ![Mike Grima](https://img.shields.io/badge/Mike%20Grima-informational) ![Patrick Kelley](https://img.shields.io/badge/Patrick%20Kelley-informational)
+![Category: Others](https://img.shields.io/badge/Category:%20Others-lightgrey) ![Mike Grima](https://img.shields.io/badge/Mike%20Grima-informational) ![Patrick Kelley](https://img.shields.io/badge/Patrick%20Kelley-informational)
 
 🔗 **Link:** [SECURITY MONKEY](https://github.com/CrackerCat/GitHubLinks/blob/master/README.md)  
 📝 **Description:** Cloud deployments can be highly secure if controls are applied properly. There are, however, common misconfigurations to be aware of. Overly permissive firewall rules, load balancers that permit deprecated versions of TLS or weak ciphers, and services that are open to the internet are a few examples of misconfigurations that can lower the overall security of your cloud environment.
@@ -753,7 +753,7 @@ The Security Monkey team is also pleased to announce the recent support of Googl
 
 <details><summary><strong>THE BICHO: AN ADVANCED CAR BACKDOOR MAKER</strong></summary>
 
-![Category: Uncategorized](https://img.shields.io/badge/Category:%20Uncategorized-lightgrey) ![Claudio Caracciolo](https://img.shields.io/badge/Claudio%20Caracciolo-informational) ![Sheila Ayelen Berta](https://img.shields.io/badge/Sheila%20Ayelen%20Berta-informational)
+![Category: Others](https://img.shields.io/badge/Category:%20Others-lightgrey) ![Claudio Caracciolo](https://img.shields.io/badge/Claudio%20Caracciolo-informational) ![Sheila Ayelen Berta](https://img.shields.io/badge/Sheila%20Ayelen%20Berta-informational)
 
 🔗 **Link:** [THE BICHO: AN ADVANCED CAR BACKDOOR MAKER](https://github.com/CrackerCat/GitHubLinks)  
 📝 **Description:** Attacks targeting connected cars have already been presented in previous editions of BlackHat/Arsenal, as well as different tools to spy on CAN buses. However, there have been only a few attempts to create something similar to a useful backdoor for the CAN bus. Moreover, some of those proofs of concept were built upon Bluetooth technology, limiting the attack range and therefore tampering its effects.
@@ -768,7 +768,7 @@ Furthermore, as an advanced feature, the attack payload can be configured to be 
 
 <details><summary><strong>THREATRESPONSE: AN OPEN SOURCE TOOLKIT FOR AUTOMATING INCIDENT RESPONSE IN AWS - ARSENAL THEATER DEMO</strong></summary>
 
-![Category: Uncategorized](https://img.shields.io/badge/Category:%20Uncategorized-lightgrey) ![Andrew Krug](https://img.shields.io/badge/Andrew%20Krug-informational)
+![Category: Others](https://img.shields.io/badge/Category:%20Others-lightgrey) ![Andrew Krug](https://img.shields.io/badge/Andrew%20Krug-informational)
 
 🔗 **Link:** Not Available  
 📝 **Description:** ThreatResponse is an open source toolkit for incident response in Amazon. This set of python install-able modules help container host, key, and lambda function compromises using automated incident plans that follow industry best practices for containment.
@@ -777,7 +777,7 @@ Furthermore, as an advanced feature, the attack payload can be configured to be 
 
 <details><summary><strong>YALDA –AUTOMATED BULK INTELLIGENCE COLLECTION</strong></summary>
 
-![Category: Uncategorized](https://img.shields.io/badge/Category:%20Uncategorized-lightgrey) ![Gita Ziabari](https://img.shields.io/badge/Gita%20Ziabari-informational)
+![Category: Others](https://img.shields.io/badge/Category:%20Others-lightgrey) ![Gita Ziabari](https://img.shields.io/badge/Gita%20Ziabari-informational)
 
 🔗 **Link:** [YALDA –AUTOMATED BULK INTELLIGENCE COLLECTION](https://github.com/CrackerCat/GitHubLinks)  
 📝 **Description:** Yalda is an automated tool for data mining and scanning files. The tool analyzes and decodes the given files and categories them with a score from 1 to 5 (1 standing for clear and 5 standing for very malicious). It also extracts data such as malicious domains, malicious URLs and embedded objects from each file. Results of the scan would include detailed information on the file such as sha256, severity, file type, file size, embedded objects, severity, etc.

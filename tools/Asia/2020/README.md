@@ -4,7 +4,7 @@
 Tools are categorized based on their **track theme**, such as Red Teaming, OSINT, Reverse Engineering, etc.
 
 ## 📚 Table of Contents
-- [Uncategorized](#uncategorized)
+- [Others](#others)
 - [🌐 Web/AppSec](#🌐-webappsec)
 - [🌐 Web/AppSec or Red Teaming](#🌐-webappsec-or-red-teaming)
 - [🔍 OSINT](#🔍-osint)
@@ -15,10 +15,10 @@ Tools are categorized based on their **track theme**, such as Red Teaming, OSINT
 - [🧠 Reverse Engineering](#🧠-reverse-engineering)
 - [🧠 Social Engineering / General](#🧠-social-engineering-general)
 ---
-## Uncategorized
+## Others
 <details><summary><strong>Android Application Vulnerability Hunting System</strong></summary>
 
-![Category: Uncategorized](https://img.shields.io/badge/Category:%20Uncategorized-lightgrey) ![Lance Jiang](https://img.shields.io/badge/Lance%20Jiang-informational) ![Todd Han](https://img.shields.io/badge/Todd%20Han-informational) ![Lilang Wu](https://img.shields.io/badge/Lilang%20Wu-informational)
+![Category: Others](https://img.shields.io/badge/Category:%20Others-lightgrey) ![Lance Jiang](https://img.shields.io/badge/Lance%20Jiang-informational) ![Todd Han](https://img.shields.io/badge/Todd%20Han-informational) ![Lilang Wu](https://img.shields.io/badge/Lilang%20Wu-informational)
 
 🔗 **Link:** Not Available  
 📝 **Description:** So far, there are many tools for vulnerability scanning, such as Mobsf, Yaazhini, 360 microscope, Tencent King Kong system. These tools have been able to cover a large part of the app vulnerability and many have supported dynamic and static vulnerability scanning, but there are a lot of false alert. The purpose of dynamic and static combination is also to improve the accuracy of vulnerability scanning, thereby reducing the rate of false alert, and also can make up for the shortcomings each other, so as to find out the vulnerabilities as much as possible, but the system is too large, the maintenance cost is high, and the scanning result is not ideally, it would be better that there is a simple and efficient tool.
@@ -29,7 +29,7 @@ SAST is a static android application vulnerability scanning tool. The architectu
 
 <details><summary><strong>Mobexler: An All-in-One Mobile Pentest VM</strong></summary>
 
-![Category: Uncategorized](https://img.shields.io/badge/Category:%20Uncategorized-lightgrey) ![Abhinav Mishra](https://img.shields.io/badge/Abhinav%20Mishra-informational)
+![Category: Others](https://img.shields.io/badge/Category:%20Others-lightgrey) ![Abhinav Mishra](https://img.shields.io/badge/Abhinav%20Mishra-informational)
 
 🔗 **Link:** Not Available  
 📝 **Description:** Mobexler is a mobile pentest VM that include a wide variety of tools to help in Android and iOS pentesting. It includes tools for both static and dynamic analysis of applications. It allows pentesters to use a single VM to pentest both Android and iOS applications. With the host OS as elementary it also provides an awesome UI experience and allow for intuitive usage of tools just like you would on a host install. External devices can be connected via USB and can be used to install and test application.
@@ -48,7 +48,7 @@ Future work includes:
 
 <details><summary><strong>Runtime Memory Analysis Tool for Mobile Applications (MemoEB - MEMOry Extraction Binding)</strong></summary>
 
-![Category: Uncategorized](https://img.shields.io/badge/Category:%20Uncategorized-lightgrey) ![Igor Lyrchikov](https://img.shields.io/badge/Igor%20Lyrchikov-informational) ![Egor Saltykov](https://img.shields.io/badge/Egor%20Saltykov-informational)
+![Category: Others](https://img.shields.io/badge/Category:%20Others-lightgrey) ![Igor Lyrchikov](https://img.shields.io/badge/Igor%20Lyrchikov-informational) ![Egor Saltykov](https://img.shields.io/badge/Egor%20Saltykov-informational)
 
 🔗 **Link:** Not Available  
 📝 **Description:** We are going to release a tool for automated runtime memory analysis for mobile apps (IOS & Android). All the existing tools are not working with runtime memory analysis processes preferring to dump and analyze memory after app finish it's execution. Our our idea is to gather information during runtime to be able to track changes of the state and application behavior with the final goal being to simplify reverse engineering of obfuscated code and to build call graphs based on catched traces during execution. We also made a single interface to manage this process and automated some most common checks that should be done during penetration test.
@@ -57,7 +57,7 @@ Future work includes:
 
 <details><summary><strong>Sample Analysing Forensics Examiner (SAFE)</strong></summary>
 
-![Category: Uncategorized](https://img.shields.io/badge/Category:%20Uncategorized-lightgrey) ![George Chen](https://img.shields.io/badge/George%20Chen-informational) ![Suranga Premakumara](https://img.shields.io/badge/Suranga%20Premakumara-informational)
+![Category: Others](https://img.shields.io/badge/Category:%20Others-lightgrey) ![George Chen](https://img.shields.io/badge/George%20Chen-informational) ![Suranga Premakumara](https://img.shields.io/badge/Suranga%20Premakumara-informational)
 
 🔗 **Link:** Not Available  
 📝 **Description:** Security incidents are usually created by alerts or events, which are based on a small set of forwarded logs. When a server is suspected to be compromised, we go back to the host machine to perform forensics on the rest of the logs to investigate the network traffic and endpoint.

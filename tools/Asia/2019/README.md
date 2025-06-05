@@ -4,7 +4,7 @@
 Tools are categorized based on their **track theme**, such as Red Teaming, OSINT, Reverse Engineering, etc.
 
 ## 📚 Table of Contents
-- [Uncategorized](#uncategorized)
+- [Others](#others)
 - [🌐 Web/AppSec](#🌐-webappsec)
 - [🌐 Web/AppSec or Red Teaming](#🌐-webappsec-or-red-teaming)
 - [🔍 OSINT](#🔍-osint)
@@ -38,10 +38,10 @@ Quality-of-Life changes to the OS include: disabling UAC, Windows Defender and W
 </details>
 
 ---
-## Uncategorized
+## Others
 <details><summary><strong>CIRCO: Cisco Implant Raspberry Controlled Operations</strong></summary>
 
-![Category: Uncategorized](https://img.shields.io/badge/Category:%20Uncategorized-lightgrey) ![Emilio Couto](https://img.shields.io/badge/Emilio%20Couto-informational)
+![Category: Others](https://img.shields.io/badge/Category:%20Others-lightgrey) ![Emilio Couto](https://img.shields.io/badge/Emilio%20Couto-informational)
 
 🔗 **Link:** [CIRCO: Cisco Implant Raspberry Controlled Operations](https://gist.github.com/standardgalactic/7f03809c56f4b098b95a50ada32cd02c)  
 📝 **Description:** Designed under Raspberry Pi Zero and aimed for cover red-team Ops, we take advantage of SecNetDevOps tools to capture network credentials in a stealth mode.
@@ -52,7 +52,7 @@ The tool uses a low profile hardware/electronics and different methods for crede
 
 <details><summary><strong>CQTools: The New Ultimate Hacking Toolkit</strong></summary>
 
-![Category: Uncategorized](https://img.shields.io/badge/Category:%20Uncategorized-lightgrey) ![Paula Januszkiewicz](https://img.shields.io/badge/Paula%20Januszkiewicz-informational) ![Adrian Denkiewicz](https://img.shields.io/badge/Adrian%20Denkiewicz-informational) ![Mike Jankowski-Lorek](https://img.shields.io/badge/Mike%20Jankowski-Lorek-informational)
+![Category: Others](https://img.shields.io/badge/Category:%20Others-lightgrey) ![Paula Januszkiewicz](https://img.shields.io/badge/Paula%20Januszkiewicz-informational) ![Adrian Denkiewicz](https://img.shields.io/badge/Adrian%20Denkiewicz-informational) ![Mike Jankowski-Lorek](https://img.shields.io/badge/Mike%20Jankowski-Lorek-informational)
 
 🔗 **Link:** Not Available  
 📝 **Description:** None
@@ -61,7 +61,7 @@ The tool uses a low profile hardware/electronics and different methods for crede
 
 <details><summary><strong>RF-Xfil: Prototype Toolkit for Data Exfiltration Over Radio Frequencies</strong></summary>
 
-![Category: Uncategorized](https://img.shields.io/badge/Category:%20Uncategorized-lightgrey) ![Jie Feng Ho](https://img.shields.io/badge/Jie%20Feng%20Ho-informational) ![Ragul Balaji Velusamy Sathiakumar](https://img.shields.io/badge/Ragul%20Balaji%20Velusamy%20Sathiakumar-informational) ![Andre Ng](https://img.shields.io/badge/Andre%20Ng-informational)
+![Category: Others](https://img.shields.io/badge/Category:%20Others-lightgrey) ![Jie Feng Ho](https://img.shields.io/badge/Jie%20Feng%20Ho-informational) ![Ragul Balaji Velusamy Sathiakumar](https://img.shields.io/badge/Ragul%20Balaji%20Velusamy%20Sathiakumar-informational) ![Andre Ng](https://img.shields.io/badge/Andre%20Ng-informational)
 
 🔗 **Link:** Not Available  
 📝 **Description:** None

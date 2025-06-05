@@ -4,7 +4,7 @@
 Tools are categorized based on their **track theme**, such as Red Teaming, OSINT, Reverse Engineering, etc.
 
 ## 📚 Table of Contents
-- [Uncategorized](#uncategorized)
+- [Others](#others)
 - [⚙️ Miscellaneous / Lab Tools](#⚙️-miscellaneous-lab-tools)
 - [🌐 Web/AppSec](#🌐-webappsec)
 - [📱 Mobile Security](#📱-mobile-security)
@@ -417,10 +417,10 @@ as a Christmas present, but it would probably be just a dream you had one of tho
 </details>
 
 ---
-## Uncategorized
+## Others
 <details><summary><strong>idb - Simplified Blackbox iOS App Pen-Testing</strong></summary>
 
-![Category: Uncategorized](https://img.shields.io/badge/Category:%20Uncategorized-lightgrey) ![None](https://img.shields.io/badge/None-informational)
+![Category: Others](https://img.shields.io/badge/Category:%20Others-lightgrey) ![None](https://img.shields.io/badge/None-informational)
 
 🔗 **Link:** [idb - Simplified Blackbox iOS App Pen-Testing](https://github.com/LeoMobileDeveloper/ios-developer-tools)  
 📝 **Description:** More than ever, mobile apps are used to manage and store sensitive data by both corporations and individuals. During this Arsenal demonstration, we show how our new tool called 'idb' can be used to efficiently test iOS apps for a range of common flaws.
@@ -429,7 +429,7 @@ as a Christmas present, but it would probably be just a dream you had one of tho
 
 <details><summary><strong>iMAS - iOS Mobile Application Security Libraries</strong></summary>
 
-![Category: Uncategorized](https://img.shields.io/badge/Category:%20Uncategorized-lightgrey) ![None](https://img.shields.io/badge/None-informational)
+![Category: Others](https://img.shields.io/badge/Category:%20Others-lightgrey) ![None](https://img.shields.io/badge/None-informational)
 
 🔗 **Link:** [iMAS - iOS Mobile Application Security Libraries](https://github.com/project-imas/passcode-check)  
 📝 **Description:** iOS App Integrity â Got Any?
@@ -438,7 +438,7 @@ as a Christmas present, but it would probably be just a dream you had one of tho
 
 <details><summary><strong>iSpy</strong></summary>
 
-![Category: Uncategorized](https://img.shields.io/badge/Category:%20Uncategorized-lightgrey) ![None](https://img.shields.io/badge/None-informational)
+![Category: Others](https://img.shields.io/badge/Category:%20Others-lightgrey) ![None](https://img.shields.io/badge/None-informational)
 
 🔗 **Link:** [iSpy](https://github.com/ispysoftware/iSpy/blob/master/MainForm_Configuration.cs)  
 📝 **Description:** Frustrated with the lack of mature tools for iOS security assessment?  Wouldnât you like an integrated toolchain to pull together many of the existing tools, but also integrate new and interesting tools? Perhaps youâd like to use some more advanced iOS hacking/reversing/debugging but donât have time on the job to learn gdb.  Maybe you just want to pick up iOS hacking fast and would like a mature toolchain to help you.

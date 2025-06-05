@@ -4,7 +4,7 @@
 Tools are categorized based on their **track theme**, such as Red Teaming, OSINT, Reverse Engineering, etc.
 
 ## 📚 Table of Contents
-- [Uncategorized](#uncategorized)
+- [Others](#others)
 - [🌐 Web/AppSec](#🌐-webappsec)
 - [🌐 Web/AppSec or Red Teaming](#🌐-webappsec-or-red-teaming)
 - [🔍 OSINT](#🔍-osint)
@@ -60,10 +60,10 @@ Kube-striker is Platform agnostic and works equally well across more than one pl
 </details>
 
 ---
-## Uncategorized
+## Others
 <details><summary><strong>AOP-Based Runtime Security Analysis Toolkit</strong></summary>
 
-![Category: Uncategorized](https://img.shields.io/badge/Category:%20Uncategorized-lightgrey) ![Juhu Nie](https://img.shields.io/badge/Juhu%20Nie-informational) ![Hao Zhao](https://img.shields.io/badge/Hao%20Zhao-informational)
+![Category: Others](https://img.shields.io/badge/Category:%20Others-lightgrey) ![Juhu Nie](https://img.shields.io/badge/Juhu%20Nie-informational) ![Hao Zhao](https://img.shields.io/badge/Hao%20Zhao-informational)
 
 🔗 **Link:** Not Available  
 📝 **Description:** We will release an open source runtime security analysis toolkit, aosanalyzer, for Android application. This tool is mainly used to find application security vulnerabilities and privacy leaks that are difficult to find by static APK analysis. The aosanalyzer uses aspect-oriented programming in security technology to insert code into critical paths of the application to record the runtime information (e.g., the stack trace, parameters, UI events, etc.), and then produces a report with security issues highlights. These critical paths are configurable and the aosanalyzer tool includes a default configuration. Developers and security researchers can observe the detailed runtime information of the application to find vulnerability and privacy leak issues without requiring any modification of the APK. Relying on this tool, we have discovered dozens of security vulnerabilities due to lack of parameter validation and privacy leaks issues.
@@ -72,7 +72,7 @@ Kube-striker is Platform agnostic and works equally well across more than one pl
 
 <details><summary><strong>Drone Monitoring and Takedown System (DMTS)</strong></summary>
 
-![Category: Uncategorized](https://img.shields.io/badge/Category:%20Uncategorized-lightgrey) ![Pengfei Yu](https://img.shields.io/badge/Pengfei%20Yu-informational) ![Anders Soh](https://img.shields.io/badge/Anders%20Soh-informational) ![Yong Wen Chan](https://img.shields.io/badge/Yong%20Wen%20Chan-informational)
+![Category: Others](https://img.shields.io/badge/Category:%20Others-lightgrey) ![Pengfei Yu](https://img.shields.io/badge/Pengfei%20Yu-informational) ![Anders Soh](https://img.shields.io/badge/Anders%20Soh-informational) ![Yong Wen Chan](https://img.shields.io/badge/Yong%20Wen%20Chan-informational)
 
 🔗 **Link:** Not Available  
 📝 **Description:** The rise of commercial drones/Unmanned Aerial Vehicles (UAV) has dramatically changed several industries and our daily lives. This emergence is also challenging our concept of safety, security, privacy and regulation. With their ability to amass data and transport loads, drones are changing our views about our physical environment. Commercial drones are now used for surveying, inspecting and imaging with more technological advancements being pushed out by active communities of hobbyists and enthusiasts. Although their commercial use has been criticised by both individuals and activist organisations, this tension presents unique challenges to integration in the current public, government and private sectors. Recent incidents regarding drone disruptions and malicious activities has further cemented the fact that there is a lack in control and regulation of drones. Thus, we created DMTS as an automated drone-to-drone solution that hopefully helps to alleviate our regulatory and physical security needs.
@@ -81,7 +81,7 @@ Kube-striker is Platform agnostic and works equally well across more than one pl
 
 <details><summary><strong>LIFARS IOC-Checker + Log-Checker = Accelerate Your DFIR With the Power of Threat Intelligence</strong></summary>
 
-![Category: Uncategorized](https://img.shields.io/badge/Category:%20Uncategorized-lightgrey) ![Viliam Kacala](https://img.shields.io/badge/Viliam%20Kacala-informational) ![Ladislav Baco](https://img.shields.io/badge/Ladislav%20Baco-informational)
+![Category: Others](https://img.shields.io/badge/Category:%20Others-lightgrey) ![Viliam Kacala](https://img.shields.io/badge/Viliam%20Kacala-informational) ![Ladislav Baco](https://img.shields.io/badge/Ladislav%20Baco-informational)
 
 🔗 **Link:** Not Available  
 📝 **Description:** IocChecker is a new utility to find indicators of compromise.
@@ -102,7 +102,7 @@ LogChecker is a new Windows and Linux tool for scanning log files, developed by 
 
 <details><summary><strong>Project Enigma: Detecting Indicators of Compromise Through Ram Analysis, Event Logs and Malware Machine Learning</strong></summary>
 
-![Category: Uncategorized](https://img.shields.io/badge/Category:%20Uncategorized-lightgrey) ![Kevin Tan](https://img.shields.io/badge/Kevin%20Tan-informational) ![Patrick Kang Wei Sheng](https://img.shields.io/badge/Patrick%20Kang%20Wei%20Sheng-informational) ![Wei Han Goh](https://img.shields.io/badge/Wei%20Han%20Goh-informational)
+![Category: Others](https://img.shields.io/badge/Category:%20Others-lightgrey) ![Kevin Tan](https://img.shields.io/badge/Kevin%20Tan-informational) ![Patrick Kang Wei Sheng](https://img.shields.io/badge/Patrick%20Kang%20Wei%20Sheng-informational) ![Wei Han Goh](https://img.shields.io/badge/Wei%20Han%20Goh-informational)
 
 🔗 **Link:** [Project Enigma: Detecting Indicators of Compromise Through Ram Analysis, Event Logs and Malware Machine Learning](https://github.com/amysen/BR_Algothon/blob/master/auth_index.csv)  
 📝 **Description:** The team has developed an integrated solution to aid DFIR investigators by swiftly and effectively determining indicators of compromise (IOC) when responding to cyber security incidents, to steer and guide follow up investigations in the right direction. The solution consists of a hardware Bash Bunny for data triage and our software with a trilogy of modules - a security event log analyzer, a PE static analyzer, and an IOC detector. This integrated solution aims to provide automation whenever possible, reducing manual labor and associated errors that may come with it.
@@ -111,7 +111,7 @@ LogChecker is a new Windows and Linux tool for scanning log files, developed by 
 
 <details><summary><strong>Scared: A Side-Channel Attacks Framework</strong></summary>
 
-![Category: Uncategorized](https://img.shields.io/badge/Category:%20Uncategorized-lightgrey) ![Benjamin Timon](https://img.shields.io/badge/Benjamin%20Timon-informational)
+![Category: Others](https://img.shields.io/badge/Category:%20Others-lightgrey) ![Benjamin Timon](https://img.shields.io/badge/Benjamin%20Timon-informational)
 
 🔗 **Link:** [Scared: A Side-Channel Attacks Framework](https://github.com/Hsword/Awesome-Machine-Learning-System-Papers/blob/main/README.md)  
 📝 **Description:** Side-channel attacks regularly get under the spotlight with large scale exploits such as Spectre, Meltdown or very recently the side-channel exploit on the Google Titan security key.

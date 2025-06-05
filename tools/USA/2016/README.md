@@ -4,7 +4,7 @@
 Tools are categorized based on their **track theme**, such as Red Teaming, OSINT, Reverse Engineering, etc.
 
 ## 📚 Table of Contents
-- [Uncategorized](#uncategorized)
+- [Others](#others)
 - [⚙️ Miscellaneous / Lab Tools](#⚙️-miscellaneous-lab-tools)
 - [🌐 Web/AppSec](#🌐-webappsec)
 - [🌐 Web/AppSec or Red Teaming](#🌐-webappsec-or-red-teaming)
@@ -419,10 +419,10 @@ Tools are categorized based on their **track theme**, such as Red Teaming, OSINT
 </details>
 
 ---
-## Uncategorized
+## Others
 <details><summary><strong>AppMon</strong></summary>
 
-![Category: Uncategorized](https://img.shields.io/badge/Category:%20Uncategorized-lightgrey) ![Nishant Das Pattanaik](https://img.shields.io/badge/Nishant%20Das%20Pattanaik-informational)
+![Category: Others](https://img.shields.io/badge/Category:%20Others-lightgrey) ![Nishant Das Pattanaik](https://img.shields.io/badge/Nishant%20Das%20Pattanaik-informational)
 
 🔗 **Link:** [AppMon](https://github.com/dpnishant)  
 📝 **Description:** AppMon is an automated framework for monitoring and tampering system API calls of native apps on iOS, Mac OS X and Android apps (upcoming). You may call it the GreaseMonkey for native mobile apps. ;-) AppMon is my vision is to make become the Mac OS X/iOS/Android equivalent of the this project apimonitor and GreaseMonkey. This should become a useful tool for the mobile penetration testers to validate the security issues report by a source code scanner and by inspecting the APIs in runtime and monitoring the app's overall activity and focus on things that seem suspicious. You can also use pre-defined user-scripts to modify the app's functionality/logic in the runtime e.g. spoofing the DeviceID, spoofing the GPS co-ordinates, faking In-App purchases, bypassing TouchID etc.In the current release, we have the ability to hook both the Apple's CoreFoundation API's as well as the Objective-C methods (even if its done in a Swift app via the bridging header).

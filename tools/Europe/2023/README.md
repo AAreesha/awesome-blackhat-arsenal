@@ -4,7 +4,7 @@
 Tools are categorized based on their **track theme**, such as Red Teaming, OSINT, Reverse Engineering, etc.
 
 ## 📚 Table of Contents
-- [Uncategorized](#uncategorized)
+- [Others](#others)
 - [⚙️ Miscellaneous / Lab Tools](#⚙️-miscellaneous-lab-tools)
 - [🌐 Web/AppSec](#🌐-webappsec)
 - [🌐 Web/AppSec or Red Teaming](#🌐-webappsec-or-red-teaming)
@@ -649,10 +649,10 @@ promptmap is a tool that automatically tests prompt injection attacks on ChatGPT
 </details>
 
 ---
-## Uncategorized
+## Others
 <details><summary><strong>GDBFuzz: Embedded Fuzzing with Hardware Breakpoints</strong></summary>
 
-![Category: Uncategorized](https://img.shields.io/badge/Category:%20Uncategorized-lightgrey) ![Max Eisele](https://img.shields.io/badge/Max%20Eisele-informational)
+![Category: Others](https://img.shields.io/badge/Category:%20Others-lightgrey) ![Max Eisele](https://img.shields.io/badge/Max%20Eisele-informational)
 
 🔗 **Link:** [GDBFuzz: Embedded Fuzzing with Hardware Breakpoints](https://github.com/boschresearch/gdbfuzz)  
 📝 **Description:** In this tool demo, we will present GDBFuzz, a new open source fuzzer that leverages hardware breakpoints and program analysis to test embedded systems. Existing fuzzers for embedded devices most often run on an emulation of the code, but GDBFuzz runs on the device itself. This allows GDBFuzz to fuzz devices which do not have emulations. Its integration with Ghidra allows it to fuzz closed-source applications. All the tool needs is access to the commonly used GDB remote protocol.
@@ -665,7 +665,7 @@ To demonstrate the fuzzer's ease of use and efficiency, we will run an interacti
 
 <details><summary><strong>Mitre Attack Flow Detector</strong></summary>
 
-![Category: Uncategorized](https://img.shields.io/badge/Category:%20Uncategorized-lightgrey) ![Ezzeldin Tahoun](https://img.shields.io/badge/Ezzeldin%20Tahoun-informational)
+![Category: Others](https://img.shields.io/badge/Category:%20Others-lightgrey) ![Ezzeldin Tahoun](https://img.shields.io/badge/Ezzeldin%20Tahoun-informational)
 
 🔗 **Link:** Not Available  
 📝 **Description:** None
