@@ -9,7 +9,7 @@ We’re excited to have you contribute to this curated archive of cybersecurity 
 
 ```
 
-output\_by\_location/
+tools/
 ├── USA/
 │   ├── 2023/
 │   │   ├── toolname.json
